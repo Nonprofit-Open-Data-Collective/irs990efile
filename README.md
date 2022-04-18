@@ -8,11 +8,22 @@ The IRS started processing electronic filings for nonprofit 990 tax forms in 201
 
 All electronic tax returns have been released as XML documents currently stored in an AWS bucket (though soon migrating to the IRS website). 
 
-XML forms can be rendered using an [efile viewer](https://github.com/betson/irs-efile-viewer) so that they look the same as a PDF of a regular 990 filing ([you can see examples on ProPublica's Nonprofit Explorer](https://projects.propublica.org/nonprofits/organizations/237315236)). They are NOT, however, a convenient format for statistical analysis.
+XML forms can be rendered using an [efile viewer](https://github.com/betson/irs-efile-viewer) so that they look the same as a PDF of a regular 990 filing (you can [see examples](https://projects.propublica.org/nonprofits/organizations/237315236) on ProPublica's Nonprofit Explorer). They are NOT, however, in a convenient format for statistical analysis.
 
-The **irs990efile** package was created to convert XML files into normal rectangular data tables that comprise a relational database. 
+The **irs990efile** package was created to convert XML files into a relational database: normal rectangular data tables linked by a set of keys. 
 
+All of the files share the following meta-fields: 
 
+* OBJECTID  
+* URL                         
+* ORG_EIN  
+* ORG_NAME_L1                 
+* ORG_NAME_L2  
+* RETURN_TYPE  
+* RETURN_VERSION               
+* TAX_YEAR  
+
+The full set of tables is available in the [**DATA DICTIONARY**](data-dictionary/data-dictionary.html).
 
 
 ## Required Packages
