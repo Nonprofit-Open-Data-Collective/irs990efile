@@ -1,4 +1,4 @@
-Package: efile
+Package: irs990efile
 Title: Convert IRS 990 XML files to a relational database. 
 Version: 0.0.0.9000
 Authors@R: 
