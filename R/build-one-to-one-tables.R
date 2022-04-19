@@ -79,7 +79,7 @@ build_tables <- function( urls, year, table.names=NULL )
   
     one.npo <- sapply( table.names, do.call, list( doc, url ) )
     
-    one.npo$SCHEDULES <- get_schedules( doc, url )
+    one.npo$BUILD_SCHEDULES <- get_schedules( doc, url )
   
     all.npos[[i]] <- one.npo
     
@@ -93,19 +93,17 @@ build_tables <- function( urls, year, table.names=NULL )
   rand <- paste( sample(LETTERS,5), collapse="" )
   time <- paste0( "time-", time, "-", rand  )
   
+  table.names <- c( table.names, "BUILD_SCHEDULES" )
+  
   for( j in table.names )
   {
     t.name <- substr( j, start=7, stop=nchar(j) )
     t.name <- gsub( "_", "-", t.name )
-    df.list <- sapply( all.npos, '[', j )
+    df.list <- lapply( all.npos, '[[', j )
     df <- dplyr::bind_rows( df.list )
     saveRDS( df, paste0( year, "-", t.name, "-", time, ".rds" ) )
     # write.csv( df, paste0( year, "-", t.name, "-", time, ".csv" ), row.names=F )
   }
-  
-  df.list <- sapply( all.npos, '[', "SCHEDULES" )
-  df <- dplyr::bind_rows( df.list )
-  saveRDS( df, paste0( year, "-", "SCHEDULES", "-", time, ".rds" ) )
 
   return( failed.urls )
   

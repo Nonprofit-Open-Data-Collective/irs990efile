@@ -96,10 +96,10 @@ add_keys <- function( filename, rdb.keys )
 create_code_chunks <- function( rdb.table="F9-P00-T00-HEADER", show=FALSE )
 {
 
-    if( ! exists("rdb.keys") ){ source( "rdb-keys.R" ) }
+    if( ! exists("rdb.keys") ){ data(rdbkeys) }
     names( rdb.keys ) <- toupper( names( rdb.keys ) )
     
-    if( ! exists("concordance") ){ source( "concordance.R" ) }
+    if( ! exists("concordance") ){ data(concordance) }
     
     concordance <- concordance[ concordance$rdb_table == rdb.table , ]
     concordance <- concordance[ ! duplicated( concordance$xpath ) , ]
