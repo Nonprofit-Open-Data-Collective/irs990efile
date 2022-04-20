@@ -12,7 +12,6 @@ devtools::install_github( 'ultinomics/xmltools' )
 devtools::install_github( 'nonprofit-open-data-collective/irs990efile' )
 ```
 
-*The **irs990efile** package leverages several R packages that have helpful functions for working with XML formats and large files (XML, xml2, xmltools, httr, jsonlite, R.utils, dplyr, purrr). These should be installed from the CRAN when you install irs990efile.*
 
 
 ## Use
