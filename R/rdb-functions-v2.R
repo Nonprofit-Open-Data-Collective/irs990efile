@@ -115,9 +115,9 @@ remove_count <- function( x )
 get_table <- function( doc, group.names, table.name )
 {
 
-  # data(concordance)
-  # TABLE <- filter( concordance, rdb_table == table.name )
-  # xpaths <- TABLE$xpath %>% as.character()
+  data(concordance)
+  TABLE <- filter( concordance, rdb_table == table.name )
+  original.xpaths <- TABLE$xpath %>% as.character()
    
   all.groups <- paste0( group.names, collapse="|" )
   nd <- xml2::xml_find_all( doc, all.groups )
@@ -129,6 +129,8 @@ get_table <- function( doc, group.names, table.name )
   { 
     xp <- nd %>% xml2::xml_path()
     xp <- gsub( "\\[[0-9]{1,}\\]", "", xp ) %>% unique()
+    print("TABLE: ")
+    print( table.name )
     print("TABLE XPATHS: ")
     print( original.xpaths )
     print("CURRENT XPATHS: ")
