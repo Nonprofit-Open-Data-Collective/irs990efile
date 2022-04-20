@@ -4,7 +4,7 @@
 \alias{find_group_names}
 \title{some title text}
 \usage{
-find_group_names(concordance, table.name)
+find_group_names(table.name)
 }
 \description{
 some description text

@@ -20,11 +20,11 @@
 #' @details some additional details 
 #'
 #' @export
-find_group_names <- function( concordance, table.name )
+find_group_names <- function( table.name )
 {
-  names( concordance ) <- toupper( names(concordance) )
-  TABLE <- filter( concordance, RDB_TABLE == table.name )
-  xpaths <- TABLE$XPATH %>% as.character()
+  data(concordance)
+  TABLE <- filter( concordance, rdb_table == table.name )
+  xpaths <- TABLE$xpath %>% as.character()
   xpaths <- gsub( "IRS990EZ", "IRS990", xpaths )
   nodes <- strsplit( xpaths, "/" )
   d1 <- suppressWarnings( data.frame( do.call( cbind, nodes ), stringsAsFactors=F ) )
@@ -46,11 +46,15 @@ find_group_names <- function( concordance, table.name )
 #' @details some additional details 
 #'
 #' @export
-validate_group_names <- function( nd, original.xpaths )
+validate_group_names <- function( nd, table.name )
 {
-
+  data(concordance)
+  TABLE <- filter( concordance, rdb_table == table.name )
+  original.xpaths <- TABLE$xpath %>% as.character()
+  
   # check to see if nodes all in table
-  xp <- nd %>% xml_path()
+  xp <- nd %>% xml2::xml_path()
+  
   # remove counts like "/Return/ReturnData/IRS990/ProgramServiceRevenueGrp[1]/Desc" 
   xp <- gsub( "\\[[0-9]{1,}\\]", "", xp )
 
@@ -71,11 +75,11 @@ validate_group_names <- function( nd, original.xpaths )
 #' @export
 get_var_map <- function( concordance, table.name )
 {
-   names( concordance ) <- toupper( names(concordance) )
-   TABLE <- filter( concordance, RDB_TABLE == table.name )
-   xpaths <- TABLE$XPATH %>% as.character()
+   data(concordance)
+   TABLE <- filter( concordance, rdb_table == table.name )
+   xpaths <- TABLE$xpath %>% as.character()
    res <- strsplit( xpaths, "/" )
-   v.map <- data.frame( VARIABLE=as.character(TABLE$VARIABLE_NAME), 
+   v.map <- data.frame( VARIABLE=as.character(TABLE$variable_name), 
             XSD_VARNAME=unlist( lapply( res, last ) ), stringsAsFactors=F )
    v.map <- unique( v.map )
    return( v.map )
@@ -108,17 +112,22 @@ remove_count <- function( x )
 #' @details some additional details 
 #'
 #' @export
-get_table <- function( doc, group.names, xpaths )
+get_table <- function( doc, group.names, table.name )
 {
+
+  # data(concordance)
+  # TABLE <- filter( concordance, rdb_table == table.name )
+  # xpaths <- TABLE$xpath %>% as.character()
+   
   all.groups <- paste0( group.names, collapse="|" )
-  nd <- xml_find_all( doc, all.groups )
+  nd <- xml2::xml_find_all( doc, all.groups )
   if( length( nd ) == 0 ){ return(NULL) }
 
   # ensure group names unique to table
-  valid <- validate_group_names( nd, original.xpaths=xpaths )
+  valid <- validate_group_names( nd, table.name )
   if( ! valid )
   { 
-    xp <- nd %>% xml_path()
+    xp <- nd %>% xml2::xml_path()
     xp <- gsub( "\\[[0-9]{1,}\\]", "", xp ) %>% unique()
     print("TABLE XPATHS: ")
     print( original.xpaths )
@@ -128,7 +137,7 @@ get_table <- function( doc, group.names, xpaths )
   }
 
   # ensure we are using root node for table
-  table.xpaths <- (xml_get_paths( nd, only_terminal_parent = TRUE ))[[1]]
+  table.xpaths <- ( xml2::xml_get_paths( nd, only_terminal_parent = TRUE ))[[1]]
   if( length( table.xpaths ) > 1 )
   {
      nodes <- strsplit( table.xpaths, "/" )
@@ -138,11 +147,11 @@ get_table <- function( doc, group.names, xpaths )
      if( this.one < 2 ){ return( NULL ) }
      table.root <- d1[ this.one - 1,  ] %>% as.character() %>% unique()
      table.root <- paste0( "//", table.root )
-     nd <- xml_find_all( doc, table.root )
+     nd <- xml2::xml_find_all( doc, table.root )
   }
 
-  rdb.table <- xml_dig_df( nd ) %>% bind_rows() 
-  rdb.table %>% mutate_if(is.factor, as.character) -> rdb.table
+  rdb.table <- xmltools::xml_dig_df( nd ) %>% bind_rows() 
+  rdb.table <- rdb.table %>% dplyr::mutate_if(is.factor, as.character) 
   return( rdb.table )
 }
 

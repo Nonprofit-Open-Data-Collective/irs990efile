@@ -4,7 +4,7 @@
 \alias{validate_group_names}
 \title{some title text}
 \usage{
-validate_group_names(nd, original.xpaths)
+validate_group_names(nd, table.name)
 }
 \description{
 some description text

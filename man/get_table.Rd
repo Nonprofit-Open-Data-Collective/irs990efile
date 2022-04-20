@@ -4,7 +4,7 @@
 \alias{get_table}
 \title{some title text}
 \usage{
-get_table(doc, group.names, xpaths)
+get_table(doc, group.names, table.name)
 }
 \description{
 some description text
