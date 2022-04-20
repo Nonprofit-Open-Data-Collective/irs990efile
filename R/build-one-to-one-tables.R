@@ -79,7 +79,7 @@ build_tables <- function( urls, year, table.names=NULL )
   
     one.npo <- sapply( table.names, do.call, list( doc, url ) )
     
-    one.npo$BUILD_SCHEDULES <- get_schedules( doc, url )
+    one.npo$BUILD_SCHEDULE_TABLE <- get_schedules( doc, url )
   
     all.npos[[i]] <- one.npo
     
@@ -93,7 +93,7 @@ build_tables <- function( urls, year, table.names=NULL )
   rand <- paste( sample(LETTERS,5), collapse="" )
   time <- paste0( "time-", time, "-", rand  )
   
-  table.names <- c( table.names, "BUILD_SCHEDULES" )
+  table.names <- c( table.names, "BUILD_SCHEDULE_TABLE" )
   
   for( j in table.names )
   {
