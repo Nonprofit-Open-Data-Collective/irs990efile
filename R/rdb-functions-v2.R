@@ -23,7 +23,7 @@
 find_group_names <- function( table.name )
 {
   data(concordance)
-  TABLE <- filter( concordance, rdb_table == table.name )
+  TABLE <- dplyr::filter( concordance, rdb_table == table.name )
   xpaths <- TABLE$xpath %>% as.character()
   xpaths <- gsub( "IRS990EZ", "IRS990", xpaths )
   nodes <- strsplit( xpaths, "/" )
@@ -49,7 +49,7 @@ find_group_names <- function( table.name )
 validate_group_names <- function( nd, table.name )
 {
   data(concordance)
-  TABLE <- filter( concordance, rdb_table == table.name )
+  TABLE <- dplyr::filter( concordance, rdb_table == table.name )
   original.xpaths <- TABLE$xpath %>% as.character()
   
   # check to see if nodes all in table
@@ -76,7 +76,7 @@ validate_group_names <- function( nd, table.name )
 get_var_map <- function( concordance, table.name )
 {
    data(concordance)
-   TABLE <- filter( concordance, rdb_table == table.name )
+   TABLE <- dplyr::filter( concordance, rdb_table == table.name )
    xpaths <- TABLE$xpath %>% as.character()
    res <- strsplit( xpaths, "/" )
    v.map <- data.frame( VARIABLE=as.character(TABLE$variable_name), 
@@ -116,7 +116,7 @@ get_table <- function( doc, group.names, table.name )
 {
 
   data(concordance)
-  TABLE <- filter( concordance, rdb_table == table.name )
+  TABLE <- dplyr::filter( concordance, rdb_table == table.name )
   original.xpaths <- TABLE$xpath %>% as.character()
    
   all.groups <- paste0( group.names, collapse="|" )
@@ -213,7 +213,7 @@ build_rdb_table <- function( doc, url, group.names, v.map )
 
    ## EIN
 
-   EIN  <- xml_text( xml_find_all( doc, "//Return/ReturnHeader/Filer/EIN" ) )
+   EIN  <- xml2::xml_text( xml2::xml_find_all( doc, "//Return/ReturnHeader/Filer/EIN" ) )
 
 
 
@@ -223,7 +223,7 @@ build_rdb_table <- function( doc, url, group.names, v.map )
    V_990NAME_2013 <- "//Return/ReturnHeader/Filer/BusinessName/BusinessNameLine1"
    V_990NAMEpre2013  <- "//Return/ReturnHeader/Filer/Name/BusinessNameLine1"
    name.xpath <- paste( V_990NAME_2013, V_990NAMEpre2013, V_990NAMEpost2014, sep="|" )
-   NAME <- xml_text( xml_find_all( doc, name.xpath ) )
+   NAME <- xml2::xml_text( xml2::xml_find_all( doc, name.xpath ) )
 
 
    ## TYPE OF TAX FORM
@@ -231,7 +231,7 @@ build_rdb_table <- function( doc, url, group.names, v.map )
    V_990TFpost2013 <- "//Return/ReturnHeader/ReturnTypeCd"
    V_990TFpre2013  <- "//Return/ReturnHeader/ReturnType"
    tax.form.xpath <- paste( V_990TFpost2013, V_990TFpre2013, sep="|" )
-   FORMTYPE <- xml_text( xml_find_all( doc, tax.form.xpath ) )
+   FORMTYPE <- xml2::xml_text( xml2::xml_find_all( doc, tax.form.xpath ) )
    
    
    ## TAX YEAR
@@ -239,7 +239,7 @@ build_rdb_table <- function( doc, url, group.names, v.map )
    V_990FYRpost2013 <- "//Return/ReturnHeader/TaxYr"
    V_990FYRpre2013  <- "//Return/ReturnHeader/TaxYear"
    fiscal.year.xpath <- paste( V_990FYRpost2013, V_990FYRpre2013, sep="|" )
-   TAXYR <- xml_text( xml_find_all( doc, fiscal.year.xpath ) )
+   TAXYR <- xml2::xml_text( xml2::xml_find_all( doc, fiscal.year.xpath ) )
    
    
    
