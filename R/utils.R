@@ -99,6 +99,11 @@ get_year <- function( index, year )
 
 
 
+
+
+
+
+
 #' @title Record a change to raw data.   
 #'
 #' @description Make a note when a variable contained within a
