@@ -4,7 +4,7 @@
 \alias{get_var_map}
 \title{some title text}
 \usage{
-get_var_map(concordance, table.name)
+get_var_map(table.name)
 }
 \description{
 some description text
