@@ -73,7 +73,7 @@ validate_group_names <- function( nd, table.name )
 #' @details some additional details 
 #'
 #' @export
-get_var_map <- function( concordance, table.name )
+get_var_map <- function( table.name )
 {
    data(concordance)
    TABLE <- dplyr::filter( concordance, rdb_table == table.name )
@@ -86,7 +86,7 @@ get_var_map <- function( concordance, table.name )
 }
 
 # data(concordance)
-# v.map <- get_var_map( concordance=concordance, table.name="F9-P07-TABLE-01-DTK-COMPENSATION" )
+# v.map <- get_var_map( table.name="F9-P07-TABLE-01-DTK-COMPENSATION" )
 
 
 #' @title some title text 
