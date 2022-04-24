@@ -4,7 +4,7 @@
 \alias{build_rdb_table}
 \title{some title text}
 \usage{
-build_rdb_table(doc, url, group.names, v.map)
+build_rdb_table(url, table.name)
 }
 \description{
 some description text
