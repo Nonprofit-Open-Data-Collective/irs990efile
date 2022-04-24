@@ -202,10 +202,12 @@ re_name <- function( df, v.map )
 #' @details some additional details 
 #'
 #' @export
-build_rdb_table <- function( doc, url, group.names, v.map )
+build_rdb_table <- function( url, table.name )
 {
 
-    
+   doc <- xml2::read_xml( url )
+   xml2::xml_ns_strip( doc )
+
    ####----------------------------------------------------
    ####     KEYS
    ####----------------------------------------------------
@@ -257,15 +259,17 @@ build_rdb_table <- function( doc, url, group.names, v.map )
    
    ####  BUILD TABLE 
    
-   df <- get_table( doc, group.names )
+   group.names <- find_group_names( table.name=table.name )
+   df <- get_table( doc, group.names, table.name  )
    
    if( is.null(df) ){ return( NULL ) }
-   
+  
+   v.map <- get_var_map( table.name=table.name )
+   df <- re_name( df, v.map )
+  
    rdb.table <- data.frame( OBJECT_ID=OBJECTID, EIN=EIN, NAME=NAME, TAXYR=TAXYR, 
                             FORMTYPE=FORMTYPE, URL=URL, df, stringsAsFactors=F )
    
-   rdb.table <- re_name( rdb.table, v.map )
-        
    return ( rdb.table )
         
 }
