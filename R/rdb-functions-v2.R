@@ -39,6 +39,15 @@ find_group_names <- function( table.name )
 # find_group_names( concordance=concordance, table.name="F9-P07-TABLE-01-DTK-COMPENSATION" )
 
 
+
+# Make sure all nodes are in the specified RDB table;
+#   compare node paths to xpaths in the desired table
+#
+# x <- "/Return/ReturnData/IRS990/Form990PartVIISectionAGrp/AverageHoursPerWeekRt"  # table 
+# y <- "/Return/ReturnData/IRS990/Form990PartVIISectionAGrp"                        # node 
+# grepl( y, x )  
+
+
 #' @title some title text 
 #'
 #' @description some description text  
@@ -50,20 +59,22 @@ validate_group_names <- function( nd, table.name )
 {
   data(concordance)
   TABLE <- dplyr::filter( concordance, rdb_table == table.name )
-  original.xpaths <- TABLE$xpath %>% as.character()
+  table.xpaths <- TABLE$xpath %>% as.character()
   
   # check to see if nodes all in table
   xp <- nd %>% xml2::xml_path()
   
   # remove counts like "/Return/ReturnData/IRS990/ProgramServiceRevenueGrp[1]/Desc" 
-  xp <- gsub( "\\[[0-9]{1,}\\]", "", xp )
+  xp <- gsub( "\\[[0-9]{1,}\\]", "", xp ) %>% unique()
 
-  diff <- setdiff( nd, original.xpaths )
+  r <- lapply( xp, grepl, table.xpaths )
+  v <- lapply( r, function(x){ sum(x) > 0 } ) %>% unlist()
+  nodes.in.table <- sum(v) == length(xp)
 
-  result <- ifelse( length(diff) == 0, TRUE, FALSE )
-  return( result ) 
+  return( nodes.in.table ) 
 
 }
+
 
 
 #' @title some title text 
