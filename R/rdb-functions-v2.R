@@ -125,7 +125,7 @@ remove_count <- function( x )
 #' @export
 get_table <- function( doc, group.names, table.name )
 {
-  library( dplyr )
+  library( dplyr, warn.conflicts=F, quietly=T )
   data( concordance )
   TABLE <- dplyr::filter( concordance, rdb_table == table.name )
   original.xpaths <- TABLE$xpath %>% as.character()
