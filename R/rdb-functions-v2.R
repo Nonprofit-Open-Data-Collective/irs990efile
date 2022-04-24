@@ -150,7 +150,8 @@ get_table <- function( doc, group.names, table.name )
   }
 
   # ensure we are using root node for table
-  table.xpaths <- ( xml2::xml_get_paths( nd, only_terminal_parent = TRUE ))[[1]]
+  table.xpaths <- ( xmltools::xml_get_paths( nd, only_terminal_parent = TRUE ))
+  table.xpaths <- table.xpaths %>% unlist() %>% unique()
   if( length( table.xpaths ) > 1 )
   {
      nodes <- strsplit( table.xpaths, "/" )
@@ -168,7 +169,7 @@ get_table <- function( doc, group.names, table.name )
   return( rdb.table )
 }
 
-# get_table( doc, group.names )
+# get_table(  doc, group.names, table.name )
 
 
 
