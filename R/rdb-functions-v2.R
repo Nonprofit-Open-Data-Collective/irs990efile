@@ -204,8 +204,13 @@ re_name <- function( df, v.map )
 #' @export
 build_rdb_table <- function( url, table.name )
 {
-
-   doc <- xml2::read_xml( url )
+  
+   doc <- NULL
+   try( doc <- xml2::read_xml( url ), silent=T ) 
+   if( is.null(doc) )
+   { 
+      return( NULL )
+   }
    xml2::xml_ns_strip( doc )
 
    ####----------------------------------------------------
