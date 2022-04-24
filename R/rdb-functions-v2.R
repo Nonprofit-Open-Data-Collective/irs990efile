@@ -80,7 +80,7 @@ get_var_map <- function( table.name )
    xpaths <- TABLE$xpath %>% as.character()
    res <- strsplit( xpaths, "/" )
    v.map <- data.frame( VARIABLE=as.character(TABLE$variable_name), 
-            XSD_VARNAME=unlist( lapply( res, last ) ), stringsAsFactors=F )
+            XSD_VARNAME=unlist( lapply( res, dplyr::last ) ), stringsAsFactors=F )
    v.map <- unique( v.map )
    return( v.map )
 }
