@@ -17,7 +17,7 @@ devtools::install_github( 'nonprofit-open-data-collective/irs990efile' )
 ## Use
 
 ```r
-library( efile )
+library( irs990efile )
 library( dplyr )
 
 # pre-loaded demo index of efilers from AWS:
