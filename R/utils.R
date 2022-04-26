@@ -100,6 +100,29 @@ get_year <- function( index, year )
 
 
 
+#' @title some title text 
+#'
+#' @description some description text  
+#'
+#' @details some additional details 
+#'
+#' @export
+simplify_varnames <- function( d, sep="", drop.prefix=TRUE )
+{
+  varnames <- names(d)
+
+  if( drop.prefix )
+  {  varnames <- substring( varnames, first=7 )  }
+
+  varnames <- tolower( varnames )
+  varnames <- gsub( pattern="_", replacement=sep, varnames )
+
+  names(d) <- varnames
+  return( d )
+}
+
+
+
 
 
 
