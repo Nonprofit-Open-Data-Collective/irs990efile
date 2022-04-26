@@ -142,7 +142,7 @@ build_tables <- function( urls, year, table.names=NULL )
 #' @export
 parsapply_tables <- function( index.group )
 {
-  require( efile ) 
+  require( irs990efile ) 
   failed.urls <- build_tables( index.group, table.names=table.names, year=year ) 
   return( failed.urls )
 }
