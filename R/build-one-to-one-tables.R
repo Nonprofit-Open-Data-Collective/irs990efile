@@ -158,7 +158,7 @@ parsapply_tables <- function( index.group )
 #' @details some additional details 
 #'
 #' @export
-build_tables_parallel <- function( groups, cores, year, table.names=NULL )
+build_tables_parallel <- function( groups, year, table.names=NULL )
 {
   
   if( is.null(table.names) )
@@ -170,7 +170,8 @@ build_tables_parallel <- function( groups, cores, year, table.names=NULL )
      table.names <- paste0( "BUILD_", table.names )
   }
   
-  cl <- parallel::makeCluster( cores )
+  num.cores <- parallel::detectCores() - 1
+  cl <- parallel::makeCluster( num.cores )
   parallel::clusterExport( cl, varlist = c("year","table.names"), envir=environment() )        # index table.names year
   results <- parallel::parSapply( cl, X=groups, FUN=parsapply_tables )      # returns a list
   parallel::stopCluster( cl )
