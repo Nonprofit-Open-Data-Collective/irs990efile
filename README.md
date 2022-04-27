@@ -61,13 +61,7 @@ for( i in years )
 {
   index.i <- dplyr::filter( index, TaxYear == i )
   groups <- split_index( index.i, group.size = 1000 )
-  
-  start_time <- Sys.time()  # reports build time for each year
-  
   build_tables_parallel( groups=groups, year=i, cores=8 )
-  
-  end_time <- Sys.time()
-  print( end_time - start_time )
 }
 
 ```
