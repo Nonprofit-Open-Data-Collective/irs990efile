@@ -11,6 +11,11 @@ Test and validate rdb-build() functions for all one-to-many tables (bolded below
   - Spot check 3-5 organizations in the table. 
 * If the table appears to be fine save the table as a CSV in this folder and add a checkmark [X] beside the table name below. 
 * If there are errors or you find issues with the data make a note beside the table below and create a new R script with the tables name and your code that reproduces the error. 
+  - You can paste the org sample directly into the script - the object that is printed when you use dput(). 
+
+```r
+index <- # table that is printed from dput( index ) 
+```
 
 If you are examining tables in Schedules, a random sample of 25 orgs might not work because there are only a couple of schedules that are regularly required. Instead, you can use this table of schedules to identify museums that have filed a specific schedule and sample from that. Schedule H is specific to hospitals and Schedule E is specific to schools so you likely won't have any of those cases: 
 
