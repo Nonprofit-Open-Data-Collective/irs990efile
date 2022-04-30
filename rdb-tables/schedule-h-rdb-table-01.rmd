@@ -1,0 +1,312 @@
+---
+title: "schedule-h-rdb-table.rmd"
+author: "Qingqing"
+date: "2019/6/26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+library( xmltools )
+library( purrr )
+library( xml2 )
+library( XML )
+library( dplyr )
+library( pander )
+
+```
+
+
+```{r}
+lehigh <-
+"<LEHIGH>   
+<ManagementCoAndJntVenturesGrp>
+        <EntityName>
+          <BusinessNameLine1Txt>1 LVHN RECIPROCAL RISK RETENTION GROUP</BusinessNameLine1Txt>
+        </EntityName>
+        <PrimaryActivitiesTxt>MALPRACTICE INSURANCE</PrimaryActivitiesTxt>
+        <OrgProfitOrOwnershipPct>0.11110</OrgProfitOrOwnershipPct>
+        <OfcrEtcProfitOrOwnershipPct>0.00000</OfcrEtcProfitOrOwnershipPct>
+        <PhysiciansProfitOrOwnershipPct>0.00000</PhysiciansProfitOrOwnershipPct>
+      </ManagementCoAndJntVenturesGrp>
+      <ManagementCoAndJntVenturesGrp>
+        <EntityName>
+          <BusinessNameLine1Txt>2 HEALTH NETWORK LABORATORIES LLC</BusinessNameLine1Txt>
+        </EntityName>
+        <PrimaryActivitiesTxt>LABORATORY SERVICES</PrimaryActivitiesTxt>
+        <OrgProfitOrOwnershipPct>0.83240</OrgProfitOrOwnershipPct>
+        <OfcrEtcProfitOrOwnershipPct>0.00000</OfcrEtcProfitOrOwnershipPct>
+        <PhysiciansProfitOrOwnershipPct>0.00000</PhysiciansProfitOrOwnershipPct>
+      </ManagementCoAndJntVenturesGrp>
+      <ManagementCoAndJntVenturesGrp>
+        <EntityName>
+          <BusinessNameLine1Txt>3 HEALTH NETWORK LABORATORIES LP</BusinessNameLine1Txt>
+        </EntityName>
+        <PrimaryActivitiesTxt>LABORATORY SERVICES</PrimaryActivitiesTxt>
+        <OrgProfitOrOwnershipPct>0.81540</OrgProfitOrOwnershipPct>
+        <OfcrEtcProfitOrOwnershipPct>0.00000</OfcrEtcProfitOrOwnershipPct>
+        <PhysiciansProfitOrOwnershipPct>0.00000</PhysiciansProfitOrOwnershipPct>
+      </ManagementCoAndJntVenturesGrp>
+      <ManagementCoAndJntVenturesGrp>
+        <EntityName>
+          <BusinessNameLine1Txt>4 LEHIGH VALLEY PHYSICIAN HOSPITAL ORGANIZATION INC</BusinessNameLine1Txt>
+        </EntityName>
+        <PrimaryActivitiesTxt>HEALTH CARE SERVICES</PrimaryActivitiesTxt>
+        <OrgProfitOrOwnershipPct>0.45000</OrgProfitOrOwnershipPct>
+        <OfcrEtcProfitOrOwnershipPct>0.00000</OfcrEtcProfitOrOwnershipPct>
+        <PhysiciansProfitOrOwnershipPct>0.00000</PhysiciansProfitOrOwnershipPct>
+      </ManagementCoAndJntVenturesGrp>
+</LEHIGH>"
+
+```
+
+```{r}
+doc <- xml2::read_xml( lehigh )
+nodeset <- xml2::xml_children( doc ) # top level nodeset
+xmltools::xml_view_trees( doc )
+```
+
+```{r}
+doc <- xml2::read_xml( lehigh )
+
+
+# nodeset is a group of nodes returned
+# from the previous step
+nodeset_to_df <- function( nodeset )
+{
+  node_to_df <- function(x)
+  { 
+    vec <- xml_text(xml_children(x))
+    names(vec) <- xml_name(xml_children(x)) 
+    df <- data.frame( as.list( vec ), stringsAsFactors=F )
+    return( df )
+  }
+  
+  node.list <- lapply( nodeset, node_to_df )
+  df <- bind_rows( node.list )
+  return( df )
+}
+
+# xml2::xml_structure( doc )
+# nodeset <- xml2::xml_children( doc )
+# nodeset_to_df( nodeset )
+
+```
+
+```{r}
+group.name.3 <- "//Form990ScheduleHPartIV"
+group.name.4 <- "//ManagementCoAndJntVenturesGrp"
+all.versions <- paste( group.name.3, group.name.4, sep="|" )
+
+
+# leigh hospital 
+M3 <- "https://s3.amazonaws.com/irs-form-990/201801319349300130_public.xml"
+doc <- read_xml( M3 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+nodeset_to_df( node.group ) %>% pander()
+
+```
+# Load Concordance File
+
+
+```{r}
+# load concordance for schedule h
+dropbox.url <- "https://www.dropbox.com/s/k2tohl0ik4odjii/schedule-h-v1.csv?dl=1"
+sh <- read.csv( dropbox.url, stringsAsFactors=F )
+
+# remove leading forward slash
+# though we need to add it back below
+xpaths <- sh$xpath 
+xpaths <- gsub( "/Return/", "Return/", xpaths )
+```
+
+## Get xpaths for Each RDB Table
+
+```{r}
+table( sh$rdb_table )
+
+xpaths.t1 <- xpaths[ sh$rdb_table == "SH-TABLE-01-COMPANY-JOINT-VENTURES" ]
+xpaths.t2 <- xpaths[ sh$rdb_table == "SH-TABLE-02-HOSPITAL-FACILITY" ]
+xpaths.t3 <- xpaths[ sh$rdb_table == "SH-TABLE-03-OTHER-CARE-FACILITY" ]
+xpaths.t4 <- xpaths[ sh$rdb_table == "SH-TABLE-04-SUPPL-INFO" ]
+```
+
+
+
+## Compare xpath Levels # imortant steps 
+
+```{r}
+nodes <- strsplit( xpaths.t1, "/" )
+
+xpath.levels <- sapply( nodes, length )
+max.lev <- max( xpath.levels )
+nodes <- lapply( nodes, function(x){ c(x, rep("",max.lev-length(x) ) ) } )
+
+# compare xpath levels
+xpath.levels <- data.frame( do.call( cbind, nodes ), stringsAsFactors=F )
+xpath.levels[ , 1:10 ] %>% pander
+```
+
+
+
+# Identify Group Levels
+
+
+## Find Grouping Variables
+
+This one works well but only works on active xpaths in a specific XML document. We can't use it with the list of raw xpaths from the concordance file.
+
+```{r}
+## we can identify grouping variables
+doc <- xml2::read_xml( lehigh )
+
+## get all xpaths
+all.xpaths <- doc %>%  xml_get_paths()
+
+## collapse xpaths to unique only
+unique.xpaths <- all.xpaths %>%
+  unlist() %>%
+  unique()
+
+## but what we really want is the parent node of terminal nodes.
+## use the `only_terminal_parent = TRUE` to do this
+
+## get all xpaths to parents of parent node
+groups.all <- doc %>% 
+  xml_get_paths( only_terminal_parent = TRUE )
+
+## collapse xpaths to unique only
+groups <- groups.all %>% 
+  unlist() %>%
+  unique()
+
+groups
+```
+
+This will return all variables at the first level where the nodes split. Some will be grouping variables, and some will be regular variables. Have to inspect to see. （ this is useful)
+
+*I need to improve this to return only grouping variables, if possible.*
+
+```{r}
+find_group_name <- function( xpaths )
+{
+  nodes <- strsplit( xpaths, "/" )
+  d1 <- data.frame( do.call( cbind, nodes ), stringsAsFactors=F )
+  not.equal <- apply( d1, MARGIN=1, FUN=function(x){ length( unique( x )) > 1 } ) 
+  this.one <- which( not.equal == T )[ 1 ]
+  group.names <- d1[ this.one,  ] %>% as.character() %>% unique()
+  return( group.names )
+}
+
+find_group_name( xpaths.t1 )  
+```
+
+
+
+## Sample data from Schedule H Part IV 
+```{r}
+
+group.name.3 <- "//Form990ScheduleHPartIV"
+group.name.4 <- "//ManagementCoAndJntVenturesGrp"
+all.versions <- paste( group.name.3, group.name.4, sep="|" )
+
+#READING HOSPITAL# skip column d #1orgs
+M1 <- "https://s3.amazonaws.com/irs-form-990/201821039349300712_public.xml"
+
+#ABINGTON MEMORIAL HOSPITAL# skip column d #5 orgs
+M2 <-  "https://s3.amazonaws.com/irs-form-990/201831359349306048_public.xml"
+
+#LEHIGH VALLEY HOSPITAL # 4 orgs 
+M3 <- "https://s3.amazonaws.com/irs-form-990/201801319349300130_public.xml"
+
+
+#Charlotte Hungerford Hospital# skip column d # 2 orgs
+M4 <- "https://s3.amazonaws.com/irs-form-990/201802259349302005_public.xml"
+
+
+# fill none in the first row and the first two column #1 org
+M5 <- "https://s3.amazonaws.com/irs-form-990/201832259349301448_public.xml"
+
+
+# grady hospital does not contain part IV 
+M6 <- "https://s3.amazonaws.com/irs-form-990/201813189349303776_public.xml"
+
+
+
+list.of.tables <- list()
+
+doc <- read_xml( M1 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+list.of.tables[[1]] <- nodeset_to_df( node.group )
+
+doc <- read_xml( M2 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+list.of.tables[[2]] <- nodeset_to_df( node.group )
+
+doc <- read_xml( M3 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+list.of.tables[[3]] <- nodeset_to_df( node.group )
+
+doc <- read_xml( M4 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+list.of.tables[[4]] <- nodeset_to_df( node.group )
+
+doc <- read_xml( M5 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+list.of.tables[[5]] <- nodeset_to_df( node.group )
+
+doc <- read_xml( M6 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+list.of.tables[[6]] <- nodeset_to_df( node.group )
+
+
+# list.of.tables
+
+#bind_rows( list.of.tables ) 
+
+
+# list.of.tables
+
+managementAndjointventure <- bind_rows( list.of.tables ) 
+#write.csv(managementAndjointventure, "managementAndjointventure.csv")
+
+
+```
+
+
+
+
+```{r}
+# hypoethetical build file does not work
+
+# node groups for Sched-H Part V
+group.name.3 <- "//Form990ScheduleHPartIV"
+group.name.4 <- "//ManagementCoAndJntVenturesGrp"
+all.versions <- paste( group.name.3, group.name.4, sep="|" )
+
+dat <- readRDS( gzcon( url( "https://www.dropbox.com/s/4ptsnryf64vkqlg/2016-EFILE-CORE.rds?dl=1" ) ) )
+
+# find likely schedule H filers
+dat.h <- dat[ grepl( "HOSPITAL", dat$NAME ) , ]
+hospitals <- head( dat.h$URL )
+
+
+i.counter <- 1
+
+sched.h.part.v <- list()
+
+for( i in hospitals$URL )
+{
+  doc <- read_xml( i ) %>% xml_ns_strip()
+  node.group <- xml_find_all( doc, all.versions )
+  sched.h.part.v [[ i.counter ]] <- nodeset_to_df( node.group )
+  
+  i.counter <- i.counter + 1
+}
+
+
+```

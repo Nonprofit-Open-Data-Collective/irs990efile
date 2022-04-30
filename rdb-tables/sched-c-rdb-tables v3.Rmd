@@ -1,0 +1,571 @@
+---
+title: "Schedule C RDB 1:M Examples"
+date: "March 2022"
+output:
+  html_document:
+    theme: readable
+    df_print: paged
+    highlight: tango
+    smart: false
+    toc: yes
+    toc_float: yes
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set( echo=TRUE, message=F, warning=F )
+```
+
+
+# Packages
+
+```{r}
+# package.list <- c( "xmltools","purrr","xml2","dplyr","pander","XML" )
+# install.packages( package.list  )
+
+library( xmltools )      # xml tools
+library( xml2 )          # xml tools 
+library( XML )           # xml tools
+
+library( dplyr )         # data wrangling 
+library( purrr )         # data wrangling 
+
+library( pander )        # pretty tables 
+library( DiagrammeR )    # network diagrams 
+```
+
+
+
+# Demo Table Extraction Functions
+
+
+Demo XML data from Part V of Schedule H - the table of facilities. 
+
+
+```{r}
+sierraclub<- 
+"<SIERRACLUB>
+<Section527PoliticalOrgGrp>
+        <OrganizationBusinessName>
+          <BusinessNameLine1Txt>THE SIERRA CLUB VOTER EDUCATION FUND</BusinessNameLine1Txt>
+        </OrganizationBusinessName>
+        <USAddress>
+          <AddressLine1Txt>2101 WEBSTER STREET SUITE 1300</AddressLine1Txt>
+          <CityNm>OAKLAND</CityNm>
+          <StateAbbreviationCd>CA</StateAbbreviationCd>
+          <ZIPCd>94612</ZIPCd>
+        </USAddress>
+        <EIN>943244759</EIN>
+        <ContributionsRcvdDlvrAmt>241025</ContributionsRcvdDlvrAmt>
+      </Section527PoliticalOrgGrp>
+      </SIERRACLUB>"
+```
+
+
+
+```{r}
+doc <- xml2::read_xml( sierraclub )
+nodeset <- xml2::xml_children( doc ) # top level nodeset
+xmltools::xml_view_trees( doc )
+```
+
+
+
+## Convert nodeset to Data Frames
+
+```{r}
+doc <- xml2::read_xml(sierraclub)
+
+# nodeset is a group of nodes returned
+# from the previous step
+nodeset_to_df <- function( nodeset )
+{
+  node_to_df <- function(x)
+  { 
+    vec <- xml_text(xml_children(x))
+    names(vec) <- xml_name(xml_children(x)) 
+    df <- data.frame( as.list( vec ), stringsAsFactors=F )
+    return( df )
+  }
+  
+  node.list <- lapply( nodeset, node_to_df )
+  df <- bind_rows( node.list )
+  return( df )
+}
+
+# xml2::xml_structure( doc )
+# nodeset <- xml2::xml_children( doc )
+# nodeset_to_df( nodeset )
+
+group.name.1 <- "//Section527PoliticalOrgGrp"
+group.name.2 <- "//Sec527PolOrgs"
+group.name.3 <- "//Form990ScheduleCPartI/Sec527PolOrgs"
+
+
+all.versions <- paste( group.name.1, group.name.2,group.name.3, sep="|" )
+
+# sierra club
+V1 <- "https://s3.amazonaws.com/irs-form-990/201843129349301954_public.xml"
+doc <- read_xml( V1 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+nodeset_to_df( node.group ) %>% pander()
+```
+
+
+
+
+# Load Concordance File
+
+
+```{r}
+# load concordance for schedule h
+#dropbox.url <- "https://www.dropbox.com/s/k2tohl0ik4odjii/schedule-h-v1.csv?dl=1"
+
+dropbox <- "https://www.dropbox.com/s/z00h5n2eimjhuyl/schedule-c.csv?dl=1"
+sched.c <- read.csv( file=dropbox )
+head( sched.c ) %>% pander()
+```
+
+
+```{r}
+# remove leading forward slash
+# though we need to add it back below
+xpaths <- sched.c$xpath 
+xpaths <- gsub( "/Return/", "Return/", xpaths )
+```
+
+
+## Get xpaths for Each RDB Table
+
+SC-P01-T00-LOBBY
+
+* IRS 990 Schedule C 
+* Part 01 on the 990 form 
+* Table-00 (all zeros are one-to-one tables)
+* Topic = lobbying 
+
+SC-P01-T01-POLITICAL-ORGS-INFO
+
+* Table-01 and above are one-to-many tables 
+
+```{r}
+table( sched.c$rdb_table )
+```
+
+
+Get xpaths for the one-to-many tables: 
+
+```{r}
+xpaths.t1 <- xpaths[ sched.c$rdb_table == "SC-P01-T01-POLITICAL-ORGS-INFO" ]
+xpaths.t2 <- xpaths[ sched.c$rdb_table == "SC-P04-T99-SUPPLEMENTAL-INFO" ]
+```
+
+
+
+## Compare xpath Levels
+
+```{r}
+nodes <- strsplit( xpaths.t1, "/" )
+
+xpath.levels <- sapply( nodes, length )
+max.lev <- max( xpath.levels )
+nodes <- lapply( nodes, function(x){ c(x, rep("",max.lev-length(x) ) ) } )
+
+# compare xpath levels
+xpath.levels <- data.frame( do.call( cbind, nodes ), stringsAsFactors=F )
+xpath.levels[ , 1:10 ]%>% pander
+```
+
+
+# Identify Group Levels
+
+
+## Find Grouping Variables
+
+This one works well but only works on active xpaths in a specific XML document. We can't use it with the list of raw xpaths from the concordance file.
+
+```{r}
+## we can identify grouping variables
+doc <- xml2::read_xml( sierraclub )
+
+## get all xpaths
+all.xpaths <- doc %>% 
+  xml_get_paths()
+
+## collapse xpaths to unique only
+unique.xpaths <- all.xpaths %>%
+  unlist() %>%
+  unique()
+
+## but what we really want is the parent node of terminal nodes.
+## use the `only_terminal_parent = TRUE` to do this
+
+## get all xpaths to parents of parent node
+groups.all <- doc %>% 
+  xml_get_paths( only_terminal_parent = TRUE )
+
+## collapse xpaths to unique only
+groups <- groups.all %>% 
+  unlist() %>%
+  unique()
+
+groups
+```
+
+
+This will return all variables at the first level where the nodes split. Some will be grouping variables, and some will be regular variables. Have to inspect to see. 
+
+*I need to improve this to return only grouping variables, if possible.*
+
+```{r}
+find_group_name <- function( xpaths )
+{
+  nodes <- strsplit( xpaths, "/" )
+  d1 <- data.frame( do.call( cbind, nodes ), stringsAsFactors=F )
+  not.equal <- apply( d1, MARGIN=1, FUN=function(x){ length( unique( x )) > 1 } ) 
+  this.one <- which( not.equal == T )[ 1 ]
+  group.names <- d1[ this.one,  ] %>% as.character() %>% unique()
+  return( group.names )
+}
+
+find_group_name( xpaths.t1 ) 
+find_group_name( xpaths.t2 ) 
+
+```
+
+
+
+## Sample data from Schedule C Part I-C Line 5 and part IV
+
+```{r}
+# node groups for Schedule C Part I-C Line 5
+group.name.1 <- "//Section527PoliticalOrgGrp"
+group.name.2 <- "//Sec527PolOrgs"
+group.name.3 <- "//Form990ScheduleCPartI/Sec527PolOrgs"
+all.versions <- paste( group.name.1, group.name.2,group.name.3, sep="|" )
+
+# node groups for Schedule C Part IV
+group.name.4 <- "//Form990ScheduleCPartIV"
+group.name.5 <- "//SupplementalInformationDetail"
+all.versions2 <- paste( group.name.4, group.name.5, sep="|" )
+
+
+# sierra club 
+V1 <- "https://s3.amazonaws.com/irs-form-990/201843129349301954_public.xml"
+
+# SOUTHERN POVERTY LAW CENTER INC , do not have data in part I-C
+V2 <- "https://s3.amazonaws.com/irs-form-990/201900309349301030_public.xml"
+
+#AMERICAN CIVIL LIBERTIES UNION FOUNDATION INC, do not have data in part I-C
+V3 <- "https://s3.amazonaws.com/irs-form-990/201842749349301309_public.xml"
+
+#National Association for the Advancement of Colored People, do not have data in part I-C
+V4 <- "https://s3.amazonaws.com/irs-form-990/201813189349309906_public.xml"
+
+#PLANNED PARENTHOOD GLOBAL INC
+
+V5 <- "https://s3.amazonaws.com/irs-form-990/201821359349309027_public.xml"
+
+#for table-01
+list.of.tables <- list()
+
+doc <- read_xml( V1 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+list.of.tables[[1]] <- nodeset_to_df( node.group )
+
+doc <- read_xml( V2 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+list.of.tables[[2]] <- nodeset_to_df( node.group )
+
+doc <- read_xml( V3 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+list.of.tables[[3]] <- nodeset_to_df( node.group )
+
+doc <- read_xml( V4 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+list.of.tables[[4]] <- nodeset_to_df( node.group )
+
+doc <- read_xml( V5 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+list.of.tables[[5]] <- nodeset_to_df( node.group )
+
+# list.of.tables
+
+bind_rows( list.of.tables ) 
+payment_political_orgs <-bind_rows( list.of.tables ) 
+
+
+```
+
+## Sample data from Schedule C Part IV
+
+
+```{r}
+############# for table 02
+
+list.of.tables2 <- list()
+
+doc <- read_xml( V1 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions2 )
+list.of.tables2[[1]] <- nodeset_to_df( node.group )
+
+doc <- read_xml( V2 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions2 )
+list.of.tables2[[2]] <- nodeset_to_df( node.group )
+
+doc <- read_xml( V3 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions2 )
+list.of.tables2[[3]] <- nodeset_to_df( node.group )
+
+doc <- read_xml( V4 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions2 )
+list.of.tables2[[4]] <- nodeset_to_df( node.group )
+
+doc <- read_xml( V5 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions2 )
+list.of.tables2[[5]] <- nodeset_to_df( node.group )
+
+# list.of.tables
+
+bind_rows( list.of.tables2 ) 
+suplemental_info <- bind_rows( list.of.tables2 ) 
+
+
+```
+
+
+Once all of the group names are properly identified for each relational table we can construct the build functions for the relational databases. 
+
+The will look something like this, where "hospitals" is the index file with all Schedule H returns from a year. 
+
+<br>
+<br>
+
+
+
+```{r, eval=F}
+# hypoethetical build file
+
+#group.name.1 <- "//Section527PoliticalOrgGrp"
+#group.name.2 <- "//Sec527PolOrgs"
+#group.name.3 <- "//Form990ScheduleCPartI/Sec527PolOrgs"
+#all.versions <- paste( group.name.1, group.name.2,group.name.3, sep="|" )
+
+# node groups for Schedule C Part IV
+#group.name.4 <- "//Form990ScheduleCPartIV"
+#group.name.5 <- "//SupplementalInformationDetail"
+#all.versions2 <- paste( group.name.4, group.name.5, sep="|" )
+
+
+#i.counter <- 1
+
+#sched.h.part.v <- list()
+
+#for( i in hospitals$URL )
+#{
+  #doc <- read_xml( i ) %>% xml_ns_strip()
+  #node.group <- xml_find_all( doc, all.versions )
+  #sched.h.part.v [[ i.counter ]] <- nodeset_to_df( node.group )
+  
+  #i.counter <- i.counter + 1
+#}
+```
+
+
+<br>
+<br>
+<br>
+
+-------------------
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+
+
+## Find More Hospital Data From EFILE CORE
+
+```{r, eval=F}
+# load 2016 EFILE CORE
+dat <- readRDS( gzcon( url( "https://www.dropbox.com/s/4ptsnryf64vkqlg/2016-EFILE-CORE.rds.rds?dl=1" ) ) )
+head(dat) %>% pander()
+
+# find schedule C filers
+
+dat.c <- dplyr::filter( dat, SCHEDC=="TRUE" )
+
+political_orgs<- head( dat.c$URL )
+
+```
+
+
+<br>
+<br>
+<br>
+
+
+---------------------------  
+
+
+<br>
+<br>
+<br>
+
+
+
+
+
+
+# Explore XML Formats
+
+
+
+## Flatten Groups to Tables
+
+From the XML package - our doc is an xml2 object so not compatible.
+
+```{r}
+doc <- XML::xmlParse( sierraclub )
+nodes <- XML::getNodeSet( doc, "//SIERRACLUB/Section527PoliticalOrgGrp" )
+XML::xmlToDataFrame( doc )
+XML::xmlToDataFrame( nodes )
+
+# this doesn't work - puts all in one row
+# XML::xmlToList( doc ) %>% as.data.frame( stringsAsFactors=F )
+
+# works for one node set
+# XML::xmlToList( nodes[[1]] ) %>% as.data.frame( stringsAsFactors=F )
+```
+
+
+
+
+## Print Document Structure
+
+Various options in various packages:
+
+```{r}
+doc <- xml2::read_xml( sierraclub )
+nodeset <- xml2::xml_children( doc ) # top level nodeset
+xml2::xml_structure( doc )
+```
+
+```{r}
+xmltools::xml_get_paths( doc )
+xmltools::xml_view_trees( doc )
+xmltools::xml_get_paths( doc, mark_terminal = "--->  " )
+```
+
+
+
+
+## Visualizing Variable Hierarchy
+
+```{r}
+for( i in 1:max.lev )
+{
+  row.i <- as.character(xpath.levels[i,])
+  print( paste0( "LEVEL ", i, ": " ) )
+  print( paste0( sort(unique( row.i )), collapse="; " ) )
+  cat( "\n" )
+}
+```
+
+
+
+```{r}
+create_edgelist <- function( xpaths )
+{
+  nodes <- strsplit( xpaths, "/" )
+  xpath.levels <- sapply( nodes, length )
+  max.lev <- max( xpath.levels )
+  nodes <- lapply( nodes, function(x){ c(x, rep("",max.lev-length(x) ) ) } )
+  xpath.levels <- data.frame( do.call( cbind, nodes ), stringsAsFactors=F )
+  
+  df <- NULL
+  
+  for( i in 1:ncol(xpath.levels) )
+  {
+    for( j in 1:(max.lev-1) )
+    {
+      df <- rbind( df, xpath.levels[ j:(j+1), i ] )
+    }
+  }
+  
+  df <- as.data.frame(df, stringsAsFactors=F )
+  df <- unique( df )
+  df <- df[ ! grepl( "$^", df$V2 ) , ]
+  
+  return( df )
+}
+
+el <- create_edgelist( xpaths.t2 )
+
+
+doc <- xml2::read_xml( sierraclub )
+nodeset <- xml2::xml_children( doc ) # top level nodeset
+xpaths.sierraclub<- xmltools::xml_get_paths( doc ) %>% unlist() %>% unique()
+xpaths.sierraclub <- gsub( "/SIERRACLUB/", "SIERRACLUB/", xpaths.sierraclub )
+el <- create_edgelist( xpaths.sierraclub )
+```
+
+
+
+
+```{r, fig.height=8, fig.width=8}
+library( igraph )
+g <- graph_from_data_frame( d=el, directed=TRUE, vertices=NULL )
+plot( g, layout=layout_as_tree )
+
+```
+
+
+
+
+
+
+
+```{r}
+library( data.tree )
+nd <- FromDataFrameNetwork( network=el )
+print( nd )
+```
+
+
+```{r, fig.width=10}
+SetGraphStyle( nd, rankdir = "TB")
+SetEdgeStyle( nd, arrowhead = "vee", color = "grey20", penwidth = 2 )
+SetNodeStyle( nd, 
+              style = "filled,rounded", 
+              shape = "box", 
+              fillcolor = "LightBlue", 
+              fontname = "helvetica", 
+              fontcolor="black",
+              tooltip = GetDefaultTooltip )
+
+# SetNodeStyle(acme$IT, fillcolor = "LightBlue", penwidth = "5px")
+plot( nd )
+```
+
+
+```{r, fig.width=10}
+library(networkD3)
+net <- ToDataFrameNetwork( nd, "name" )
+simpleNetwork( net[-3], fontSize = 12 )
+```
+
+
+```{r}
+el <- create_edgelist( xpaths.t1 )
+nd <- FromDataFrameNetwork( network=el )
+net <- ToDataFrameNetwork( nd, "name" )
+simpleNetwork( el, fontSize = 12 , linkDistance = 25, charge = -100 )
+```
+

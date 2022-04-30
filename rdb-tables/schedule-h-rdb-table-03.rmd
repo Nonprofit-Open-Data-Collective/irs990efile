@@ -1,0 +1,262 @@
+---
+title: "schedule-h-rdb-table.rmd"
+author: "Qingqing"
+date: "2019/6/26"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+library( xmltools )
+library( purrr )
+library( xml2 )
+library( XML )
+library( dplyr )
+library( pander )
+```
+
+
+```{r}
+reading <-
+"<READING>   
+      <OthHlthCareFcltsNotHospitalGrp>
+        <OthHlthCareFcltsGrp>
+          <BusinessName>
+            <BusinessNameLine1Txt>TRHMC SURGICENTER AT SPRING RIDGE</BusinessNameLine1Txt>
+          </BusinessName>
+          <USAddress>
+            <AddressLine1Txt>2603 KEISER BLVD</AddressLine1Txt>
+            <CityNm>READING</CityNm>
+            <StateAbbreviationCd>PA</StateAbbreviationCd>
+            <ZIPCd>19610</ZIPCd>
+          </USAddress>
+          <FacilityTxt>AMBULATORY SURGERY CENTER</FacilityTxt>
+        </OthHlthCareFcltsGrp>
+      </OthHlthCareFcltsNotHospitalGrp>
+</READING>"
+
+```
+
+```{r}
+
+doc <- xml2::read_xml( reading)
+nodeset <- xml2::xml_children( doc ) # top level nodeset
+xmltools::xml_view_trees( doc )
+```
+
+```{r}
+
+doc <- xml2::read_xml( reading )
+
+# nodeset is a group of nodes returned
+# from the previous step
+nodeset_to_df <- function( nodeset )
+{
+  node_to_df <- function(x)
+  { 
+    vec <- xml_text(xml_children(x))
+    names(vec) <- xml_name(xml_children(x)) 
+    df <- data.frame( as.list( vec ), stringsAsFactors=F )
+    return( df )
+  }
+  
+  node.list <- lapply( nodeset, node_to_df )
+  df <- bind_rows( node.list )
+  return( df )
+}
+
+# xml2::xml_structure( doc )
+# nodeset <- xml2::xml_children( doc )
+# nodeset_to_df( nodeset )
+
+group.name.5 <- "//OthHlthCareFcltsNotHospitalGrp/OthHlthCareFcltsGrp"
+group.name.6 <- "//Form990ScheduleHPartVSectionC/OtherFacilities"
+all.versions <- paste( group.name.5, group.name.6, sep="|" )
+
+# reading hospital
+O1 <- "https://s3.amazonaws.com/irs-form-990/201821039349300712_public.xml"
+doc <- read_xml( O1 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+nodeset_to_df( node.group ) %>% pander()
+
+
+```
+# Load Concordance File
+
+
+```{r}
+# load concordance for schedule h
+dropbox.url <- "https://www.dropbox.com/s/k2tohl0ik4odjii/schedule-h-v1.csv?dl=1"
+sh <- read.csv( dropbox.url, stringsAsFactors=F )
+
+# remove leading forward slash
+# though we need to add it back below
+xpaths <- sh$xpath 
+xpaths <- gsub( "/Return/", "Return/", xpaths )
+```
+
+## Get xpaths for Each RDB Table
+
+```{r}
+table( sh$rdb_table )
+
+xpaths.t1 <- xpaths[ sh$rdb_table == "SH-TABLE-01-COMPANY-JOINT-VENTURES" ]
+xpaths.t2 <- xpaths[ sh$rdb_table == "SH-TABLE-02-HOSPITAL-FACILITY" ]
+xpaths.t3 <- xpaths[ sh$rdb_table == "SH-TABLE-03-OTHER-CARE-FACILITY" ]
+xpaths.t4 <- xpaths[ sh$rdb_table == "SH-TABLE-04-SUPPL-INFO" ]
+```
+
+
+
+## Compare xpath Levels # imortant steps 
+
+```{r}
+nodes <- strsplit( xpaths.t3, "/" )
+
+xpath.levels <- sapply( nodes, length )
+max.lev <- max( xpath.levels )
+nodes <- lapply( nodes, function(x){ c(x, rep("",max.lev-length(x) ) ) } )
+
+# compare xpath levels
+xpath.levels <- data.frame( do.call( cbind, nodes ), stringsAsFactors=F )
+xpath.levels[ , 1:10 ] %>% pander
+```
+
+
+
+
+# Identify Group Levels
+
+
+## Find Grouping Variables
+
+This one works well but only works on active xpaths in a specific XML document. We can't use it with the list of raw xpaths from the concordance file.
+
+```{r}
+## we can identify grouping variables
+doc <- xml2::read_xml( reading )
+
+## get all xpaths
+all.xpaths <- doc %>% 
+  xml_get_paths()
+
+## collapse xpaths to unique only
+unique.xpaths <- all.xpaths %>%
+  unlist() %>%
+  unique()
+
+## but what we really want is the parent node of terminal nodes.
+## use the `only_terminal_parent = TRUE` to do this
+
+## get all xpaths to parents of parent node
+groups.all <- doc %>% 
+  xml_get_paths( only_terminal_parent = TRUE )
+
+## collapse xpaths to unique only
+groups <- groups.all %>% 
+  unlist() %>%
+  unique()
+
+groups
+```
+
+This will return all variables at the first level where the nodes split. Some will be grouping variables, and some will be regular variables. Have to inspect to see. 
+
+*I need to improve this to return only grouping variables, if possible.*
+
+```{r}
+find_group_name <- function( xpaths )
+{
+  nodes <- strsplit( xpaths, "/" )
+  d1 <- data.frame( do.call( cbind, nodes ), stringsAsFactors=F )
+  not.equal <- apply( d1, MARGIN=1, FUN=function(x){ length( unique( x )) > 1 } ) 
+  this.one <- which( not.equal == T )[ 1 ]
+  group.names <- d1[ this.one,  ] %>% as.character() %>% unique()
+  return( group.names )
+}
+
+find_group_name( xpaths.t3 ) 
+```
+
+
+
+## Sample data from Schedule H Part IV 
+```{r}
+
+group.name.5 <- "//OthHlthCareFcltsNotHospitalGrp/OthHlthCareFcltsGrp"
+group.name.6 <- "//Form990ScheduleHPartVSectionC/OtherFacilities"
+all.versions <- paste( group.name.5, group.name.6, sep="|" )
+
+#READING HOSPITAL# skip column d #1 entity
+M1 <- "https://s3.amazonaws.com/irs-form-990/201821039349300712_public.xml"
+
+#ABINGTON MEMORIAL HOSPITAL# skip column d # 47 entities
+M2 <-  "https://s3.amazonaws.com/irs-form-990/201831359349306048_public.xml"
+
+#LEHIGH VALLEY HOSPITAL # 0 entity
+M3 <- "https://s3.amazonaws.com/irs-form-990/201801319349300130_public.xml"
+
+
+#Charlotte Hungerford Hospital# skip column d # 13 entities
+M4 <- "https://s3.amazonaws.com/irs-form-990/201802259349302005_public.xml"
+
+
+# BRIDGEPORT HOSPITAL ,25 entities
+M5 <- "https://s3.amazonaws.com/irs-form-990/201832259349301448_public.xml"
+
+
+# GRADY MEMORIAL HOSPITAL CORPORATION , 10 entities
+M6 <- "https://s3.amazonaws.com/irs-form-990/201813189349303776_public.xml"
+
+
+
+
+```
+
+
+```{r}
+
+list.of.tables <- list()
+
+doc <- read_xml( M1 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+list.of.tables[[1]] <- nodeset_to_df( node.group )
+
+
+doc <- read_xml( M2 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+list.of.tables[[2]] <- nodeset_to_df( node.group )
+
+doc <- read_xml( M3 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+list.of.tables[[3]] <- nodeset_to_df( node.group )
+
+doc <- read_xml( M4 ) %>%  xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+list.of.tables[[4]] <- nodeset_to_df( node.group )
+
+doc <- read_xml( M5 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+list.of.tables[[5]] <- nodeset_to_df( node.group )
+
+doc <- read_xml( M6 ) %>% xml_ns_strip()
+node.group <- xml_find_all( doc, all.versions )
+list.of.tables[[6]] <- nodeset_to_df( node.group )
+
+# list.of.tables # missing M6 
+
+nonhospitalfacilty<- bind_rows( list.of.tables ) 
+
+
+```
+
+
+
+
+
+
+

@@ -1,0 +1,1103 @@
+---
+title: "Schedule D Part V"
+date: "June 26, 2019"
+output:
+  html_document:
+    theme: readable
+    df_print: paged
+    highlight: tango
+    smart: false
+    toc: yes
+    toc_float: no
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set( echo=TRUE, message=F, warning=F, fig.width=10 )
+```
+
+
+```{css, echo=F}
+h1, h2{
+  margin-top:100px;
+  margin-bottom:20px;
+}
+
+table
+{ 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:80px;
+    margin-bottom:800px;
+}
+
+img {
+    max-width: 90%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top:30px;
+    margin-bottom:20px;
+}
+```
+
+
+
+```{r}
+library( dplyr )
+library( pander )
+library( xml2 )
+```
+
+
+
+
+# Build Chunks from Concordance
+
+
+```{r}
+# load concordance file
+cf <- read.csv("https://www.dropbox.com/s/omi8qu3owcbn8gc/schedule-d-partv-v0.csv?dl=1",
+               stringsAsFactors=F )
+head( cf )
+```
+
+
+
+
+```{r, eval=F}
+create_code_chunks <- function( dat, function.name="buildFUNCTION" )
+{
+
+  library( dplyr )
+  
+  names(dat) <- toupper( names(dat) )
+  dat$VARIABLE_NAME <- gsub( "-", "_", dat$VARIABLE_NAME ) 
+  
+  file.create( "CodeChunks.txt" )
+  fileConn <- file( "CodeChunks.txt", open="a" )
+
+
+  #-------------------------------------------------------------------
+
+  writeLines( paste0( function.name, " <- function( doc, url )" ), con = fileConn, sep = "\n" )
+  writeLines( "{", con = fileConn, sep = "\n\n\n" )
+  writeLines( "## NAME", con = fileConn, sep = "\n\n" )
+  writeLines( "V_990NAMEpost2014 <- \"//Return/ReturnHeader/Filer/BusinessName/BusinessNameLine1Txt\" ", con = fileConn, sep = "\n" )
+  writeLines( "V_990NAME_2013 <- \"//Return/ReturnHeader/Filer/BusinessName/BusinessNameLine1\" ", con = fileConn, sep = "\n" )
+  writeLines( "V_990NAMEpre2013  <- \"//Return/ReturnHeader/Filer/Name/BusinessNameLine1\"", con = fileConn, sep = "\n" )
+  writeLines( "name.xpath <- paste( V_990NAME_2013, V_990NAMEpre2013, V_990NAMEpost2014, sep=\"|\" )", con = fileConn, sep = "\n" )
+  writeLines( "NAME <- xml_text( xml_find_all( doc, name.xpath ) )", con = fileConn, sep = "\n\n" )
+  writeLines( "## EIN", con = fileConn, sep = "\n" )
+  writeLines( "EIN  <- xml_text( xml_find_all( doc, \"//Return/ReturnHeader/Filer/EIN\" ) )", con = fileConn, sep = "\n\n" )
+  writeLines( "## TAX YEAR", con = fileConn, sep = "\n" )
+  writeLines( "V_990FYRpost2013 <- \"//Return/ReturnHeader/TaxYr\"", con = fileConn, sep = "\n" )
+  writeLines( "V_990FYRpre2013  <- \"//Return/ReturnHeader/TaxYear\"", con = fileConn, sep = "\n" )
+  writeLines( "tax.year.xpath <- paste( V_990FYRpost2013, V_990FYRpre2013, sep=\"|\" )", con = fileConn, sep = "\n" )
+  writeLines( "TAXYR <- xml_text( xml_find_all( doc, tax.year.xpath ) )", con = fileConn, sep = "\n\n" )
+  writeLines( "## TYPE OF TAX FORM", con = fileConn, sep = "\n" )
+  writeLines( "V_990TFpost2013 <- \"//Return/ReturnHeader/ReturnTypeCd\"", con = fileConn, sep = "\n" )
+  writeLines( "V_990TFpre2013  <- \"//Return/ReturnHeader/ReturnType\"", con = fileConn, sep = "\n" )
+  writeLines( "tax.form.xpath <- paste( V_990TFpost2013, V_990TFpre2013, sep=\"|\" )", con = fileConn, sep = "\n" )
+  writeLines( "FORMTYPE <- xml_text( xml_find_all( doc, tax.form.xpath ) )", con = fileConn, sep = "\n\n" )
+  writeLines( "## OBJECT ID", con = fileConn, sep = "\n" )
+  writeLines( "OBJECTID <- get_object_id( url )", con = fileConn, sep = "\n\n" )
+  writeLines( "## URL", con = fileConn, sep = "\n" )
+  writeLines( "URL <- url", con = fileConn, sep = "\n\n" )
+  writeLines( "#-------------------------------------------------------------------", con = fileConn, sep = "\n\n\n" )
+
+  
+
+
+  for( i in unique( dat$VARIABLE_NAME ) )
+  {
+
+     sub.dat <- dat[ dat$VARIABLE_NAME == i , ]
+
+     writeLines( paste("## VARIABLE NAME: ", i), con = fileConn, sep = "\n" )
+     writeLines( paste("## DESCRIPTION: ", sub.dat$DESCRIPTION[1]), con = fileConn, sep = "\n" )
+     writeLines( paste("## LOCATION: ", sub.dat$LOCATION_CODE[1]), con = fileConn, sep = "\n" )
+     writeLines( paste("## TABLE: ", sub.dat$RDB_TABLE[1]), con = fileConn, sep = "\n" )
+     writeLines( paste("## VARIABLE TYPE: ", sub.dat$DATA_TYPE_SIMPLE[1]), con = fileConn, sep = "\n\n" )
+
+
+     xpath.vec <- sub.dat$XPATH
+
+     num.paths <- length( xpath.vec )
+
+
+     if( num.paths > 1 ){
+
+     for( j in 1:num.paths )
+     {
+       xpath.j <- paste( "V", j, sep="" )
+       writeLines( paste( xpath.j, " <- '/", xpath.vec[j], "'", sep=""), con = fileConn, sep = "\n" )
+
+     }
+      or.var.name <- substr( i, 10, nchar(i) )
+      or.statement <- paste( or.var.name, "<- paste(", paste( "V", 1:num.paths, sep="", collapse=", " ), ", sep='|' )" ) 
+      writeLines( or.statement, con = fileConn, sep = "\n" )
+      writeLines( paste( i, "<- xml_text( xml_find_all( doc,", or.var.name, ") )"), con = fileConn, sep = "\n\n\n\n\n\n" )
+
+      } else
+      {
+
+        single.xpath <- paste( "'", xpath.vec, "'", sep="" )
+        writeLines( paste( i, "<- xml_text( xml_find_all( doc,", single.xpath, ") )"), con = fileConn, sep = "\n\n\n\n\n\n" )
+
+      }
+  }
+
+  
+  var.names <- as.character( unique( dat$VARIABLE_NAME ) )
+
+
+  writeLines(  "namedList <- function(...){
+		      names <- as.list(substitute(list(...)))[-1L]
+		      result <- list(...)
+		      names(result) <- names
+		      result[sapply(result, function(x){length(x)==0})] <- NA
+		      result[sapply(result, is.null)] <- NA
+		      result
+		  }", , con = fileConn, sep = "\n\n" )
+
+  
+  writeLines( paste0( "d <- namedList( NAME, EIN, TAXYR, FORMTYPE, OBJECTID, URL, ", paste( var.names, collapse=", " ), " )" ), con = fileConn, sep = "\n\n" )  
+  writeLines( "return( d )", con = fileConn, sep = "\n\n\n" ) 
+  writeLines( "}", con = fileConn, sep = "\n" )   
+  
+  close( fileConn ) 
+  
+  shell( "CodeChunks.txt" )
+  
+  return( NULL )
+
+}
+```
+
+
+```{r, eval=F}
+create_code_chunks( cf )
+```
+
+
+```{r, eval=T}
+buildFUNCTION <- function( doc, url )
+{
+
+
+## NAME
+
+V_990NAMEpost2014 <- "//Return/ReturnHeader/Filer/BusinessName/BusinessNameLine1Txt" 
+V_990NAME_2013 <- "//Return/ReturnHeader/Filer/BusinessName/BusinessNameLine1" 
+V_990NAMEpre2013  <- "//Return/ReturnHeader/Filer/Name/BusinessNameLine1"
+name.xpath <- paste( V_990NAME_2013, V_990NAMEpre2013, V_990NAMEpost2014, sep="|" )
+NAME <- xml_text( xml_find_all( doc, name.xpath ) )
+
+## EIN
+EIN  <- xml_text( xml_find_all( doc, "//Return/ReturnHeader/Filer/EIN" ) )
+
+## TAX YEAR
+V_990FYRpost2013 <- "//Return/ReturnHeader/TaxYr"
+V_990FYRpre2013  <- "//Return/ReturnHeader/TaxYear"
+tax.year.xpath <- paste( V_990FYRpost2013, V_990FYRpre2013, sep="|" )
+TAXYR <- xml_text( xml_find_all( doc, tax.year.xpath ) )
+
+## TYPE OF TAX FORM
+V_990TFpost2013 <- "//Return/ReturnHeader/ReturnTypeCd"
+V_990TFpre2013  <- "//Return/ReturnHeader/ReturnType"
+tax.form.xpath <- paste( V_990TFpost2013, V_990TFpre2013, sep="|" )
+FORMTYPE <- xml_text( xml_find_all( doc, tax.form.xpath ) )
+
+## OBJECT ID
+OBJECTID <- get_object_id( url )
+
+## URL
+URL <- url
+
+#-------------------------------------------------------------------
+
+
+## VARIABLE NAME:  SD_05_PC_ARREORLISCR
+## DESCRIPTION:  Are related orgs listed on Schedule R?
+## LOCATION:  SCHED-D-PART-05-LINE-3b
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  checkbox
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/AreRelatedOrgsListedScheduleR'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/Form990ScheduleDPartV/AreRelatedOrgsListedScheduleR'
+V3 <- '//Return/ReturnData/IRS990ScheduleD/RelatedOrgListSchRInd'
+ARREORLISCR <- paste( V1, V2, V3 , sep='|' )
+SD_05_PC_ARREORLISCR <- xml_text( xml_find_all( doc, ARREORLISCR ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_BDBEOYPCT
+## DESCRIPTION:  Board designated EOY balance
+## LOCATION:  SCHED-D-PART-05-LINE-2a
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/BoardDesignatedBalanceEOYPct'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/BoardDesignatedEOYBalance'
+V3 <- '//Return/ReturnData/IRS990ScheduleD/Form990ScheduleDPartV/BoardDesignatedEOYBalance'
+BDBEOYPCT <- paste( V1, V2, V3 , sep='|' )
+SD_05_PC_BDBEOYPCT <- xml_text( xml_find_all( doc, BDBEOYPCT ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CURYEAADMEXP
+## DESCRIPTION:  Administrative expenses
+## LOCATION:  SCHED-D-PART-05-LINE-1f
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYear/AdministrativeExpenses'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYEndwmtFundGrp/AdministrativeExpensesAmt'
+V3 <- '//Return/ReturnData/IRS990ScheduleD/Form990ScheduleDPartV/CurrentYear/AdministrativeExpenses'
+CURYEAADMEXP <- paste( V1, V2, V3 , sep='|' )
+SD_05_PC_CURYEAADMEXP <- xml_text( xml_find_all( doc, CURYEAADMEXP ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CUYEBEOFYEBA
+## DESCRIPTION:  Beginning of year balance
+## LOCATION:  SCHED-D-PART-05-LINE-1a
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYear/AdministrativeExpenses'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYEndwmtFundGrp/BeginningYearBalanceAmt'
+V3 <- '//Return/ReturnData/IRS990ScheduleD/Form990ScheduleDPartV/CurrentYear/BeginningOfYearBalance'
+CUYEBEOFYEBA <- paste( V1, V2, V3 , sep='|' )
+SD_05_PC_CUYEBEOFYEBA <- xml_text( xml_find_all( doc, CUYEBEOFYEBA ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CURRYEARCONT
+## DESCRIPTION:  Current Year - Contributions
+## LOCATION:  SCHED-D-PART-05-LINE-1b
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYear/Contributions'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYEndwmtFundGrp/ContributionsAmt'
+V3 <- '//Return/ReturnData/IRS990ScheduleD/Form990ScheduleDPartV/CurrentYear/Contributions'
+CURRYEARCONT <- paste( V1, V2, V3 , sep='|' )
+SD_05_PC_CURRYEARCONT <- xml_text( xml_find_all( doc, CURRYEARCONT ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CUYEENOFYEBA
+## DESCRIPTION:  End of year balance
+## LOCATION:  SCHED-D-PART-05-LINE-1g
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYear/EndOfYearBalance'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYEndwmtFundGrp/EndYearBalanceAmt'
+V3 <- '//Return/ReturnData/IRS990ScheduleD/Form990ScheduleDPartV/CurrentYear/EndOfYearBalance'
+CUYEENOFYEBA <- paste( V1, V2, V3 , sep='|' )
+SD_05_PC_CUYEENOFYEBA <- xml_text( xml_find_all( doc, CUYEENOFYEBA ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CUYEGRORSCCH
+## DESCRIPTION:  Grants or scholarships
+## LOCATION:  SCHED-D-PART-05-LINE-1d
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYear/GrantsOrScholarships'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYEndwmtFundGrp/GrantsOrScholarshipsAmt'
+V3 <- '//Return/ReturnData/IRS990ScheduleD/Form990ScheduleDPartV/CurrentYear/GrantsOrScholarships'
+CUYEGRORSCCH <- paste( V1, V2, V3 , sep='|' )
+SD_05_PC_CUYEGRORSCCH <- xml_text( xml_find_all( doc, CUYEGRORSCCH ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CUYEINEAORLO
+## DESCRIPTION:  Investment earnings or losses
+## LOCATION:  SCHED-D-PART-05-LINE-1c
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYear/InvestmentEarningsOrLosses'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYEndwmtFundGrp/InvestmentEarningsOrLossesAmt'
+V3 <- '//Return/ReturnData/IRS990ScheduleD/Form990ScheduleDPartV/CurrentYear/InvestmentEarningsOrLosses'
+CUYEINEAORLO <- paste( V1, V2, V3 , sep='|' )
+SD_05_PC_CUYEINEAORLO <- xml_text( xml_find_all( doc, CUYEINEAORLO ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CURYEAOTHEXP
+## DESCRIPTION:  Other expenditures
+## LOCATION:  SCHED-D-PART-05-LINE-1e
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYear/OtherExpenditures'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYEndwmtFundGrp/OtherExpendituresAmt'
+V3 <- '//Return/ReturnData/IRS990ScheduleD/Form990ScheduleDPartV/CurrentYear/OtherExpenditures'
+CURYEAOTHEXP <- paste( V1, V2, V3 , sep='|' )
+SD_05_PC_CURYEAOTHEXP <- xml_text( xml_find_all( doc, CURYEAOTHEXP ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CUYEMIYEADEX1
+## DESCRIPTION:  Administrative expenses
+## LOCATION:  SCHED-D-PART-05-LINE-1f
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus1Year/AdministrativeExpenses'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus1YrEndwmtFundGrp/AdministrativeExpensesAmt'
+CUYEMIYEADEX1 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CUYEMIYEADEX1 <- xml_text( xml_find_all( doc, CUYEMIYEADEX1 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CYMYBOYBALAN1
+## DESCRIPTION:  Beginning of year balance
+## LOCATION:  SCHED-D-PART-05-LINE-1a
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus1Year/BeginningOfYearBalance'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus1YrEndwmtFundGrp/BeginningYearBalanceAmt'
+CYMYBOYBALAN1 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CYMYBOYBALAN1 <- xml_text( xml_find_all( doc, CYMYBOYBALAN1 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CUYEMIYECOON1
+## DESCRIPTION:  Current Year Minus1 Year - Contributions
+## LOCATION:  SCHED-D-PART-05-LINE-1b
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus1Year/Contributions'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus1YrEndwmtFundGrp/ContributionsAmt'
+CUYEMIYECOON1 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CUYEMIYECOON1 <- xml_text( xml_find_all( doc, CUYEMIYECOON1 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CYMYEOYBALAN1
+## DESCRIPTION:  End of year balance
+## LOCATION:  SCHED-D-PART-05-LINE-1g
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus1Year/EndOfYearBalance'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus1YrEndwmtFundGrp/EndYearBalanceAmt'
+CYMYEOYBALAN1 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CYMYEOYBALAN1 <- xml_text( xml_find_all( doc, CYMYEOYBALAN1 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CYMYGOSCHOLA1
+## DESCRIPTION:  Grants or scholarships
+## LOCATION:  SCHED-D-PART-05-LINE-1d
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus1Year/GrantsOrScholarships'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus1YrEndwmtFundGrp/GrantsOrScholarshipsAmt'
+CYMYGOSCHOLA1 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CYMYGOSCHOLA1 <- xml_text( xml_find_all( doc, CYMYGOSCHOLA1 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CYMYIEOLOSSE1
+## DESCRIPTION:  Investment earnings or losses
+## LOCATION:  SCHED-D-PART-05-LINE-1c
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus1Year/InvestmentEarningsOrLosses'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus1YrEndwmtFundGrp/InvestmentEarningsOrLossesAmt'
+CYMYIEOLOSSE1 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CYMYIEOLOSSE1 <- xml_text( xml_find_all( doc, CYMYIEOLOSSE1 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CUYEMIYEOTEX1
+## DESCRIPTION:  Other expenditures
+## LOCATION:  SCHED-D-PART-05-LINE-1e
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus1Year/OtherExpenditures'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus1YrEndwmtFundGrp/OtherExpendituresAmt'
+CUYEMIYEOTEX1 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CUYEMIYEOTEX1 <- xml_text( xml_find_all( doc, CUYEMIYEOTEX1 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CUYEMIYEADEX2
+## DESCRIPTION:  Administrative expenses
+## LOCATION:  SCHED-D-PART-05-LINE-1f
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus2Years/AdministrativeExpenses'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus2YrEndwmtFundGrp/AdministrativeExpensesAmt'
+CUYEMIYEADEX2 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CUYEMIYEADEX2 <- xml_text( xml_find_all( doc, CUYEMIYEADEX2 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CYMYBOYBALAN2
+## DESCRIPTION:  Beginning of year balance
+## LOCATION:  SCHED-D-PART-05-LINE-1a
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus2Years/BeginningOfYearBalance'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus2YrEndwmtFundGrp/BeginningYearBalanceAmt'
+CYMYBOYBALAN2 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CYMYBOYBALAN2 <- xml_text( xml_find_all( doc, CYMYBOYBALAN2 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CUYEMIYECOON2
+## DESCRIPTION:  Current Year Minus2 Years - Contributions
+## LOCATION:  SCHED-D-PART-05-LINE-1b
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus2Years/Contributions'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus2YrEndwmtFundGrp/ContributionsAmt'
+CUYEMIYECOON2 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CUYEMIYECOON2 <- xml_text( xml_find_all( doc, CUYEMIYECOON2 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CYMYEOYBALAN2
+## DESCRIPTION:  End of year balance
+## LOCATION:  SCHED-D-PART-05-LINE-1g
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus2Years/EndOfYearBalance'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus2YrEndwmtFundGrp/EndYearBalanceAmt'
+CYMYEOYBALAN2 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CYMYEOYBALAN2 <- xml_text( xml_find_all( doc, CYMYEOYBALAN2 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CYMYGOSCHOLA2
+## DESCRIPTION:  Grants or scholarships
+## LOCATION:  SCHED-D-PART-05-LINE-1d
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus2Years/GrantsOrScholarships'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus2YrEndwmtFundGrp/GrantsOrScholarshipsAmt'
+CYMYGOSCHOLA2 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CYMYGOSCHOLA2 <- xml_text( xml_find_all( doc, CYMYGOSCHOLA2 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CYMYIEOLOSSE2
+## DESCRIPTION:  Investment earnings or losses
+## LOCATION:  SCHED-D-PART-05-LINE-1c
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus2Years/InvestmentEarningsOrLosses'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus2YrEndwmtFundGrp/InvestmentEarningsOrLossesAmt'
+CYMYIEOLOSSE2 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CYMYIEOLOSSE2 <- xml_text( xml_find_all( doc, CYMYIEOLOSSE2 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CUYEMIYEOTEX2
+## DESCRIPTION:  Other expenditures
+## LOCATION:  SCHED-D-PART-05-LINE-1e
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus2Years/OtherExpenditures'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus2YrEndwmtFundGrp/OtherExpendituresAmt'
+CUYEMIYEOTEX2 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CUYEMIYEOTEX2 <- xml_text( xml_find_all( doc, CUYEMIYEOTEX2 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CUYEMIYEADEX3
+## DESCRIPTION:  Administrative expenses
+## LOCATION:  SCHED-D-PART-05-LINE-1f
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus3Years/AdministrativeExpenses'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus3YrEndwmtFundGrp/AdministrativeExpensesAmt'
+CUYEMIYEADEX3 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CUYEMIYEADEX3 <- xml_text( xml_find_all( doc, CUYEMIYEADEX3 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CYMYBOYBALAN3
+## DESCRIPTION:  Beginning of year balance
+## LOCATION:  SCHED-D-PART-05-LINE-1a
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus3Years/BeginningOfYearBalance'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus3YrEndwmtFundGrp/BeginningYearBalanceAmt'
+CYMYBOYBALAN3 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CYMYBOYBALAN3 <- xml_text( xml_find_all( doc, CYMYBOYBALAN3 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CUYEMIYECOON3
+## DESCRIPTION:  Current Year Minus3 Years - Contributions
+## LOCATION:  SCHED-D-PART-05-LINE-1b
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus3Years/Contributions'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus3YrEndwmtFundGrp/ContributionsAmt'
+CUYEMIYECOON3 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CUYEMIYECOON3 <- xml_text( xml_find_all( doc, CUYEMIYECOON3 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CYMYEOYBALAN3
+## DESCRIPTION:  End of year balance
+## LOCATION:  SCHED-D-PART-05-LINE-1g
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus3Years/EndOfYearBalance'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus3YrEndwmtFundGrp/EndYearBalanceAmt'
+CYMYEOYBALAN3 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CYMYEOYBALAN3 <- xml_text( xml_find_all( doc, CYMYEOYBALAN3 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CYMYGOSCHOLA3
+## DESCRIPTION:  Grants or scholarships
+## LOCATION:  SCHED-D-PART-05-LINE-1d
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus3Years/GrantsOrScholarships'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus3YrEndwmtFundGrp/GrantsOrScholarshipsAmt'
+CYMYGOSCHOLA3 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CYMYGOSCHOLA3 <- xml_text( xml_find_all( doc, CYMYGOSCHOLA3 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CYMYIEOLOSSE3
+## DESCRIPTION:  Investment earnings or losses
+## LOCATION:  SCHED-D-PART-05-LINE-1c
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus3Years/InvestmentEarningsOrLosses'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus3YrEndwmtFundGrp/InvestmentEarningsOrLossesAmt'
+CYMYIEOLOSSE3 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CYMYIEOLOSSE3 <- xml_text( xml_find_all( doc, CYMYIEOLOSSE3 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CUYEMIYEOTEX3
+## DESCRIPTION:  Other expenditures
+## LOCATION:  SCHED-D-PART-05-LINE-1e
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus3Years/OtherExpenditures'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus3YrEndwmtFundGrp/OtherExpendituresAmt'
+CUYEMIYEOTEX3 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CUYEMIYEOTEX3 <- xml_text( xml_find_all( doc, CUYEMIYEOTEX3 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CUYEMIYEADEX4
+## DESCRIPTION:  Administrative expenses
+## LOCATION:  SCHED-D-PART-05-LINE-1f
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus4Years/AdministrativeExpenses'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus4YrEndwmtFundGrp/AdministrativeExpensesAmt'
+CUYEMIYEADEX4 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CUYEMIYEADEX4 <- xml_text( xml_find_all( doc, CUYEMIYEADEX4 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CYMYBOYBALAN4
+## DESCRIPTION:  Beginning of year balance
+## LOCATION:  SCHED-D-PART-05-LINE-1a
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus4Years/BeginningOfYearBalance'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus4YrEndwmtFundGrp/BeginningYearBalanceAmt'
+CYMYBOYBALAN4 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CYMYBOYBALAN4 <- xml_text( xml_find_all( doc, CYMYBOYBALAN4 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CUYEMIYECOON4
+## DESCRIPTION:  Current Year Minus4 Years - Contributions
+## LOCATION:  SCHED-D-PART-05-LINE-1b
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus4Years/Contributions'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus4YrEndwmtFundGrp/ContributionsAmt'
+CUYEMIYECOON4 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CUYEMIYECOON4 <- xml_text( xml_find_all( doc, CUYEMIYECOON4 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CYMYEOYBALAN4
+## DESCRIPTION:  End of year balance
+## LOCATION:  SCHED-D-PART-05-LINE-1g
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus4Years/EndOfYearBalance'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus4YrEndwmtFundGrp/EndYearBalanceAmt'
+CYMYEOYBALAN4 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CYMYEOYBALAN4 <- xml_text( xml_find_all( doc, CYMYEOYBALAN4 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CYMYGOSCHOLA4
+## DESCRIPTION:  Grants or scholarships
+## LOCATION:  SCHED-D-PART-05-LINE-1d
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus4Years/GrantsOrScholarships'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus4YrEndwmtFundGrp/GrantsOrScholarshipsAmt'
+CYMYGOSCHOLA4 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CYMYGOSCHOLA4 <- xml_text( xml_find_all( doc, CYMYGOSCHOLA4 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CYMYIEOLOSSE4
+## DESCRIPTION:  Investment earnings or losses
+## LOCATION:  SCHED-D-PART-05-LINE-1c
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus4Years/InvestmentEarningsOrLosses'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus4YrEndwmtFundGrp/InvestmentEarningsOrLossesAmt'
+CYMYIEOLOSSE4 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CYMYIEOLOSSE4 <- xml_text( xml_find_all( doc, CYMYIEOLOSSE4 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_CUYEMIYEOTEX4
+## DESCRIPTION:  Other expenditures
+## LOCATION:  SCHED-D-PART-05-LINE-1e
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/CurrentYearMinus4Years/OtherExpenditures'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/CYMinus4YrEndwmtFundGrp/OtherExpendituresAmt'
+CUYEMIYEOTEX4 <- paste( V1, V2 , sep='|' )
+SD_05_PC_CUYEMIYEOTEX4 <- xml_text( xml_find_all( doc, CUYEMIYEOTEX4 ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_ENHEBYREORRG
+## DESCRIPTION:  Endowments held by related organizations?
+## LOCATION:  SCHED-D-PART-05-LINE-3a
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  checkbox
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/EndowmentsHeldByRelatedOrgs'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/EndowmentsHeldRelatedOrgInd'
+V3 <- '//Return/ReturnData/IRS990ScheduleD/Form990ScheduleDPartV/EndowmentsHeldByRelatedOrgs'
+ENHEBYREORRG <- paste( V1, V2, V3 , sep='|' )
+SD_05_PC_ENHEBYREORRG <- xml_text( xml_find_all( doc, ENHEBYREORRG ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_ENHEBYUNORRG
+## DESCRIPTION:  Endowments held by unrelated organizations?
+## LOCATION:  SCHED-D-PART-05-LINE-3a
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  checkbox
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/EndowmentsHeldByUnrelatedOrgs'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/EndowmentsHeldUnrelatedOrgInd'
+V3 <- '//Return/ReturnData/IRS990ScheduleD/Form990ScheduleDPartV/EndowmentsHeldByUnrelatedOrgs'
+ENHEBYUNORRG <- paste( V1, V2, V3 , sep='|' )
+SD_05_PC_ENHEBYUNORRG <- xml_text( xml_find_all( doc, ENHEBYUNORRG ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_PEENEOOYYBBA
+## DESCRIPTION:  Permanent endowment EOY balance
+## LOCATION:  SCHED-D-PART-05-LINE-2b
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/Form990ScheduleDPartV/PermanentEndowmentEOYBalance'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/PermanentEndowmentEOYBalance'
+V3 <- '//Return/ReturnData/IRS990ScheduleD/PrmnntEndowmentBalanceEOYPct'
+PEENEOOYYBBA <- paste( V1, V2, V3 , sep='|' )
+SD_05_PC_PEENEOOYYBBA <- xml_text( xml_find_all( doc, PEENEOOYYBBA ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_TEENEOOYYBBA
+## DESCRIPTION:  Term endowment EOY balance
+## LOCATION:  SCHED-D-PART-05-LINE-2c
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+V1 <- '//Return/ReturnData/IRS990ScheduleD/Form990ScheduleDPartV/TermEndowmentEOYBalance'
+V2 <- '//Return/ReturnData/IRS990ScheduleD/TermEndowmentEOYBalance'
+TEENEOOYYBBA <- paste( V1, V2 , sep='|' )
+SD_05_PC_TEENEOOYYBBA <- xml_text( xml_find_all( doc, TEENEOOYYBBA ) )
+
+
+
+
+
+## VARIABLE NAME:  SD_05_PC_TEBEOYPCT
+## DESCRIPTION:  Term endowment EOY balance
+## LOCATION:  SCHED-D-PART-05-LINE-2c
+## TABLE:  SD-P05-T00-ENDOWMENT
+## VARIABLE TYPE:  numeric
+
+SD_05_PC_TEBEOYPCT <- xml_text( xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleD/TermEndowmentBalanceEOYPct' ) )
+
+
+
+
+
+namedList <- function(...){
+      names <- as.list(substitute(list(...)))[-1L]
+      result <- list(...)
+      names(result) <- names
+      result[sapply(result, function(x){length(x)==0})] <- NA
+      result[sapply(result, is.null)] <- NA
+      result
+  }
+
+d <- namedList( NAME, EIN, TAXYR, FORMTYPE, OBJECTID, URL, SD_05_PC_ARREORLISCR, SD_05_PC_BDBEOYPCT, SD_05_PC_CURYEAADMEXP, SD_05_PC_CUYEBEOFYEBA, SD_05_PC_CURRYEARCONT, SD_05_PC_CUYEENOFYEBA, SD_05_PC_CUYEGRORSCCH, SD_05_PC_CUYEINEAORLO, SD_05_PC_CURYEAOTHEXP, SD_05_PC_CUYEMIYEADEX1, SD_05_PC_CYMYBOYBALAN1, SD_05_PC_CUYEMIYECOON1, SD_05_PC_CYMYEOYBALAN1, SD_05_PC_CYMYGOSCHOLA1, SD_05_PC_CYMYIEOLOSSE1, SD_05_PC_CUYEMIYEOTEX1, SD_05_PC_CUYEMIYEADEX2, SD_05_PC_CYMYBOYBALAN2, SD_05_PC_CUYEMIYECOON2, SD_05_PC_CYMYEOYBALAN2, SD_05_PC_CYMYGOSCHOLA2, SD_05_PC_CYMYIEOLOSSE2, SD_05_PC_CUYEMIYEOTEX2, SD_05_PC_CUYEMIYEADEX3, SD_05_PC_CYMYBOYBALAN3, SD_05_PC_CUYEMIYECOON3, SD_05_PC_CYMYEOYBALAN3, SD_05_PC_CYMYGOSCHOLA3, SD_05_PC_CYMYIEOLOSSE3, SD_05_PC_CUYEMIYEOTEX3, SD_05_PC_CUYEMIYEADEX4, SD_05_PC_CYMYBOYBALAN4, SD_05_PC_CUYEMIYECOON4, SD_05_PC_CYMYEOYBALAN4, SD_05_PC_CYMYGOSCHOLA4, SD_05_PC_CYMYIEOLOSSE4, SD_05_PC_CUYEMIYEOTEX4, SD_05_PC_ENHEBYREORRG, SD_05_PC_ENHEBYUNORRG, SD_05_PC_PEENEOOYYBBA, SD_05_PC_TEENEOOYYBBA, SD_05_PC_TEBEOYPCT )
+
+return( d )
+
+
+}
+```
+
+
+
+
+## Helper Functions
+
+```{r}
+get_object_id <- function( url )
+{
+    object.id <- gsub( "https://s3.amazonaws.com/irs-form-990/", "", url )
+    object.id <- gsub( "_public.xml", "", object.id )
+    return( object.id )
+}
+```
+
+
+
+# Test Build Function
+
+
+```{r}
+# i grabbed a couple that i know have data
+V1 <- "https://s3.amazonaws.com/irs-form-990/201700619349300840_public.xml"
+V2 <- "https://s3.amazonaws.com/irs-form-990/201710539349301106_public.xml"
+
+doc <- read_xml( V1 ) %>% xml_ns_strip()
+buildFUNCTION( doc, url=V1 )
+
+doc <- read_xml( V2 ) %>% xml_ns_strip()
+buildFUNCTION( doc, url=V2 )
+```
+
+
+
+# Put it in a Loop
+
+We know these are Sched D filers already:
+
+```{r, echo=T}
+orgs <- 
+c(
+"https://s3.amazonaws.com/irs-form-990/201700619349300840_public.xml",
+"https://s3.amazonaws.com/irs-form-990/201710539349301106_public.xml",
+"https://s3.amazonaws.com/irs-form-990/201710889349301316_public.xml",
+"https://s3.amazonaws.com/irs-form-990/201710869349300111_public.xml",
+"https://s3.amazonaws.com/irs-form-990/201730459349301343_public.xml",
+"https://s3.amazonaws.com/irs-form-990/201700589349300410_public.xml"
+)
+```
+
+
+```{r}
+buildSchedDPartV <- function( urls )
+{
+  
+  library( dplyr )
+  library( xml2 ) 
+  
+  # List of URLS to scrape
+  
+  these <- urls
+  
+  sd.part.v <- NULL
+  
+  for( i in 1:length(these) )
+  {
+     url.i <- these[i]
+     doc.i <- read_xml( url.i ) %>% xml_ns_strip()
+     
+     num.nodes <- doc.i %>% xml_find_all( '//Return/ReturnData/IRS990ScheduleD/*' ) %>% length()
+     if( num.nodes > 0 )
+     {
+       one.npo <- buildFUNCTION( doc=doc.i, url=url.i )
+       sd.part.v <- bind_rows( sd.part.v, one.npo )
+     }
+
+  }
+  
+  return( as.data.frame( sd.part.v ) )
+
+}
+```
+
+
+```{r}
+dat.sd.p5 <- buildSchedDPartV( orgs )
+```
+
+
+
+
+## Try larger sample
+
+Most are not Sched D filers. Return dataset will be small. 
+
+Note the SCHEDD logical flag on the EFILE CORE is incorrect, but some of these will still work.
+
+
+```{r, eval=F}
+# 2016 EFILE CORE
+dat <- readRDS( gzcon( url( "https://www.dropbox.com/s/4ptsnryf64vkqlg/2016-EFILE-CORE.rds?dl=1" ) ) )
+d.sched.d <- dat[ dat$SCHEDD , ]
+orgs <- head( d.sched.d$URL, 1000 )
+```
+
+Note run:
+
+```{r, eval=F}
+dat.sd.p5 <- buildSchedDPartV( orgs )
+```
+
+I added this line to check whether they have any SCHED D fields in their return, otherwise skip:
+
+```{r, eval=F}
+num.nodes <- doc.i %>% xml_find_all( '//Return/ReturnData/IRS990ScheduleD/*' ) %>% length()
+if( num.nodes > 0 )
+{
+ one.npo <- buildFUNCTION( doc=doc.i, url=url.i )
+ sd.part.v <- bind_rows( sd.part.v, one.npo )
+}
+```
+
+
+
+
+# Build Full Dataset
+
+Example code - I have not tested it! 
+
+```{r, eval=F}
+library( xmltools )
+library( purrr )
+library( xml2 )
+library( dplyr )
+
+source( "source_me.R" )
+
+index <- buildIndex()
+
+dir.create( "BUILD" )
+setwd( "./BUILD" )
+
+
+
+
+### BUILD ONE YEAR
+# split full year into 1000 parts
+
+buildYear <- function ( year, index=NULL )
+{
+
+	if( is.null(index) ){ index <- buildIndex() }
+
+	dir.create( as.character(year) )
+	setwd( paste( "./", year, sep="" ) )
+
+	# create list of failed xml doc urls
+	write.table( index[NULL,], file="FAIL_LIST.csv", sep=",", append=F, col.names=T, row.names=F ) 
+	
+	
+	dd <- index[ index$TaxYear == year & index$FormType %in% c("990","990EZ") , ]
+
+	nrow( dd )  
+
+	# build in 100 small increments and save to file
+
+	num.breaks <- round( (nrow(dd)/1000), 0 )
+
+	breaks <- round( seq( from = 0, to = nrow(dd), length.out = num.breaks ), 0 )
+
+	file.name <- paste( year, "-build.txt", sep="" )
+	zz <- file( file.name, open = "wt" )
+	sink( zz, split=T )
+	sink( zz, type = "message", append=TRUE )
+	
+	print( paste( "There are", length(breaks), "loops." ) )
+
+	redo.these <- 1:num.breaks
+	
+	df.list <- NULL
+
+	for( i in 1:num.breaks )
+	{
+	   loop <- formatC( i, width = 3, format = "d", flag = "0" )
+	   print( paste( "Loop-", loop, ": ", format(Sys.time(), "%b %d %X"), sep="" ) )
+	   d.sub <- dd[ (breaks[i]+1):( breaks[i+1] ) , ]
+
+	   try( {
+
+		    df.list[[i]] <- buildSchedDPartV( d.sub$URL )
+		    redo.these[i] <- NA
+
+	   } )
+
+
+
+	}
+
+  df <- bind_rows( df.list )
+  
+  time <- format(Sys.time(), "%b-%d-%Y-%Hh-%Mm")
+  saveRDS( df, paste0( year, "-SCHED-D-PART-V ", time, ".rds" ) )
+  write.csv( df, paste0( year, "-SCHED-D-PART-V ", time, ".csv" ) )
+  
+	redo.these
+
+	sink(type = "message")
+
+	sink() # close sink
+	close(zz)
+	file.show( file.name )
+
+	savehistory( file=paste( year, "-build.Rhistory", sep="" ) )
+	
+	return( df )
+
+}
+```
+
+```{r, eval=F}
+dat.sd.p5.2009 <- buildYear( year=2009, index=index )
+setwd( ".." )
+getwd()  # should be back to BUILD
+```
+
+
