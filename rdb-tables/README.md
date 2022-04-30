@@ -91,7 +91,7 @@ for( i in 1:length(test.urls) )
 }
 
 
-df <- bind_rows( results.list )
+df <- dplyr::bind_rows( results.list )
 
 write.csv( df, paste0( table.name, ".csv"), row.names=F )
 ```
