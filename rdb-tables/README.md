@@ -16,6 +16,12 @@ If you are examining tables in Schedules, a random sample of 25 orgs might not w
 
 * [list of schedules filed by museums](https://www.dropbox.com/s/mqui4j9ke2isuqm/SCHEDULES.csv?dl=0)  
 
+```r
+index <- read.csv( "SCHEDULES.csv" )
+index.b <- dplyr::filter( index, SCHEDB )
+sample.b <- dplyr::sample_n( index.b, 25 )
+```
+
 [RDB Functions](https://github.com/Nonprofit-Open-Data-Collective/irs990efile/blob/main/R/rdb-functions-v2.R)
 
 * find_group_names() searches for parent nodes of the table.  
