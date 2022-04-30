@@ -2,9 +2,9 @@
 
 Ignore all one-to-one tables (T00 or T99).  
 
-Test and validate rdb-build() functions for all one-to-many tables (bolded): 
+Test and validate rdb-build() functions for all one-to-many tables (bolded below): 
 * Create a sample of 25 organizations and try building each RDB table for the sample. 
-* Save your sample so that we can replicate problems you might encounter.
+* Save your sample so that we can replicate problems you might encounter (see dput() in the script below).
 * If the functions work, inspect the table to validate results by comparing values in the table to values reported on the 990 forms. 
   - Start from the bottom of the table - you are more likely to detect row noncongruence at the bottom. 
   - You can compare against the raw XML form or by looking up the return on [ProPublica's Nonprofit Explorer](https://projects.propublica.org/nonprofits/advanced_search). 
