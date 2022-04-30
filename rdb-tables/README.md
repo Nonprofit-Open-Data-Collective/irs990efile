@@ -82,11 +82,14 @@ write.csv( df, paste0( table.name, ".csv", row.names=F )
 
 These examples are using older code so the functions will not be identical, but it shows how to map XML table structures if the default build_rdb_table() is not working. 
 
-* [Schedule C](https://nonprofit-open-data-collective.github.io/irs990efile/rdb-tables/sched-c-rdb-tables-v3.html) 
-* [Schedule D Part V](https://nonprofit-open-data-collective.github.io/irs990efile/rdb-tables/sched-d-part-v.html)   
+* [Schedule C](https://nonprofit-open-data-collective.github.io/irs990efile/rdb-tables/sched-c-rdb-tables-v3.html)   
 * [Schedule H Table 1](https://nonprofit-open-data-collective.github.io/irs990efile/rdb-tables/schedule-h-rdb-table-01.html) 
 * [Schedule H Table 3](https://nonprofit-open-data-collective.github.io/irs990efile/rdb-tables/schedule-h-rdb-table-03.html)   
 * [More Schedule H](https://nonprofit-open-data-collective.github.io/irs990efile/rdb-tables/sched-h-rdb-tables.html)  
+
+Example of a fairly well-structured table where Section527PoliticalOrgGroup is the parent node for the table or the "group name" from find_group_names(). 
+
+![](xml-table.png)
 
 
 ## Nachiket
