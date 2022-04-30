@@ -104,6 +104,12 @@ Example of a fairly well-structured table where Section527PoliticalOrgGroup is t
 ![](xml-table.png)
 
 
+
+# TABLES
+
+[Data Dictionary](https://nonprofit-open-data-collective.github.io/irs990efile/data-dictionary/data-dictionary.html#f990-part-09-table-00-expenses) 
+
+
 ## Nachiket
 
   [1] "F9-P00-T00-HEADER"                             
