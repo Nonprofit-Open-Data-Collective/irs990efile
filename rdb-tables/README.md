@@ -20,7 +20,7 @@ If you are examining tables in Schedules, a random sample of 25 orgs might not w
 index <- read.csv( "SCHEDULES.csv" )
 index.b <- dplyr::filter( index, SCHEDB )
 sample.b <- dplyr::sample_n( index.b, 25 )
-dput( sample.b )  # record so it can be replicated 
+dput( sample.b )  # save this so results can be replicated 
 
 test.urls <- sample.b$URL
 ```
