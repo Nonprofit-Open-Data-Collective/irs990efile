@@ -8,8 +8,13 @@ Test and validate rdb-build() functions for all one-to-many tables (bolded below
 * If the functions work, inspect the table to validate results by comparing values in the table to values reported on the 990 forms. 
   - Start from the bottom of the table - you are more likely to detect row noncongruence at the bottom. 
   - You can compare against the raw XML form or by looking up the return on [ProPublica's Nonprofit Explorer](https://projects.propublica.org/nonprofits/advanced_search). 
+  - Spot check 3-5 organizations in the table. 
 * If the table appears to be fine save the table as a CSV in this folder and add a checkmark [X] beside the table name below. 
 * If there are errors or you find issues with the data make a note beside the table below and create a new R script with the tables name and your code that reproduces the error. 
+
+If you are examining tables in Schedules, a random sample of 25 orgs might not work because there are only a couple of schedules that are regularly required. Instead, you can use this table of schedules to identify museums that have filed a specific schedule and sample from that. Schedule H is specific to hospitals and Schedule E is specific to schools so you likely won't have any of those cases: 
+
+* [list of schedules filed by museums](https://www.dropbox.com/s/mqui4j9ke2isuqm/SCHEDULES.csv?dl=0)  
 
 [RDB Functions](https://github.com/Nonprofit-Open-Data-Collective/irs990efile/blob/main/R/rdb-functions-v2.R)
 
