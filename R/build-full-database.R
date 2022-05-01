@@ -57,15 +57,15 @@ build_database <- function( index=NULL, years=NULL )
     groups <- split_index( index.i, group.size = 1000 )
     print( paste0( "There are ", length(groups), " groups being sent for parallel collection." ) )
   
-    dir.create( i )
-    setwd( i )
+    dir.create( as.character(i) )
+    setwd( as.character(i) )
     start_time <- Sys.time()
     failed.urls <- build_tables_parallel( groups=groups, year=i )
     end_time <- Sys.time()
     setwd( ".." )
   
     print( paste0( "There were ", length(failed.urls), " failed URLS" ) )
-    print( paste0( "Time for the ", i, " loop (minutes): ", end_time - start_time ) )
+    print( paste0( "Time for the ", i, " loop (minutes): ", round( end_time - start_time, 2 ) ) )
     print( paste0( "###########################\n###########################\n###########################\n" ) )
     saveRDS( failed.urls, paste0("FAILED-URLS-", i, ".rds") )
   
