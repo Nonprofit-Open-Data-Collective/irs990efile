@@ -30,7 +30,7 @@ build_database <- function( index=NULL, years=NULL )
   index <- dplyr::filter( index, FormType %in% c("990","990EZ") )
   
   if( is.null(years) )
-  { years <- unique( index$TaxYear ) }
+  { years <- sort(unique( index$TaxYear )) }
   index <- dplyr::filter( index, TaxYear %in% years )
   saveRDS( index, "build-index.rds" )
   
