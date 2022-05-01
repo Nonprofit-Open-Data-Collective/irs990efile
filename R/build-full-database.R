@@ -74,7 +74,7 @@ build_database <- function( index=NULL, years=NULL )
 
   bind_data( years=years )
 
-  savehistory( "build-history.Rhistory") )
+  savehistory( "build-history.Rhistory" ) 
   
   return( NULL )
 
