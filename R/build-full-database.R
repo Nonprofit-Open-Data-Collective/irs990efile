@@ -64,13 +64,15 @@ build_database <- function( index=NULL, years=NULL )
     end_time <- Sys.time()
     setwd( ".." )
   
-    print( paste0( "There were ", length(failed.urls), " failed URLS/n/n" ) )
-    print( paste0( "Time for the ", i, " loop: ", end_time - start_time ) )
+    print( paste0( "There were ", length(failed.urls), " failed URLS" ) )
+    print( paste0( "Time for the ", i, " loop (minutes): ", end_time - start_time ) )
+    print( paste0( "###########################\n###########################\n###########################\n" ) )
     saveRDS( failed.urls, paste0("FAILED-URLS-", i, ".rds") )
   
     sink(type = "message")
-  	sink() # close sink
-	  close(zz)
+    sink() # close sink
+    close(zz)
+    file.show( file.name ) 
   }
 
   print( paste0( "DATABASE BUILD FINISH TIME: ", Sys.time() ) )
