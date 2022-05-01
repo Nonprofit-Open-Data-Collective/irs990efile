@@ -73,7 +73,7 @@ build_database <- function( index=NULL, years=NULL )
     sink(type = "message")
     sink() # close sink
     close(zz)
-    file.show( file.name ) 
+    # file.show( file.name ) 
   }
 
   print( paste0( "DATABASE BUILD FINISH TIME: ", Sys.time() ) )
