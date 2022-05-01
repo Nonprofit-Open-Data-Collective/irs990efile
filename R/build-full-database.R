@@ -60,7 +60,7 @@ build_database <- function( index=NULL, years=NULL )
     dir.create( i )
     setwd( i )
     start_time <- Sys.time()
-    failed.urls <- build_tables_parallel( groups=groups, year=i, cores=8 )
+    failed.urls <- build_tables_parallel( groups=groups, year=i )
     end_time <- Sys.time()
     setwd( ".." )
   
