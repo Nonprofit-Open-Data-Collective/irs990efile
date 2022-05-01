@@ -66,7 +66,7 @@ build_database <- function( index=NULL, years=NULL )
   
     print( paste0( "There were ", length(failed.urls), " failed URLS/n/n" ) )
     print( paste0( "Time for the ", i, " loop: ", end_time - start_time ) )
-    save( failed.urls, file="FAILED-URLS-", i, ".rd"
+    saveRDS( failed.urls, paste0("FAILED-URLS-", i, ".rds") )
   
   }
 
