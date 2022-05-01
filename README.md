@@ -54,6 +54,11 @@ build_tables( url=index.2018$URL, year=2018 )
 # get the full index from AWS (~4 million files)
 index <- build_index( years=2011:2021 )
 
+build_database( index )  # create tables for 990 and 990EZ filers 
+
+
+###  TEST SPECIFIC TABLES
+
 # split files into chunks of 1000 and build tables 
 years <- 2009:2020
 
