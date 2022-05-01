@@ -4,7 +4,7 @@
 \alias{build_tables_parallel}
 \title{some title text}
 \usage{
-build_tables_parallel(groups, cores, year, table.names = NULL)
+build_tables_parallel(groups, year, table.names = NULL)
 }
 \description{
 some description text
