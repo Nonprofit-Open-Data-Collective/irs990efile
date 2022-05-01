@@ -45,7 +45,7 @@ build_database <- function( index=NULL, years=NULL )
   for( i in years )
   {
     
-    file.name <- paste( "BUILD-LOG-, i, ".txt", sep="" )
+    file.name <- paste( "BUILD-LOG-", i, ".txt", sep="" )
     zz <- file( file.name, open = "wt" )
     sink( zz, split=T )
     sink( zz, type = "message", append=TRUE )
