@@ -34,7 +34,7 @@ build_database <- function( index=NULL, years=NULL )
   index <- dplyr::filter( index, TaxYear %in% years )
   saveRDS( index, "build-index.rds" )
   
-  print( paste0( "There are ", nrow(index) " returns in this build." ) )
+  print( paste0( "There are ", nrow(index), " returns in this build." ) )
   print( paste0( "Years: ", paste0( years, collapse=";" ) ) )
   
   print( paste0( "DATABASE BUILD START TIME: ", Sys.time() ) )
