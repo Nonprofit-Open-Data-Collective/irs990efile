@@ -66,7 +66,8 @@ build_database <- function( index=NULL, years=NULL )
   
     print( paste0( "There were ", length(failed.urls), " failed URLS" ) )
     print( paste0( "Time for the ", i, " loop (minutes): ", round( end_time - start_time, 2 ) ) )
-    print( paste0( "###########################\n###########################\n###########################\n" ) )
+    print( paste0( "###########################" ) )
+    print( paste0( "###########################" ) )
     saveRDS( failed.urls, paste0("FAILED-URLS-", i, ".rds") )
   
     sink(type = "message")
