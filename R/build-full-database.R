@@ -99,9 +99,11 @@ build_database <- function( index=NULL, years=NULL )
 #' @export
 bind_data <- function( years )
 {
+   dir.create( "COMPILED" )
+  
    for( i in years )
    {
-     setwd( i )
+     setwd( as.character(i) )
      file.names <- dir()
      
      # drop the dates from the end and combine years
@@ -127,8 +129,8 @@ bind_data <- function( years )
        # drop the -time from table name 
        j <- substr( j, 1, nchar(j)-5 )
      
-       write.csv( d, paste0( "../", i, "-", j, ".csv" ), row.names=F )
-       saveRDS(   d, paste0( "../", i, "-", j, ".rds") )
+       write.csv( d, paste0( "../COMPILED/", j, "-", i, ".csv" ), row.names=F )
+       saveRDS(   d, paste0( "../COMPILES/", j, "-", i, ".rds") )
        
      } # end j loop
      
