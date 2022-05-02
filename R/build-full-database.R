@@ -70,7 +70,7 @@ build_database <- function( index=NULL, years=NULL )
     setwd( ".." )
   
     print( paste0( "There were ", length(failed.urls), " failed URLS" ) )
-    print( paste0( "Time for the ", i, " loop (hours): ", round( difftime( end.time, start.time, units="hours" ), 2 ) ) )
+    print( paste0( "Time for the ", i, " loop: ", round( difftime( end.time, start.time, units="hours" ), 2 ), " hours" ) )
     print( paste0( "###########################" ) )
     print( paste0( "###########################" ) )
     
@@ -82,7 +82,7 @@ build_database <- function( index=NULL, years=NULL )
   
   end.build.time <- Sys.time()
   print( paste0( "DATABASE BUILD FINISH TIME: ", Sys.time() ) )
-  print( paste0( "TOTAL BUILD TIME: ", round( difftime( end.build.time, start.build.time, units="hours" ), 2 ) )
+  print( paste0( "TOTAL BUILD TIME: ", round( difftime( end.build.time, start.build.time, units="hours" ), 2 ), " HOURS" )
 
   sink(type = "message")
   sink()      # close sink
