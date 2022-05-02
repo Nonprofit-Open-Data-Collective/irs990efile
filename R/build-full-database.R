@@ -130,7 +130,7 @@ bind_data <- function( years )
        j <- substr( j, 1, nchar(j)-5 )
      
        write.csv( d, paste0( "../COMPILED/", j, "-", i, ".csv" ), row.names=F )
-       saveRDS(   d, paste0( "../COMPILES/", j, "-", i, ".rds") )
+       saveRDS(   d, paste0( "../COMPILED/", j, "-", i, ".rds") )
        
      } # end j loop
      
