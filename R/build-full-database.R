@@ -54,7 +54,7 @@ build_database <- function( index=NULL, years=NULL )
     index.i <- dplyr::filter( index, TaxYear == i )
     print( paste0( "There are ", nrow(index.i), " returns in ", i, "." ) )
   
-    groups <- split_index( index.i, group.size = 1000 )
+    groups <- split_index( index.i, group.size = 200 )
     print( paste0( "There are ", length(groups), " groups being sent for parallel collection." ) )
   
     dir.create( as.character(i) )
