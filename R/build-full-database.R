@@ -25,6 +25,8 @@
 build_database <- function( index=NULL, years=NULL )
 {
   
+  start.build.time <- Sys.time()
+  
   if( is.null(index) )
   { index <- build_index() }
   index <- dplyr::filter( index, FormType %in% c("990","990EZ") )
@@ -36,11 +38,9 @@ build_database <- function( index=NULL, years=NULL )
   
   print( paste0( "There are ", nrow(index), " returns in this build." ) )
   print( paste0( "Years: ", paste0( years, collapse=";" ) ) )
-  
   print( paste0( "DATABASE BUILD START TIME: ", Sys.time() ) )
-  
-  
-  redo.list <- list()
+  session.info <- sessionInfo()
+  dump( list="session.info", file="SESSION-INFO.R" )
   
   for( i in years )
   {
@@ -59,13 +59,13 @@ build_database <- function( index=NULL, years=NULL )
   
     dir.create( as.character(i) )
     setwd( as.character(i) )
-    start_time <- Sys.time()
+    start.time <- Sys.time()
     failed.urls <- build_tables_parallel( groups=groups, year=i )
-    end_time <- Sys.time()
+    end.time <- Sys.time()
     setwd( ".." )
   
     print( paste0( "There were ", length(failed.urls), " failed URLS" ) )
-    print( paste0( "Time for the ", i, " loop (minutes): ", round( end_time - start_time, 2 ) ) )
+    print( paste0( "Time for the ", i, " loop (minutes): ", round( end.time - start.time, 2 ) ) )
     print( paste0( "###########################" ) )
     print( paste0( "###########################" ) )
     saveRDS( failed.urls, paste0("FAILED-URLS-", i, ".rds") )
@@ -76,9 +76,11 @@ build_database <- function( index=NULL, years=NULL )
     # file.show( file.name ) 
   }
 
-  print( paste0( "DATABASE BUILD FINISH TIME: ", Sys.time() ) )
-
   bind_data( years=years )
+  
+  end.build.time <- Sys.time()
+  print( paste0( "DATABASE BUILD FINISH TIME: ", Sys.time() ) )
+  print( paste0( "TOTAL BUILD TIME: ", round(start.build.time-end.build.time,2) ) )
 
   savehistory( "build-history.Rhistory" ) 
   
