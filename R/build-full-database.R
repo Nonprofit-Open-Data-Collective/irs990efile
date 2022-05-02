@@ -38,6 +38,7 @@ build_database <- function( index=NULL, years=NULL )
   
   print( paste0( "There are ", nrow(index), " returns in this build." ) )
   print( paste0( "Years: ", paste0( years, collapse=";" ) ) )
+  print( paste0( "You have ", parallel::detectCores(), " cores available for parallel processing." ) )
   print( paste0( "DATABASE BUILD START TIME: ", Sys.time() ) )
   session.info <- sessionInfo()
   dump( list="session.info", file="SESSION-INFO.R" )
