@@ -47,20 +47,12 @@ setwd( "./EFILE" )
 build_tables( url=index.2018$URL, year=2018 )
 
 
-
-###   FULL DATABASE
-###   (this can take days) 
-
-# get the full index from AWS (~4 million files)
-index <- build_index( years=2011:2021 )
-
-build_database( index )  # create tables for 990 and 990EZ filers 
-
-
 ###  TEST SPECIFIC TABLES
 
+index <- tinyindex  # sample of 10000 cases
+
 # split files into chunks of 1000 and build tables 
-years <- 2009:2020
+years <- 2009:2019
 
 for( i in years )
 {
@@ -68,6 +60,15 @@ for( i in years )
   groups <- split_index( index.i, group.size = 1000 )
   build_tables_parallel( groups=groups, year=i, cores=8 )
 }
+
+
+
+###   FULL DATABASE
+###   (this can take days) 
+
+# build the full index from AWS (~4 million files)
+index <- build_index( years=2011:2021 )
+build_database( index ) 
 
 ```
 
