@@ -198,11 +198,11 @@ Example of a fairly well-structured table where Section527PoliticalOrgGroup is t
  [74] "SH-P01-T00-FAP-COMMUNITY-BENEFIT-POLICY"       
  [75] "SH-P02-T00-FAP-COMMUNITY-BENEFIT-POLICY"       
  [76] "SH-P03-T00-FAP-COMMUNITY-BENEFIT-POLICY"       
- **[77] "SH-P04-T01-COMPANY-JOINT-VENTURES"**             
- **[78] "SH-P05-T01-HOSPITAL-FACILITY"**                  
+ **[77] "SH-P04-T01-COMPANY-JOINT-VENTURES"**     _X_        
+ **[78] "SH-P05-T01-HOSPITAL-FACILITY"**          _X_        
  [79] "SH-P05-T00-FAP-COMMUNITY-BENEFIT-POLICY"       
  [80] "SH-P05-T99-SUPPLEMENTAL-INFO"                  
- **[81] "SH-P05-T02-NON-HOSPITAL-FACILITY"**              
+ **[81] "SH-P05-T02-NON-HOSPITAL-FACILITY"**      _X_        
  [82] "SH-P06-T99-SUPPLEMENTAL-INFO"                  
  [83] "SH-P99-T99-SUPPLEMENTAL-INFO"                  
  [84] "SH-P99-T00-FAP-COMMUNITY-BENEFIT-POLICY"       
