@@ -65,7 +65,7 @@ build_database <- function( index=NULL, years=NULL )
     setwd( ".." )
   
     print( paste0( "There were ", length(failed.urls), " failed URLS" ) )
-    print( paste0( "Time for the ", i, " loop (minutes): ", round( end.time - start.time, 2 ) ) )
+    print( paste0( "Time for the ", i, " loop (hours): ", round( difftime( end.time, start.time, units="hours" ), 2 ) ) )
     print( paste0( "###########################" ) )
     print( paste0( "###########################" ) )
     saveRDS( failed.urls, paste0("FAILED-URLS-", i, ".rds") )
@@ -80,7 +80,7 @@ build_database <- function( index=NULL, years=NULL )
   
   end.build.time <- Sys.time()
   print( paste0( "DATABASE BUILD FINISH TIME: ", Sys.time() ) )
-  print( paste0( "TOTAL BUILD TIME: ", round(start.build.time-end.build.time,2) ) )
+  print( paste0( "TOTAL BUILD TIME: ", round( difftime( end.build.time, start.build.time, units="hours" ), 2 ) )
 
   savehistory( "build-history.Rhistory" ) 
   
