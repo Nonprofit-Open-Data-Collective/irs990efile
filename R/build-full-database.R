@@ -35,21 +35,25 @@ build_database <- function( index=NULL, years=NULL )
   { years <- sort(unique( index$TaxYear )) }
   index <- dplyr::filter( index, TaxYear %in% years )
   saveRDS( index, "build-index.rds" )
+
+  session.info <- sessionInfo()
+  dump( list="session.info", file="SESSION-INFO.R" )
+  
+  zz <- file( "BUILD-LOG.txt", open = "wt" )
+  sink( zz, split=T )
+  sink( zz, type = "message", append=TRUE )
   
   print( paste0( "There are ", nrow(index), " returns in this build." ) )
   print( paste0( "Years: ", paste0( years, collapse=";" ) ) )
   print( paste0( "You have ", parallel::detectCores(), " cores available for parallel processing." ) )
   print( paste0( "DATABASE BUILD START TIME: ", Sys.time() ) )
-  session.info <- sessionInfo()
-  dump( list="session.info", file="SESSION-INFO.R" )
+  print( paste0( "###########################" ) )
+  print( paste0( "###########################" ) )
+  
   
   for( i in years )
   {
     
-    file.name <- paste( "BUILD-LOG-", i, ".txt", sep="" )
-    zz <- file( file.name, open = "wt" )
-    sink( zz, split=T )
-    sink( zz, type = "message", append=TRUE )
     print( paste0( "STARTING LOOP ", i ) )
 
     index.i <- dplyr::filter( index, TaxYear == i )
@@ -69,12 +73,9 @@ build_database <- function( index=NULL, years=NULL )
     print( paste0( "Time for the ", i, " loop (hours): ", round( difftime( end.time, start.time, units="hours" ), 2 ) ) )
     print( paste0( "###########################" ) )
     print( paste0( "###########################" ) )
+    
     saveRDS( failed.urls, paste0("FAILED-URLS-", i, ".rds") )
   
-    sink(type = "message")
-    sink() # close sink
-    close(zz)
-    # file.show( file.name ) 
   }
 
   bind_data( years=years )
@@ -83,10 +84,14 @@ build_database <- function( index=NULL, years=NULL )
   print( paste0( "DATABASE BUILD FINISH TIME: ", Sys.time() ) )
   print( paste0( "TOTAL BUILD TIME: ", round( difftime( end.build.time, start.build.time, units="hours" ), 2 ) )
 
+  sink(type = "message")
+  sink()      # close sink
+  close(zz)   # close connection
+  file.show( "BUILD-LOG.txt" )
+        
   savehistory( "build-history.Rhistory" ) 
   
   return( NULL )
-
 }
 
 
