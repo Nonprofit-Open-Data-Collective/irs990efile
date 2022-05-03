@@ -64,7 +64,7 @@ for( i in years )
   dir.create( as.character(i) )
   setwd( as.character(i) )
   index.i <- dplyr::filter( index, TaxYear == i )
-  groups <- split_index( index.i, group.size = 200 )
+  groups <- split_index( index.i, group.size = 100 )
   build_tables_parallel( groups=groups, year=i, table.names=tables )
   setwd( ".." ) # return to main directory 
 }
