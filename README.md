@@ -49,24 +49,34 @@ build_tables( url=index.2018$URL, year=2018 )
 
 ###  TEST SPECIFIC TABLES
 
-index <- tinyindex  # sample of 10000 cases
+index <- tinyindex  # random sample of 10,000 cases
 
-# split files into chunks of 1000 and build tables 
-years <- 2009:2019
+# split index file into smaller chunks (for parallelization) and build tables 
+
+years <- 2017:2019
+
+tables <- c( "F9-P00-T00-HEADER","F9-P01-T00-SUMMARY",
+             "F9-P08-T00-REVENUE","F9-P09-T00-EXPENSES",
+             "F9-P11-T00-ASSETS" )
 
 for( i in years )
 {
+  dir.create( as.character(i) )
+  setwd( as.character(i) )
   index.i <- dplyr::filter( index, TaxYear == i )
-  groups <- split_index( index.i, group.size = 1000 )
-  build_tables_parallel( groups=groups, year=i, cores=8 )
+  groups <- split_index( index.i, group.size = 200 )
+  build_tables_parallel( groups=groups, year=i, table.names=tables )
+  setwd( ".." ) # return to main directory 
 }
 
+bind_data( years )    # compile all chunks into a single table
 
 
-###   FULL DATABASE
-###   (this can take days) 
 
-# build the full index from AWS (~4 million files)
+###   BUILD THE FULL DATABASE
+###   (note: this can take days) 
+
+# build the full index from AWS (~3.4 million 990 & 990EZ filers)
 index <- build_index( years=2011:2021 )
 build_database( index ) 
 
