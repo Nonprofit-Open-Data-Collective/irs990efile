@@ -141,32 +141,32 @@ Example of a fairly well-structured table where Section527PoliticalOrgGroup is t
  
  
 ## Kevin
-  
+  All the RDB builds run without error, even though not all the data is captured for every table (most are good however)
   
       
 - [X] **[77] "SH-P04-T01-COMPANY-JOINT-VENTURES"**        
 - [X] **[78] "SH-P05-T01-HOSPITAL-FACILITY"**                           
 - [X] **[81] "SH-P05-T02-NON-HOSPITAL-FACILITY"**        
-- [ ] **[86] "SI-P02-T01-GRANTS-US-ORGS-GOVTS"**                      
-- [ ] **[88] "SI-P03-T01-GRANTS-US-INDIV"**                                    
-- [ ] **[92] "SJ-P02-T01-COMPENSATION-DTK"**                             
-- [ ] **[94] "SK-P01-T01-BOND-ISSUES"**                        
-- [ ] **[95] "SK-P02-T01-BOND-PROCEEDS"**                      
-- [ ] **[96] "SK-P03-T01-BOND-PRIVATE-BIZ-USE"**               
-- [ ] **[97] "SK-P04-T01-BOND-ARBITRAGE"**                     
-- [ ] **[98] "SK-P05-T01-PROCEDURE-CORRECTIVE-ACT"**                        
-- [ ] **[100] "SK-P99-T01-BOND-PRIVATE_BIZ_USE"**                    
-- [ ] **[103] "SL-P02-T01-LOANS-INTERESTED-PERS"**           
-- [ ] **[105] "SL-P03-T01-GRANTS-INTERESTED-PERS"**             
-- [ ] **[106] "SL-P04-T01-BIZ-TRANSAC-INTERESTED-PERS"**         
-- [ ] **[109] "SM-P01-T01-NONCASH-CONTRIBUTIONS"**             
-- [ ] **[111] "SN-P01-T01-LIQUIDATION-TERMINATION-DISSOLUTION"**
-- [ ] **[113] "SN-P02-T01-DISPOSITION-OF-ASSETS"**                            
+- [X] **[86] "SI-P02-T01-GRANTS-US-ORGS-GOVTS"**                      
+- [X] **[88] "SI-P03-T01-GRANTS-US-INDIV"**                                    
+- [X] **[92] "SJ-P02-T01-COMPENSATION-DTK"**                             
+- [X] **[94] "SK-P01-T01-BOND-ISSUES"**                        
+- [X] **[95] "SK-P02-T01-BOND-PROCEEDS"**                      
+- [X] **[96] "SK-P03-T01-BOND-PRIVATE-BIZ-USE"**               
+- [X] **[97] "SK-P04-T01-BOND-ARBITRAGE"**                     
+- [X] **[98] "SK-P05-T01-PROCEDURE-CORRECTIVE-ACT"**                        
+- [X] **[100] "SK-P99-T01-BOND-PRIVATE_BIZ_USE"**                    
+- [X] **[103] "SL-P02-T01-LOANS-INTERESTED-PERS"**           
+- [ ] **[105] "SL-P03-T01-GRANTS-INTERESTED-PERS"**   -- sparsely populated table, missing name         
+- [ ] **[106] "SL-P04-T01-BIZ-TRANSAC-INTERESTED-PERS"**    --missing name     
+- [ ] **[109] "SM-P01-T01-NONCASH-CONTRIBUTIONS"**          --missing quantifiers  
+- [X] **[111] "SN-P01-T01-LIQUIDATION-TERMINATION-DISSOLUTION"**
+- [X] **[113] "SN-P02-T01-DISPOSITION-OF-ASSETS"**                            
 - [ ] **[118] "SR-P01-T01-ID-DISREGARDED-ENTITIES"**            
-- [ ] **[119] "SR-P02-T01-ID-RLTD-TAX-EXEMPED-ORGS"**           
+- [X] **[119] "SR-P02-T01-ID-RLTD-TAX-EXEMPED-ORGS"**           
 - [ ] **[120] "SR-P03-T01-ID-RLTD-ORGS-TAXABLE-PARTNERSHIP"**   
 - [ ] **[121] "SR-P04-T01-ID-RLTD-ORGS-TAXABLE-CORPORATION"**          
-- [ ] **[123] "SR-P05-T01-TRANSACTIONS-RLTD-ORGS"**             
+- [ ] **[123] "SR-P05-T01-TRANSACTIONS-RLTD-ORGS"**             --missing name
 - [ ] **[124] "SR-P06-T01-UNRLTD-ORGS-TAXABLE-PARTNERSHIP"**    
 
 
