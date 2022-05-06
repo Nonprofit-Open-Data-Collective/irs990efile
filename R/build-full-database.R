@@ -82,9 +82,9 @@ build_database <- function( index=NULL, years=NULL )
   
   end.build.time <- Sys.time()
   print( paste0( "DATABASE BUILD FINISH TIME: ", Sys.time() ) )
-  print( paste0( "TOTAL BUILD TIME: ", round( difftime( end.build.time, start.build.time, units="hours" ), 2 ), " HOURS" )
+  print( paste0( "TOTAL BUILD TIME: ", round( difftime( end.build.time, start.build.time, units="hours" ), 2 ), " HOURS" ) )
 
-  sink(type = "message")
+  sink( type="message" )
   sink()      # close sink
   close(zz)   # close connection
   file.show( "BUILD-LOG.txt" )
