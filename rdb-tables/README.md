@@ -117,26 +117,26 @@ Example of a fairly well-structured table where Section527PoliticalOrgGroup is t
 
 ## Nachiket
 
-- [ ]   **[7] "F9-P03-T01-PROGRAMS"**   
+- [X]   **[7] "F9-P03-T01-PROGRAMS"**   
 - [ ]  **[14] "F9-P07-T02-CONTRACTORS"**                        
 - [ ]  **[15] "F9-P07-T01-COMPENSATION"**                       
 - [ ]  **[16] "F9-P07-T01-COMPENSATION-HCE-EZ"**                
 - [ ]  **[17] "F9-P99-T01-COMPENSATION"**                                            
 - [ ]  **[19] "F9-P08-T01-REVENUE-PROGRAMS"**                   
-- [ ]  **[20] "F9-P08-T02-REVENUE-MISC"**                                           
-- [ ]  **[22] "F9-P09-T01-EXPENSES-OTHER"**                               
-- [ ]  **[28] "SA-P01-T01-PUBLIC-CHARITY-STATUS"**                       
-- [ ]  **[35] "SA-P99-T01-PUBLIC-CHARITY-STATUS"**                                      
-- [ ]  **[37] "SC-P01-T01-POLITICAL-ORGS-INFO"**                   
-- [ ]  **[47] "SD-P07-T01-INVESTMENTS-OTH-SECURITIES"**            
-- [ ]  **[49] "SD-P08-T01-INVESTMENTS-PROG-RLTD"**              
-- [ ]  **[50] "SD-P09-T01-OTH-ASSETS"**                                           
-- [ ]  **[52] "SD-P10-T01-OTH-LIABILITIES"**                                          
-- [ ]  **[61] "SF-P01-T01-FRGN-ACTS-BY-REGION"**                
-- [ ]  **[62] "SF-P02-T01-FRGN-ORG-GRANTS"**                    
-- [ ]  **[64] "SF-P03-T01-FRGN-INDIV-GRANTS"** 
-- [ ]  **[69] "SG-P01-T01-FUNDRAISERS-INFO"**                   
-- [ ]  **[70] "SG-P02-T01-FUNDRAISING-EVENTS"**                 
+- [X]  **[20] "F9-P08-T02-REVENUE-MISC"**                                           
+- [X]  **[22] "F9-P09-T01-EXPENSES-OTHER"**                               
+- [X]  **[28] "SA-P01-T01-PUBLIC-CHARITY-STATUS"**                       
+- [X]  **[35] "SA-P99-T01-PUBLIC-CHARITY-STATUS"**                                      
+- [X]  **[37] "SC-P01-T01-POLITICAL-ORGS-INFO"**                   
+- [X]  **[47] "SD-P07-T01-INVESTMENTS-OTH-SECURITIES"**            
+- [X]  **[49] "SD-P08-T01-INVESTMENTS-PROG-RLTD"**              
+- [ ]  **[50] "SD-P09-T01-OTH-ASSETS"**  : Missing name                                   
+- [ ]  **[52] "SD-P10-T01-OTH-LIABILITIES"**    :error                                      
+- [X]  **[61] "SF-P01-T01-FRGN-ACTS-BY-REGION"**                
+- [X]  **[62] "SF-P02-T01-FRGN-ORG-GRANTS"**                    
+- [X]  **[64] "SF-P03-T01-FRGN-INDIV-GRANTS"** 
+- [X]  **[69] "SG-P01-T01-FUNDRAISERS-INFO"**                   
+- [X]  **[70] "SG-P02-T01-FUNDRAISING-EVENTS"**                 
  
  
  
