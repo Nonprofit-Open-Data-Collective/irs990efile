@@ -117,8 +117,7 @@ Example of a fairly well-structured table where Section527PoliticalOrgGroup is t
 
 ## Nachiket
 
-- [X]   **[7] "F9-P03-T01-PROGRAMS"**   
-- [ ]  **[14] "F9-P07-T02-CONTRACTORS"**                        
+- [X]   **[7] "F9-P03-T01-PROGRAMS"**                         
 - [ ]  **[15] "F9-P07-T01-COMPENSATION"**                       
 - [ ]  **[16] "F9-P07-T01-COMPENSATION-HCE-EZ"**                
 - [ ]  **[17] "F9-P99-T01-COMPENSATION"**                                            
@@ -143,7 +142,7 @@ Example of a fairly well-structured table where Section527PoliticalOrgGroup is t
 ## Kevin
   All the RDB builds run without error, even though not all the data is captured for every table (most are good however)
   
-      
+- [ ]  **[14] "F9-P07-T02-CONTRACTORS"**        
 - [X] **[77] "SH-P04-T01-COMPANY-JOINT-VENTURES"**        
 - [X] **[78] "SH-P05-T01-HOSPITAL-FACILITY"**                           
 - [X] **[81] "SH-P05-T02-NON-HOSPITAL-FACILITY"**        
