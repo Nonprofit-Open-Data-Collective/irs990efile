@@ -159,15 +159,15 @@ Example of a fairly well-structured table where Section527PoliticalOrgGroup is t
 - [X] **[103] "SL-P02-T01-LOANS-INTERESTED-PERS"**           
 - [ ] **[105] "SL-P03-T01-GRANTS-INTERESTED-PERS"**   -- sparsely populated table, missing name         
 - [ ] **[106] "SL-P04-T01-BIZ-TRANSAC-INTERESTED-PERS"**    --missing name     
-- [ ] **[109] "SM-P01-T01-NONCASH-CONTRIBUTIONS"**          --missing quantifiers  
+- [ ] **[109] "SM-P01-T01-NONCASH-CONTRIBUTIONS"**          --missing some quantifiers  
 - [X] **[111] "SN-P01-T01-LIQUIDATION-TERMINATION-DISSOLUTION"**
 - [X] **[113] "SN-P02-T01-DISPOSITION-OF-ASSETS"**                            
-- [ ] **[118] "SR-P01-T01-ID-DISREGARDED-ENTITIES"**            
+- [ ] **[118] "SR-P01-T01-ID-DISREGARDED-ENTITIES"**          --missing name  
 - [X] **[119] "SR-P02-T01-ID-RLTD-TAX-EXEMPED-ORGS"**           
-- [ ] **[120] "SR-P03-T01-ID-RLTD-ORGS-TAXABLE-PARTNERSHIP"**   
-- [ ] **[121] "SR-P04-T01-ID-RLTD-ORGS-TAXABLE-CORPORATION"**          
+- [X] **[120] "SR-P03-T01-ID-RLTD-ORGS-TAXABLE-PARTNERSHIP"**   
+- [X] **[121] "SR-P04-T01-ID-RLTD-ORGS-TAXABLE-CORPORATION"**          
 - [ ] **[123] "SR-P05-T01-TRANSACTIONS-RLTD-ORGS"**             --missing name
-- [ ] **[124] "SR-P06-T01-UNRLTD-ORGS-TAXABLE-PARTNERSHIP"**    
+- [X] **[124] "SR-P06-T01-UNRLTD-ORGS-TAXABLE-PARTNERSHIP"**    
 
 
 
