@@ -161,7 +161,7 @@ Example of a fairly well-structured table where Section527PoliticalOrgGroup is t
 - [ ] **[109] "SM-P01-T01-NONCASH-CONTRIBUTIONS"**          --missing some quantifiers  
 - [X] **[111] "SN-P01-T01-LIQUIDATION-TERMINATION-DISSOLUTION"**
 - [X] **[113] "SN-P02-T01-DISPOSITION-OF-ASSETS"**                            
-- [ ] **[118] "SR-P01-T01-ID-DISREGARDED-ENTITIES"**          --missing name  
+- [X] **[118] "SR-P01-T01-ID-DISREGARDED-ENTITIES"**   
 - [X] **[119] "SR-P02-T01-ID-RLTD-TAX-EXEMPED-ORGS"**           
 - [X] **[120] "SR-P03-T01-ID-RLTD-ORGS-TAXABLE-PARTNERSHIP"**   
 - [X] **[121] "SR-P04-T01-ID-RLTD-ORGS-TAXABLE-CORPORATION"**          
