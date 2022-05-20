@@ -84,7 +84,7 @@ build_database( index )
 
 ## Details
 
-The full set of tables is available in the [**DATA DICTIONARY**](data-dictionary/data-dictionary.html).
+The full set of tables is available in the [**DATA DICTIONARY**](https://nonprofit-open-data-collective.github.io/irs990efile/data-dictionary/data-dictionary.html).
 
 **Background**
 
