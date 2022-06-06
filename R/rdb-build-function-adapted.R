@@ -5,7 +5,7 @@
 
 #6/2/2022 finalized work
 
-#6/6/2022 added documentation
+#6/6/2022 added documentation and removed extraneous comments/code
 
 ###---------------------------------------------------
 ###   RELATIONAL DATABASE FUNCTIONS (first new/improved, then old)
@@ -94,17 +94,10 @@ get_table_2 <- function( doc, group.names, table.name )
   data( concordance )
   TABLE <- dplyr::filter( concordance, rdb_table == table.name )
   original.xpaths <- TABLE$xpath %>% as.character()
-  # complete <- c()
-  # for(i in 1:length(group.names)){
-  #   complete <- append(complete, xml2::xml_find_all(doc, group.names[i]))
-  # }
-  # nd <- unique(complete)
-  # print(nd)
   all.groups <- paste0( group.names, collapse="|" )
   # print(all.groups)
   nd <- xml2::xml_find_all( doc, all.groups)
   # nd <- xml2::xml_find_all(doc, "//IdDisregardedEntitiesGrp")
-  # print(nd)
   
   if( length( nd ) == 0 ){ return(NULL) }
   
@@ -145,22 +138,7 @@ get_table_2 <- function( doc, group.names, table.name )
       # print(temp.df)
       rdb.table <- cbind(rdb.table,temp.df)
     }
-    # d1 <- suppressWarnings( data.frame( do.call( cbind, nodes ), stringsAsFactors=F ) )
-    # print(d1)
-    # not.equal <- apply( d1, MARGIN=1, FUN=function(x){ length( unique( x )) > 1 } ) #was > 1 before
-    # # print(not.equal)
-    # this.one <- which( not.equal == T )[ 1 ]
-    # # print(this.one)
-    # if( this.one < 2 ){ return( NULL ) }
-    # table.root <- d1[ this.one - 1,  ] %>% as.character() %>% unique()
-    # table.root <- paste0( "//", table.root )
-    # # print(table.root)
-    # nd <- xml2::xml_find_all( doc, table.root )
-    # print(nd)
   }
-  # rdb.table <- xmltools::xml_dig_df( nd, dig = TRUE ) %>% bind_rows()
-  # print(rdb.table)
-  # rdb.table <- rdb.table %>% dplyr::mutate_if(is.factor, as.character) 
   return( rdb.table )
 }
 
@@ -240,67 +218,18 @@ build_rdb_table_adapted <- function(url, table.name)
   
   
   ####  BUILD TABLE 
-  #table.name <- table.name # "SR-P01-T01-ID-DISREGARDED-ENTITIES"
   
   
   group.names <- find_group_names_2( table.name=table.name )
   # print(group.names)
   # print(find_group_names(table.name = table.name))
   df <- get_table_2( doc, group.names, table.name  )
-  # print(df)
   
   if( is.null(df) ){ return( NULL ) }
-  
-  
-  # ##disregarded entity name
-  # V_SR_01_PC_DISREG_NApost2013 <- "//Return/ReturnData/IRS990ScheduleR/
-  # IdDisregardedEntitiesGrp/DisregardedEntityName"
-  # V_SR_01_PC_DISREG_NApre2013 <- "//Return/ReturnData/IRS990ScheduleR/
-  # Form990ScheduleRPartI/NameOfDisregardedEntity"
-  # disreg.name.xpaths <- paste(V_SR_01_PC_DISREG_NApost2013,
-  #                                 V_SR_01_PC_DISREG_NApre2013,sep = "|")
-  # 
-  # DISREGNAME <- paste(xml2::xml_text( xml2::xml_find_all( doc, disreg.name.xpaths )),
-  #                       sep = " ")
-  # 
-  # 
-  # ##us address
-  # #strategy get all the xpaths with us or foreign address and concatenate them together
-  # V_SR_01_PC_ADDR_USpost2013 <- "//Return/ReturnData/IRS990ScheduleR/
-  # IdDisregardedEntitiesGrp/USAddress"
-  # V_SR_01_PC_ADDR_USpre2013 <- "//Return/ReturnData/IRS990ScheduleR/
-  # Form990ScheduleRPartI/AddressUS"
-  # V_SR_01_PC_ADDR_FORpost2013 <- "//Return/ReturnData/IRS990ScheduleR/
-  # IdDisregardedEntitiesGrp/ForeignAddress"
-  # V_SR_01_PC_ADDR_FORpre2013 <- "//Return/ReturnData/IRS990ScheduleR/
-  # Form990ScheduleRPartI/AddressForeign"
-  # address.xpaths <- paste(V_SR_01_PC_ADDR_USpost2013,V_SR_01_PC_ADDR_USpre2013,
-  #                         V_SR_01_PC_ADDR_FORpost2013,V_SR_01_PC_ADDR_FORpre2013,
-  #                         sep = "|")
-  # ADDRESS <- paste(xml2::xml_text(xml2::xml_find_all(doc,address.xpaths)))
-  # 
-  # 
-  # ##direct controlling entity name
-  # V_SR_01_PC_CTRL_NApost2013 <- "//Return/ReturnData/IRS990ScheduleR/
-  # IdDisregardedEntitiesGrp/DirectControllingEntityName"
-  # V_SR_01_PC_CTRL_NApre2013_1 <- "//Return/ReturnData/IRS990ScheduleR/
-  # Form990ScheduleRPartI/DirectControllingEntityName"
-  # V_SR_01_PC_CTRL_NApre2013_2 <- "//Return/ReturnData/IRS990ScheduleR/
-  # Form990ScheduleRPartI/DirectControllingEntityNA"
-  # ctrl.name.xpaths <- paste(V_SR_01_PC_CTRL_NApost2013, V_SR_01_PC_CTRL_NApre2013_1,
-  #                           V_SR_01_PC_CTRL_NApre2013_2, sep = "|")
-  # 
-  # CTRLNAME <- paste(xml2::xml_text( xml2::xml_find_all( doc, ctrl.name.xpaths )), sep = " ")
-  # 
-  
   
   v.map <- get_var_map( table.name=table.name )
   df <- re_name( df, v.map )
   
-  # rdb.table <- data.frame( OBJECT_ID=OBJECTID, EIN=EIN, NAME=NAME, TAXYR=TAXYR, 
-  #                          FORMTYPE=FORMTYPE, URL=URL, SR_01_DISREG_ENTITY_NAME = DISREGNAME,
-  #                          SR_01_ADDR = ADDRESS, df, SR_01_DISREG_CTRL_NAME = CTRLNAME, 
-  #                          stringsAsFactors=F )
   rdb.table <- data.frame( OBJECT_ID=OBJECTID, EIN=EIN, NAME=NAME, TAXYR=TAXYR, 
                            FORMTYPE=FORMTYPE, URL=URL, df, stringsAsFactors=F )
   
