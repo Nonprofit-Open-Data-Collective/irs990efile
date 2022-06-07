@@ -77,7 +77,7 @@ bind_data( years )    # compile all chunks into a single table
 ###   (note: this can take days) 
 
 # build the full index from AWS (~3.4 million 990 & 990EZ filers)
-index <- build_index( years=2011:2021 )
+index <- build_index( file.years=2011:2021 )
 build_database( index ) 
 
 ```
