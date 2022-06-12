@@ -114,35 +114,35 @@ Example of a fairly well-structured table where Section527PoliticalOrgGroup is t
 
 [Data Dictionary](https://nonprofit-open-data-collective.github.io/irs990efile/data-dictionary/data-dictionary.html#f990-part-09-table-00-expenses) 
 
+CSV files for the according tables can be found in the subdirectory (updated-tables)
 
-## Nachiket
+Rerunning all rdb table building with 'build_rdb_table_adapted' function 
+That function is in this directory also under the name 'rdb-build-function-adapted.R'
+The major difference between the updated function and the old version is that the updated function digs one level deeper for subchildren and can handle poorly formatted XML tables better than before (still not perfect)
 
-- [X]   **[7] "F9-P03-T01-PROGRAMS"**                         
-- [ ]  **[15] "F9-P07-T01-COMPENSATION"**                       
-- [ ]  **[16] "F9-P07-T01-COMPENSATION-HCE-EZ"**                
-- [ ]  **[17] "F9-P99-T01-COMPENSATION"**                                            
-- [ ]  **[19] "F9-P08-T01-REVENUE-PROGRAMS"**                   
+Note: "Sparse" means that there were no errors while running, but nothing was captured from the sample (this is likely because none of the filers in the random sample filled out that part of the form because it's an uncommon field)
+
+- [X]   **[7] "F9-P03-T01-PROGRAMS"**   -- Formatted weird but no errors (unlike with old rdb build function)                    
+- [X]  **[15] "F9-P07-T01-COMPENSATION"**                       
+- [X]  **[16] "F9-P07-T01-COMPENSATION-HCE-EZ"**   -- sparse          
+- [X]  **[17] "F9-P99-T01-COMPENSATION"**     -- sparse                                      
+- [X]  **[19] "F9-P08-T01-REVENUE-PROGRAMS"**                   
 - [X]  **[20] "F9-P08-T02-REVENUE-MISC"**                                           
 - [X]  **[22] "F9-P09-T01-EXPENSES-OTHER"**                               
 - [X]  **[28] "SA-P01-T01-PUBLIC-CHARITY-STATUS"**                       
-- [X]  **[35] "SA-P99-T01-PUBLIC-CHARITY-STATUS"**                                      
-- [X]  **[37] "SC-P01-T01-POLITICAL-ORGS-INFO"**                   
+- [ ]  **[35] "SA-P99-T01-PUBLIC-CHARITY-STATUS"**   -- old build function works, however                                    
+- [X]  **[37] "SC-P01-T01-POLITICAL-ORGS-INFO"**       -- sparse            
 - [X]  **[47] "SD-P07-T01-INVESTMENTS-OTH-SECURITIES"**            
 - [X]  **[49] "SD-P08-T01-INVESTMENTS-PROG-RLTD"**              
-- [ ]  **[50] "SD-P09-T01-OTH-ASSETS"**  : Missing name                                   
-- [ ]  **[52] "SD-P10-T01-OTH-LIABILITIES"**    :error                                      
+- [X]  **[50] "SD-P09-T01-OTH-ASSETS"**                                  
+- [X]  **[52] "SD-P10-T01-OTH-LIABILITIES"**                                   
 - [X]  **[61] "SF-P01-T01-FRGN-ACTS-BY-REGION"**                
 - [X]  **[62] "SF-P02-T01-FRGN-ORG-GRANTS"**                    
 - [X]  **[64] "SF-P03-T01-FRGN-INDIV-GRANTS"** 
 - [X]  **[69] "SG-P01-T01-FUNDRAISERS-INFO"**                   
 - [X]  **[70] "SG-P02-T01-FUNDRAISING-EVENTS"**                 
  
- 
- 
-## Kevin
-  All the RDB builds run without error, even though not all the data is captured for every table (most are good however)
-  
-- [ ]  **[14] "F9-P07-T02-CONTRACTORS"**        
+- [X]  **[14] "F9-P07-T02-CONTRACTORS"**        
 - [X] **[77] "SH-P04-T01-COMPANY-JOINT-VENTURES"**        
 - [X] **[78] "SH-P05-T01-HOSPITAL-FACILITY"**                           
 - [X] **[81] "SH-P05-T02-NON-HOSPITAL-FACILITY"**        
@@ -154,19 +154,19 @@ Example of a fairly well-structured table where Section527PoliticalOrgGroup is t
 - [X] **[96] "SK-P03-T01-BOND-PRIVATE-BIZ-USE"**               
 - [X] **[97] "SK-P04-T01-BOND-ARBITRAGE"**                     
 - [X] **[98] "SK-P05-T01-PROCEDURE-CORRECTIVE-ACT"**                        
-- [X] **[100] "SK-P99-T01-BOND-PRIVATE_BIZ_USE"**                    
+- [ ] **[100] "SK-P99-T01-BOND-PRIVATE_BIZ_USE"**      -- old build function works, however              
 - [X] **[103] "SL-P02-T01-LOANS-INTERESTED-PERS"**           
-- [ ] **[105] "SL-P03-T01-GRANTS-INTERESTED-PERS"**   -- sparsely populated table, missing name         
-- [ ] **[106] "SL-P04-T01-BIZ-TRANSAC-INTERESTED-PERS"**    --missing name     
-- [ ] **[109] "SM-P01-T01-NONCASH-CONTRIBUTIONS"**          --missing some quantifiers  
+- [X] **[105] "SL-P03-T01-GRANTS-INTERESTED-PERS"**         -- sparse
+- [X] **[106] "SL-P04-T01-BIZ-TRANSAC-INTERESTED-PERS"**      
+- [X] **[109] "SM-P01-T01-NONCASH-CONTRIBUTIONS"**          
 - [X] **[111] "SN-P01-T01-LIQUIDATION-TERMINATION-DISSOLUTION"**
 - [X] **[113] "SN-P02-T01-DISPOSITION-OF-ASSETS"**                            
 - [X] **[118] "SR-P01-T01-ID-DISREGARDED-ENTITIES"**   
 - [X] **[119] "SR-P02-T01-ID-RLTD-TAX-EXEMPED-ORGS"**           
 - [X] **[120] "SR-P03-T01-ID-RLTD-ORGS-TAXABLE-PARTNERSHIP"**   
 - [X] **[121] "SR-P04-T01-ID-RLTD-ORGS-TAXABLE-CORPORATION"**          
-- [ ] **[123] "SR-P05-T01-TRANSACTIONS-RLTD-ORGS"**             --missing name
-- [X] **[124] "SR-P06-T01-UNRLTD-ORGS-TAXABLE-PARTNERSHIP"**    
+- [X] **[123] "SR-P05-T01-TRANSACTIONS-RLTD-ORGS"**          
+- [X] **[124] "SR-P06-T01-UNRLTD-ORGS-TAXABLE-PARTNERSHIP"**    -- sparse
 
 
 
