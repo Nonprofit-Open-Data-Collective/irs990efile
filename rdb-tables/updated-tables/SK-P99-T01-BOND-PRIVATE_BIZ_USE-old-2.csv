@@ -1,0 +1,15 @@
+"OBJECT_ID","EIN","NAME","TAXYR","FORMTYPE","URL","SK_99_BOND_BIZUSE_COUNS_ENGAGE_X","SK_99_BOND_BIZUSE_POST_ISSUANC_X","BondCounselRoutinelyEngaged...7","PostIssuanceComplianceProcdrs...8","BondCounselRoutinelyEngaged...9","PostIssuanceComplianceProcdrs...10","BondCounselRoutinelyEngaged...11","PostIssuanceComplianceProcdrs...12","PostIssuanceComplianceProcdrs...7"
+"201102069349300685","750755335","FORT WORTH MUSEUM OF SCIENCE AND HISTORY","2009","990","https://s3.amazonaws.com/irs-form-990/201102069349300685_public.xml","1","1",NA,NA,NA,NA,NA,NA,NA
+"201210879349300811","221514241","THE MORRIS MUSEUM INC","2010","990","https://s3.amazonaws.com/irs-form-990/201210879349300811_public.xml",NA,"1",NA,NA,NA,NA,NA,NA,NA
+"201241359349305074","042103993","THE CHILDRENS MUSEUM","2010","990","https://s3.amazonaws.com/irs-form-990/201241359349305074_public.xml","1","1",NA,NA,NA,NA,NA,NA,NA
+"201130429349300903","042104327","THE INSTITUTE OF CONTEMPORARY ART INC","2009","990","https://s3.amazonaws.com/irs-form-990/201130429349300903_public.xml","1","1",NA,NA,NA,NA,NA,NA,NA
+"201221369349302482","042103607","MUSEUM OF FINE ARTS","2010","990","https://s3.amazonaws.com/irs-form-990/201221369349302482_public.xml","1","1",NA,NA,NA,NA,NA,NA,NA
+"201111409349300701","530204620","The Phillips Collection","2009","990","https://s3.amazonaws.com/irs-form-990/201111409349300701_public.xml","1","1",NA,NA,NA,NA,NA,NA,NA
+"201101339349300220","042103607","Museum of Fine Arts","2009","990","https://s3.amazonaws.com/irs-form-990/201101339349300220_public.xml","1","1",NA,NA,NA,NA,NA,NA,NA
+"201133269349300418","446012977","NELSON GALLERY FOUNDATION","2010","990","https://s3.amazonaws.com/irs-form-990/201133269349300418_public.xml",NA,NA,"true","true","true","true","true","true",NA
+"201111369349305511","526000162","THE BALTIMORE MUSEUM OF ART","2009","990","https://s3.amazonaws.com/irs-form-990/201111369349305511_public.xml","0","1",NA,NA,NA,NA,NA,NA,NA
+"201201369349304685","311620682","MONTPELIER FOUNDATION INC","2011","990","https://s3.amazonaws.com/irs-form-990/201201369349304685_public.xml",NA,"0",NA,NA,NA,NA,NA,NA,NA
+"201331349349306823","042103607","MUSEUM OF FINE ARTS","2011","990","https://s3.amazonaws.com/irs-form-990/201331349349306823_public.xml",NA,"0",NA,NA,NA,NA,NA,NA,NA
+"201242269349300644","530206027","Smithsonian Institution","2010","990","https://s3.amazonaws.com/irs-form-990/201242269349300644_public.xml","0","1",NA,NA,NA,NA,NA,NA,NA
+"201302269349302215","232109376","PLEASE TOUCH MUSEUM","2011","990","https://s3.amazonaws.com/irs-form-990/201302269349302215_public.xml",NA,"0",NA,NA,NA,NA,NA,NA,NA
+"201331279349301358","362167725","The Art Institute of Chicago","2011","990","https://s3.amazonaws.com/irs-form-990/201331279349301358_public.xml",NA,NA,NA,"true",NA,NA,NA,NA,"true"
