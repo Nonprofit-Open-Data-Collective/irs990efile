@@ -11,7 +11,7 @@
 #' @description Split the index into `group.size` in order 
 #'  to facilitate batch processing of files. 
 #'
-#' @details
+#' @details some additional details
 #'
 #' @export
 split_index <- function( index, group.size=1000 )

@@ -11,5 +11,5 @@ Split the index into \code{group.size} in order
 to facilitate batch processing of files.
 }
 \details{
-
+some additional details
 }
