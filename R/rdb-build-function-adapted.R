@@ -1,11 +1,5 @@
 #GENERAL TABLE BUILDING FOR NON SIMPLISTIC TABLE STRUCTURE
-
-#5/31/2022
-#looking for last common xpaths and then divergence for subnodes
-
-#6/2/2022 finalized work
-
-#6/6/2022 added documentation and removed extraneous comments/code
+library(dplyr)
 
 ###---------------------------------------------------
 ###   RELATIONAL DATABASE FUNCTIONS (first new/improved, then old)
@@ -34,10 +28,13 @@ find_group_names_2 <- function( table.name )
   this.one <- which( not.equal == T )[ 1 ]
   group.names <- d1[ this.one,  ] %>% as.character() %>% unique()
   group.names <- paste0( group.names, "/")
+  # print("OLD")
+  # print(group.names)
   # if(table.name == "F9-P03-T01-PROGRAMS"){
   #   group.names <- head(group.names,-5)
   # }
   updated.group.names <- collapse_nodes(group.names)
+  # print("UDPATED")
   # print(updated.group.names)
   return( updated.group.names )
 }
@@ -79,7 +76,6 @@ collapse_nodes <- function( lc.xpaths )
   return( comb.names )
 }
 
-
 ###---------------------------------------------------
 
 #' @title get_table_2 (improved from rdb-functions-v2)
@@ -97,24 +93,26 @@ get_table_2 <- function( doc, group.names, table.name )
   all.groups <- paste0( group.names, collapse="|" )
   # print(all.groups)
   nd <- xml2::xml_find_all( doc, all.groups)
-  # nd <- xml2::xml_find_all(doc, "//IdDisregardedEntitiesGrp")
   
   if( length( nd ) == 0 ){ return(NULL) }
   
-  # ensure group names unique to table
-  valid <- validate_group_names( nd, table.name )
-  if( ! valid )
-  { 
-    xp <- nd %>% xml2::xml_path()
-    xp <- gsub( "\\[[0-9]{1,}\\]", "", xp ) %>% unique()
-    print("TABLE: ")
-    print( table.name )
-    print("TABLE XPATHS: ")
-    print( original.xpaths )
-    print("CURRENT XPATHS: ")
-    print( xp )
-    stop( 'Group names are not unique to the table' )
-  }
+  # ensure group names unique to table (doesn't really apply for get_table_2 shenanigans)
+  #i.e. we don't really need to validate group names
+  # valid <- validate_group_names( nd, table.name )
+  valid <- TRUE
+  
+  # if( ! valid ) #never called 
+  # { 
+  #   xp <- nd %>% xml2::xml_path()
+  #   xp <- gsub( "\\[[0-9]{1,}\\]", "", xp ) %>% unique()
+  #   print("TABLE: ")
+  #   print( table.name )
+  #   print("TABLE XPATHS: ")
+  #   print( original.xpaths )
+  #   print("CURRENT XPATHS: ")
+  #   print( xp )
+  #   stop( 'Group names are not unique to the table' )
+  # }
   
   # ensure we are using root node for table
   table.xpaths <- ( xmltools::xml_get_paths( nd, only_terminal_parent = TRUE ))
@@ -133,10 +131,14 @@ get_table_2 <- function( doc, group.names, table.name )
       l <- length(nodes[[i]])
       table.root <- paste0("//",nodes[[i]][l-1],"/",nodes[[i]][l])
       nd <- xml2::xml_find_all(doc,table.root)
-      temp.df <- xmltools::xml_dig_df( nd, dig = TRUE ) %>% bind_rows()
-      temp.df <- temp.df %>% dplyr::mutate_if(is.factor, as.character)
-      # print(temp.df)
-      rdb.table <- cbind(rdb.table,temp.df)
+      if(!(length(nd) < nrow(rdb.table))){
+        #weirdness occurs when we have mixed formatting 
+        #for example if we have address us and address foreign
+        temp.df <- xmltools::xml_dig_df( nd, dig = TRUE ) %>% bind_rows()
+        temp.df <- temp.df %>% dplyr::mutate_if(is.factor, as.character)
+        rdb.table <- cbind(rdb.table,temp.df)
+      }
+      else print("WEIRD TABLE FORMATTING")
     }
   }
   return( rdb.table )
@@ -153,7 +155,6 @@ get_table_2 <- function( doc, group.names, table.name )
 #' @export
 build_rdb_table_adapted <- function(url, table.name)
 {
-  
   doc <- NULL
   try( doc <- xml2::read_xml( url ), silent=T ) 
   if( is.null(doc) )
@@ -162,7 +163,7 @@ build_rdb_table_adapted <- function(url, table.name)
   }
   
   xml2::xml_ns_strip( doc )
-  all.xpaths <- doc %>% xml_get_paths()
+  all.xpaths <- doc %>% xmltools::xml_get_paths()
   unique.xpaths <- all.xpaths %>% 
     unlist() %>% 
     unique()
@@ -219,10 +220,9 @@ build_rdb_table_adapted <- function(url, table.name)
   
   ####  BUILD TABLE 
   
-  
+  # print(find_group_names(table.name = table.name))
   group.names <- find_group_names_2( table.name=table.name )
   # print(group.names)
-  # print(find_group_names(table.name = table.name))
   df <- get_table_2( doc, group.names, table.name  )
   
   if( is.null(df) ){ return( NULL ) }
@@ -232,108 +232,27 @@ build_rdb_table_adapted <- function(url, table.name)
   
   rdb.table <- data.frame( OBJECT_ID=OBJECTID, EIN=EIN, NAME=NAME, TAXYR=TAXYR, 
                            FORMTYPE=FORMTYPE, URL=URL, df, stringsAsFactors=F )
-  
   return ( rdb.table )
   
 }
 
 
-###---------------------------------------------------
-
-#FUNCTIONS REUSED FROM rdb-functions-v2
-
-###---------------------------------------------------
-
-#' @title validate_group_names function (same as rdb-functions-v2)
-#'
-#' @description Validating group names from a nodeset (nd) and 
-#' a specific table (table.name)
-#'
-#' @details some additional details 
-#'
-#' @export
-validate_group_names <- function( nd, table.name )
-{
-  data(concordance)
-  TABLE <- dplyr::filter( concordance, rdb_table == table.name )
-  table.xpaths <- TABLE$xpath %>% as.character()
-  
-  # check to see if nodes all in table
-  xp <- nd %>% xml2::xml_path()
-  
-  # remove counts like "/Return/ReturnData/IRS990/ProgramServiceRevenueGrp[1]/Desc" 
-  xp <- gsub( "\\[[0-9]{1,}\\]", "", xp ) %>% unique()
-  
-  r <- lapply( xp, grepl, table.xpaths )
-  v <- lapply( r, function(x){ sum(x) > 0 } ) %>% unlist()
-  nodes.in.table <- sum(v) == length(xp)
-  # print(sum(v)) #debugging
-  # print(v)
-  # print(length(xp)) #debugging
-  # print(xp)
-  
-  return( nodes.in.table ) 
-  
-}
-
-
-###---------------------------------------------------
-
-#' @title get_var_map (same as rdb-functions-v2) 
-#'
-#' @description creates a crosswalk between IRS 
-#   variable names and concordance variable names from a table name
-#'
-#' @export
-get_var_map <- function( table.name )
-{
-  data(concordance)
-  TABLE <- dplyr::filter( concordance, rdb_table == table.name )
-  xpaths <- TABLE$xpath %>% as.character()
-  res <- strsplit( xpaths, "/" )
-  v.map <- data.frame( VARIABLE=as.character(TABLE$variable_name), 
-                       XSD_VARNAME=unlist( lapply( res, dplyr::last ) ), stringsAsFactors=F )
-  v.map <- unique( v.map )
-  return( v.map )
-}
-
-
-###---------------------------------------------------
-
-#' @title remove_count (same as rdb-functions-v2)
-#'
-#' @description gets rid of extraneous numbering and details in 
-#' potential group names
-#'
-#' @details uses regex to do this
-#'
-#' @export
-remove_count <- function( x )
-{ 
-  # "/Return/ReturnData/IRS990/ProgramServiceRevenueGrp[102]/Desc" 
-  # "/Return/ReturnData/IRS990/ProgramServiceRevenueGrp/Desc"
-  x <- gsub( "\\[[0-9]{1,}\\]", "", x )
-  return(x)
-}
-
-
-###---------------------------------------------------
-
-#' @title re_name (same as rdb-functions-v2) 
-#'
-#' @description converts IRS names to concordance names in a dataframe
-#'
-#' @export
-re_name <- function( df, v.map )
-{
-  
-  for( i in unique( v.map$VARIABLE ) )
-  {
-    this.one <- names( df ) %in% v.map[ v.map$VARIABLE == i , "XSD_VARNAME" ] 
-    names( df )[this.one] <- i
-  }
-  
-  return( df )
-  
-}
-
+# library(irs990efile)
+# # library(dplyr)
+# index <- tinyindex  # random sample of 10,000 cases
+# index <- filter( index, FormType %in% c("990","990EZ") )
+# 
+# results2 <- list()
+# 
+# time1 <- Sys.time()
+# for( i in 1:length(index$URL) )
+# {
+#   print(i)
+#   try( results[[i]] <- build_rdb_table_adapted( index$URL[i], "F9-P07-T01-COMPENSATION" ))
+# }
+# time2 <- Sys.time()
+# print(paste0("RUNTIME (in min's): ", difftime(time2,time1)))
+# 
+# df <- dplyr::bind_rows( results)
+# 
+# write.csv( df, paste0( "F9-P07-T01-COMPENSATION-2", ".csv"), row.names=F )
