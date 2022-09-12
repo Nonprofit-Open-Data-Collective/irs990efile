@@ -2,6 +2,18 @@
 
 R package for building a research database from IRS 990 nonprofit efiler tax returns. 
 
+**Update:** The IRS is no longer hosting efile data on AWS. Files must be downloaded from the IRS site directly.
+
+https://www.irs.gov/charities-non-profits/form-990-series-downloads
+
+XML files are temporarily hosted at: 
+
+https://nccs-efile.s3.us-east-1.amazonaws.com/xml/
+
+For example: 
+
+https://nccs-efile.s3.us-east-1.amazonaws.com/xml/201020793492001120_public.xml
+
 
 ## Installation
 
