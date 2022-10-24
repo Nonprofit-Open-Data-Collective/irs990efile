@@ -29,32 +29,30 @@
 #' index <- build_index( years=2015:2018 )
 #' }
 #' @export
-build_index <- function( file.years=2011:2021 )
+build_index <- function( tax.years=2009:2020 )
 {
    
    index.list <- list()
    counter <- 1
    
-   for( i in file.years )
+   for( i in tax.years )
    {
-     index.url <- paste0( "https://s3.amazonaws.com/irs-form-990/index_", i, ".json" )
-     index.list[[ counter ]] <- jsonlite::fromJSON( index.url )[[1]]
-     counter <- counter + 1
-     
+     index.list[[ counter ]] <- get( paste0( "index", i ) )
+     counter <- counter + 1  
    }
 
    index <- dplyr::bind_rows( index.list )
 
-   index <- unique( index )  # remove a couple of strange duplicates
-
+   # index <- unique( index )  # remove a couple of strange duplicates
+   #
    # REFORMAT DATE FROM YYYY-MM TO YYYY
    # Tax Period represents the end of the nonprofit's accounting year
    # The tax filing year is always the previous year, unless the accounting year ends in December
-   
-   tax.year <- as.numeric( substr( index$TaxPeriod, 1, 4 ) )
-   month <- substr( index$TaxPeriod, 5, 6 )
-   index$TaxYear <- tax.year - 1
-   index$TaxYear[ month == "12" ] <- tax.year[ month == "12" ]
+   #
+   # tax.year <- as.numeric( substr( index$TaxPeriod, 1, 4 ) )
+   # month <- substr( index$TaxPeriod, 5, 6 )
+   # index$TaxYear <- tax.year - 1
+   # index$TaxYear[ month == "12" ] <- tax.year[ month == "12" ]
    
    return( index )
 

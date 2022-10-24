@@ -97,3 +97,65 @@ NULL
 #' @source \url{https://github.com/Nonprofit-Open-Data-Collective/irs-efile-master-concordance-file}
 NULL 
 
+#' @name index2009
+#' @docType data
+#' @title The IRS index file previously available on AWS for the year 2009. 
+NULL
+
+#' @name index2010
+#' @docType data
+#' @title The IRS index file previously available on AWS for the year 2010. 
+NULL
+
+#' @name index2011
+#' @docType data
+#' @title The IRS index file previously available on AWS for the year 2011. 
+NULL
+
+#' @name index2012
+#' @docType data
+#' @title The IRS index file previously available on AWS for the year 2012. 
+NULL
+
+#' @name index2013
+#' @docType data
+#' @title The IRS index file previously available on AWS for the year 2013. 
+NULL
+
+#' @name index2014
+#' @docType data
+#' @title The IRS index file previously available on AWS for the year 2014. 
+NULL
+
+#' @name index2015
+#' @docType data
+#' @title The IRS index file previously available on AWS for the year 2015. 
+NULL
+
+#' @name index2016
+#' @docType data
+#' @title The IRS index file previously available on AWS for the year 2016. 
+NULL
+
+#' @name index2017
+#' @docType data
+#' @title The IRS index file previously available on AWS for the year 2017. 
+NULL
+
+#' @name index2018
+#' @docType data
+#' @title The IRS index file previously available on AWS for the year 2018. 
+NULL
+
+#' @name index2019
+#' @docType data
+#' @title The IRS index file previously available on AWS for the year 2019. 
+NULL
+
+#' @name index2020
+#' @docType data
+#' @title The IRS index file previously available on AWS for the year 2020. 
+NULL
+
+
+

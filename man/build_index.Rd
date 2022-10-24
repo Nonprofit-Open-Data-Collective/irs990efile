@@ -4,7 +4,7 @@
 \alias{build_index}
 \title{Build Efiler Index}
 \usage{
-build_index(file.years = 2011:2021)
+build_index(tax.years = 2009:2020)
 }
 \arguments{
 \item{file.years}{Numeric or character vector of years starting in 2011.}
