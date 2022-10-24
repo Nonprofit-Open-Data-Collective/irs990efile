@@ -32,7 +32,7 @@ devtools::install_github( 'nonprofit-open-data-collective/irs990efile' )
 library( irs990efile )
 library( dplyr )
 
-# pre-loaded demo index of efilers from AWS:
+# pre-loaded demo index of 10,000 random efilers from AWS:
 tinyindex %>% 
   select( OrganizationName, EIN, TaxYear, FormType ) %>% 
   head()
@@ -46,11 +46,17 @@ tinyindex %>%
 # 6     BERNARD M AND CARYL H SUSMAN FOUNDATION 208068788    2010    990PF
 
 
+# index files from 2009 to 2020 are preloaded: 
+data( index2009 )
+head( index2009 )
+
+# combine index files for all years 2009-2020 ehre forms available: 
+index <- build_index()  # build_index( tax.years=2009:2020 )
+
 # create index of 10 organizations from 2018  
 index.2018 <-
-  tinyindex %>% 
+  index2018 %>% 
   filter( FormType %in% c("990","990EZ") ) %>%
-  filter( TaxYear == 2018 ) %>% 
   sample_n( 10 )
 
 # build all one-to-one tables for the sample
@@ -71,6 +77,8 @@ tables <- c( "F9-P00-T00-HEADER","F9-P01-T00-SUMMARY",
              "F9-P08-T00-REVENUE","F9-P09-T00-EXPENSES",
              "F9-P11-T00-ASSETS" )
 
+index <- build_index()
+
 for( i in years )
 {
   dir.create( as.character(i) )
@@ -87,9 +95,10 @@ bind_data( years )    # compile all chunks into a single table
 
 ###   BUILD THE FULL DATABASE
 ###   (note: this can take days) 
+###   (test on a sample first) 
 
 # build the full index from AWS (~3.4 million 990 & 990EZ filers)
-index <- build_index( file.years=2011:2021 )
+index <- build_index( tax.years=2009:2020 )
 build_database( index ) 
 
 ```
