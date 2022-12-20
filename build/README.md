@@ -1,0 +1,1 @@
+This repository includes sample build scripts used to create databases of [one-to-one or one-to-many efile tables](https://nonprofit-open-data-collective.github.io/irs990efile/data-dictionary/data-dictionary.html). 
