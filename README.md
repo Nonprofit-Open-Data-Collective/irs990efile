@@ -4,17 +4,21 @@ R package for building a research database from IRS 990 nonprofit efiler tax ret
 
 The full set of tables is available in the [**DATA DICTIONARY**](https://nonprofit-open-data-collective.github.io/irs990efile/data-dictionary/data-dictionary.html).
 
+The Master Concordance File provides the crosswalk architecture for moving from XML files to rectangular tables. 
+
+https://github.com/Nonprofit-Open-Data-Collective/irs-efile-master-concordance-file
+
 ## IRS Efile Data
 
 **Update:** The IRS is no longer hosting efile data on AWS. Files must be downloaded from the IRS site directly.
 
 https://www.irs.gov/charities-non-profits/form-990-series-downloads
 
-XML files are temporarily hosted at: 
+XML files are available at: 
 
 https://nccs-efile.s3.us-east-1.amazonaws.com/xml/
 
-For example: 
+The new URLs will thus look like: 
 
 https://nccs-efile.s3.us-east-1.amazonaws.com/xml/201020793492001120_public.xml
 
