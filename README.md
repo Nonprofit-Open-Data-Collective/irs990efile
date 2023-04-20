@@ -2,6 +2,10 @@
 
 R package for building a research database from IRS 990 nonprofit efiler tax returns. 
 
+The full set of tables is available in the [**DATA DICTIONARY**](https://nonprofit-open-data-collective.github.io/irs990efile/data-dictionary/data-dictionary.html).
+
+## IRS Efile Data
+
 **Update:** The IRS is no longer hosting efile data on AWS. Files must be downloaded from the IRS site directly.
 
 https://www.irs.gov/charities-non-profits/form-990-series-downloads
@@ -77,7 +81,12 @@ tables <- c( "F9-P00-T00-HEADER","F9-P01-T00-SUMMARY",
              "F9-P08-T00-REVENUE","F9-P09-T00-EXPENSES",
              "F9-P11-T00-ASSETS" )
 
-index <- build_index()
+# CONVERT TABLE NAME 'F9-P00-T00-HEADER' TO 
+# FUNCTION NAME 'BUILD_F9_P00_T00_HEADER'
+
+tables <- gsub( "-", "_", tables )
+tables <- paste0( "BUILD_", tables )
+
 
 for( i in years )
 {
@@ -96,6 +105,10 @@ bind_data( years )    # compile all chunks into a single table
 ###   BUILD THE FULL DATABASE
 ###   (note: this can take days) 
 ###   (test on a sample first) 
+
+# test on random sample of 10,000 cases
+index <- tinyindex  
+build_database( index ) 
 
 # build the full index from AWS (~3.4 million 990 & 990EZ filers)
 index <- build_index( tax.years=2009:2020 )
