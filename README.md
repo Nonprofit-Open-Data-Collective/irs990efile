@@ -8,7 +8,12 @@ The Master Concordance File provides the crosswalk architecture for moving from 
 
 https://github.com/Nonprofit-Open-Data-Collective/irs-efile-master-concordance-file
 
-## IRS Efile Data
+Several dozen one-to-many tables exist on Form 990 (one unique 990 filing to a table with many entries, such as many board members serving a single nonprofit). Documentation about the XML table structure can be useful when attempting to parse XML nodes into well-behaved relational tables.  
+
+https://nonprofit-open-data-collective.github.io/efile-rdb-tables/
+
+
+## IRS Efile XML Docs
 
 **Update:** The IRS is no longer hosting efile data on AWS. Files must be downloaded from the IRS site directly.
 
