@@ -33,6 +33,7 @@ https://nccs-efile.s3.us-east-1.amazonaws.com/xml/201020793492001120_public.xml
 *Note that **xmltools** is not available on CRAN so has to be installed remotely before installing the **irs990efiler** package.*
 
 ```r
+# install.packages( 'devtools' )  
 devtools::install_github( 'ultinomics/xmltools' )
 devtools::install_github( 'nonprofit-open-data-collective/irs990efile' )
 ```
