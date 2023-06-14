@@ -46,6 +46,23 @@ devtools::install_github( 'nonprofit-open-data-collective/irs990efile' )
 library( irs990efile )
 library( dplyr )
 
+
+###   BUILD THE FULL DATABASE
+###   (note: this can take days) 
+###   (test on a sample first) 
+
+# test on random sample of 10,000 cases
+index <- tinyindex  
+build_database( index ) 
+
+# build the full index from AWS (~3.4 million 990 & 990EZ filers)
+index <- build_index( tax.years=2009:2020 )
+build_database( index ) 
+
+###
+###  WORKING WITH SPECIFIC TABLES OR SAMPLES
+###
+
 # pre-loaded demo index of 10,000 random efilers from AWS:
 tinyindex %>% 
   select( OrganizationName, EIN, TaxYear, FormType ) %>% 
@@ -91,8 +108,8 @@ tables <- c( "F9-P00-T00-HEADER","F9-P01-T00-SUMMARY",
              "F9-P08-T00-REVENUE","F9-P09-T00-EXPENSES",
              "F9-P11-T00-ASSETS" )
 
-# CONVERT TABLE NAME 'F9-P00-T00-HEADER' TO 
-# FUNCTION NAME 'BUILD_F9_P00_T00_HEADER'
+# TABLE NAME:          'F9-P00-T00-HEADER' 
+# FUNCTION NAME: 'BUILD_F9_P00_T00_HEADER'
 
 tables <- gsub( "-", "_", tables )
 tables <- paste0( "BUILD_", tables )
@@ -101,29 +118,15 @@ tables <- paste0( "BUILD_", tables )
 for( i in years )
 {
   dir.create( as.character(i) )
-  setwd( as.character(i) )
-  index.i <- dplyr::filter( index, TaxYear == i )
-  groups <- split_index( index.i, group.size = 100 )
-  build_tables_parallel( groups=groups, year=i, table.names=tables )
+  setwd( as.character(i) )                               # creates folders for each year
+  index.i <- dplyr::filter( index, TaxYear == i )        # create index for one year 
+  groups <- split_index( index.i, group.size = 100 )     # parser builds temporary tables then combines them at the end
+  build_tables_parallel( 
+    groups=groups, year=i, table.names=tables )          # processing many small groups keep memory usage low
   setwd( ".." ) # return to main directory 
 }
 
-bind_data( years )    # compile all chunks into a single table
-
-
-
-###   BUILD THE FULL DATABASE
-###   (note: this can take days) 
-###   (test on a sample first) 
-
-# test on random sample of 10,000 cases
-index <- tinyindex  
-build_database( index ) 
-
-# build the full index from AWS (~3.4 million 990 & 990EZ filers)
-index <- build_index( tax.years=2009:2020 )
-build_database( index ) 
-
+bind_data( years )    # compile all temp tables into one table
 ```
 
 ## Details
