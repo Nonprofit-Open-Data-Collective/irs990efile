@@ -64,9 +64,10 @@ zeroALL <- function( var )
 #' @export
 get_object_id <- function( url )
 {
-    object.id <- gsub( "https://s3.amazonaws.com/irs-form-990/", "", url )
-    object.id <- gsub( "_public.xml", "", object.id )
-    return( object.id )
+    object.id <- gsub("https://nccs-efile.s3.us-east-1.amazonaws.com/xml/", 
+        "", url)
+    object.id <- gsub("_public.xml", "", object.id)
+    return(object.id)
 }
 
 #' @title some title text 
