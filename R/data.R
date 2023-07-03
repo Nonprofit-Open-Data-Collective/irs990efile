@@ -87,7 +87,7 @@ NULL
 #'   \item{TAX_YEAR}{The calendar year covered by the tax filing (TaxPeriod-1) in format YYYY}
 #' }
 #' 
-#' @seealso [efile::add_keys()]
+#' @seealso [irs990efile::add_keys()]
 #' 
 #' @examples
 #' \dontrun{
