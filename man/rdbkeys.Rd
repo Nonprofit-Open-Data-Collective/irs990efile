@@ -33,5 +33,5 @@ data( rdbkeys )
 
 }
 \seealso{
-\code{\link[efile:add_keys]{efile::add_keys()}}
+\code{\link[=add_keys]{add_keys()}}
 }
