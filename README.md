@@ -23,45 +23,6 @@ Download their full efile index file (check their site for newer versions):
 
 https://gt990datalake-rawdata.s3.amazonaws.com/Indices/990xmls/index_all_years_efiledata_xmls_created_on_2023-10-29.csv
 
-The legacy IRS S3 bucket (https://www.irs.gov/charities-non-profits/form-990-series-downloads) is available at: 
-
-https://nccs-efile.s3.us-east-1.amazonaws.com/xml/
-
-The URLs will thus look like: 
-
-https://nccs-efile.s3.us-east-1.amazonaws.com/xml/201020793492001120_public.xml
-
-## Installation
-
-*Note that **xmltools** is not available on CRAN so has to be installed remotely before installing the **irs990efiler** package.*
-
-```r
-# install.packages( 'devtools' )  
-devtools::install_github( 'ultinomics/xmltools' )
-devtools::install_github( 'nonprofit-open-data-collective/irs990efile' )
-```
-
-
-
-## Use
-
-```r
-library( irs990efile )
-library( dplyr )
-
-### Preview the index file:
-
-index <- build_index( tax.years=2018 )
-
-table( index$FormType ) %>% knitr::kable()
-
-|Var1  |    Freq|
-|:-----|-------:|
-|990   | 2886557|
-|990EZ | 1597025|
-|990PF |  836034|
-|990T  |   46023|
-
 |VARIABLES IN INDEX       |
 |:------------------------|
 |OrganizationName         |
@@ -98,6 +59,36 @@ table( index$FormType ) %>% knitr::kable()
 |FileSha256               |
 |ZipFile                  |
 
+The legacy IRS S3 bucket (https://www.irs.gov/charities-non-profits/form-990-series-downloads) is available at: 
+
+https://nccs-efile.s3.us-east-1.amazonaws.com/xml/
+
+The URLs will thus look like: 
+
+https://nccs-efile.s3.us-east-1.amazonaws.com/xml/201020793492001120_public.xml
+
+
+
+## Installation
+
+*Note that **xmltools** is not available on CRAN so has to be installed remotely before installing the **irs990efiler** package.*
+
+```r
+# install.packages( 'devtools' )  
+devtools::install_github( 'ultinomics/xmltools' )
+devtools::install_github( 'nonprofit-open-data-collective/irs990efile' )
+```
+
+
+
+## Use
+
+```r
+library( irs990efile )
+library( dplyr )
+
+### Preview the index file:
+index <- build_index( tax.years=2018 )
 head( index3[ , c(1:2) ] ) %>% knitr::kable()
 head( index3[ , c(3:4,6:7) ] ) %>% knitr::kable()
 ```
@@ -128,7 +119,16 @@ tictoc::tic( )  #---------------------------
 index <- build_index( tax.years=2008:2022 )
 tictoc::toc()   #---------------------------
 # 798.84 sec elapsed
-# ~ 15 minutes to read full index 
+# ~ 15 minutes to read full index
+
+table( index$FormType ) %>% knitr::kable()
+
+# |Var1  |    Freq|
+# |:-----|-------:|
+# |990   | 2886557|
+# |990EZ | 1597025|
+# |990PF |  836034|
+# |990T  |   46023|
 ```
 
 ```r
