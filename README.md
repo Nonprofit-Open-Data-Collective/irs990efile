@@ -12,6 +12,30 @@ Several dozen one-to-many tables exist on Form 990 (one unique 990 filing to a t
 
 https://nonprofit-open-data-collective.github.io/efile-rdb-tables/
 
+## Installation
+
+*Note that **xmltools** is not available on CRAN so has to be installed remotely before installing the **irs990efiler** package.*
+
+```r
+# install.packages( 'devtools' )  
+devtools::install_github( 'ultinomics/xmltools' )
+devtools::install_github( 'nonprofit-open-data-collective/irs990efile' )
+```
+
+## Use
+
+```r
+library( irs990efile )
+library( dplyr )
+
+index <- build_index( tax.years=2018 )
+index.small <- dplyr::sample_n( index, 1000 )
+build_database( index.small )
+
+# download the 2018 index file
+# build all one-to-one tables
+# for a sample of 1,000 nonprofits
+```
 
 ## IRS Efile XML Docs
 
@@ -69,19 +93,7 @@ https://nccs-efile.s3.us-east-1.amazonaws.com/xml/201020793492001120_public.xml
 
 
 
-## Installation
-
-*Note that **xmltools** is not available on CRAN so has to be installed remotely before installing the **irs990efiler** package.*
-
-```r
-# install.packages( 'devtools' )  
-devtools::install_github( 'ultinomics/xmltools' )
-devtools::install_github( 'nonprofit-open-data-collective/irs990efile' )
-```
-
-
-
-## Use
+## More Examples
 
 ```r
 library( irs990efile )
