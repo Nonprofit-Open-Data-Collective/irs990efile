@@ -29,31 +29,73 @@
 #' index <- build_index( years=2015:2018 )
 #' }
 #' @export
-build_index <- function( tax.years=2009:2020 )
+build_index <- function( tax.years=2007:2022 )
 {
+
+   base <- "https://nccs-efile.s3.us-east-1.amazonaws.com/index/data-commons-efile-index-"
    
    index.list <- list()
    counter <- 1
-   
+ 
    for( i in tax.years )
    {
-     index.list[[ counter ]] <- get( paste0( "index", i ) )
+     URL <- paste0( base, i, ".csv" )
+     d <- try( readr::read_csv( URL, show_col_types=FALSE ) ) 
+     index.list[[ counter ]] <- as.data.frame(d)
      counter <- counter + 1  
    }
 
    index <- dplyr::bind_rows( index.list )
 
-   # index <- unique( index )  # remove a couple of strange duplicates
-   #
-   # REFORMAT DATE FROM YYYY-MM TO YYYY
-   # Tax Period represents the end of the nonprofit's accounting year
-   # The tax filing year is always the previous year, unless the accounting year ends in December
-   #
-   # tax.year <- as.numeric( substr( index$TaxPeriod, 1, 4 ) )
-   # month <- substr( index$TaxPeriod, 5, 6 )
-   # index$TaxYear <- tax.year - 1
-   # index$TaxYear[ month == "12" ] <- tax.year[ month == "12" ]
-   
-   return( index )
+   new.order <- 
+   c("OrganizationName","EIN","FormType","TaxYear","URL",
+     "OrgType","TaxStatus","YearFormed",
+     "LegalDomicileState","LegalDomicileCountry",
+     "GrossReceipts","TotalRevenueCY","TotalExpensesCY",
+     "TotalAssetsBkEOY","TotalLiabilitiesBkEOY","TotalNetAssetsBkEOY",
+     "GroupAffiliatesIncluded","GroupExemptionNumber", "GroupReturnForAffiliates",
+     "TaxPeriod", "TaxPeriodBeginDate", "TaxPeriodEndDate",
+     "ReturnVersion","DateSigned","SubmittedOn","IndexedOn",  
+     "ObjectId","ReturnTs","BuildTs","DocStatus", 
+     "FileSizeBytes","FileSha256","ZipFile")
+   index <- index[ new.order ]
 
+   return( index )
 }
+
+
+# library( tictoc )
+# tic( )  #--------------------------------------
+# index <- build_index( tax.years=2007:2010 )
+# toc()   #---------------------------------------
+# 
+# 
+# 
+# build_index <- function( tax.years=2009:2020 )
+# {
+#   
+#   index.list <- list()
+#   counter <- 1
+#   
+#   for( i in tax.years )
+#   {
+#     index.list[[ counter ]] <- get( paste0( "index", i ) )
+#     counter <- counter + 1  
+#   }
+#   
+#   index <- dplyr::bind_rows( index.list )
+#   
+#   # index <- unique( index )  # remove a couple of strange duplicates
+#   #
+#   # REFORMAT DATE FROM YYYY-MM TO YYYY
+#   # Tax Period represents the end of the nonprofit's accounting year
+#   # The tax filing year is always the previous year, unless the accounting year ends in December
+#   #
+#   # tax.year <- as.numeric( substr( index$TaxPeriod, 1, 4 ) )
+#   # month <- substr( index$TaxPeriod, 5, 6 )
+#   # index$TaxYear <- tax.year - 1
+#   # index$TaxYear[ month == "12" ] <- tax.year[ month == "12" ]
+#   
+#   return( index )
+#   
+# }
