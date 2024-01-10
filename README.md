@@ -51,13 +51,84 @@ library( dplyr )
 
 ### Preview the index file:
 
-tictoc::tic( )  #---------------------------
-index <- build_index( tax.years=2008:2010 )
-tictoc::toc()   #---------------------------
+index <- build_index( tax.years=2018 )
 
+table( index$FormType ) %>% knitr::kable()
+
+|Var1  |    Freq|
+|:-----|-------:|
+|990   | 2886557|
+|990EZ | 1597025|
+|990PF |  836034|
+|990T  |   46023|
+
+|VARIABLES IN INDEX       |
+|:------------------------|
+|OrganizationName         |
+|EIN                      |
+|FormType                 |
+|TaxYear                  |
+|URL                      |
+|OrgType                  |
+|TaxStatus                |
+|YearFormed               |
+|LegalDomicileState       |
+|LegalDomicileCountry     |
+|GrossReceipts            |
+|TotalRevenueCY           |
+|TotalExpensesCY          |
+|TotalAssetsBkEOY         |
+|TotalLiabilitiesBkEOY    |
+|TotalNetAssetsBkEOY      |
+|GroupAffiliatesIncluded  |
+|GroupExemptionNumber     |
+|GroupReturnForAffiliates |
+|TaxPeriod                |
+|TaxPeriodBeginDate       |
+|TaxPeriodEndDate         |
+|ReturnVersion            |
+|DateSigned               |
+|SubmittedOn              |
+|IndexedOn                |
+|ReturnTs                 |
+|BuildTs                  |
+|DocStatus                |
+|ObjectId                 |
+|FileSizeBytes            |
+|FileSha256               |
+|ZipFile                  |
+
+head( index3[ , c(1:2) ] ) %>% knitr::kable()
+head( index3[ , c(3:4,6:7) ] ) %>% knitr::kable()
+```
+
+
+|OrganizationName                                                 |EIN       |
+|:----------------------------------------------------------------|:---------|
+|ANCIENT & ACCEPTED SCOTTISH RITE OF FREEMASONRY VALLEY OF MONROE |237144224 |
+|THE EDUCATIONAL AND SCIENTIFIC RESEARCH ESR FOUNDATION INC       |814680405 |
+|THE LITERARY CLASSICS OF THE US INC D/B/A LIBRARY OF AMERICA     |132986916 |
+|RAPID CITY SOFTBALL LEAGUE ASSOS                                 |460410637 |
+|CENTRO CAMPESINO FARMWORKER CENTER INC                           |591460598 |
+|HAITIAN PEOPLES SUPPORT PROJECT INC                              |141755401 |
+
+|FormType | TaxYear|OrgType  |TaxStatus |
+|:--------|-------:|:--------|:---------|
+|990      |    2018|Corp     |501c10    |
+|990PF    |    2018|ExemptPF |NA        |
+|990      |    2018|Corp     |501c3     |
+|990      |    2018|Corp     |501c4     |
+|990      |    2018|Corp     |501c3     |
+|990EZ    |    2018|Corp     |501c3     |
+
+
+```r
+# FULL INDEX LOAD TIME 
 tictoc::tic( )  #---------------------------
 index <- build_index( tax.years=2008:2022 )
 tictoc::toc()   #---------------------------
+# 798.84 sec elapsed
+# ~ 15 minutes to read full index 
 ```
 
 ```r
@@ -68,7 +139,7 @@ build_database( index )
 ```
 
 ```
-###   BUILD THE FULL DATABASE (~5.4 million 990 & 990EZ filers)
+###   BUILD THE FULL DATABASE (~4.5 million 990 & 990EZ filers)
 ###   (note: this can take days) 
 ###   (test on a sample first) 
 
