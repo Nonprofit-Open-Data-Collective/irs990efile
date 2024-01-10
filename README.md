@@ -17,16 +17,19 @@ https://nonprofit-open-data-collective.github.io/efile-rdb-tables/
 
 **Update:** The IRS is no longer hosting efile data on AWS. Files must be downloaded from the IRS site directly.
 
-https://www.irs.gov/charities-non-profits/form-990-series-downloads
+The irs990efile package now pulls from the [Data Commons Data Lake](https://990data.givingtuesday.org/):  
 
-XML files are available at: 
+Download their full efile index file (check their site for newer versions): 
+
+https://gt990datalake-rawdata.s3.amazonaws.com/Indices/990xmls/index_all_years_efiledata_xmls_created_on_2023-10-29.csv
+
+The legacy IRS S3 bucket (https://www.irs.gov/charities-non-profits/form-990-series-downloads) is available at: 
 
 https://nccs-efile.s3.us-east-1.amazonaws.com/xml/
 
-The new URLs will thus look like: 
+The URLs will thus look like: 
 
 https://nccs-efile.s3.us-east-1.amazonaws.com/xml/201020793492001120_public.xml
-
 
 ## Installation
 
@@ -46,19 +49,35 @@ devtools::install_github( 'nonprofit-open-data-collective/irs990efile' )
 library( irs990efile )
 library( dplyr )
 
+### Preview the index file:
 
-###   BUILD THE FULL DATABASE
+tictoc::tic( )  #---------------------------
+index <- build_index( tax.years=2008:2010 )
+tictoc::toc()   #---------------------------
+
+tictoc::tic( )  #---------------------------
+index <- build_index( tax.years=2008:2022 )
+tictoc::toc()   #---------------------------
+```
+
+```r
+###   BUILD THE DATABASE
+# test on random sample of 10,000 cases
+index <- tinyindex  
+build_database( index )
+```
+
+```
+###   BUILD THE FULL DATABASE (~5.4 million 990 & 990EZ filers)
 ###   (note: this can take days) 
 ###   (test on a sample first) 
 
-# test on random sample of 10,000 cases
-index <- tinyindex  
+# build the Data Commons index 
+index <- build_index( tax.years=2008:2022 )
 build_database( index ) 
+```
 
-# build the full index from AWS (~3.4 million 990 & 990EZ filers)
-index <- build_index( tax.years=2009:2020 )
-build_database( index ) 
-
+```r
 ###
 ###  WORKING WITH SPECIFIC TABLES OR SAMPLES
 ###
