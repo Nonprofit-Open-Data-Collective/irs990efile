@@ -59,6 +59,12 @@ c("BuildTs", "DAF", "DateSigned", "DocStatus", "EIN", "FileSha256",
 "TaxYear", "TotalAssetsBkEOY", "TotalExpensesCY", "TotalLiabilitiesBkEOY", 
 "TotalNetAssetsBkEOY", "TotalRevenueCY", "URL", "Website", "YearFormed", 
 "ZipFile")
+
+URL <- "https://nccs-efile.s3.us-east-1.amazonaws.com/index/index_all_years_efiledata_xmls_created_on_2024-01-19.csv"
+download.file( URL, destfile="index.csv" )
+d <- data.table::fread( "index.csv", colClasses=c( "ObjectId"="character" ) )
+table( d$TaxYear, d$FormType ) |> knitr::kable()
+d |>dplyr::filter( TaxYear == 2021 ) |> dplyr::count( TaxStatus ) |> knitr::kable()
 ```
 
 **990 Efile Returns by FormType and TaxYear**
@@ -304,7 +310,7 @@ As a result the ObjectId may get corrupted unexpectedly and the joins are no lon
 
 ```r
 d <- read.csv( filename, colClasses = "character" )
-d <- readr::read_csv( filename, col_types=cols( .default = "c" ) )
+d <- readr::read_csv( filename, col_types = cols(.default = col_character()) )
 d <- data.table::fread( filename, colClasses=c( "ObjectId"="character" ) )
 ```
 
