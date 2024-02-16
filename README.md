@@ -47,45 +47,72 @@ Download their full efile index file (check their site for newer versions):
 
 [DataCommons Efile Index (5,598,994 records)](https://gt990datalake-rawdata.s3.amazonaws.com/Indices/990xmls/index_all_years_efiledata_xmls_created_on_2024-01-19.csv)
 
+[Index Data Dictionary](https://acrobat.adobe.com/id/urn:aaid:sc:AP:f83b004b-7f77-4c8a-8d96-ea301721aabe)
+
+```
+c("BuildTs", "DAF", "DateSigned", "DocStatus", "EIN", "FileSha256", 
+"FileSizeBytes", "FormType", "GrossReceipts", "GroupAffiliatesIncluded", 
+"GroupExemptionNumber", "GroupReturnForAffiliates", "IndexedOn", 
+"LegalDomicileCountry", "LegalDomicileState", "ObjectId", "OrgType", 
+"OrganizationName", "ReturnTs", "ReturnVersion", "SubmittedOn", 
+"TaxPeriod", "TaxPeriodBeginDate", "TaxPeriodEndDate", "TaxStatus", 
+"TaxYear", "TotalAssetsBkEOY", "TotalExpensesCY", "TotalLiabilitiesBkEOY", 
+"TotalNetAssetsBkEOY", "TotalRevenueCY", "URL", "Website", "YearFormed", 
+"ZipFile")
+```
+
+**990 Efile Returns by FormType and TaxYear**
+
+|     |    990|  990EZ|  990PF|  990T|
+|:----|------:|------:|------:|-----:|
+|2007 |     17|     17|      0|     0|
+|2008 |     87|    114|     20|     0|
+|2009 |  33311|  15470|   2345|     0|
+|2010 | 123026|  63326|  25249|     0|
+|2011 | 159504|  82048|  34597|     0|
+|2012 | 179688|  93750|  39933|     0|
+|2013 | 198856| 104375|  45887|     0|
+|2014 | 218620| 116417|  53442|     0|
+|2015 | 233520| 124894|  58815|     0|
+|2016 | 243903| 130485|  62988|     0|
+|2017 | 261612| 139146|  68950|     0|
+|2018 | 271442| 149384|  80138|     0|
+|2019 | 283649| 152579|  87773|     0|
+|2020 | 318850| 169296| 114605| 22616|
+|2021 | 319445| 192642| 116404| 22469|
+|2022 | 158730| 135775|  81631|  7154|
 
 
-|VARIABLES IN INDEX       |
-|:------------------------|
-|OrganizationName         |
-|EIN                      |
-|FormType                 |
-|TaxYear                  |
-|URL                      |
-|OrgType                  |
-|TaxStatus                |
-|YearFormed               |
-|LegalDomicileState       |
-|LegalDomicileCountry     |
-|GrossReceipts            |
-|TotalRevenueCY           |
-|TotalExpensesCY          |
-|TotalAssetsBkEOY         |
-|TotalLiabilitiesBkEOY    |
-|TotalNetAssetsBkEOY      |
-|GroupAffiliatesIncluded  |
-|GroupExemptionNumber     |
-|GroupReturnForAffiliates |
-|TaxPeriod                |
-|TaxPeriodBeginDate       |
-|TaxPeriodEndDate         |
-|ReturnVersion            |
-|DateSigned               |
-|SubmittedOn              |
-|IndexedOn                |
-|ReturnTs                 |
-|BuildTs                  |
-|DocStatus                |
-|ObjectId                 |
-|FileSizeBytes            |
-|FileSha256               |
-|ZipFile                  |
+**TaxStatus for 2021 Cases**
 
-
+|Var1   |   Freq|
+|:------|------:|
+|       | 138873|
+|501c2  |   2578|
+|501c3  | 391557|
+|501c4  |  23639|
+|501c5  |  16901|
+|501c6  |  32008|
+|501c7  |  16548|
+|501c8  |   6577|
+|501c9  |   4803|
+|501c10 |   1808|
+|501c11 |      5|
+|501c12 |   3687|
+|501c13 |   2917|
+|501c14 |   1920|
+|501c15 |    139|
+|501c16 |     11|
+|501c17 |     71|
+|501c18 |      4|
+|501c19 |   6265|
+|501c20 |      1|
+|501c23 |      4|
+|501c25 |    358|
+|501c26 |      6|
+|501c27 |      3|
+|501c29 |     14|
+|4947a1 |    263|
 
 
 
