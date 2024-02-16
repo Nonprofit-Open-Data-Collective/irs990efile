@@ -45,7 +45,9 @@ The irs990efile package now pulls from the [Data Commons Data Lake](https://990d
 
 Download their full efile index file (check their site for newer versions): 
 
-https://gt990datalake-rawdata.s3.amazonaws.com/Indices/990xmls/index_all_years_efiledata_xmls_created_on_2023-10-29.csv
+[DataCommons Efile Index (5,598,994 records)](https://gt990datalake-rawdata.s3.amazonaws.com/Indices/990xmls/index_all_years_efiledata_xmls_created_on_2024-01-19.csv)
+
+
 
 |VARIABLES IN INDEX       |
 |:------------------------|
@@ -83,13 +85,7 @@ https://gt990datalake-rawdata.s3.amazonaws.com/Indices/990xmls/index_all_years_e
 |FileSha256               |
 |ZipFile                  |
 
-The legacy IRS S3 bucket (https://www.irs.gov/charities-non-profits/form-990-series-downloads) is available at: 
 
-https://nccs-efile.s3.us-east-1.amazonaws.com/xml/
-
-The URLs will thus look like: 
-
-https://nccs-efile.s3.us-east-1.amazonaws.com/xml/201020793492001120_public.xml
 
 
 
@@ -245,7 +241,7 @@ XML forms can be rendered using an [efile viewer](https://github.com/betson/irs-
 
 The **irs990efile** package was created to convert XML files into a relational database: normal rectangular data tables linked by a set of keys. 
 
-**Documentation**
+**RDB Key Fiels:**
 
 All of the files share the following meta-fields: 
 
@@ -256,7 +252,66 @@ All of the files share the following meta-fields:
 * ORG_NAME_L2  
 * RETURN_TYPE  
 * RETURN_VERSION               
-* TAX_YEAR  
+* TAX_YEAR
+
+Intuitively we would expect that the EIN-TAX_YEAR combination could serve as a unique key for table joins. That is not the case because the same nonprofit can file multiple 990 returns in a single year due to (1) ammendments, (2) group filings where the parent organization files a single 990 for themselves and another group filing for all of the related entities, (3) a change in fiscal year results in a partial return. 
+
+In theory the ObjectID should work as the join key but it is error prone because of a well-known precision loss problem that occurs when reading or recasting large numbers. 
+
+```r
+options( scipen=16)
+x <- c(  "202301529349200315", 
+         "202301529349200316", 
+         "202301529349200317"   )
+y <- x |> as.numeric()
+cbind(x,y) |> knitr::kable()
+
+|x                  |y                  |
+|:------------------|:------------------|
+|202301529349200315 |202301529349200320 |
+|202301529349200316 |202301529349200320 |
+|202301529349200317 |202301529349200320 |
+```
+
+As a result the ObjectId may get corrupted unexpectedly and the joins are no longer valid. The problem is specific to columns that contain only numbers, as many functions that read CSV formats or other file types that lack explicit data types will automatically cast them as numeric variable types, at which time the precision loss occurs during the conversion. You can assert more control over the default behavior of some functions: 
+
+```r
+d <- read.csv( filename, colClasses = "character" )
+d <- readr::read_csv( filename, col_types=cols( .default = "c" ) )
+d <- data.table::fread( filename, colClasses=c( "ObjectId"="character" ) )
+```
+
+Alternatively, the URL field includes characters so it is by default loaded as a character vector. Note that the URL contains the original ObjectId: 
+
+```r
+x <- head(d$ObjectId, 3 )
+y <- head(d$URL, 3 )
+cbind(x,y) |> knitr::kable()
+
+|x                  |y                                                                                               |
+|:------------------|:-----------------------------------------------------------------------------------------------|
+|202301529349200315 |https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202301529349200315_public.xml |
+|201921359349311872 |https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/201921359349311872_public.xml |
+|201410859349300511 |https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/201410859349300511_public.xml |
+```
+
+You will find it to be a safe and reliable key for table joins. 
+
+
+**Legacy XML Files from the Original IRS S3 Bucket:**
+
+All of the XML efile returns have been archived on the Data Commons. 
+
+If you need to access the original legacy IRS S3 bucket (previously at https://www.irs.gov/charities-non-profits/form-990-series-downloads) for reproducibility purposes, it is available at: https://nccs-efile.s3.us-east-1.amazonaws.com/xml/
+
+The Index files are available at: 
+
+```
+https://nccs-efile.s3.us-east-1.amazonaws.com/index/index-PX.csv  # 990 and 999EZ returns
+https://nccs-efile.s3.us-east-1.amazonaws.com/index/index-PF.csv  # 990PF returns 
+```
+
+The URLs can be constructed with the object ID and will thus look like: https://nccs-efile.s3.us-east-1.amazonaws.com/xml/201020793492001120_public.xml
 
 
 
