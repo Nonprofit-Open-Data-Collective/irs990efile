@@ -35,14 +35,12 @@ build_index <- function( tax.years=2007:2022 )
    base <- "https://nccs-efile.s3.us-east-1.amazonaws.com/index/data-commons-efile-index-"
    
    index.list <- list()
-   counter <- 1
  
    for( i in tax.years )
    {
      URL <- paste0( base, i, ".csv" )
-     d <- try( readr::read_csv( URL, show_col_types=FALSE ) ) 
-     index.list[[ counter ]] <- as.data.frame(d)
-     counter <- counter + 1  
+     d <- try( data.table::fread( URL, colClasses=c( "ObjectId"="character" ) ) )
+     index.list[[ as.character(i) ]] <- as.data.frame(d) 
    }
 
    index <- dplyr::bind_rows( index.list )
@@ -52,8 +50,10 @@ build_index <- function( tax.years=2007:2022 )
      "OrgType","TaxStatus","YearFormed",
      "LegalDomicileState","LegalDomicileCountry",
      "GrossReceipts","TotalRevenueCY","TotalExpensesCY",
-     "TotalAssetsBkEOY","TotalLiabilitiesBkEOY","TotalNetAssetsBkEOY",
-     "GroupAffiliatesIncluded","GroupExemptionNumber", "GroupReturnForAffiliates",
+     "TotalAssetsBkEOY","TotalLiabilitiesBkEOY",
+     "TotalNetAssetsBkEOY",
+     "GroupAffiliatesIncluded","GroupExemptionNumber", 
+     "GroupReturnForAffiliates",
      "TaxPeriod", "TaxPeriodBeginDate", "TaxPeriodEndDate",
      "ReturnVersion","DateSigned","SubmittedOn","IndexedOn",  
      "ObjectId","ReturnTs","BuildTs","DocStatus", 
