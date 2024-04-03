@@ -39,8 +39,11 @@ build_index <- function( tax.years=2007:2022 )
    for( i in tax.years )
    {
      URL <- paste0( base, i, ".csv" )
-     d <- try( data.table::fread( URL, colClasses=c( "ObjectId"="character" ) ) )
-     index.list[[ as.character(i) ]] <- as.data.frame(d) 
+     df <- try( data.table::fread( URL, 
+                  colClasses = 'character', 
+                  data.table = FALSE,
+                  showProgress = FALSE ) )
+     index.list[[ as.character(i) ]] <- df 
    }
 
    index <- dplyr::bind_rows( index.list )
