@@ -81,7 +81,27 @@ build_index <- function( tax.years=NULL )
 }
 
 
-
+#' @title
+#' Check if URL is valid
+#'
+#' @description
+#' Check whether a URL is valid. 
+#'
+#' @details
+#' Pings a given URL to see if it is active or exists.  
+#'
+#' @param URL Any URL you wish to test. 
+#' 
+#' @return Returns a value of TRUE or FALSE.  
+#'
+#' @examples
+#' \dontrun{
+#' # TRUE
+#' valid_url( "https://nccs-efile.s3.us-east-1.amazonaws.com/index/data-commons-index-file-2020.csv" )
+#' # FALSE
+#' valid_url( "https://nccs-efile.s3.us-east-1.amazonaws.com/index/data-commons-index-file-2090.csv" )
+#' }
+#' @export
 valid_url <- function( URL , t=2 ){
   con <- url( URL )
   check <- 
