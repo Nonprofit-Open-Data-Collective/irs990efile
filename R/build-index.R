@@ -29,10 +29,24 @@
 #' index <- build_index( years=2015:2018 )
 #' }
 #' @export
-build_index <- function( tax.years=2007:2022 )
+build_index <- function( tax.years=NULL )
 {
-
    base <- "https://nccs-efile.s3.us-east-1.amazonaws.com/index/data-commons-efile-index-"
+
+   # WILL FIND MOST RECENT YEAR INDEX IS AVAILABLE
+   if( is.null(tax.years) )
+   {   
+      latest.year <- format( Sys.Date(), "%Y" )
+      URL <- paste0( base, latest.year, ".csv" )
+      is.valid <- valid_url( URL ) 
+      while( is.valid == FALSE )
+      { 
+         latest.year <- latest.year - 1 
+         URL <- paste0( base, latest.year, ".csv" )
+         is.valid <- valid_url( URL )   
+      }
+      tax.years <- 2007:latest.year
+   }
    
    index.list <- list()
  
@@ -65,6 +79,49 @@ build_index <- function( tax.years=2007:2022 )
 
    return( index )
 }
+
+
+
+valid_url <- function( URL , t=2 ){
+  con <- url( URL )
+  check <- 
+    suppressWarnings( 
+      try( open.connection( con, open="rt", timeout=t ), silent=T )[1]
+    )
+  suppressWarnings( try( close.connection( con ), silent=T ))
+  ifelse( is.null( check ), TRUE, FALSE )
+}
+
+
+
+
+# filename is the name of the latest index file
+# available on the data commons
+#
+# filename <- "index_all_years_efiledata_xmls_created_on_2024-09-21.csv"
+# update_index( filename )
+#
+# the new index will be split into individual tax year files
+
+update_index <- function( filename ) {
+
+  base <- "https://gt990datalake-rawdata.s3.amazonaws.com/Indices/990xmls/"
+  URL <- paste0( base, filename )
+
+  download.file( URL, destfile="index.csv" )
+  index <- data.table::fread( "index.csv", colClasses=c( "ObjectId"="character" ) )  
+
+  years <- unique( index$TaxYear ) |> sort()
+
+  for( i in years )
+  {
+    index.i <- dplyr::filter( index, TaxYear == i )
+    fn <- paste0( "data-commons-efile-index-", i, ".csv" )
+    write.csv( index.i, fn, row.names=F )
+  }
+}
+
+
 
 
 # library( tictoc )
