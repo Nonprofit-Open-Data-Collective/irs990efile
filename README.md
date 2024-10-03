@@ -4,6 +4,8 @@ R package for building a research database from IRS 990 nonprofit efiler tax ret
 
 The full set of tables is available in the [**DATA DICTIONARY**](https://nonprofit-open-data-collective.github.io/irs990efile/data-dictionary/data-dictionary.html).
 
+Preprocessed CSV files are available on the NCCS website: [**DOWNLOAD TABLES**](https://nccs.urban.org/nccs/catalogs/catalog-efile.html).
+
 The Master Concordance File provides the crosswalk architecture for moving from XML files to rectangular tables. 
 
 https://github.com/Nonprofit-Open-Data-Collective/irs-efile-master-concordance-file
