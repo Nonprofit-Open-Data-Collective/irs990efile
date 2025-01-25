@@ -6,7 +6,14 @@ The full set of tables is available in the [**DATA DICTIONARY**](https://nonprof
 
 Preprocessed CSV files are available on the NCCS website: [**DOWNLOAD TABLES**](https://nccs.urban.org/nccs/catalogs/catalog-efile.html).
 
-The Master Concordance File provides the crosswalk architecture for moving from XML files to rectangular tables. 
+Please cite as: 
+
+```
+Lecy, J. (2025). The irs990efile Package for R (v.1.0.0). Zenodo: https://doi.org/10.5281/zenodo.14736813
+Lecy, J. (2024). IRS 990 Efiler Concordance File (v1.0.0) [Data set]. Zenodo: https://doi.org/10.5281/zenodo.14544301
+```
+
+The Concordance File provides the crosswalk architecture for moving from XML files to rectangular tables. 
 
 https://github.com/Nonprofit-Open-Data-Collective/irs-efile-master-concordance-file
 
