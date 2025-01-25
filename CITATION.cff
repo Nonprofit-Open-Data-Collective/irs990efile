@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+title: 'irs990efile Package for R'
+abstract: "R package for building a research database from IRS 990 nonprofit efiler tax returns."
+authors:
+- affiliation: Arizona State University
+  family-names: Lecy
+  given-names: Jesse
+  orcid: https://orcid.org/0000-0003-4974-0782
+date-released: '2022-03-05'
+license:
+- MIT
+repository-code: https://github.com/Nonprofit-Open-Data-Collective/irs990efile
+type: software
+version: v0.0.0.9000
+
+
