@@ -1,25 +1,27 @@
 Package: irs990efile
-Title: Convert IRS 990 XML files to a relational database. 
-Version: 0.0.0.9000
+Title: Convert IRS 990 Efiler XML files to a relational database. 
+Version: 1.0.0
 Authors@R: 
     person(given = "Jesse",
            family = "Lecy",
            role = c("aut", "cre"),
-           email = "jdlecy@gmail.com",
+           email = "jdlecy@asu.edu",
            comment = c(ORCID = "0000-0003-4974-0782"))
 Description: This package allows you to convert IRS 990 efile XML documents into a well-structured relational database.
 License: `use_mit_license()`
 Encoding: UTF-8
-LazyData: true
-Imports:
-  dplyr,
-  httr,
-  xml2,
-  XML,
-  purrr,
-  jsonlite,
-  R.utils,
-  xmltools,
-  data.table
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
+Depends: 
+    R (>= 2.10),
+    dplyr
+LazyData: true
+Imports: 
+    data.table,
+    data.tree,
+    httr,
+    purrr,
+    XML,
+    xml2,
+    xmltools,
+    R.utils

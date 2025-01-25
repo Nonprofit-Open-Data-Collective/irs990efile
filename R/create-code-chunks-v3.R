@@ -1,3 +1,17 @@
+#' @title RDB KEYS used by add_keys. 
+#'
+#' @description List of RDB keys added to all tables. 
+#'
+#' @details This is an internal function only. 
+#' 
+#' @export    
+RDB.KEYS <- 
+      c( "F9_00_RETURN_TIME_STAMP", "F9_00_RETURN_TYPE",
+          "F9_00_RETURN_AMENDED_X", "F9_00_RETURN_GROUP_X", 
+          "F9_00_TAX_YEAR", "F9_00_ORG_EIN", 
+          "F9_00_ORG_NAME_L1", "F9_00_ORG_NAME_L2" )
+         
+
 #' @title Add RDB unique keys to a build table function. 
 #'
 #' @description Add a set of meta-data variables contained in the `rdbkeys` file and 
@@ -23,12 +37,13 @@ add_keys <- function( filename, rdb.keys )
     writeLines( "URL <- url", con = fileConn, sep = "\n\n\n" ) 
 
     writeLines( "## RETURN VERSION", con = fileConn, sep = "\n\n" )
-    writeLines( "RETURN_VERSION <- xml2::xml_attr( doc, attr='returnVersion' )", con = fileConn, sep = "\n\n\n" )
+    writeLines( "VERSION <- xml2::xml_attr( doc, attr='returnVersion' )", con = fileConn, sep = "\n\n\n" )
 
-    for( i in unique( rdb.keys$VARIABLE_NAME ) )
+    for( i in unique( RDB.KEYS ) )
     {
 
-       sub.dat <- rdb.keys[ rdb.keys$VARIABLE_NAME == i , ]
+       sub.dat <- dplyr::filter( rdb.keys, VARIABLE_NAME == i )
+       vnm <- gsub( "F9_00_", "", i )
 
        writeLines( paste("## VARIABLE NAME: ", i), con = fileConn, sep = "\n" )
        writeLines( paste("## DESCRIPTION: ", sub.dat$DESCRIPTION[1]), con = fileConn, sep = "\n" )
@@ -54,13 +69,13 @@ add_keys <- function( filename, rdb.keys )
         or.var.name <- paste0( "TEMP_", i )
         or.statement <- paste( or.var.name, "<- paste(", paste( "V", 1:num.paths, sep="", collapse=", " ), ", sep='|' )" ) 
         writeLines( or.statement, con = fileConn, sep = "\n" )
-        writeLines( paste( i, "<- xml2::xml_text( xml2::xml_find_all( doc,", or.var.name, ") )"), con = fileConn, sep = "\n\n\n\n" )
+        writeLines( paste( vnm, "<- xml2::xml_text( xml2::xml_find_all( doc,", or.var.name, ") )"), con = fileConn, sep = "\n\n\n\n" )
 
         } else
         {
 
           single.xpath <- paste( "'", xpath.vec, "'", sep="" )
-          writeLines( paste( i, "<- xml2::xml_text( xml2::xml_find_all( doc,", single.xpath, ") )"), con = fileConn, sep = "\n\n\n\n" )
+          writeLines( paste( vnm, "<- xml2::xml_text( xml2::xml_find_all( doc,", single.xpath, ") )"), con = fileConn, sep = "\n\n\n\n" )
 
         }
     }
@@ -93,7 +108,7 @@ add_keys <- function( filename, rdb.keys )
 #' }
 #' 
 #' @export
-create_code_chunks <- function( rdb.table="F9-P00-T00-HEADER", show=FALSE )
+create_code_chunk <- function( rdb.table="F9-P00-T00-HEADER", show=FALSE )
 {
 
     if( ! exists("rdb.keys") ){ data(rdbkeys) }
@@ -101,16 +116,14 @@ create_code_chunks <- function( rdb.table="F9-P00-T00-HEADER", show=FALSE )
     
     if( ! exists("concordance") ){ data(concordance) }
     
-    concordance <- concordance[ concordance$rdb_table == rdb.table , ]
     concordance <- concordance[ ! duplicated( concordance$xpath ) , ]
     names( concordance ) <- toupper( names( concordance ) )
-    concordance$VARIABLE_NAME <- gsub( "-", "_", concordance$VARIABLE_NAME )
-    key.names <- paste0( "F9_00_", unique(rdb.keys$VARIABLE_NAME) )
-    concordance <- concordance[ ! concordance$VARIABLE_NAME %in% key.names , ]
+    ccdance <- dplyr::filter( concordance, RDB_TABLE ==  rdb.table ) 
+    rdb.keys <- dplyr::filter( concordance, VARIABLE_NAME %in% RDB.KEYS )
+    # ccdance <- ccdance[ ! ccdance$VARIABLE_NAME %in% RDB.KEYS , ]
     
-    function.name <- paste0( "BUILD_", gsub( "-", "_", rdb.table ), " <- function( doc, url )" )
-
-    filename <- paste0( "CHUNKS-", rdb.table, ".R" )
+    function.name <- paste0( "BUILD_", gsub( "-", "_", rdb.table ) )
+    filename <- paste0( function.name, ".R" )
     file.create( filename )
 
     fileConn <- file( filename, open="a" )
@@ -124,7 +137,7 @@ create_code_chunks <- function( rdb.table="F9-P00-T00-HEADER", show=FALSE )
     writeLines( "#' ", con = fileConn, sep = "\n" ) 
     writeLines( "#' @export ", con = fileConn, sep = "\n" )
     
-    writeLines( function.name, con = fileConn, sep = "\n" )
+    writeLines( paste0( function.name, " <- function( doc, url )" ), con = fileConn, sep = "\n" )
     writeLines( "{", con = fileConn, sep = "\n\n\n" )
     close( fileConn )
 
@@ -139,10 +152,10 @@ create_code_chunks <- function( rdb.table="F9-P00-T00-HEADER", show=FALSE )
     writeLines( "######----------------------------------------------------", con = fileConn, sep = "\n\n\n" ) 
     
  
-    for( i in unique( concordance$VARIABLE_NAME ) )
+    for( i in unique( ccdance$VARIABLE_NAME ) )
     {
 
-       sub.dat <- concordance[ concordance$VARIABLE_NAME == i , ]
+       sub.dat <- ccdance[ ccdance$VARIABLE_NAME == i , ]
 
        writeLines( paste("## VARIABLE NAME: ", i), con = fileConn, sep = "\n" )
        writeLines( paste("## DESCRIPTION: ", sub.dat$DESCRIPTION[1]), con = fileConn, sep = "\n" )
@@ -187,7 +200,8 @@ create_code_chunks <- function( rdb.table="F9-P00-T00-HEADER", show=FALSE )
         }
     }
 
-    var.names <- c( 'OBJECTID', 'URL', 'RETURN_VERSION', unique( rdb.keys$VARIABLE_NAME ), unique(concordance$VARIABLE_NAME) ) 
+    keys <- gsub( "F9_00_", "", RDB.KEYS )
+    var.names <- c( 'OBJECTID', 'URL', 'VERSION', keys, unique(ccdance$VARIABLE_NAME) ) 
 
     writeLines( "var.list <- ", con = fileConn, sep = "\n" )
     writeLines( paste0( "namedList(", paste0(var.names, collapse=","), ")" ), con = fileConn, sep = "\n" )
@@ -228,25 +242,33 @@ create_code_chunks <- function( rdb.table="F9-P00-T00-HEADER", show=FALSE )
 do_all_chunks <- function()
 {
 
-	# GET ALL ONE-TO-ONE TABLES 
+  # GET ALL ONE-TO-ONE TABLES 
 
-	data( concordance )
-	t <- sort( unique( concordance$rdb_table ) )
-	t00 <- t[ grepl( "-T00-", t ) ]
+  data( concordance )
+  t <- sort( unique( concordance$rdb_table ) )
+  t00 <- t[ grepl( "-T00-", t ) ]
+  t0X <- t[ ! grepl( "-T00-", t ) ]
 
+  # CUSTOM 1:M TABLES B/C OF POOR STRUCTURE
+  omitted <- c("F9-P03-T01-PROGRAMS","SA-P06-T99-SUPPLEMENTAL-INFO","")
+  t0X <- t0X[ ! t0X %in% omitted ] 
 
+  # CREATE CODE CHUNKS FOR ALL ONE-TO-ONE TABLES
 
-	# CREATE CODE CHUNKS FOR ALL ONE-TO-ONE TABLES
+  dir.create( "chunks" )
+  setwd( "chunks" )
 
-	dir.create( "chunks" )
-	setwd( "chunks" )
-
-	for( i in t00 )
-	{
-	   create_code_chunks(  rdb.table=i, show=FALSE )
-	}
-	
-	return(NULL) 
+  for( i in t00 )
+  {
+     create_code_chunk(  rdb.table=i, show=FALSE )
+  }
+  
+  for( j in t0X )
+  {
+    create_code_chunk_rdb(  rdb.table=j, show=FALSE )
+  }
+  
+  return(NULL)   
 
 }
 
