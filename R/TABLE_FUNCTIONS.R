@@ -139,7 +139,7 @@ build_tables <- function(urls, year, fx.names = NULL, table.names = NULL) {
 #' @details Helper function to send variables to the build_tables function in parSapply framework. 
 #' @export
 parsapply_tables <- function( index.group ){
-  require( irs990efiler ) 
+  require( irs990efile ) 
   # 'fx.names' and 'year' passed through clusterExport
   failed.urls <- build_tables( index.group, fx.names=fx.names, year=year ) 
   return( failed.urls )
