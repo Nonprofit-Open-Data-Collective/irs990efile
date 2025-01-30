@@ -250,12 +250,15 @@ build_database <- function(index=NULL, years=NULL, batch.size=1000) {
     cat(paste0("\n###########################\n"))
     cat(paste0("###########################\n\n"))
     
+    print(showConnections(all = TRUE))  # Check open connections before running functions
+    
     for (i in years) 
     {
         build_one_year( i )
         flush.console()
     }
-
+    
+    print(showConnections(all = TRUE))  # Check open connections after execution
 
     cat(paste0("COMPILING FILES\n\n"))
     cat(paste0("###########################\n"))

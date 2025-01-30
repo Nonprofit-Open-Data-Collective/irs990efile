@@ -247,14 +247,14 @@ simplify_varnames <- function( d, sep="", drop.prefix=TRUE )
 log_collapsed_record <- function( varname, ein=ORG_EIN, year=TAX_YEAR, url=URL ){
   file.name <- paste0("COLLAPSED-RECORDS-", year, ".txt")
   if (!file.exists(file.name)){file.create(file.name)}
-  fileConn <- file(file.name, open = "a")
+  fileConnCR <- file(file.name, open = "a")
   values <- paste0( "{", varname, "}", collapse = ";;" )
-  writeLines(paste0("YEAR: ", year), con = fileConn, sep = "\n")
-  writeLines(paste0("EIN: ", ein), con = fileConn, sep = "\n")
-  writeLines(paste0("VARIABLE: ", substitute(varname) ), con = fileConn, sep = "\n")
-  writeLines(paste0("VALUES: ", values), con = fileConn, sep = "\n")
-  writeLines(paste0("URL: ", url), con = fileConn, sep = "\n\n")
-  close(fileConn)
+  writeLines(paste0("YEAR: ", year), con = fileConnCR, sep = "\n")
+  writeLines(paste0("EIN: ", ein), con = fileConnCR, sep = "\n")
+  writeLines(paste0("VARIABLE: ", substitute(varname) ), con = fileConnCR, sep = "\n")
+  writeLines(paste0("VALUES: ", values), con = fileConnCR, sep = "\n")
+  writeLines(paste0("URL: ", url), con = fileConnCR, sep = "\n\n")
+  close(fileConnCR)
 }
 
 
@@ -269,9 +269,9 @@ log_collapsed_record <- function( varname, ein=ORG_EIN, year=TAX_YEAR, url=URL )
 log_fails <- function( urls ){
   file.name <- paste0("FAILED-URLS.txt")
   if (!file.exists(file.name)){ file.create(file.name) }
-  fileConn <- file(file.name, open = "a")
-  writeLines( paste0(url), con = fileConn, sep = "\n")
-  close(fileConn)
+  fileConnF <- file(file.name, open = "a")
+  writeLines( paste0(url), con = fileConnF, sep = "\n")
+  close(fileConnF)
 }
 
 
@@ -290,11 +290,11 @@ log_missing_xpaths <- function( doc, url ){
   if( length(missing) > 0 ){
     file.name <- paste0("MISSING-XPATHS.txt")
     if (!file.exists(file.name)){ file.create(file.name) }
-    fileConn <- file(file.name, open = "a")
-    writeLines( paste0("VERSION: ", VERSION), con = fileConn, sep = "\n")
-    writeLines( paste0("URL: ", url), con = fileConn, sep = "\n")
-    writeLines( paste0(missing, collapse="\n"), con = fileConn, sep = "\n\n")
-    close(fileConn) }
+    fileConnXP <- file(file.name, open = "a")
+    writeLines( paste0("VERSION: ", VERSION), con = fileConnXP, sep = "\n")
+    writeLines( paste0("URL: ", url), con = fileConnXP, sep = "\n")
+    writeLines( paste0(missing, collapse="\n"), con = fileConnXP, sep = "\n\n")
+    close(fileConnXP) }
 }
 
 #' @title Convert Missing Xpath List to DF.   
@@ -395,4 +395,3 @@ test_build <- function( path="." ) {
   build_database( index=index100, batch.size=10 )
   
 }
-

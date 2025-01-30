@@ -91,20 +91,34 @@ get_fxdf <- function(fx.name, all.npos, time, year) {
 #' @examples
 #' npo_data <- parse_npo(url, fx.names)
 #' @export
-parse_npo <- function(url, fx.names, logXP=TRUE ) {
-  doc <- NULL
-  try(doc <- xml2::read_xml(url), silent = TRUE)
+parse_npo <- function( url, fx.names, logXP=TRUE ) {
+
+  doc <- tryCatch(
+    xml2::read_xml(url),
+    error = function(e) {
+      log_fails(url)  # Log failure
+      return(NULL)
+    }
+  )
+
   if (is.null(doc)) {
-    one.npo <- list()
-    one.npo[["FAIL"]] <- url
-    log_fails( url )
-    return(one.npo)
+    return(list(FAIL = url))
   }
+
   xml2::xml_ns_strip(doc)
-  TABLE.HEADERS <- get_table_headers() # creates env var through superassignment
+  TABLE.HEADERS <- get_table_headers() # Creates env var through superassignment
+
   fx.names <- c( fx.names, "BUILD_SCHEDULE_TABLE" )  # bst not in cc
-  one.npo <- sapply(fx.names, do.call, list(doc, url))
-  if( logXP ){ log_missing_xpaths( doc, url ) }
+  one.npo <- sapply( fx.names, do.call, list(doc, url) )
+
+  if (logXP) {
+    log_missing_xpaths( doc, url )
+  }
+
+  # Cleanup
+  rm(doc)
+  gc()
+
   return(one.npo)
 }
 
@@ -153,6 +167,12 @@ parsapply_tables <- function( batch.id ){
   failed.urls <- build_tables(batch.urls, fx.names = fx.names, year = year) 
   
   # Print completion message
+
+  on.exit({
+    sink(type = "message")  # Restore message output first
+    sink(type = "output")   # Restore standard output next
+    close(build_log)        # Close file connection 
+  }, add = TRUE ) 
   
   # Define a temporary file to capture output
   build_log <- file("../BUILD-LOG.txt", open = "at" )
@@ -160,13 +180,7 @@ parsapply_tables <- function( batch.id ){
   # Redirect output to log file
   sink( build_log, append = TRUE, type = "output")
   sink( build_log, append = TRUE, type = "message")
-
-  on.exit({
-    sink(type = "message")  # Restore message output first
-    sink(type = "output")   # Restore standard output next
-    close(build_log)        # Close file connection 
-  })
-
+  
   r.expr <- "G([0-9]+)\\{[0-9]+\\}"
   batch.n <- stringr::str_match( batch.id, r.expr )[, 2] |> as.numeric()
   if( batch.n %% 10 == 0 )
@@ -200,7 +214,7 @@ build_tables_parallel <- function( batch.ids, year, fx.names = NULL) {
   cl <- parallel::makeCluster(num.cores)
   
   # Ensure cluster stops on exit, even if there's an error
-  on.exit(parallel::stopCluster(cl))
+  on.exit( parallel::stopCluster(cl), add = TRUE )
   
   parallel::clusterExport(cl, varlist = c( "year", "fx.names"), envir = environment())
   
@@ -210,9 +224,17 @@ build_tables_parallel <- function( batch.ids, year, fx.names = NULL) {
     NULL
   })
   
-  # Run in parallel
-  results <- parallel::parSapply(cl, X = batch.ids, FUN = parsapply_tables)
+  # Run in parallel with error handling
+  results <- tryCatch(
+    {
+      parallel::parSapply( cl, X = batch.ids, FUN = parsapply_tables )
+    },
+    error = function(e) {
+      message("Error in parallel processing: ", e$message)
+      NULL
+    }
+  )
   
-  failed.urls <- unlist(results)
+  failed.urls <- if (!is.null(results)) unlist(results) else character()
   return(failed.urls)
 }
