@@ -355,3 +355,30 @@ count_xpaths <- function( df ){
 
 }
 
+
+#' @title Package Testing Function 
+#' @description Build a small database to test the package.  
+#' @param path The folder in which the test build will occur (if no value provided it uses the default folder). 
+#' @examples
+#' test_build()
+#' @export
+test_build <- function( path="." ) {
+
+  setwd( path )
+
+  wd <- paste(sample(LETTERS, 5), collapse = "")
+  dir.create( wd )
+  setwd( wd )
+  cat( getwd(), sep="\n\n" )
+
+  index <- tinyindex
+  index <- filter( index, TaxYear %in% 2018:2022 )
+
+  # KEEP 100 CASES PER YEAR FOR QUICK TEST
+  sL  <- split( index, index$TaxYear )
+  dfL <- lapply( sL, dplyr::sample_n, 125 )
+  index100 <- dplyr::bind_rows( dfL )
+
+  build_database( index=index100, batch.size=10 )
+}
+
