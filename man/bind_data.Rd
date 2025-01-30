@@ -2,7 +2,7 @@
 % Please edit documentation in R/FULL_DATABASE.R
 \name{bind_data}
 \alias{bind_data}
-\title{Combine Table Segments}
+\title{Combine Batched CSV Files}
 \usage{
 bind_data(years)
 }

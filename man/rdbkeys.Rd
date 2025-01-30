@@ -33,5 +33,5 @@ data( rdbkeys )
 
 }
 \seealso{
-\code{\link[irs990efile:add_keys]{irs990efile::add_keys()}}
+\code{\link[=add_keys]{add_keys()}}
 }

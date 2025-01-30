@@ -40,7 +40,7 @@ V_GRK_ADDR_L1 <- paste( V1, V2, V3, V4, V5, V6, V7, V8 , sep='|' )
 SG_03_GRK_ADDR_L1 <- xml2::xml_text( xml2::xml_find_all( doc, V_GRK_ADDR_L1 ) )
 if( length( SG_03_GRK_ADDR_L1 ) > 1 )
 { 
-  create_record( varname=SG_03_GRK_ADDR_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GRK_ADDR_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GRK_ADDR_L1 <-  paste0( '{', SG_03_GRK_ADDR_L1, '}', collapse=';' ) 
 } 
 
@@ -66,7 +66,7 @@ V_GRK_ADDR_L2 <- paste( V1, V2, V3, V4, V5, V6, V7, V8 , sep='|' )
 SG_03_GRK_ADDR_L2 <- xml2::xml_text( xml2::xml_find_all( doc, V_GRK_ADDR_L2 ) )
 if( length( SG_03_GRK_ADDR_L2 ) > 1 )
 { 
-  create_record( varname=SG_03_GRK_ADDR_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GRK_ADDR_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GRK_ADDR_L2 <-  paste0( '{', SG_03_GRK_ADDR_L2, '}', collapse=';' ) 
 } 
 
@@ -92,7 +92,7 @@ V_GRK_ADDR_CITY <- paste( V1, V2, V3, V4, V5, V6, V7, V8 , sep='|' )
 SG_03_GRK_ADDR_CITY <- xml2::xml_text( xml2::xml_find_all( doc, V_GRK_ADDR_CITY ) )
 if( length( SG_03_GRK_ADDR_CITY ) > 1 )
 { 
-  create_record( varname=SG_03_GRK_ADDR_CITY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GRK_ADDR_CITY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GRK_ADDR_CITY <-  paste0( '{', SG_03_GRK_ADDR_CITY, '}', collapse=';' ) 
 } 
 
@@ -114,7 +114,7 @@ V_GRK_ADDR_CNTR <- paste( V1, V2, V3, V4 , sep='|' )
 SG_03_GRK_ADDR_CNTR <- xml2::xml_text( xml2::xml_find_all( doc, V_GRK_ADDR_CNTR ) )
 if( length( SG_03_GRK_ADDR_CNTR ) > 1 )
 { 
-  create_record( varname=SG_03_GRK_ADDR_CNTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GRK_ADDR_CNTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GRK_ADDR_CNTR <-  paste0( '{', SG_03_GRK_ADDR_CNTR, '}', collapse=';' ) 
 } 
 
@@ -140,7 +140,7 @@ V_GRK_ADDR_ZIP <- paste( V1, V2, V3, V4, V5, V6, V7, V8 , sep='|' )
 SG_03_GRK_ADDR_ZIP <- xml2::xml_text( xml2::xml_find_all( doc, V_GRK_ADDR_ZIP ) )
 if( length( SG_03_GRK_ADDR_ZIP ) > 1 )
 { 
-  create_record( varname=SG_03_GRK_ADDR_ZIP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GRK_ADDR_ZIP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GRK_ADDR_ZIP <-  paste0( '{', SG_03_GRK_ADDR_ZIP, '}', collapse=';' ) 
 } 
 
@@ -166,7 +166,7 @@ V_GRK_ADDR_STATE <- paste( V1, V2, V3, V4, V5, V6, V7, V8 , sep='|' )
 SG_03_GRK_ADDR_STATE <- xml2::xml_text( xml2::xml_find_all( doc, V_GRK_ADDR_STATE ) )
 if( length( SG_03_GRK_ADDR_STATE ) > 1 )
 { 
-  create_record( varname=SG_03_GRK_ADDR_STATE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GRK_ADDR_STATE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GRK_ADDR_STATE <-  paste0( '{', SG_03_GRK_ADDR_STATE, '}', collapse=';' ) 
 } 
 
@@ -192,7 +192,7 @@ V_THIRD_PARTY_ADDR_L1 <- paste( V1, V2, V3, V4, V5, V6, V7, V8 , sep='|' )
 SG_03_THIRD_PARTY_ADDR_L1 <- xml2::xml_text( xml2::xml_find_all( doc, V_THIRD_PARTY_ADDR_L1 ) )
 if( length( SG_03_THIRD_PARTY_ADDR_L1 ) > 1 )
 { 
-  create_record( varname=SG_03_THIRD_PARTY_ADDR_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_THIRD_PARTY_ADDR_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_THIRD_PARTY_ADDR_L1 <-  paste0( '{', SG_03_THIRD_PARTY_ADDR_L1, '}', collapse=';' ) 
 } 
 
@@ -218,7 +218,7 @@ V_THIRD_PARTY_ADDR_L2 <- paste( V1, V2, V3, V4, V5, V6, V7, V8 , sep='|' )
 SG_03_THIRD_PARTY_ADDR_L2 <- xml2::xml_text( xml2::xml_find_all( doc, V_THIRD_PARTY_ADDR_L2 ) )
 if( length( SG_03_THIRD_PARTY_ADDR_L2 ) > 1 )
 { 
-  create_record( varname=SG_03_THIRD_PARTY_ADDR_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_THIRD_PARTY_ADDR_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_THIRD_PARTY_ADDR_L2 <-  paste0( '{', SG_03_THIRD_PARTY_ADDR_L2, '}', collapse=';' ) 
 } 
 
@@ -244,7 +244,7 @@ V_THIRD_PARTY_ADDR_CITY <- paste( V1, V2, V3, V4, V5, V6, V7, V8 , sep='|' )
 SG_03_THIRD_PARTY_ADDR_CITY <- xml2::xml_text( xml2::xml_find_all( doc, V_THIRD_PARTY_ADDR_CITY ) )
 if( length( SG_03_THIRD_PARTY_ADDR_CITY ) > 1 )
 { 
-  create_record( varname=SG_03_THIRD_PARTY_ADDR_CITY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_THIRD_PARTY_ADDR_CITY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_THIRD_PARTY_ADDR_CITY <-  paste0( '{', SG_03_THIRD_PARTY_ADDR_CITY, '}', collapse=';' ) 
 } 
 
@@ -266,7 +266,7 @@ V_THIRD_PARTY_ADDR_CNTR <- paste( V1, V2, V3, V4 , sep='|' )
 SG_03_THIRD_PARTY_ADDR_CNTR <- xml2::xml_text( xml2::xml_find_all( doc, V_THIRD_PARTY_ADDR_CNTR ) )
 if( length( SG_03_THIRD_PARTY_ADDR_CNTR ) > 1 )
 { 
-  create_record( varname=SG_03_THIRD_PARTY_ADDR_CNTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_THIRD_PARTY_ADDR_CNTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_THIRD_PARTY_ADDR_CNTR <-  paste0( '{', SG_03_THIRD_PARTY_ADDR_CNTR, '}', collapse=';' ) 
 } 
 
@@ -292,7 +292,7 @@ V_THIRD_PARTY_ADDR_ZIP <- paste( V1, V2, V3, V4, V5, V6, V7, V8 , sep='|' )
 SG_03_THIRD_PARTY_ADDR_ZIP <- xml2::xml_text( xml2::xml_find_all( doc, V_THIRD_PARTY_ADDR_ZIP ) )
 if( length( SG_03_THIRD_PARTY_ADDR_ZIP ) > 1 )
 { 
-  create_record( varname=SG_03_THIRD_PARTY_ADDR_ZIP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_THIRD_PARTY_ADDR_ZIP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_THIRD_PARTY_ADDR_ZIP <-  paste0( '{', SG_03_THIRD_PARTY_ADDR_ZIP, '}', collapse=';' ) 
 } 
 
@@ -318,7 +318,7 @@ V_THIRD_PARTY_ADDR_STATE <- paste( V1, V2, V3, V4, V5, V6, V7, V8 , sep='|' )
 SG_03_THIRD_PARTY_ADDR_STATE <- xml2::xml_text( xml2::xml_find_all( doc, V_THIRD_PARTY_ADDR_STATE ) )
 if( length( SG_03_THIRD_PARTY_ADDR_STATE ) > 1 )
 { 
-  create_record( varname=SG_03_THIRD_PARTY_ADDR_STATE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_THIRD_PARTY_ADDR_STATE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_THIRD_PARTY_ADDR_STATE <-  paste0( '{', SG_03_THIRD_PARTY_ADDR_STATE, '}', collapse=';' ) 
 } 
 
@@ -339,7 +339,7 @@ V_AMT_DIST <- paste( V1, V2, V3 , sep='|' )
 SG_03_AMT_DIST <- xml2::xml_text( xml2::xml_find_all( doc, V_AMT_DIST ) )
 if( length( SG_03_AMT_DIST ) > 1 )
 { 
-  create_record( varname=SG_03_AMT_DIST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_AMT_DIST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_AMT_DIST <-  paste0( '{', SG_03_AMT_DIST, '}', collapse=';' ) 
 } 
 
@@ -360,7 +360,7 @@ V_AMT_GAMING_REV_ORG <- paste( V1, V2, V3 , sep='|' )
 SG_03_AMT_GAMING_REV_ORG <- xml2::xml_text( xml2::xml_find_all( doc, V_AMT_GAMING_REV_ORG ) )
 if( length( SG_03_AMT_GAMING_REV_ORG ) > 1 )
 { 
-  create_record( varname=SG_03_AMT_GAMING_REV_ORG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_AMT_GAMING_REV_ORG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_AMT_GAMING_REV_ORG <-  paste0( '{', SG_03_AMT_GAMING_REV_ORG, '}', collapse=';' ) 
 } 
 
@@ -381,7 +381,7 @@ V_AMT_GAMING_REV_3RD_PARTY <- paste( V1, V2, V3 , sep='|' )
 SG_03_AMT_GAMING_REV_3RD_PARTY <- xml2::xml_text( xml2::xml_find_all( doc, V_AMT_GAMING_REV_3RD_PARTY ) )
 if( length( SG_03_AMT_GAMING_REV_3RD_PARTY ) > 1 )
 { 
-  create_record( varname=SG_03_AMT_GAMING_REV_3RD_PARTY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_AMT_GAMING_REV_3RD_PARTY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_AMT_GAMING_REV_3RD_PARTY <-  paste0( '{', SG_03_AMT_GAMING_REV_3RD_PARTY, '}', collapse=';' ) 
 } 
 
@@ -402,7 +402,7 @@ V_CHARIT_DIST_REQ_X <- paste( V1, V2, V3 , sep='|' )
 SG_03_CHARIT_DIST_REQ_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHARIT_DIST_REQ_X ) )
 if( length( SG_03_CHARIT_DIST_REQ_X ) > 1 )
 { 
-  create_record( varname=SG_03_CHARIT_DIST_REQ_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_CHARIT_DIST_REQ_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_CHARIT_DIST_REQ_X <-  paste0( '{', SG_03_CHARIT_DIST_REQ_X, '}', collapse=';' ) 
 } 
 
@@ -423,7 +423,7 @@ V_KONTR_3RD_PARTY_X <- paste( V1, V2, V3 , sep='|' )
 SG_03_KONTR_3RD_PARTY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_KONTR_3RD_PARTY_X ) )
 if( length( SG_03_KONTR_3RD_PARTY_X ) > 1 )
 { 
-  create_record( varname=SG_03_KONTR_3RD_PARTY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_KONTR_3RD_PARTY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_KONTR_3RD_PARTY_X <-  paste0( '{', SG_03_KONTR_3RD_PARTY_X, '}', collapse=';' ) 
 } 
 
@@ -444,7 +444,7 @@ V_GAMING_NO_LIC_EXPLANATION <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_NO_LIC_EXPLANATION <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_NO_LIC_EXPLANATION ) )
 if( length( SG_03_GAMING_NO_LIC_EXPLANATION ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_NO_LIC_EXPLANATION, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_NO_LIC_EXPLANATION, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_NO_LIC_EXPLANATION <-  paste0( '{', SG_03_GAMING_NO_LIC_EXPLANATION, '}', collapse=';' ) 
 } 
 
@@ -465,7 +465,7 @@ V_LIC_SUSPENDED_EXPLANATION <- paste( V1, V2, V3 , sep='|' )
 SG_03_LIC_SUSPENDED_EXPLANATION <- xml2::xml_text( xml2::xml_find_all( doc, V_LIC_SUSPENDED_EXPLANATION ) )
 if( length( SG_03_LIC_SUSPENDED_EXPLANATION ) > 1 )
 { 
-  create_record( varname=SG_03_LIC_SUSPENDED_EXPLANATION, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_LIC_SUSPENDED_EXPLANATION, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_LIC_SUSPENDED_EXPLANATION <-  paste0( '{', SG_03_LIC_SUSPENDED_EXPLANATION, '}', collapse=';' ) 
 } 
 
@@ -486,7 +486,7 @@ V_GAMING_EXP_CASH_BINGO <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_EXP_CASH_BINGO <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_EXP_CASH_BINGO ) )
 if( length( SG_03_GAMING_EXP_CASH_BINGO ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_EXP_CASH_BINGO, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_EXP_CASH_BINGO, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_EXP_CASH_BINGO <-  paste0( '{', SG_03_GAMING_EXP_CASH_BINGO, '}', collapse=';' ) 
 } 
 
@@ -507,7 +507,7 @@ V_GAMING_EXP_CASH_OTH <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_EXP_CASH_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_EXP_CASH_OTH ) )
 if( length( SG_03_GAMING_EXP_CASH_OTH ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_EXP_CASH_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_EXP_CASH_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_EXP_CASH_OTH <-  paste0( '{', SG_03_GAMING_EXP_CASH_OTH, '}', collapse=';' ) 
 } 
 
@@ -528,7 +528,7 @@ V_GAMING_EXP_CASH_PTAP <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_EXP_CASH_PTAP <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_EXP_CASH_PTAP ) )
 if( length( SG_03_GAMING_EXP_CASH_PTAP ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_EXP_CASH_PTAP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_EXP_CASH_PTAP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_EXP_CASH_PTAP <-  paste0( '{', SG_03_GAMING_EXP_CASH_PTAP, '}', collapse=';' ) 
 } 
 
@@ -549,7 +549,7 @@ V_GAMING_EXP_CASH_TOT <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_EXP_CASH_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_EXP_CASH_TOT ) )
 if( length( SG_03_GAMING_EXP_CASH_TOT ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_EXP_CASH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_EXP_CASH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_EXP_CASH_TOT <-  paste0( '{', SG_03_GAMING_EXP_CASH_TOT, '}', collapse=';' ) 
 } 
 
@@ -570,7 +570,7 @@ V_GAMING_EXP_SUMMARY_TOT <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_EXP_SUMMARY_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_EXP_SUMMARY_TOT ) )
 if( length( SG_03_GAMING_EXP_SUMMARY_TOT ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_EXP_SUMMARY_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_EXP_SUMMARY_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_EXP_SUMMARY_TOT <-  paste0( '{', SG_03_GAMING_EXP_SUMMARY_TOT, '}', collapse=';' ) 
 } 
 
@@ -591,7 +591,7 @@ V_GAMING_REV_GRO_BINGO <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_REV_GRO_BINGO <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_REV_GRO_BINGO ) )
 if( length( SG_03_GAMING_REV_GRO_BINGO ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_REV_GRO_BINGO, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_REV_GRO_BINGO, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_REV_GRO_BINGO <-  paste0( '{', SG_03_GAMING_REV_GRO_BINGO, '}', collapse=';' ) 
 } 
 
@@ -612,7 +612,7 @@ V_GAMING_REV_GRO_OTH <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_REV_GRO_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_REV_GRO_OTH ) )
 if( length( SG_03_GAMING_REV_GRO_OTH ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_REV_GRO_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_REV_GRO_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_REV_GRO_OTH <-  paste0( '{', SG_03_GAMING_REV_GRO_OTH, '}', collapse=';' ) 
 } 
 
@@ -633,7 +633,7 @@ V_GAMING_REV_GRO_PTAB <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_REV_GRO_PTAB <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_REV_GRO_PTAB ) )
 if( length( SG_03_GAMING_REV_GRO_PTAB ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_REV_GRO_PTAB, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_REV_GRO_PTAB, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_REV_GRO_PTAB <-  paste0( '{', SG_03_GAMING_REV_GRO_PTAB, '}', collapse=';' ) 
 } 
 
@@ -654,7 +654,7 @@ V_GAMING_REV_GRO_TOT <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_REV_GRO_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_REV_GRO_TOT ) )
 if( length( SG_03_GAMING_REV_GRO_TOT ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_REV_GRO_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_REV_GRO_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_REV_GRO_TOT <-  paste0( '{', SG_03_GAMING_REV_GRO_TOT, '}', collapse=';' ) 
 } 
 
@@ -675,7 +675,7 @@ V_GAMING_NET_INCOME_TOT <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_NET_INCOME_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_NET_INCOME_TOT ) )
 if( length( SG_03_GAMING_NET_INCOME_TOT ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_NET_INCOME_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_NET_INCOME_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_NET_INCOME_TOT <-  paste0( '{', SG_03_GAMING_NET_INCOME_TOT, '}', collapse=';' ) 
 } 
 
@@ -696,7 +696,7 @@ V_GAMING_EXP_NONCSH_BINGO <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_EXP_NONCSH_BINGO <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_EXP_NONCSH_BINGO ) )
 if( length( SG_03_GAMING_EXP_NONCSH_BINGO ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_EXP_NONCSH_BINGO, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_EXP_NONCSH_BINGO, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_EXP_NONCSH_BINGO <-  paste0( '{', SG_03_GAMING_EXP_NONCSH_BINGO, '}', collapse=';' ) 
 } 
 
@@ -717,7 +717,7 @@ V_GAMING_EXP_NONCSH_OTH <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_EXP_NONCSH_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_EXP_NONCSH_OTH ) )
 if( length( SG_03_GAMING_EXP_NONCSH_OTH ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_EXP_NONCSH_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_EXP_NONCSH_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_EXP_NONCSH_OTH <-  paste0( '{', SG_03_GAMING_EXP_NONCSH_OTH, '}', collapse=';' ) 
 } 
 
@@ -738,7 +738,7 @@ V_GAMING_EXP_NONCSH_PTAP <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_EXP_NONCSH_PTAP <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_EXP_NONCSH_PTAP ) )
 if( length( SG_03_GAMING_EXP_NONCSH_PTAP ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_EXP_NONCSH_PTAP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_EXP_NONCSH_PTAP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_EXP_NONCSH_PTAP <-  paste0( '{', SG_03_GAMING_EXP_NONCSH_PTAP, '}', collapse=';' ) 
 } 
 
@@ -759,7 +759,7 @@ V_GAMING_EXP_NONCSH_TOT <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_EXP_NONCSH_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_EXP_NONCSH_TOT ) )
 if( length( SG_03_GAMING_EXP_NONCSH_TOT ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_EXP_NONCSH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_EXP_NONCSH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_EXP_NONCSH_TOT <-  paste0( '{', SG_03_GAMING_EXP_NONCSH_TOT, '}', collapse=';' ) 
 } 
 
@@ -780,7 +780,7 @@ V_GAMING_EXP_OTH_BINGO <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_EXP_OTH_BINGO <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_EXP_OTH_BINGO ) )
 if( length( SG_03_GAMING_EXP_OTH_BINGO ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_EXP_OTH_BINGO, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_EXP_OTH_BINGO, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_EXP_OTH_BINGO <-  paste0( '{', SG_03_GAMING_EXP_OTH_BINGO, '}', collapse=';' ) 
 } 
 
@@ -801,7 +801,7 @@ V_GAMING_EXP_OTH_OTH <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_EXP_OTH_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_EXP_OTH_OTH ) )
 if( length( SG_03_GAMING_EXP_OTH_OTH ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_EXP_OTH_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_EXP_OTH_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_EXP_OTH_OTH <-  paste0( '{', SG_03_GAMING_EXP_OTH_OTH, '}', collapse=';' ) 
 } 
 
@@ -822,7 +822,7 @@ V_GAMING_EXP_OTH_PTAP <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_EXP_OTH_PTAP <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_EXP_OTH_PTAP ) )
 if( length( SG_03_GAMING_EXP_OTH_PTAP ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_EXP_OTH_PTAP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_EXP_OTH_PTAP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_EXP_OTH_PTAP <-  paste0( '{', SG_03_GAMING_EXP_OTH_PTAP, '}', collapse=';' ) 
 } 
 
@@ -843,7 +843,7 @@ V_GAMING_EXP_OTH_TOT <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_EXP_OTH_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_EXP_OTH_TOT ) )
 if( length( SG_03_GAMING_EXP_OTH_TOT ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_EXP_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_EXP_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_EXP_OTH_TOT <-  paste0( '{', SG_03_GAMING_EXP_OTH_TOT, '}', collapse=';' ) 
 } 
 
@@ -864,7 +864,7 @@ V_GAMING_EXP_RENT_BINGO <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_EXP_RENT_BINGO <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_EXP_RENT_BINGO ) )
 if( length( SG_03_GAMING_EXP_RENT_BINGO ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_EXP_RENT_BINGO, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_EXP_RENT_BINGO, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_EXP_RENT_BINGO <-  paste0( '{', SG_03_GAMING_EXP_RENT_BINGO, '}', collapse=';' ) 
 } 
 
@@ -885,7 +885,7 @@ V_GAMING_EXP_RENT_OTH <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_EXP_RENT_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_EXP_RENT_OTH ) )
 if( length( SG_03_GAMING_EXP_RENT_OTH ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_EXP_RENT_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_EXP_RENT_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_EXP_RENT_OTH <-  paste0( '{', SG_03_GAMING_EXP_RENT_OTH, '}', collapse=';' ) 
 } 
 
@@ -906,7 +906,7 @@ V_GAMING_EXP_RENT_PTAP <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_EXP_RENT_PTAP <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_EXP_RENT_PTAP ) )
 if( length( SG_03_GAMING_EXP_RENT_PTAP ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_EXP_RENT_PTAP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_EXP_RENT_PTAP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_EXP_RENT_PTAP <-  paste0( '{', SG_03_GAMING_EXP_RENT_PTAP, '}', collapse=';' ) 
 } 
 
@@ -927,7 +927,7 @@ V_GAMING_EXP_RENT_TOT <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_EXP_RENT_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_EXP_RENT_TOT ) )
 if( length( SG_03_GAMING_EXP_RENT_TOT ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_EXP_RENT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_EXP_RENT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_EXP_RENT_TOT <-  paste0( '{', SG_03_GAMING_EXP_RENT_TOT, '}', collapse=';' ) 
 } 
 
@@ -948,7 +948,7 @@ V_GAMING_VOL_BINGO_X <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_VOL_BINGO_X <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_VOL_BINGO_X ) )
 if( length( SG_03_GAMING_VOL_BINGO_X ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_VOL_BINGO_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_VOL_BINGO_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_VOL_BINGO_X <-  paste0( '{', SG_03_GAMING_VOL_BINGO_X, '}', collapse=';' ) 
 } 
 
@@ -969,7 +969,7 @@ V_GAMING_VOL_OTH_X <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_VOL_OTH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_VOL_OTH_X ) )
 if( length( SG_03_GAMING_VOL_OTH_X ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_VOL_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_VOL_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_VOL_OTH_X <-  paste0( '{', SG_03_GAMING_VOL_OTH_X, '}', collapse=';' ) 
 } 
 
@@ -990,7 +990,7 @@ V_GAMING_VOL_PCT_BINGO <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_VOL_PCT_BINGO <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_VOL_PCT_BINGO ) )
 if( length( SG_03_GAMING_VOL_PCT_BINGO ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_VOL_PCT_BINGO, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_VOL_PCT_BINGO, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_VOL_PCT_BINGO <-  paste0( '{', SG_03_GAMING_VOL_PCT_BINGO, '}', collapse=';' ) 
 } 
 
@@ -1011,7 +1011,7 @@ V_GAMING_VOL_PCT_PTAP <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_VOL_PCT_PTAP <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_VOL_PCT_PTAP ) )
 if( length( SG_03_GAMING_VOL_PCT_PTAP ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_VOL_PCT_PTAP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_VOL_PCT_PTAP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_VOL_PCT_PTAP <-  paste0( '{', SG_03_GAMING_VOL_PCT_PTAP, '}', collapse=';' ) 
 } 
 
@@ -1032,7 +1032,7 @@ V_GAMING_VOL_PCT_OTH <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_VOL_PCT_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_VOL_PCT_OTH ) )
 if( length( SG_03_GAMING_VOL_PCT_OTH ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_VOL_PCT_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_VOL_PCT_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_VOL_PCT_OTH <-  paste0( '{', SG_03_GAMING_VOL_PCT_OTH, '}', collapse=';' ) 
 } 
 
@@ -1053,7 +1053,7 @@ V_GAMING_VOL_PTAP_X <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_VOL_PTAP_X <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_VOL_PTAP_X ) )
 if( length( SG_03_GAMING_VOL_PTAP_X ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_VOL_PTAP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_VOL_PTAP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_VOL_PTAP_X <-  paste0( '{', SG_03_GAMING_VOL_PTAP_X, '}', collapse=';' ) 
 } 
 
@@ -1074,7 +1074,7 @@ V_GAMING_MGR_COMP <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_MGR_COMP <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_MGR_COMP ) )
 if( length( SG_03_GAMING_MGR_COMP ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_MGR_COMP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_MGR_COMP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_MGR_COMP <-  paste0( '{', SG_03_GAMING_MGR_COMP, '}', collapse=';' ) 
 } 
 
@@ -1095,7 +1095,7 @@ V_GAMING_MGR_DIR_OFF_X <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_MGR_DIR_OFF_X <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_MGR_DIR_OFF_X ) )
 if( length( SG_03_GAMING_MGR_DIR_OFF_X ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_MGR_DIR_OFF_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_MGR_DIR_OFF_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_MGR_DIR_OFF_X <-  paste0( '{', SG_03_GAMING_MGR_DIR_OFF_X, '}', collapse=';' ) 
 } 
 
@@ -1116,7 +1116,7 @@ V_GAMING_MGR_EMPL_X <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_MGR_EMPL_X <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_MGR_EMPL_X ) )
 if( length( SG_03_GAMING_MGR_EMPL_X ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_MGR_EMPL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_MGR_EMPL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_MGR_EMPL_X <-  paste0( '{', SG_03_GAMING_MGR_EMPL_X, '}', collapse=';' ) 
 } 
 
@@ -1137,7 +1137,7 @@ V_GAMING_MGR_KONTR_X <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_MGR_KONTR_X <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_MGR_KONTR_X ) )
 if( length( SG_03_GAMING_MGR_KONTR_X ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_MGR_KONTR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_MGR_KONTR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_MGR_KONTR_X <-  paste0( '{', SG_03_GAMING_MGR_KONTR_X, '}', collapse=';' ) 
 } 
 
@@ -1160,7 +1160,7 @@ V_GAMING_MGR_NAME_ORG_L1 <- paste( V1, V2, V3, V4, V5 , sep='|' )
 SG_03_GAMING_MGR_NAME_ORG_L1 <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_MGR_NAME_ORG_L1 ) )
 if( length( SG_03_GAMING_MGR_NAME_ORG_L1 ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_MGR_NAME_ORG_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_MGR_NAME_ORG_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_MGR_NAME_ORG_L1 <-  paste0( '{', SG_03_GAMING_MGR_NAME_ORG_L1, '}', collapse=';' ) 
 } 
 
@@ -1183,7 +1183,7 @@ V_GAMING_MGR_NAME_ORG_L2 <- paste( V1, V2, V3, V4, V5 , sep='|' )
 SG_03_GAMING_MGR_NAME_ORG_L2 <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_MGR_NAME_ORG_L2 ) )
 if( length( SG_03_GAMING_MGR_NAME_ORG_L2 ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_MGR_NAME_ORG_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_MGR_NAME_ORG_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_MGR_NAME_ORG_L2 <-  paste0( '{', SG_03_GAMING_MGR_NAME_ORG_L2, '}', collapse=';' ) 
 } 
 
@@ -1204,7 +1204,7 @@ V_GAMING_MGR_NAME_PERS <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_MGR_NAME_PERS <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_MGR_NAME_PERS ) )
 if( length( SG_03_GAMING_MGR_NAME_PERS ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_MGR_NAME_PERS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_MGR_NAME_PERS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_MGR_NAME_PERS <-  paste0( '{', SG_03_GAMING_MGR_NAME_PERS, '}', collapse=';' ) 
 } 
 
@@ -1225,7 +1225,7 @@ V_GAMING_MGR_SVC_PROV <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_MGR_SVC_PROV <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_MGR_SVC_PROV ) )
 if( length( SG_03_GAMING_MGR_SVC_PROV ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_MGR_SVC_PROV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_MGR_SVC_PROV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_MGR_SVC_PROV <-  paste0( '{', SG_03_GAMING_MGR_SVC_PROV, '}', collapse=';' ) 
 } 
 
@@ -1246,7 +1246,7 @@ V_GAMING_NONMEMB_X <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_NONMEMB_X <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_NONMEMB_X ) )
 if( length( SG_03_GAMING_NONMEMB_X ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_NONMEMB_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_NONMEMB_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_NONMEMB_X <-  paste0( '{', SG_03_GAMING_NONMEMB_X, '}', collapse=';' ) 
 } 
 
@@ -1267,7 +1267,7 @@ V_GAMING_LIC_X <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_LIC_X <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_LIC_X ) )
 if( length( SG_03_GAMING_LIC_X ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_LIC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_LIC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_LIC_X <-  paste0( '{', SG_03_GAMING_LIC_X, '}', collapse=';' ) 
 } 
 
@@ -1288,7 +1288,7 @@ V_GAMING_LIC_SUSPENDED_X <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_LIC_SUSPENDED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_LIC_SUSPENDED_X ) )
 if( length( SG_03_GAMING_LIC_SUSPENDED_X ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_LIC_SUSPENDED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_LIC_SUSPENDED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_LIC_SUSPENDED_X <-  paste0( '{', SG_03_GAMING_LIC_SUSPENDED_X, '}', collapse=';' ) 
 } 
 
@@ -1309,7 +1309,7 @@ V_GAMING_MEMB_OTH_ENTITY_X <- paste( V1, V2, V3 , sep='|' )
 SG_03_GAMING_MEMB_OTH_ENTITY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_GAMING_MEMB_OTH_ENTITY_X ) )
 if( length( SG_03_GAMING_MEMB_OTH_ENTITY_X ) > 1 )
 { 
-  create_record( varname=SG_03_GAMING_MEMB_OTH_ENTITY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GAMING_MEMB_OTH_ENTITY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GAMING_MEMB_OTH_ENTITY_X <-  paste0( '{', SG_03_GAMING_MEMB_OTH_ENTITY_X, '}', collapse=';' ) 
 } 
 
@@ -1330,7 +1330,7 @@ V_GRK_NAME_PERS <- paste( V1, V2, V3 , sep='|' )
 SG_03_GRK_NAME_PERS <- xml2::xml_text( xml2::xml_find_all( doc, V_GRK_NAME_PERS ) )
 if( length( SG_03_GRK_NAME_PERS ) > 1 )
 { 
-  create_record( varname=SG_03_GRK_NAME_PERS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GRK_NAME_PERS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GRK_NAME_PERS <-  paste0( '{', SG_03_GRK_NAME_PERS, '}', collapse=';' ) 
 } 
 
@@ -1352,7 +1352,7 @@ V_THIRD_PARTY_NAME_ORG_L1 <- paste( V1, V2, V3, V4 , sep='|' )
 SG_03_THIRD_PARTY_NAME_ORG_L1 <- xml2::xml_text( xml2::xml_find_all( doc, V_THIRD_PARTY_NAME_ORG_L1 ) )
 if( length( SG_03_THIRD_PARTY_NAME_ORG_L1 ) > 1 )
 { 
-  create_record( varname=SG_03_THIRD_PARTY_NAME_ORG_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_THIRD_PARTY_NAME_ORG_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_THIRD_PARTY_NAME_ORG_L1 <-  paste0( '{', SG_03_THIRD_PARTY_NAME_ORG_L1, '}', collapse=';' ) 
 } 
 
@@ -1374,7 +1374,7 @@ V_THIRD_PARTY_NAME_ORG_L2 <- paste( V1, V2, V3, V4 , sep='|' )
 SG_03_THIRD_PARTY_NAME_ORG_L2 <- xml2::xml_text( xml2::xml_find_all( doc, V_THIRD_PARTY_NAME_ORG_L2 ) )
 if( length( SG_03_THIRD_PARTY_NAME_ORG_L2 ) > 1 )
 { 
-  create_record( varname=SG_03_THIRD_PARTY_NAME_ORG_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_THIRD_PARTY_NAME_ORG_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_THIRD_PARTY_NAME_ORG_L2 <-  paste0( '{', SG_03_THIRD_PARTY_NAME_ORG_L2, '}', collapse=';' ) 
 } 
 
@@ -1395,7 +1395,7 @@ V_THIRD_PARTY_NAME_PERS <- paste( V1, V2, V3 , sep='|' )
 SG_03_THIRD_PARTY_NAME_PERS <- xml2::xml_text( xml2::xml_find_all( doc, V_THIRD_PARTY_NAME_PERS ) )
 if( length( SG_03_THIRD_PARTY_NAME_PERS ) > 1 )
 { 
-  create_record( varname=SG_03_THIRD_PARTY_NAME_PERS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_THIRD_PARTY_NAME_PERS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_THIRD_PARTY_NAME_PERS <-  paste0( '{', SG_03_THIRD_PARTY_NAME_PERS, '}', collapse=';' ) 
 } 
 
@@ -1416,7 +1416,7 @@ V_PCT_GAMING_OTH_FACILITY <- paste( V1, V2, V3 , sep='|' )
 SG_03_PCT_GAMING_OTH_FACILITY <- xml2::xml_text( xml2::xml_find_all( doc, V_PCT_GAMING_OTH_FACILITY ) )
 if( length( SG_03_PCT_GAMING_OTH_FACILITY ) > 1 )
 { 
-  create_record( varname=SG_03_PCT_GAMING_OTH_FACILITY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_PCT_GAMING_OTH_FACILITY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_PCT_GAMING_OTH_FACILITY <-  paste0( '{', SG_03_PCT_GAMING_OTH_FACILITY, '}', collapse=';' ) 
 } 
 
@@ -1437,7 +1437,7 @@ V_PCT_GAMING_OWN_FACILITY <- paste( V1, V2, V3 , sep='|' )
 SG_03_PCT_GAMING_OWN_FACILITY <- xml2::xml_text( xml2::xml_find_all( doc, V_PCT_GAMING_OWN_FACILITY ) )
 if( length( SG_03_PCT_GAMING_OWN_FACILITY ) > 1 )
 { 
-  create_record( varname=SG_03_PCT_GAMING_OWN_FACILITY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_PCT_GAMING_OWN_FACILITY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_PCT_GAMING_OWN_FACILITY <-  paste0( '{', SG_03_PCT_GAMING_OWN_FACILITY, '}', collapse=';' ) 
 } 
 
@@ -1458,7 +1458,7 @@ V_STATES_GAMING_CONDUCTED <- paste( V1, V2, V3 , sep='|' )
 SG_03_STATES_GAMING_CONDUCTED <- xml2::xml_text( xml2::xml_find_all( doc, V_STATES_GAMING_CONDUCTED ) )
 if( length( SG_03_STATES_GAMING_CONDUCTED ) > 1 )
 { 
-  create_record( varname=SG_03_STATES_GAMING_CONDUCTED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_STATES_GAMING_CONDUCTED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_STATES_GAMING_CONDUCTED <-  paste0( '{', SG_03_STATES_GAMING_CONDUCTED, '}', collapse=';' ) 
 } 
 
@@ -1479,7 +1479,7 @@ V_GRK_NAME_ORG_L1 <- paste( V1, V2, V3 , sep='|' )
 SG_03_GRK_NAME_ORG_L1 <- xml2::xml_text( xml2::xml_find_all( doc, V_GRK_NAME_ORG_L1 ) )
 if( length( SG_03_GRK_NAME_ORG_L1 ) > 1 )
 { 
-  create_record( varname=SG_03_GRK_NAME_ORG_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GRK_NAME_ORG_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GRK_NAME_ORG_L1 <-  paste0( '{', SG_03_GRK_NAME_ORG_L1, '}', collapse=';' ) 
 } 
 
@@ -1500,7 +1500,7 @@ V_GRK_NAME_ORG_L2 <- paste( V1, V2, V3 , sep='|' )
 SG_03_GRK_NAME_ORG_L2 <- xml2::xml_text( xml2::xml_find_all( doc, V_GRK_NAME_ORG_L2 ) )
 if( length( SG_03_GRK_NAME_ORG_L2 ) > 1 )
 { 
-  create_record( varname=SG_03_GRK_NAME_ORG_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_03_GRK_NAME_ORG_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_03_GRK_NAME_ORG_L2 <-  paste0( '{', SG_03_GRK_NAME_ORG_L2, '}', collapse=';' ) 
 } 
 

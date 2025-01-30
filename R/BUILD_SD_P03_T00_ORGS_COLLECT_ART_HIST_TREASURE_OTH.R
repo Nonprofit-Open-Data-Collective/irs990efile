@@ -35,7 +35,7 @@ V_ART_PUB_EXHIBITION_ASSET <- paste( V1, V2, V3 , sep='|' )
 SD_03_ART_PUB_EXHIBITION_ASSET <- xml2::xml_text( xml2::xml_find_all( doc, V_ART_PUB_EXHIBITION_ASSET ) )
 if( length( SD_03_ART_PUB_EXHIBITION_ASSET ) > 1 )
 { 
-  create_record( varname=SD_03_ART_PUB_EXHIBITION_ASSET, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_03_ART_PUB_EXHIBITION_ASSET, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_03_ART_PUB_EXHIBITION_ASSET <-  paste0( '{', SD_03_ART_PUB_EXHIBITION_ASSET, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_ART_PUB_EXHIBITION_REV <- paste( V1, V2, V3 , sep='|' )
 SD_03_ART_PUB_EXHIBITION_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_ART_PUB_EXHIBITION_REV ) )
 if( length( SD_03_ART_PUB_EXHIBITION_REV ) > 1 )
 { 
-  create_record( varname=SD_03_ART_PUB_EXHIBITION_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_03_ART_PUB_EXHIBITION_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_03_ART_PUB_EXHIBITION_REV <-  paste0( '{', SD_03_ART_PUB_EXHIBITION_REV, '}', collapse=';' ) 
 } 
 
@@ -76,7 +76,7 @@ V_COLLEC_OTH_X <- paste( V1, V2 , sep='|' )
 SD_03_COLLEC_OTH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COLLEC_OTH_X ) )
 if( length( SD_03_COLLEC_OTH_X ) > 1 )
 { 
-  create_record( varname=SD_03_COLLEC_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_03_COLLEC_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_03_COLLEC_OTH_X <-  paste0( '{', SD_03_COLLEC_OTH_X, '}', collapse=';' ) 
 } 
 
@@ -97,7 +97,7 @@ V_COLLEC_OTH_DESC <- paste( V1, V2, V3 , sep='|' )
 SD_03_COLLEC_OTH_DESC <- xml2::xml_text( xml2::xml_find_all( doc, V_COLLEC_OTH_DESC ) )
 if( length( SD_03_COLLEC_OTH_DESC ) > 1 )
 { 
-  create_record( varname=SD_03_COLLEC_OTH_DESC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_03_COLLEC_OTH_DESC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_03_COLLEC_OTH_DESC <-  paste0( '{', SD_03_COLLEC_OTH_DESC, '}', collapse=';' ) 
 } 
 
@@ -118,7 +118,7 @@ V_COLLEC_PRESERVATION_X <- paste( V1, V2, V3 , sep='|' )
 SD_03_COLLEC_PRESERVATION_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COLLEC_PRESERVATION_X ) )
 if( length( SD_03_COLLEC_PRESERVATION_X ) > 1 )
 { 
-  create_record( varname=SD_03_COLLEC_PRESERVATION_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_03_COLLEC_PRESERVATION_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_03_COLLEC_PRESERVATION_X <-  paste0( '{', SD_03_COLLEC_PRESERVATION_X, '}', collapse=';' ) 
 } 
 
@@ -139,7 +139,7 @@ V_COLLEC_PUB_EXHIBITION_X <- paste( V1, V2, V3 , sep='|' )
 SD_03_COLLEC_PUB_EXHIBITION_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COLLEC_PUB_EXHIBITION_X ) )
 if( length( SD_03_COLLEC_PUB_EXHIBITION_X ) > 1 )
 { 
-  create_record( varname=SD_03_COLLEC_PUB_EXHIBITION_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_03_COLLEC_PUB_EXHIBITION_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_03_COLLEC_PUB_EXHIBITION_X <-  paste0( '{', SD_03_COLLEC_PUB_EXHIBITION_X, '}', collapse=';' ) 
 } 
 
@@ -160,7 +160,7 @@ V_COLLEC_LOAN_PROG_X <- paste( V1, V2, V3 , sep='|' )
 SD_03_COLLEC_LOAN_PROG_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COLLEC_LOAN_PROG_X ) )
 if( length( SD_03_COLLEC_LOAN_PROG_X ) > 1 )
 { 
-  create_record( varname=SD_03_COLLEC_LOAN_PROG_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_03_COLLEC_LOAN_PROG_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_03_COLLEC_LOAN_PROG_X <-  paste0( '{', SD_03_COLLEC_LOAN_PROG_X, '}', collapse=';' ) 
 } 
 
@@ -181,7 +181,7 @@ V_COLLEC_SCHOLAR_RSRCH_X <- paste( V1, V2, V3 , sep='|' )
 SD_03_COLLEC_SCHOLAR_RSRCH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COLLEC_SCHOLAR_RSRCH_X ) )
 if( length( SD_03_COLLEC_SCHOLAR_RSRCH_X ) > 1 )
 { 
-  create_record( varname=SD_03_COLLEC_SCHOLAR_RSRCH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_03_COLLEC_SCHOLAR_RSRCH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_03_COLLEC_SCHOLAR_RSRCH_X <-  paste0( '{', SD_03_COLLEC_SCHOLAR_RSRCH_X, '}', collapse=';' ) 
 } 
 
@@ -202,7 +202,7 @@ V_WORKS_ART_ASSET <- paste( V1, V2, V3 , sep='|' )
 SD_03_WORKS_ART_ASSET <- xml2::xml_text( xml2::xml_find_all( doc, V_WORKS_ART_ASSET ) )
 if( length( SD_03_WORKS_ART_ASSET ) > 1 )
 { 
-  create_record( varname=SD_03_WORKS_ART_ASSET, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_03_WORKS_ART_ASSET, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_03_WORKS_ART_ASSET <-  paste0( '{', SD_03_WORKS_ART_ASSET, '}', collapse=';' ) 
 } 
 
@@ -223,7 +223,7 @@ V_WORKS_ART_REV <- paste( V1, V2, V3 , sep='|' )
 SD_03_WORKS_ART_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_WORKS_ART_REV ) )
 if( length( SD_03_WORKS_ART_REV ) > 1 )
 { 
-  create_record( varname=SD_03_WORKS_ART_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_03_WORKS_ART_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_03_WORKS_ART_REV <-  paste0( '{', SD_03_WORKS_ART_REV, '}', collapse=';' ) 
 } 
 
@@ -244,7 +244,7 @@ V_SOL_ASSET_SALE_X <- paste( V1, V2, V3 , sep='|' )
 SD_03_SOL_ASSET_SALE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_SOL_ASSET_SALE_X ) )
 if( length( SD_03_SOL_ASSET_SALE_X ) > 1 )
 { 
-  create_record( varname=SD_03_SOL_ASSET_SALE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_03_SOL_ASSET_SALE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_03_SOL_ASSET_SALE_X <-  paste0( '{', SD_03_SOL_ASSET_SALE_X, '}', collapse=';' ) 
 } 
 

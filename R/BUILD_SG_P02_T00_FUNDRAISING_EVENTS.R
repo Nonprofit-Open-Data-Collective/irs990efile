@@ -35,7 +35,7 @@ V_FUNDR_EVNT_EXP_CASH_TOT <- paste( V1, V2, V3 , sep='|' )
 SG_02_FUNDR_EVNT_EXP_CASH_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDR_EVNT_EXP_CASH_TOT ) )
 if( length( SG_02_FUNDR_EVNT_EXP_CASH_TOT ) > 1 )
 { 
-  create_record( varname=SG_02_FUNDR_EVNT_EXP_CASH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_02_FUNDR_EVNT_EXP_CASH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_02_FUNDR_EVNT_EXP_CASH_TOT <-  paste0( '{', SG_02_FUNDR_EVNT_EXP_CASH_TOT, '}', collapse=';' ) 
 } 
 
@@ -55,7 +55,7 @@ V_FUNDR_EVNT_REV_CONTR_TOT <- paste( V1, V2 , sep='|' )
 SG_02_FUNDR_EVNT_REV_CONTR_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDR_EVNT_REV_CONTR_TOT ) )
 if( length( SG_02_FUNDR_EVNT_REV_CONTR_TOT ) > 1 )
 { 
-  create_record( varname=SG_02_FUNDR_EVNT_REV_CONTR_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_02_FUNDR_EVNT_REV_CONTR_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_02_FUNDR_EVNT_REV_CONTR_TOT <-  paste0( '{', SG_02_FUNDR_EVNT_REV_CONTR_TOT, '}', collapse=';' ) 
 } 
 
@@ -75,7 +75,7 @@ V_FUNDR_EVNT_EXP_SUMMARY_TOT <- paste( V1, V2 , sep='|' )
 SG_02_FUNDR_EVNT_EXP_SUMMARY_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDR_EVNT_EXP_SUMMARY_TOT ) )
 if( length( SG_02_FUNDR_EVNT_EXP_SUMMARY_TOT ) > 1 )
 { 
-  create_record( varname=SG_02_FUNDR_EVNT_EXP_SUMMARY_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_02_FUNDR_EVNT_EXP_SUMMARY_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_02_FUNDR_EVNT_EXP_SUMMARY_TOT <-  paste0( '{', SG_02_FUNDR_EVNT_EXP_SUMMARY_TOT, '}', collapse=';' ) 
 } 
 
@@ -92,7 +92,7 @@ if( length( SG_02_FUNDR_EVNT_EXP_SUMMARY_TOT ) > 1 )
 SG_02_FUNDR_EVNT_EXP_ENTMT_TOT <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleG/EventsInformation/EntertainmentTotalEvents' ) )
 if( length( SG_02_FUNDR_EVNT_EXP_ENTMT_TOT ) > 1 )
 { 
-  create_record( varname=SG_02_FUNDR_EVNT_EXP_ENTMT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_02_FUNDR_EVNT_EXP_ENTMT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_02_FUNDR_EVNT_EXP_ENTMT_TOT <-  paste0( '{', SG_02_FUNDR_EVNT_EXP_ENTMT_TOT, '}', collapse=';' ) 
 } 
 
@@ -109,7 +109,7 @@ if( length( SG_02_FUNDR_EVNT_EXP_ENTMT_TOT ) > 1 )
 SG_02_FUNDR_EVNT_EXP_FOOD_TOT <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleG/EventsInformation/FoodAndBeverageTotalEvents' ) )
 if( length( SG_02_FUNDR_EVNT_EXP_FOOD_TOT ) > 1 )
 { 
-  create_record( varname=SG_02_FUNDR_EVNT_EXP_FOOD_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_02_FUNDR_EVNT_EXP_FOOD_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_02_FUNDR_EVNT_EXP_FOOD_TOT <-  paste0( '{', SG_02_FUNDR_EVNT_EXP_FOOD_TOT, '}', collapse=';' ) 
 } 
 
@@ -129,7 +129,7 @@ V_FUNDR_EVNT_REV_GRORCPT_TOT <- paste( V1, V2 , sep='|' )
 SG_02_FUNDR_EVNT_REV_GRORCPT_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDR_EVNT_REV_GRORCPT_TOT ) )
 if( length( SG_02_FUNDR_EVNT_REV_GRORCPT_TOT ) > 1 )
 { 
-  create_record( varname=SG_02_FUNDR_EVNT_REV_GRORCPT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_02_FUNDR_EVNT_REV_GRORCPT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_02_FUNDR_EVNT_REV_GRORCPT_TOT <-  paste0( '{', SG_02_FUNDR_EVNT_REV_GRORCPT_TOT, '}', collapse=';' ) 
 } 
 
@@ -149,7 +149,7 @@ V_FUNDR_EVNT_REV_GRO_TOT <- paste( V1, V2 , sep='|' )
 SG_02_FUNDR_EVNT_REV_GRO_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDR_EVNT_REV_GRO_TOT ) )
 if( length( SG_02_FUNDR_EVNT_REV_GRO_TOT ) > 1 )
 { 
-  create_record( varname=SG_02_FUNDR_EVNT_REV_GRO_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_02_FUNDR_EVNT_REV_GRO_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_02_FUNDR_EVNT_REV_GRO_TOT <-  paste0( '{', SG_02_FUNDR_EVNT_REV_GRO_TOT, '}', collapse=';' ) 
 } 
 
@@ -169,7 +169,7 @@ V_FUNDR_EVNT_NET_INCOME_TOT <- paste( V1, V2 , sep='|' )
 SG_02_FUNDR_EVNT_NET_INCOME_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDR_EVNT_NET_INCOME_TOT ) )
 if( length( SG_02_FUNDR_EVNT_NET_INCOME_TOT ) > 1 )
 { 
-  create_record( varname=SG_02_FUNDR_EVNT_NET_INCOME_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_02_FUNDR_EVNT_NET_INCOME_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_02_FUNDR_EVNT_NET_INCOME_TOT <-  paste0( '{', SG_02_FUNDR_EVNT_NET_INCOME_TOT, '}', collapse=';' ) 
 } 
 
@@ -189,7 +189,7 @@ V_FUNDR_EVNT_EXP_NONCSH_TOT <- paste( V1, V2 , sep='|' )
 SG_02_FUNDR_EVNT_EXP_NONCSH_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDR_EVNT_EXP_NONCSH_TOT ) )
 if( length( SG_02_FUNDR_EVNT_EXP_NONCSH_TOT ) > 1 )
 { 
-  create_record( varname=SG_02_FUNDR_EVNT_EXP_NONCSH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_02_FUNDR_EVNT_EXP_NONCSH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_02_FUNDR_EVNT_EXP_NONCSH_TOT <-  paste0( '{', SG_02_FUNDR_EVNT_EXP_NONCSH_TOT, '}', collapse=';' ) 
 } 
 
@@ -209,7 +209,7 @@ V_FUNDR_EVNT_EXP_OTH_TOT <- paste( V1, V2 , sep='|' )
 SG_02_FUNDR_EVNT_EXP_OTH_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDR_EVNT_EXP_OTH_TOT ) )
 if( length( SG_02_FUNDR_EVNT_EXP_OTH_TOT ) > 1 )
 { 
-  create_record( varname=SG_02_FUNDR_EVNT_EXP_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_02_FUNDR_EVNT_EXP_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_02_FUNDR_EVNT_EXP_OTH_TOT <-  paste0( '{', SG_02_FUNDR_EVNT_EXP_OTH_TOT, '}', collapse=';' ) 
 } 
 
@@ -229,7 +229,7 @@ V_FUNDR_EVNT_EXP_RENT_TOT <- paste( V1, V2 , sep='|' )
 SG_02_FUNDR_EVNT_EXP_RENT_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDR_EVNT_EXP_RENT_TOT ) )
 if( length( SG_02_FUNDR_EVNT_EXP_RENT_TOT ) > 1 )
 { 
-  create_record( varname=SG_02_FUNDR_EVNT_EXP_RENT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_02_FUNDR_EVNT_EXP_RENT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_02_FUNDR_EVNT_EXP_RENT_TOT <-  paste0( '{', SG_02_FUNDR_EVNT_EXP_RENT_TOT, '}', collapse=';' ) 
 } 
 

@@ -34,7 +34,7 @@ V_ACT_NOT_PREVIOUSLY_REP_X <- paste( V1, V2 , sep='|' )
 F9_06_ACT_NOT_PREVIOUSLY_REP_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ACT_NOT_PREVIOUSLY_REP_X ) )
 if( length( F9_06_ACT_NOT_PREVIOUSLY_REP_X ) > 1 )
 { 
-  create_record( varname=F9_06_ACT_NOT_PREVIOUSLY_REP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_06_ACT_NOT_PREVIOUSLY_REP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_06_ACT_NOT_PREVIOUSLY_REP_X <-  paste0( '{', F9_06_ACT_NOT_PREVIOUSLY_REP_X, '}', collapse=';' ) 
 } 
 
@@ -54,7 +54,7 @@ V_TAX_IMPOSED_ORG_MGR <- paste( V1, V2 , sep='|' )
 F9_06_TAX_IMPOSED_ORG_MGR <- xml2::xml_text( xml2::xml_find_all( doc, V_TAX_IMPOSED_ORG_MGR ) )
 if( length( F9_06_TAX_IMPOSED_ORG_MGR ) > 1 )
 { 
-  create_record( varname=F9_06_TAX_IMPOSED_ORG_MGR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_06_TAX_IMPOSED_ORG_MGR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_06_TAX_IMPOSED_ORG_MGR <-  paste0( '{', F9_06_TAX_IMPOSED_ORG_MGR, '}', collapse=';' ) 
 } 
 
@@ -74,7 +74,7 @@ V_TAX_REIMBURSED_ORG <- paste( V1, V2 , sep='|' )
 F9_06_TAX_REIMBURSED_ORG <- xml2::xml_text( xml2::xml_find_all( doc, V_TAX_REIMBURSED_ORG ) )
 if( length( F9_06_TAX_REIMBURSED_ORG ) > 1 )
 { 
-  create_record( varname=F9_06_TAX_REIMBURSED_ORG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_06_TAX_REIMBURSED_ORG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_06_TAX_REIMBURSED_ORG <-  paste0( '{', F9_06_TAX_REIMBURSED_ORG, '}', collapse=';' ) 
 } 
 
@@ -94,7 +94,7 @@ V_POLI_FORM1120_POL_FILED_X <- paste( V1, V2 , sep='|' )
 F9_06_POLI_FORM1120_POL_FILED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_POLI_FORM1120_POL_FILED_X ) )
 if( length( F9_06_POLI_FORM1120_POL_FILED_X ) > 1 )
 { 
-  create_record( varname=F9_06_POLI_FORM1120_POL_FILED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_06_POLI_FORM1120_POL_FILED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_06_POLI_FORM1120_POL_FILED_X <-  paste0( '{', F9_06_POLI_FORM1120_POL_FILED_X, '}', collapse=';' ) 
 } 
 
@@ -114,7 +114,7 @@ V_POLI_EXP <- paste( V1, V2 , sep='|' )
 F9_06_POLI_EXP <- xml2::xml_text( xml2::xml_find_all( doc, V_POLI_EXP ) )
 if( length( F9_06_POLI_EXP ) > 1 )
 { 
-  create_record( varname=F9_06_POLI_EXP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_06_POLI_EXP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_06_POLI_EXP <-  paste0( '{', F9_06_POLI_EXP, '}', collapse=';' ) 
 } 
 
@@ -134,7 +134,7 @@ V_TAX_IMPOSED_IRC_4911 <- paste( V1, V2 , sep='|' )
 F9_06_TAX_IMPOSED_IRC_4911 <- xml2::xml_text( xml2::xml_find_all( doc, V_TAX_IMPOSED_IRC_4911 ) )
 if( length( F9_06_TAX_IMPOSED_IRC_4911 ) > 1 )
 { 
-  create_record( varname=F9_06_TAX_IMPOSED_IRC_4911, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_06_TAX_IMPOSED_IRC_4911, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_06_TAX_IMPOSED_IRC_4911 <-  paste0( '{', F9_06_TAX_IMPOSED_IRC_4911, '}', collapse=';' ) 
 } 
 
@@ -154,7 +154,7 @@ V_TAX_IMPOSED_IRC_4912 <- paste( V1, V2 , sep='|' )
 F9_06_TAX_IMPOSED_IRC_4912 <- xml2::xml_text( xml2::xml_find_all( doc, V_TAX_IMPOSED_IRC_4912 ) )
 if( length( F9_06_TAX_IMPOSED_IRC_4912 ) > 1 )
 { 
-  create_record( varname=F9_06_TAX_IMPOSED_IRC_4912, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_06_TAX_IMPOSED_IRC_4912, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_06_TAX_IMPOSED_IRC_4912 <-  paste0( '{', F9_06_TAX_IMPOSED_IRC_4912, '}', collapse=';' ) 
 } 
 
@@ -174,7 +174,7 @@ V_TAX_IMPOSED_IRC_4955 <- paste( V1, V2 , sep='|' )
 F9_06_TAX_IMPOSED_IRC_4955 <- xml2::xml_text( xml2::xml_find_all( doc, V_TAX_IMPOSED_IRC_4955 ) )
 if( length( F9_06_TAX_IMPOSED_IRC_4955 ) > 1 )
 { 
-  create_record( varname=F9_06_TAX_IMPOSED_IRC_4955, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_06_TAX_IMPOSED_IRC_4955, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_06_TAX_IMPOSED_IRC_4955 <-  paste0( '{', F9_06_TAX_IMPOSED_IRC_4955, '}', collapse=';' ) 
 } 
 

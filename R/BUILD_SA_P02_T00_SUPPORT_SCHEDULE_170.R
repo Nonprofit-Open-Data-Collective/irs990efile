@@ -35,7 +35,7 @@ V_PUB_CONTR_SBST_TOT <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_CONTR_SBST_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_CONTR_SBST_TOT ) )
 if( length( SA_02_PUB_CONTR_SBST_TOT ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_CONTR_SBST_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_CONTR_SBST_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_CONTR_SBST_TOT <-  paste0( '{', SA_02_PUB_CONTR_SBST_TOT, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_TOT_FIRST_5Y_X <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_FIRST_5Y_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_FIRST_5Y_X ) )
 if( length( SA_02_TOT_FIRST_5Y_X ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_FIRST_5Y_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_FIRST_5Y_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_FIRST_5Y_X <-  paste0( '{', SA_02_TOT_FIRST_5Y_X, '}', collapse=';' ) 
 } 
 
@@ -73,7 +73,7 @@ if( length( SA_02_TOT_FIRST_5Y_X ) > 1 )
 SA_02_TOT_AMT_L4_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990ScheduleAPartII/AmountsFromLine4/CurrentTaxYear' ) )
 if( length( SA_02_TOT_AMT_L4_CY ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_AMT_L4_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_AMT_L4_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_AMT_L4_CY <-  paste0( '{', SA_02_TOT_AMT_L4_CY, '}', collapse=';' ) 
 } 
 
@@ -90,7 +90,7 @@ if( length( SA_02_TOT_AMT_L4_CY ) > 1 )
 SA_02_TOT_AMT_L4_CY_M1 <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990ScheduleAPartII/AmountsFromLine4/CurrentTaxYearMinus1Year' ) )
 if( length( SA_02_TOT_AMT_L4_CY_M1 ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_AMT_L4_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_AMT_L4_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_AMT_L4_CY_M1 <-  paste0( '{', SA_02_TOT_AMT_L4_CY_M1, '}', collapse=';' ) 
 } 
 
@@ -107,7 +107,7 @@ if( length( SA_02_TOT_AMT_L4_CY_M1 ) > 1 )
 SA_02_TOT_AMT_L4_CY_M2 <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990ScheduleAPartII/AmountsFromLine4/CurrentTaxYearMinus2Years' ) )
 if( length( SA_02_TOT_AMT_L4_CY_M2 ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_AMT_L4_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_AMT_L4_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_AMT_L4_CY_M2 <-  paste0( '{', SA_02_TOT_AMT_L4_CY_M2, '}', collapse=';' ) 
 } 
 
@@ -124,7 +124,7 @@ if( length( SA_02_TOT_AMT_L4_CY_M2 ) > 1 )
 SA_02_TOT_AMT_L4_CY_M3 <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990ScheduleAPartII/AmountsFromLine4/CurrentTaxYearMinus3Years' ) )
 if( length( SA_02_TOT_AMT_L4_CY_M3 ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_AMT_L4_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_AMT_L4_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_AMT_L4_CY_M3 <-  paste0( '{', SA_02_TOT_AMT_L4_CY_M3, '}', collapse=';' ) 
 } 
 
@@ -141,7 +141,7 @@ if( length( SA_02_TOT_AMT_L4_CY_M3 ) > 1 )
 SA_02_TOT_AMT_L4_CY_M4 <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990ScheduleAPartII/AmountsFromLine4/CurrentTaxYearMinus4Years' ) )
 if( length( SA_02_TOT_AMT_L4_CY_M4 ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_AMT_L4_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_AMT_L4_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_AMT_L4_CY_M4 <-  paste0( '{', SA_02_TOT_AMT_L4_CY_M4, '}', collapse=';' ) 
 } 
 
@@ -158,7 +158,7 @@ if( length( SA_02_TOT_AMT_L4_CY_M4 ) > 1 )
 SA_02_TOT_AMT_L4_CY_TOT <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990ScheduleAPartII/AmountsFromLine4/Total' ) )
 if( length( SA_02_TOT_AMT_L4_CY_TOT ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_AMT_L4_CY_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_AMT_L4_CY_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_AMT_L4_CY_TOT <-  paste0( '{', SA_02_TOT_AMT_L4_CY_TOT, '}', collapse=';' ) 
 } 
 
@@ -179,7 +179,7 @@ V_PUB_GIFT_GRANT_CONTR_CY <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_GIFT_GRANT_CONTR_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_GIFT_GRANT_CONTR_CY ) )
 if( length( SA_02_PUB_GIFT_GRANT_CONTR_CY ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_GIFT_GRANT_CONTR_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_GIFT_GRANT_CONTR_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_GIFT_GRANT_CONTR_CY <-  paste0( '{', SA_02_PUB_GIFT_GRANT_CONTR_CY, '}', collapse=';' ) 
 } 
 
@@ -200,7 +200,7 @@ V_PUB_GIFT_GRANT_CONTR_CY_M1 <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_GIFT_GRANT_CONTR_CY_M1 <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_GIFT_GRANT_CONTR_CY_M1 ) )
 if( length( SA_02_PUB_GIFT_GRANT_CONTR_CY_M1 ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_GIFT_GRANT_CONTR_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_GIFT_GRANT_CONTR_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_GIFT_GRANT_CONTR_CY_M1 <-  paste0( '{', SA_02_PUB_GIFT_GRANT_CONTR_CY_M1, '}', collapse=';' ) 
 } 
 
@@ -221,7 +221,7 @@ V_PUB_GIFT_GRANT_CONTR_CY_M2 <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_GIFT_GRANT_CONTR_CY_M2 <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_GIFT_GRANT_CONTR_CY_M2 ) )
 if( length( SA_02_PUB_GIFT_GRANT_CONTR_CY_M2 ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_GIFT_GRANT_CONTR_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_GIFT_GRANT_CONTR_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_GIFT_GRANT_CONTR_CY_M2 <-  paste0( '{', SA_02_PUB_GIFT_GRANT_CONTR_CY_M2, '}', collapse=';' ) 
 } 
 
@@ -242,7 +242,7 @@ V_PUB_GIFT_GRANT_CONTR_CY_M3 <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_GIFT_GRANT_CONTR_CY_M3 <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_GIFT_GRANT_CONTR_CY_M3 ) )
 if( length( SA_02_PUB_GIFT_GRANT_CONTR_CY_M3 ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_GIFT_GRANT_CONTR_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_GIFT_GRANT_CONTR_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_GIFT_GRANT_CONTR_CY_M3 <-  paste0( '{', SA_02_PUB_GIFT_GRANT_CONTR_CY_M3, '}', collapse=';' ) 
 } 
 
@@ -263,7 +263,7 @@ V_PUB_GIFT_GRANT_CONTR_CY_M4 <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_GIFT_GRANT_CONTR_CY_M4 <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_GIFT_GRANT_CONTR_CY_M4 ) )
 if( length( SA_02_PUB_GIFT_GRANT_CONTR_CY_M4 ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_GIFT_GRANT_CONTR_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_GIFT_GRANT_CONTR_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_GIFT_GRANT_CONTR_CY_M4 <-  paste0( '{', SA_02_PUB_GIFT_GRANT_CONTR_CY_M4, '}', collapse=';' ) 
 } 
 
@@ -284,7 +284,7 @@ V_PUB_GIFT_GRANT_CONTR_TOT <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_GIFT_GRANT_CONTR_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_GIFT_GRANT_CONTR_TOT ) )
 if( length( SA_02_PUB_GIFT_GRANT_CONTR_TOT ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_GIFT_GRANT_CONTR_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_GIFT_GRANT_CONTR_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_GIFT_GRANT_CONTR_TOT <-  paste0( '{', SA_02_PUB_GIFT_GRANT_CONTR_TOT, '}', collapse=';' ) 
 } 
 
@@ -305,7 +305,7 @@ V_TOT_INCOME_GRO_CY <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_GRO_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_GRO_CY ) )
 if( length( SA_02_TOT_INCOME_GRO_CY ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_GRO_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_GRO_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_GRO_CY <-  paste0( '{', SA_02_TOT_INCOME_GRO_CY, '}', collapse=';' ) 
 } 
 
@@ -326,7 +326,7 @@ V_TOT_INCOME_GRO_CY_M1 <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_GRO_CY_M1 <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_GRO_CY_M1 ) )
 if( length( SA_02_TOT_INCOME_GRO_CY_M1 ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_GRO_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_GRO_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_GRO_CY_M1 <-  paste0( '{', SA_02_TOT_INCOME_GRO_CY_M1, '}', collapse=';' ) 
 } 
 
@@ -347,7 +347,7 @@ V_TOT_INCOME_GRO_CY_M2 <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_GRO_CY_M2 <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_GRO_CY_M2 ) )
 if( length( SA_02_TOT_INCOME_GRO_CY_M2 ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_GRO_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_GRO_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_GRO_CY_M2 <-  paste0( '{', SA_02_TOT_INCOME_GRO_CY_M2, '}', collapse=';' ) 
 } 
 
@@ -368,7 +368,7 @@ V_TOT_INCOME_GRO_CY_M3 <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_GRO_CY_M3 <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_GRO_CY_M3 ) )
 if( length( SA_02_TOT_INCOME_GRO_CY_M3 ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_GRO_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_GRO_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_GRO_CY_M3 <-  paste0( '{', SA_02_TOT_INCOME_GRO_CY_M3, '}', collapse=';' ) 
 } 
 
@@ -389,7 +389,7 @@ V_TOT_INCOME_GRO_CY_M4 <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_GRO_CY_M4 <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_GRO_CY_M4 ) )
 if( length( SA_02_TOT_INCOME_GRO_CY_M4 ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_GRO_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_GRO_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_GRO_CY_M4 <-  paste0( '{', SA_02_TOT_INCOME_GRO_CY_M4, '}', collapse=';' ) 
 } 
 
@@ -410,7 +410,7 @@ V_TOT_INCOME_GRO_TOT <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_GRO_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_GRO_TOT ) )
 if( length( SA_02_TOT_INCOME_GRO_TOT ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_GRO_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_GRO_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_GRO_TOT <-  paste0( '{', SA_02_TOT_INCOME_GRO_TOT, '}', collapse=';' ) 
 } 
 
@@ -431,7 +431,7 @@ V_TOT_GRO_RCPT_RLTD_ACTS <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_GRO_RCPT_RLTD_ACTS <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_GRO_RCPT_RLTD_ACTS ) )
 if( length( SA_02_TOT_GRO_RCPT_RLTD_ACTS ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_GRO_RCPT_RLTD_ACTS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_GRO_RCPT_RLTD_ACTS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_GRO_RCPT_RLTD_ACTS <-  paste0( '{', SA_02_TOT_GRO_RCPT_RLTD_ACTS, '}', collapse=';' ) 
 } 
 
@@ -452,7 +452,7 @@ V_TOT_INCOME_NET_UBIZ_CY <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_NET_UBIZ_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_NET_UBIZ_CY ) )
 if( length( SA_02_TOT_INCOME_NET_UBIZ_CY ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_NET_UBIZ_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_NET_UBIZ_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_NET_UBIZ_CY <-  paste0( '{', SA_02_TOT_INCOME_NET_UBIZ_CY, '}', collapse=';' ) 
 } 
 
@@ -473,7 +473,7 @@ V_TOT_INCOME_NET_UBIZ_CY_M1 <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_NET_UBIZ_CY_M1 <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_NET_UBIZ_CY_M1 ) )
 if( length( SA_02_TOT_INCOME_NET_UBIZ_CY_M1 ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_NET_UBIZ_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_NET_UBIZ_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_NET_UBIZ_CY_M1 <-  paste0( '{', SA_02_TOT_INCOME_NET_UBIZ_CY_M1, '}', collapse=';' ) 
 } 
 
@@ -494,7 +494,7 @@ V_TOT_INCOME_NET_UBIZ_CY_M2 <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_NET_UBIZ_CY_M2 <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_NET_UBIZ_CY_M2 ) )
 if( length( SA_02_TOT_INCOME_NET_UBIZ_CY_M2 ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_NET_UBIZ_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_NET_UBIZ_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_NET_UBIZ_CY_M2 <-  paste0( '{', SA_02_TOT_INCOME_NET_UBIZ_CY_M2, '}', collapse=';' ) 
 } 
 
@@ -515,7 +515,7 @@ V_TOT_INCOME_NET_UBIZ_CY_M3 <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_NET_UBIZ_CY_M3 <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_NET_UBIZ_CY_M3 ) )
 if( length( SA_02_TOT_INCOME_NET_UBIZ_CY_M3 ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_NET_UBIZ_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_NET_UBIZ_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_NET_UBIZ_CY_M3 <-  paste0( '{', SA_02_TOT_INCOME_NET_UBIZ_CY_M3, '}', collapse=';' ) 
 } 
 
@@ -536,7 +536,7 @@ V_TOT_INCOME_NET_UBIZ_CY_M4 <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_NET_UBIZ_CY_M4 <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_NET_UBIZ_CY_M4 ) )
 if( length( SA_02_TOT_INCOME_NET_UBIZ_CY_M4 ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_NET_UBIZ_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_NET_UBIZ_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_NET_UBIZ_CY_M4 <-  paste0( '{', SA_02_TOT_INCOME_NET_UBIZ_CY_M4, '}', collapse=';' ) 
 } 
 
@@ -557,7 +557,7 @@ V_TOT_INCOME_NET_UBIZ_TOT <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_NET_UBIZ_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_NET_UBIZ_TOT ) )
 if( length( SA_02_TOT_INCOME_NET_UBIZ_TOT ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_NET_UBIZ_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_NET_UBIZ_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_NET_UBIZ_TOT <-  paste0( '{', SA_02_TOT_INCOME_NET_UBIZ_TOT, '}', collapse=';' ) 
 } 
 
@@ -578,7 +578,7 @@ V_TOT_INCOME_OTH_CY <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_OTH_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_OTH_CY ) )
 if( length( SA_02_TOT_INCOME_OTH_CY ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_OTH_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_OTH_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_OTH_CY <-  paste0( '{', SA_02_TOT_INCOME_OTH_CY, '}', collapse=';' ) 
 } 
 
@@ -599,7 +599,7 @@ V_TOT_INCOME_OTH_CY_M1 <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_OTH_CY_M1 <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_OTH_CY_M1 ) )
 if( length( SA_02_TOT_INCOME_OTH_CY_M1 ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_OTH_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_OTH_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_OTH_CY_M1 <-  paste0( '{', SA_02_TOT_INCOME_OTH_CY_M1, '}', collapse=';' ) 
 } 
 
@@ -620,7 +620,7 @@ V_TOT_INCOME_OTH_CY_M2 <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_OTH_CY_M2 <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_OTH_CY_M2 ) )
 if( length( SA_02_TOT_INCOME_OTH_CY_M2 ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_OTH_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_OTH_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_OTH_CY_M2 <-  paste0( '{', SA_02_TOT_INCOME_OTH_CY_M2, '}', collapse=';' ) 
 } 
 
@@ -641,7 +641,7 @@ V_TOT_INCOME_OTH_CY_M3 <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_OTH_CY_M3 <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_OTH_CY_M3 ) )
 if( length( SA_02_TOT_INCOME_OTH_CY_M3 ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_OTH_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_OTH_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_OTH_CY_M3 <-  paste0( '{', SA_02_TOT_INCOME_OTH_CY_M3, '}', collapse=';' ) 
 } 
 
@@ -662,7 +662,7 @@ V_TOT_INCOME_OTH_CY_M4 <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_OTH_CY_M4 <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_OTH_CY_M4 ) )
 if( length( SA_02_TOT_INCOME_OTH_CY_M4 ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_OTH_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_OTH_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_OTH_CY_M4 <-  paste0( '{', SA_02_TOT_INCOME_OTH_CY_M4, '}', collapse=';' ) 
 } 
 
@@ -683,7 +683,7 @@ V_TOT_INCOME_OTH_TOT <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_INCOME_OTH_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_INCOME_OTH_TOT ) )
 if( length( SA_02_TOT_INCOME_OTH_TOT ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_INCOME_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_INCOME_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_INCOME_OTH_TOT <-  paste0( '{', SA_02_TOT_INCOME_OTH_TOT, '}', collapse=';' ) 
 } 
 
@@ -704,7 +704,7 @@ V_PCT_PRIVATE_FOUNDATION_X <- paste( V1, V2, V3 , sep='|' )
 SA_02_PCT_PRIVATE_FOUNDATION_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCT_PRIVATE_FOUNDATION_X ) )
 if( length( SA_02_PCT_PRIVATE_FOUNDATION_X ) > 1 )
 { 
-  create_record( varname=SA_02_PCT_PRIVATE_FOUNDATION_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PCT_PRIVATE_FOUNDATION_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PCT_PRIVATE_FOUNDATION_X <-  paste0( '{', SA_02_PCT_PRIVATE_FOUNDATION_X, '}', collapse=';' ) 
 } 
 
@@ -725,7 +725,7 @@ V_PCT_PUB_SUPPORT_CY <- paste( V1, V2, V3 , sep='|' )
 SA_02_PCT_PUB_SUPPORT_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_PCT_PUB_SUPPORT_CY ) )
 if( length( SA_02_PCT_PUB_SUPPORT_CY ) > 1 )
 { 
-  create_record( varname=SA_02_PCT_PUB_SUPPORT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PCT_PUB_SUPPORT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PCT_PUB_SUPPORT_CY <-  paste0( '{', SA_02_PCT_PUB_SUPPORT_CY, '}', collapse=';' ) 
 } 
 
@@ -746,7 +746,7 @@ V_PCT_PUB_SUPPORT_PY <- paste( V1, V2, V3 , sep='|' )
 SA_02_PCT_PUB_SUPPORT_PY <- xml2::xml_text( xml2::xml_find_all( doc, V_PCT_PUB_SUPPORT_PY ) )
 if( length( SA_02_PCT_PUB_SUPPORT_PY ) > 1 )
 { 
-  create_record( varname=SA_02_PCT_PUB_SUPPORT_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PCT_PUB_SUPPORT_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PCT_PUB_SUPPORT_PY <-  paste0( '{', SA_02_PCT_PUB_SUPPORT_PY, '}', collapse=';' ) 
 } 
 
@@ -767,7 +767,7 @@ V_PUB_SUPPORT_TOT <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_SUPPORT_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_SUPPORT_TOT ) )
 if( length( SA_02_PUB_SUPPORT_TOT ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_SUPPORT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_SUPPORT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_SUPPORT_TOT <-  paste0( '{', SA_02_PUB_SUPPORT_TOT, '}', collapse=';' ) 
 } 
 
@@ -788,7 +788,7 @@ V_PUB_TAXREV_LEVIED_CY <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_TAXREV_LEVIED_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_TAXREV_LEVIED_CY ) )
 if( length( SA_02_PUB_TAXREV_LEVIED_CY ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_TAXREV_LEVIED_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_TAXREV_LEVIED_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_TAXREV_LEVIED_CY <-  paste0( '{', SA_02_PUB_TAXREV_LEVIED_CY, '}', collapse=';' ) 
 } 
 
@@ -809,7 +809,7 @@ V_PUB_TAXREV_LEVIED_CY_M1 <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_TAXREV_LEVIED_CY_M1 <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_TAXREV_LEVIED_CY_M1 ) )
 if( length( SA_02_PUB_TAXREV_LEVIED_CY_M1 ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_TAXREV_LEVIED_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_TAXREV_LEVIED_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_TAXREV_LEVIED_CY_M1 <-  paste0( '{', SA_02_PUB_TAXREV_LEVIED_CY_M1, '}', collapse=';' ) 
 } 
 
@@ -830,7 +830,7 @@ V_PUB_TAXREV_LEVIED_CY_M2 <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_TAXREV_LEVIED_CY_M2 <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_TAXREV_LEVIED_CY_M2 ) )
 if( length( SA_02_PUB_TAXREV_LEVIED_CY_M2 ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_TAXREV_LEVIED_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_TAXREV_LEVIED_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_TAXREV_LEVIED_CY_M2 <-  paste0( '{', SA_02_PUB_TAXREV_LEVIED_CY_M2, '}', collapse=';' ) 
 } 
 
@@ -851,7 +851,7 @@ V_PUB_TAXREV_LEVIED_CY_M3 <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_TAXREV_LEVIED_CY_M3 <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_TAXREV_LEVIED_CY_M3 ) )
 if( length( SA_02_PUB_TAXREV_LEVIED_CY_M3 ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_TAXREV_LEVIED_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_TAXREV_LEVIED_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_TAXREV_LEVIED_CY_M3 <-  paste0( '{', SA_02_PUB_TAXREV_LEVIED_CY_M3, '}', collapse=';' ) 
 } 
 
@@ -872,7 +872,7 @@ V_PUB_TAXREV_LEVIED_CY_M4 <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_TAXREV_LEVIED_CY_M4 <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_TAXREV_LEVIED_CY_M4 ) )
 if( length( SA_02_PUB_TAXREV_LEVIED_CY_M4 ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_TAXREV_LEVIED_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_TAXREV_LEVIED_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_TAXREV_LEVIED_CY_M4 <-  paste0( '{', SA_02_PUB_TAXREV_LEVIED_CY_M4, '}', collapse=';' ) 
 } 
 
@@ -893,7 +893,7 @@ V_PUB_TAXREV_LEVIED_TOT <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_TAXREV_LEVIED_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_TAXREV_LEVIED_TOT ) )
 if( length( SA_02_PUB_TAXREV_LEVIED_TOT ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_TAXREV_LEVIED_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_TAXREV_LEVIED_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_TAXREV_LEVIED_TOT <-  paste0( '{', SA_02_PUB_TAXREV_LEVIED_TOT, '}', collapse=';' ) 
 } 
 
@@ -914,7 +914,7 @@ V_PCT_10_SUPPORT_TEST_CY_X <- paste( V1, V2, V3 , sep='|' )
 SA_02_PCT_10_SUPPORT_TEST_CY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCT_10_SUPPORT_TEST_CY_X ) )
 if( length( SA_02_PCT_10_SUPPORT_TEST_CY_X ) > 1 )
 { 
-  create_record( varname=SA_02_PCT_10_SUPPORT_TEST_CY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PCT_10_SUPPORT_TEST_CY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PCT_10_SUPPORT_TEST_CY_X <-  paste0( '{', SA_02_PCT_10_SUPPORT_TEST_CY_X, '}', collapse=';' ) 
 } 
 
@@ -935,7 +935,7 @@ V_PCT_10_SUPPORT_TEST_PY_X <- paste( V1, V2, V3 , sep='|' )
 SA_02_PCT_10_SUPPORT_TEST_PY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCT_10_SUPPORT_TEST_PY_X ) )
 if( length( SA_02_PCT_10_SUPPORT_TEST_PY_X ) > 1 )
 { 
-  create_record( varname=SA_02_PCT_10_SUPPORT_TEST_PY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PCT_10_SUPPORT_TEST_PY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PCT_10_SUPPORT_TEST_PY_X <-  paste0( '{', SA_02_PCT_10_SUPPORT_TEST_PY_X, '}', collapse=';' ) 
 } 
 
@@ -956,7 +956,7 @@ V_PCT_33_SUPPORT_TEST_CY_X <- paste( V1, V2, V3 , sep='|' )
 SA_02_PCT_33_SUPPORT_TEST_CY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCT_33_SUPPORT_TEST_CY_X ) )
 if( length( SA_02_PCT_33_SUPPORT_TEST_CY_X ) > 1 )
 { 
-  create_record( varname=SA_02_PCT_33_SUPPORT_TEST_CY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PCT_33_SUPPORT_TEST_CY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PCT_33_SUPPORT_TEST_CY_X <-  paste0( '{', SA_02_PCT_33_SUPPORT_TEST_CY_X, '}', collapse=';' ) 
 } 
 
@@ -977,7 +977,7 @@ V_PCT_33_SUPPORT_TEST_PY_X <- paste( V1, V2, V3 , sep='|' )
 SA_02_PCT_33_SUPPORT_TEST_PY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCT_33_SUPPORT_TEST_PY_X ) )
 if( length( SA_02_PCT_33_SUPPORT_TEST_PY_X ) > 1 )
 { 
-  create_record( varname=SA_02_PCT_33_SUPPORT_TEST_PY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PCT_33_SUPPORT_TEST_PY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PCT_33_SUPPORT_TEST_PY_X <-  paste0( '{', SA_02_PCT_33_SUPPORT_TEST_PY_X, '}', collapse=';' ) 
 } 
 
@@ -998,7 +998,7 @@ V_PUB_TOT_L123_CY <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_TOT_L123_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_TOT_L123_CY ) )
 if( length( SA_02_PUB_TOT_L123_CY ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_TOT_L123_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_TOT_L123_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_TOT_L123_CY <-  paste0( '{', SA_02_PUB_TOT_L123_CY, '}', collapse=';' ) 
 } 
 
@@ -1019,7 +1019,7 @@ V_PUB_TOT_L123_CY_M1 <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_TOT_L123_CY_M1 <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_TOT_L123_CY_M1 ) )
 if( length( SA_02_PUB_TOT_L123_CY_M1 ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_TOT_L123_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_TOT_L123_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_TOT_L123_CY_M1 <-  paste0( '{', SA_02_PUB_TOT_L123_CY_M1, '}', collapse=';' ) 
 } 
 
@@ -1040,7 +1040,7 @@ V_PUB_TOT_L123_CY_M2 <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_TOT_L123_CY_M2 <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_TOT_L123_CY_M2 ) )
 if( length( SA_02_PUB_TOT_L123_CY_M2 ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_TOT_L123_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_TOT_L123_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_TOT_L123_CY_M2 <-  paste0( '{', SA_02_PUB_TOT_L123_CY_M2, '}', collapse=';' ) 
 } 
 
@@ -1061,7 +1061,7 @@ V_PUB_TOT_L123_CY_M3 <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_TOT_L123_CY_M3 <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_TOT_L123_CY_M3 ) )
 if( length( SA_02_PUB_TOT_L123_CY_M3 ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_TOT_L123_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_TOT_L123_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_TOT_L123_CY_M3 <-  paste0( '{', SA_02_PUB_TOT_L123_CY_M3, '}', collapse=';' ) 
 } 
 
@@ -1082,7 +1082,7 @@ V_PUB_TOT_L123_CY_M4 <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_TOT_L123_CY_M4 <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_TOT_L123_CY_M4 ) )
 if( length( SA_02_PUB_TOT_L123_CY_M4 ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_TOT_L123_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_TOT_L123_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_TOT_L123_CY_M4 <-  paste0( '{', SA_02_PUB_TOT_L123_CY_M4, '}', collapse=';' ) 
 } 
 
@@ -1103,7 +1103,7 @@ V_PUB_TOT_L123_TOT <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_TOT_L123_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_TOT_L123_TOT ) )
 if( length( SA_02_PUB_TOT_L123_TOT ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_TOT_L123_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_TOT_L123_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_TOT_L123_TOT <-  paste0( '{', SA_02_PUB_TOT_L123_TOT, '}', collapse=';' ) 
 } 
 
@@ -1124,7 +1124,7 @@ V_TOT_SUPPORT_TOT <- paste( V1, V2, V3 , sep='|' )
 SA_02_TOT_SUPPORT_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_SUPPORT_TOT ) )
 if( length( SA_02_TOT_SUPPORT_TOT ) > 1 )
 { 
-  create_record( varname=SA_02_TOT_SUPPORT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_TOT_SUPPORT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_TOT_SUPPORT_TOT <-  paste0( '{', SA_02_TOT_SUPPORT_TOT, '}', collapse=';' ) 
 } 
 
@@ -1145,7 +1145,7 @@ V_PUB_VALUE_SVC_GOVT_CY <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_VALUE_SVC_GOVT_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_VALUE_SVC_GOVT_CY ) )
 if( length( SA_02_PUB_VALUE_SVC_GOVT_CY ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_VALUE_SVC_GOVT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_VALUE_SVC_GOVT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_VALUE_SVC_GOVT_CY <-  paste0( '{', SA_02_PUB_VALUE_SVC_GOVT_CY, '}', collapse=';' ) 
 } 
 
@@ -1166,7 +1166,7 @@ V_PUB_VALUE_SVC_GOVT_CY_M1 <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_VALUE_SVC_GOVT_CY_M1 <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_VALUE_SVC_GOVT_CY_M1 ) )
 if( length( SA_02_PUB_VALUE_SVC_GOVT_CY_M1 ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_VALUE_SVC_GOVT_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_VALUE_SVC_GOVT_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_VALUE_SVC_GOVT_CY_M1 <-  paste0( '{', SA_02_PUB_VALUE_SVC_GOVT_CY_M1, '}', collapse=';' ) 
 } 
 
@@ -1187,7 +1187,7 @@ V_PUB_VALUE_SVC_GOVT_CY_M2 <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_VALUE_SVC_GOVT_CY_M2 <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_VALUE_SVC_GOVT_CY_M2 ) )
 if( length( SA_02_PUB_VALUE_SVC_GOVT_CY_M2 ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_VALUE_SVC_GOVT_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_VALUE_SVC_GOVT_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_VALUE_SVC_GOVT_CY_M2 <-  paste0( '{', SA_02_PUB_VALUE_SVC_GOVT_CY_M2, '}', collapse=';' ) 
 } 
 
@@ -1208,7 +1208,7 @@ V_PUB_VALUE_SVC_GOVT_CY_M3 <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_VALUE_SVC_GOVT_CY_M3 <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_VALUE_SVC_GOVT_CY_M3 ) )
 if( length( SA_02_PUB_VALUE_SVC_GOVT_CY_M3 ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_VALUE_SVC_GOVT_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_VALUE_SVC_GOVT_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_VALUE_SVC_GOVT_CY_M3 <-  paste0( '{', SA_02_PUB_VALUE_SVC_GOVT_CY_M3, '}', collapse=';' ) 
 } 
 
@@ -1229,7 +1229,7 @@ V_PUB_VALUE_SVC_GOVT_CY_M4 <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_VALUE_SVC_GOVT_CY_M4 <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_VALUE_SVC_GOVT_CY_M4 ) )
 if( length( SA_02_PUB_VALUE_SVC_GOVT_CY_M4 ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_VALUE_SVC_GOVT_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_VALUE_SVC_GOVT_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_VALUE_SVC_GOVT_CY_M4 <-  paste0( '{', SA_02_PUB_VALUE_SVC_GOVT_CY_M4, '}', collapse=';' ) 
 } 
 
@@ -1250,7 +1250,7 @@ V_PUB_VALUE_SVC_GOVT_TOT <- paste( V1, V2, V3 , sep='|' )
 SA_02_PUB_VALUE_SVC_GOVT_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_PUB_VALUE_SVC_GOVT_TOT ) )
 if( length( SA_02_PUB_VALUE_SVC_GOVT_TOT ) > 1 )
 { 
-  create_record( varname=SA_02_PUB_VALUE_SVC_GOVT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_02_PUB_VALUE_SVC_GOVT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_02_PUB_VALUE_SVC_GOVT_TOT <-  paste0( '{', SA_02_PUB_VALUE_SVC_GOVT_TOT, '}', collapse=';' ) 
 } 
 

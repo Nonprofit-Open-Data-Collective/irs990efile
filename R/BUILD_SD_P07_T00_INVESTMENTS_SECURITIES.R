@@ -35,7 +35,7 @@ V_INVEST_SEC_TOT_BV <- paste( V1, V2, V3 , sep='|' )
 SD_07_INVEST_SEC_TOT_BV <- xml2::xml_text( xml2::xml_find_all( doc, V_INVEST_SEC_TOT_BV ) )
 if( length( SD_07_INVEST_SEC_TOT_BV ) > 1 )
 { 
-  create_record( varname=SD_07_INVEST_SEC_TOT_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_07_INVEST_SEC_TOT_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_07_INVEST_SEC_TOT_BV <-  paste0( '{', SD_07_INVEST_SEC_TOT_BV, '}', collapse=';' ) 
 } 
 

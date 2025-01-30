@@ -34,7 +34,7 @@ V_FRGN_OFFICE_CNTR <- paste( V1, V2 , sep='|' )
 F9_04_FRGN_OFFICE_CNTR <- xml2::xml_text( xml2::xml_find_all( doc, V_FRGN_OFFICE_CNTR ) )
 if( length( F9_04_FRGN_OFFICE_CNTR ) > 1 )
 { 
-  create_record( varname=F9_04_FRGN_OFFICE_CNTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_04_FRGN_OFFICE_CNTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_04_FRGN_OFFICE_CNTR <-  paste0( '{', F9_04_FRGN_OFFICE_CNTR, '}', collapse=';' ) 
 } 
 
@@ -54,7 +54,7 @@ V_LOAN_DTK_AMT <- paste( V1, V2 , sep='|' )
 F9_04_LOAN_DTK_AMT <- xml2::xml_text( xml2::xml_find_all( doc, V_LOAN_DTK_AMT ) )
 if( length( F9_04_LOAN_DTK_AMT ) > 1 )
 { 
-  create_record( varname=F9_04_LOAN_DTK_AMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_04_LOAN_DTK_AMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_04_LOAN_DTK_AMT <-  paste0( '{', F9_04_LOAN_DTK_AMT, '}', collapse=';' ) 
 } 
 
@@ -74,7 +74,7 @@ V_RLTD_ORG_527_X <- paste( V1, V2 , sep='|' )
 F9_04_RLTD_ORG_527_X <- xml2::xml_text( xml2::xml_find_all( doc, V_RLTD_ORG_527_X ) )
 if( length( F9_04_RLTD_ORG_527_X ) > 1 )
 { 
-  create_record( varname=F9_04_RLTD_ORG_527_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_04_RLTD_ORG_527_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_04_RLTD_ORG_527_X <-  paste0( '{', F9_04_RLTD_ORG_527_X, '}', collapse=';' ) 
 } 
 

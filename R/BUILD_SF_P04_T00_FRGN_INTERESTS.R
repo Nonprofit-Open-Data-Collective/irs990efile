@@ -34,7 +34,7 @@ V_BOYCOTTING_CNTR_ACT_X <- paste( V1, V2 , sep='|' )
 SF_04_BOYCOTTING_CNTR_ACT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_BOYCOTTING_CNTR_ACT_X ) )
 if( length( SF_04_BOYCOTTING_CNTR_ACT_X ) > 1 )
 { 
-  create_record( varname=SF_04_BOYCOTTING_CNTR_ACT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SF_04_BOYCOTTING_CNTR_ACT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SF_04_BOYCOTTING_CNTR_ACT_X <-  paste0( '{', SF_04_BOYCOTTING_CNTR_ACT_X, '}', collapse=';' ) 
 } 
 
@@ -54,7 +54,7 @@ V_FRGN_CORP_OWNERSHIP_INT_X <- paste( V1, V2 , sep='|' )
 SF_04_FRGN_CORP_OWNERSHIP_INT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FRGN_CORP_OWNERSHIP_INT_X ) )
 if( length( SF_04_FRGN_CORP_OWNERSHIP_INT_X ) > 1 )
 { 
-  create_record( varname=SF_04_FRGN_CORP_OWNERSHIP_INT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SF_04_FRGN_CORP_OWNERSHIP_INT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SF_04_FRGN_CORP_OWNERSHIP_INT_X <-  paste0( '{', SF_04_FRGN_CORP_OWNERSHIP_INT_X, '}', collapse=';' ) 
 } 
 
@@ -74,7 +74,7 @@ V_FRGN_PTR_OWNERSHIP_INT_X <- paste( V1, V2 , sep='|' )
 SF_04_FRGN_PTR_OWNERSHIP_INT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FRGN_PTR_OWNERSHIP_INT_X ) )
 if( length( SF_04_FRGN_PTR_OWNERSHIP_INT_X ) > 1 )
 { 
-  create_record( varname=SF_04_FRGN_PTR_OWNERSHIP_INT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SF_04_FRGN_PTR_OWNERSHIP_INT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SF_04_FRGN_PTR_OWNERSHIP_INT_X <-  paste0( '{', SF_04_FRGN_PTR_OWNERSHIP_INT_X, '}', collapse=';' ) 
 } 
 
@@ -94,7 +94,7 @@ V_FRGN_TRUST_INT_X <- paste( V1, V2 , sep='|' )
 SF_04_FRGN_TRUST_INT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FRGN_TRUST_INT_X ) )
 if( length( SF_04_FRGN_TRUST_INT_X ) > 1 )
 { 
-  create_record( varname=SF_04_FRGN_TRUST_INT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SF_04_FRGN_TRUST_INT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SF_04_FRGN_TRUST_INT_X <-  paste0( '{', SF_04_FRGN_TRUST_INT_X, '}', collapse=';' ) 
 } 
 
@@ -114,7 +114,7 @@ V_FRGN_FUND_SHAREHOLDER_X <- paste( V1, V2 , sep='|' )
 SF_04_FRGN_FUND_SHAREHOLDER_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FRGN_FUND_SHAREHOLDER_X ) )
 if( length( SF_04_FRGN_FUND_SHAREHOLDER_X ) > 1 )
 { 
-  create_record( varname=SF_04_FRGN_FUND_SHAREHOLDER_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SF_04_FRGN_FUND_SHAREHOLDER_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SF_04_FRGN_FUND_SHAREHOLDER_X <-  paste0( '{', SF_04_FRGN_FUND_SHAREHOLDER_X, '}', collapse=';' ) 
 } 
 
@@ -134,7 +134,7 @@ V_FRGN_CORP_TRANSFEROR_X <- paste( V1, V2 , sep='|' )
 SF_04_FRGN_CORP_TRANSFEROR_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FRGN_CORP_TRANSFEROR_X ) )
 if( length( SF_04_FRGN_CORP_TRANSFEROR_X ) > 1 )
 { 
-  create_record( varname=SF_04_FRGN_CORP_TRANSFEROR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SF_04_FRGN_CORP_TRANSFEROR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SF_04_FRGN_CORP_TRANSFEROR_X <-  paste0( '{', SF_04_FRGN_CORP_TRANSFEROR_X, '}', collapse=';' ) 
 } 
 

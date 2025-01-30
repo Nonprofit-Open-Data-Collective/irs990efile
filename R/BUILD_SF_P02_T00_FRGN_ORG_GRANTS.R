@@ -35,7 +35,7 @@ V_FRGN_ORG_GRANT_501C3_TOT <- paste( V1, V2, V3 , sep='|' )
 SF_02_FRGN_ORG_GRANT_501C3_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_FRGN_ORG_GRANT_501C3_TOT ) )
 if( length( SF_02_FRGN_ORG_GRANT_501C3_TOT ) > 1 )
 { 
-  create_record( varname=SF_02_FRGN_ORG_GRANT_501C3_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SF_02_FRGN_ORG_GRANT_501C3_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SF_02_FRGN_ORG_GRANT_501C3_TOT <-  paste0( '{', SF_02_FRGN_ORG_GRANT_501C3_TOT, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_FRGN_ORG_GRANT_OTH_ORG_TOT <- paste( V1, V2, V3 , sep='|' )
 SF_02_FRGN_ORG_GRANT_OTH_ORG_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_FRGN_ORG_GRANT_OTH_ORG_TOT ) )
 if( length( SF_02_FRGN_ORG_GRANT_OTH_ORG_TOT ) > 1 )
 { 
-  create_record( varname=SF_02_FRGN_ORG_GRANT_OTH_ORG_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SF_02_FRGN_ORG_GRANT_OTH_ORG_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SF_02_FRGN_ORG_GRANT_OTH_ORG_TOT <-  paste0( '{', SF_02_FRGN_ORG_GRANT_OTH_ORG_TOT, '}', collapse=';' ) 
 } 
 

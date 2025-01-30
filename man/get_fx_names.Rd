@@ -4,12 +4,10 @@
 \alias{get_fx_names}
 \title{Get Function Names}
 \usage{
-get_fx_names(table.names = NULL, exclude = c("T99"))
+get_fx_names(table.names = NULL)
 }
 \arguments{
-\item{table.names}{An optional vector of table names. Defaults to all tables in the concordance.}
-
-\item{exclude}{A vector of substrings to exclude from table names.}
+\item{table.names}{A vector of table names.}
 }
 \value{
 A vector of function names.
@@ -17,6 +15,12 @@ A vector of function names.
 \description{
 Retrieves a list of function names based on table names and exclusion criteria.
 }
+\details{
+Defaults to all tables in the concordance minus T99 table
+(supplementary information sections). The BUILD_SCHEDULE_TABLE()
+function is not defined in the concordance, but is added to the list.
+}
 \examples{
-fx_names <- get_fx_names(table.names = c("TABLE1", "TABLE2"))
+table_names <- get_table_names( exclude="T99" )
+fx_names <- get_fx_names( table_names )
 }

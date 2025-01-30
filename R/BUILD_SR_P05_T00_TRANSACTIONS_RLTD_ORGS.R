@@ -35,7 +35,7 @@ V_TRANSAC_EXCHANGE_ASSET_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_EXCHANGE_ASSET_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_EXCHANGE_ASSET_X ) )
 if( length( SR_05_TRANSAC_EXCHANGE_ASSET_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_EXCHANGE_ASSET_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_EXCHANGE_ASSET_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_EXCHANGE_ASSET_X <-  paste0( '{', SR_05_TRANSAC_EXCHANGE_ASSET_X, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_TRANSAC_PURCHASE_ASSET_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_PURCHASE_ASSET_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_PURCHASE_ASSET_X ) )
 if( length( SR_05_TRANSAC_PURCHASE_ASSET_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_PURCHASE_ASSET_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_PURCHASE_ASSET_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_PURCHASE_ASSET_X <-  paste0( '{', SR_05_TRANSAC_PURCHASE_ASSET_X, '}', collapse=';' ) 
 } 
 
@@ -77,7 +77,7 @@ V_TRANSAC_SALE_ASSET_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_SALE_ASSET_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_SALE_ASSET_X ) )
 if( length( SR_05_TRANSAC_SALE_ASSET_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_SALE_ASSET_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_SALE_ASSET_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_SALE_ASSET_X <-  paste0( '{', SR_05_TRANSAC_SALE_ASSET_X, '}', collapse=';' ) 
 } 
 
@@ -97,7 +97,7 @@ V_TRANSAC_DIVIDEND_X <- paste( V1, V2 , sep='|' )
 SR_05_TRANSAC_DIVIDEND_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_DIVIDEND_X ) )
 if( length( SR_05_TRANSAC_DIVIDEND_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_DIVIDEND_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_DIVIDEND_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_DIVIDEND_X <-  paste0( '{', SR_05_TRANSAC_DIVIDEND_X, '}', collapse=';' ) 
 } 
 
@@ -118,7 +118,7 @@ V_TRANSAC_GIFT_GRANT_FROM_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_GIFT_GRANT_FROM_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_GIFT_GRANT_FROM_X ) )
 if( length( SR_05_TRANSAC_GIFT_GRANT_FROM_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_GIFT_GRANT_FROM_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_GIFT_GRANT_FROM_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_GIFT_GRANT_FROM_X <-  paste0( '{', SR_05_TRANSAC_GIFT_GRANT_FROM_X, '}', collapse=';' ) 
 } 
 
@@ -139,7 +139,7 @@ V_TRANSAC_GIFT_GRANT_TO_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_GIFT_GRANT_TO_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_GIFT_GRANT_TO_X ) )
 if( length( SR_05_TRANSAC_GIFT_GRANT_TO_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_GIFT_GRANT_TO_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_GIFT_GRANT_TO_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_GIFT_GRANT_TO_X <-  paste0( '{', SR_05_TRANSAC_GIFT_GRANT_TO_X, '}', collapse=';' ) 
 } 
 
@@ -160,7 +160,7 @@ V_TRANSAC_LOAN_BY_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_LOAN_BY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_LOAN_BY_X ) )
 if( length( SR_05_TRANSAC_LOAN_BY_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_LOAN_BY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_LOAN_BY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_LOAN_BY_X <-  paste0( '{', SR_05_TRANSAC_LOAN_BY_X, '}', collapse=';' ) 
 } 
 
@@ -181,7 +181,7 @@ V_TRANSAC_LOAN_TO_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_LOAN_TO_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_LOAN_TO_X ) )
 if( length( SR_05_TRANSAC_LOAN_TO_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_LOAN_TO_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_LOAN_TO_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_LOAN_TO_X <-  paste0( '{', SR_05_TRANSAC_LOAN_TO_X, '}', collapse=';' ) 
 } 
 
@@ -202,7 +202,7 @@ V_TRANSAC_OTH_CASH_FROM_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_OTH_CASH_FROM_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_OTH_CASH_FROM_X ) )
 if( length( SR_05_TRANSAC_OTH_CASH_FROM_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_OTH_CASH_FROM_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_OTH_CASH_FROM_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_OTH_CASH_FROM_X <-  paste0( '{', SR_05_TRANSAC_OTH_CASH_FROM_X, '}', collapse=';' ) 
 } 
 
@@ -223,7 +223,7 @@ V_TRANSAC_OTH_CASH_TO_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_OTH_CASH_TO_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_OTH_CASH_TO_X ) )
 if( length( SR_05_TRANSAC_OTH_CASH_TO_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_OTH_CASH_TO_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_OTH_CASH_TO_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_OTH_CASH_TO_X <-  paste0( '{', SR_05_TRANSAC_OTH_CASH_TO_X, '}', collapse=';' ) 
 } 
 
@@ -244,7 +244,7 @@ V_TRANSAC_PERFORM_SVC_BY_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_PERFORM_SVC_BY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_PERFORM_SVC_BY_X ) )
 if( length( SR_05_TRANSAC_PERFORM_SVC_BY_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_PERFORM_SVC_BY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_PERFORM_SVC_BY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_PERFORM_SVC_BY_X <-  paste0( '{', SR_05_TRANSAC_PERFORM_SVC_BY_X, '}', collapse=';' ) 
 } 
 
@@ -265,7 +265,7 @@ V_TRANSAC_PERFORM_SVC_FOR_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_PERFORM_SVC_FOR_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_PERFORM_SVC_FOR_X ) )
 if( length( SR_05_TRANSAC_PERFORM_SVC_FOR_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_PERFORM_SVC_FOR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_PERFORM_SVC_FOR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_PERFORM_SVC_FOR_X <-  paste0( '{', SR_05_TRANSAC_PERFORM_SVC_FOR_X, '}', collapse=';' ) 
 } 
 
@@ -286,7 +286,7 @@ V_TRANSAC_RCPT_INT_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_RCPT_INT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_RCPT_INT_X ) )
 if( length( SR_05_TRANSAC_RCPT_INT_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_RCPT_INT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_RCPT_INT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_RCPT_INT_X <-  paste0( '{', SR_05_TRANSAC_RCPT_INT_X, '}', collapse=';' ) 
 } 
 
@@ -307,7 +307,7 @@ V_TRANSAC_REIMBURSEMENT_BY_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_REIMBURSEMENT_BY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_REIMBURSEMENT_BY_X ) )
 if( length( SR_05_TRANSAC_REIMBURSEMENT_BY_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_REIMBURSEMENT_BY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_REIMBURSEMENT_BY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_REIMBURSEMENT_BY_X <-  paste0( '{', SR_05_TRANSAC_REIMBURSEMENT_BY_X, '}', collapse=';' ) 
 } 
 
@@ -328,7 +328,7 @@ V_TRANSAC_REIMBURSEMENT_TO_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_REIMBURSEMENT_TO_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_REIMBURSEMENT_TO_X ) )
 if( length( SR_05_TRANSAC_REIMBURSEMENT_TO_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_REIMBURSEMENT_TO_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_REIMBURSEMENT_TO_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_REIMBURSEMENT_TO_X <-  paste0( '{', SR_05_TRANSAC_REIMBURSEMENT_TO_X, '}', collapse=';' ) 
 } 
 
@@ -349,7 +349,7 @@ V_TRANSAC_LEASE_FROM_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_LEASE_FROM_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_LEASE_FROM_X ) )
 if( length( SR_05_TRANSAC_LEASE_FROM_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_LEASE_FROM_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_LEASE_FROM_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_LEASE_FROM_X <-  paste0( '{', SR_05_TRANSAC_LEASE_FROM_X, '}', collapse=';' ) 
 } 
 
@@ -370,7 +370,7 @@ V_TRANSAC_LEASE_TO_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_LEASE_TO_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_LEASE_TO_X ) )
 if( length( SR_05_TRANSAC_LEASE_TO_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_LEASE_TO_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_LEASE_TO_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_LEASE_TO_X <-  paste0( '{', SR_05_TRANSAC_LEASE_TO_X, '}', collapse=';' ) 
 } 
 
@@ -391,7 +391,7 @@ V_TRANSAC_SHARE_FACILITIES_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_SHARE_FACILITIES_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_SHARE_FACILITIES_X ) )
 if( length( SR_05_TRANSAC_SHARE_FACILITIES_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_SHARE_FACILITIES_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_SHARE_FACILITIES_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_SHARE_FACILITIES_X <-  paste0( '{', SR_05_TRANSAC_SHARE_FACILITIES_X, '}', collapse=';' ) 
 } 
 
@@ -412,7 +412,7 @@ V_TRANSAC_SHARE_PAID_EMPL_X <- paste( V1, V2, V3 , sep='|' )
 SR_05_TRANSAC_SHARE_PAID_EMPL_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_SHARE_PAID_EMPL_X ) )
 if( length( SR_05_TRANSAC_SHARE_PAID_EMPL_X ) > 1 )
 { 
-  create_record( varname=SR_05_TRANSAC_SHARE_PAID_EMPL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SR_05_TRANSAC_SHARE_PAID_EMPL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SR_05_TRANSAC_SHARE_PAID_EMPL_X <-  paste0( '{', SR_05_TRANSAC_SHARE_PAID_EMPL_X, '}', collapse=';' ) 
 } 
 

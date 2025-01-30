@@ -34,7 +34,7 @@ V_RECO_SVC_DONATED <- paste( V1, V2 , sep='|' )
 F9_11_RECO_SVC_DONATED <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_SVC_DONATED ) )
 if( length( F9_11_RECO_SVC_DONATED ) > 1 )
 { 
-  create_record( varname=F9_11_RECO_SVC_DONATED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_11_RECO_SVC_DONATED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_11_RECO_SVC_DONATED <-  paste0( '{', F9_11_RECO_SVC_DONATED, '}', collapse=';' ) 
 } 
 
@@ -54,7 +54,7 @@ V_INFO_SCHED_O_X <- paste( V1, V2 , sep='|' )
 F9_11_INFO_SCHED_O_X <- xml2::xml_text( xml2::xml_find_all( doc, V_INFO_SCHED_O_X ) )
 if( length( F9_11_INFO_SCHED_O_X ) > 1 )
 { 
-  create_record( varname=F9_11_INFO_SCHED_O_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_11_INFO_SCHED_O_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_11_INFO_SCHED_O_X <-  paste0( '{', F9_11_INFO_SCHED_O_X, '}', collapse=';' ) 
 } 
 
@@ -74,7 +74,7 @@ V_RECO_INVEST_EXP <- paste( V1, V2 , sep='|' )
 F9_11_RECO_INVEST_EXP <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_INVEST_EXP ) )
 if( length( F9_11_RECO_INVEST_EXP ) > 1 )
 { 
-  create_record( varname=F9_11_RECO_INVEST_EXP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_11_RECO_INVEST_EXP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_11_RECO_INVEST_EXP <-  paste0( '{', F9_11_RECO_INVEST_EXP, '}', collapse=';' ) 
 } 
 
@@ -94,7 +94,7 @@ V_RECO_GAIN_INVEST_NET <- paste( V1, V2 , sep='|' )
 F9_11_RECO_GAIN_INVEST_NET <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_GAIN_INVEST_NET ) )
 if( length( F9_11_RECO_GAIN_INVEST_NET ) > 1 )
 { 
-  create_record( varname=F9_11_RECO_GAIN_INVEST_NET, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_11_RECO_GAIN_INVEST_NET, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_11_RECO_GAIN_INVEST_NET <-  paste0( '{', F9_11_RECO_GAIN_INVEST_NET, '}', collapse=';' ) 
 } 
 
@@ -116,7 +116,7 @@ V_RECO_OTH_CHANGE_NAFB <- paste( V1, V2, V3, V4 , sep='|' )
 F9_11_RECO_OTH_CHANGE_NAFB <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_OTH_CHANGE_NAFB ) )
 if( length( F9_11_RECO_OTH_CHANGE_NAFB ) > 1 )
 { 
-  create_record( varname=F9_11_RECO_OTH_CHANGE_NAFB, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_11_RECO_OTH_CHANGE_NAFB, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_11_RECO_OTH_CHANGE_NAFB <-  paste0( '{', F9_11_RECO_OTH_CHANGE_NAFB, '}', collapse=';' ) 
 } 
 
@@ -136,7 +136,7 @@ V_RECO_ADJ_PRIOR <- paste( V1, V2 , sep='|' )
 F9_11_RECO_ADJ_PRIOR <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_ADJ_PRIOR ) )
 if( length( F9_11_RECO_ADJ_PRIOR ) > 1 )
 { 
-  create_record( varname=F9_11_RECO_ADJ_PRIOR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_11_RECO_ADJ_PRIOR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_11_RECO_ADJ_PRIOR <-  paste0( '{', F9_11_RECO_ADJ_PRIOR, '}', collapse=';' ) 
 } 
 
@@ -156,7 +156,7 @@ V_RECO_REV_LESS_EXP <- paste( V1, V2 , sep='|' )
 F9_11_RECO_REV_LESS_EXP <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_REV_LESS_EXP ) )
 if( length( F9_11_RECO_REV_LESS_EXP ) > 1 )
 { 
-  create_record( varname=F9_11_RECO_REV_LESS_EXP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_11_RECO_REV_LESS_EXP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_11_RECO_REV_LESS_EXP <-  paste0( '{', F9_11_RECO_REV_LESS_EXP, '}', collapse=';' ) 
 } 
 

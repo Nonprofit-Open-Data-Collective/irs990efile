@@ -35,7 +35,7 @@ V_PROG_CODE <- paste( V1, V2, V3 , sep='|' )
 F9_03_PROG_CODE <- xml2::xml_text( xml2::xml_find_all( doc, V_PROG_CODE ) )
 if( length( F9_03_PROG_CODE ) > 1 )
 { 
-  create_record( varname=F9_03_PROG_CODE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_03_PROG_CODE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_03_PROG_CODE <-  paste0( '{', F9_03_PROG_CODE, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_PROG_DESC <- paste( V1, V2, V3 , sep='|' )
 F9_03_PROG_DESC <- xml2::xml_text( xml2::xml_find_all( doc, V_PROG_DESC ) )
 if( length( F9_03_PROG_DESC ) > 1 )
 { 
-  create_record( varname=F9_03_PROG_DESC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_03_PROG_DESC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_03_PROG_DESC <-  paste0( '{', F9_03_PROG_DESC, '}', collapse=';' ) 
 } 
 
@@ -77,7 +77,7 @@ V_PROG_EXP <- paste( V1, V2, V3 , sep='|' )
 F9_03_PROG_EXP <- xml2::xml_text( xml2::xml_find_all( doc, V_PROG_EXP ) )
 if( length( F9_03_PROG_EXP ) > 1 )
 { 
-  create_record( varname=F9_03_PROG_EXP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_03_PROG_EXP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_03_PROG_EXP <-  paste0( '{', F9_03_PROG_EXP, '}', collapse=';' ) 
 } 
 
@@ -100,7 +100,7 @@ V_PROG_GRANT <- paste( V1, V2, V3, V4, V5 , sep='|' )
 F9_03_PROG_GRANT <- xml2::xml_text( xml2::xml_find_all( doc, V_PROG_GRANT ) )
 if( length( F9_03_PROG_GRANT ) > 1 )
 { 
-  create_record( varname=F9_03_PROG_GRANT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_03_PROG_GRANT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_03_PROG_GRANT <-  paste0( '{', F9_03_PROG_GRANT, '}', collapse=';' ) 
 } 
 
@@ -121,7 +121,7 @@ V_PROG_REV <- paste( V1, V2, V3 , sep='|' )
 F9_03_PROG_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_PROG_REV ) )
 if( length( F9_03_PROG_REV ) > 1 )
 { 
-  create_record( varname=F9_03_PROG_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_03_PROG_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_03_PROG_REV <-  paste0( '{', F9_03_PROG_REV, '}', collapse=';' ) 
 } 
 

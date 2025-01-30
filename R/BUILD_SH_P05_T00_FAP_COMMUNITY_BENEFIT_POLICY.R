@@ -31,7 +31,7 @@ TAX_YEAR <- keys[['TAX_YEAR']]
 SH_05_FAP_METHOD_WRITTEN_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/ProvidedWrittenNoticeInd' ) )
 if( length( SH_05_FAP_METHOD_WRITTEN_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_METHOD_WRITTEN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_METHOD_WRITTEN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_METHOD_WRITTEN_X <-  paste0( '{', SH_05_FAP_METHOD_WRITTEN_X, '}', collapse=';' ) 
 } 
 
@@ -52,7 +52,7 @@ V_NON_HOSPITAL_NUM <- paste( V1, V2, V3 , sep='|' )
 SH_05_NON_HOSPITAL_NUM <- xml2::xml_text( xml2::xml_find_all( doc, V_NON_HOSPITAL_NUM ) )
 if( length( SH_05_NON_HOSPITAL_NUM ) > 1 )
 { 
-  create_record( varname=SH_05_NON_HOSPITAL_NUM, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_NON_HOSPITAL_NUM, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_NON_HOSPITAL_NUM <-  paste0( '{', SH_05_NON_HOSPITAL_NUM, '}', collapse=';' ) 
 } 
 
@@ -74,7 +74,7 @@ V_HOSPITAL_NUM <- paste( V1, V2, V3, V4 , sep='|' )
 SH_05_HOSPITAL_NUM <- xml2::xml_text( xml2::xml_find_all( doc, V_HOSPITAL_NUM ) )
 if( length( SH_05_HOSPITAL_NUM ) > 1 )
 { 
-  create_record( varname=SH_05_HOSPITAL_NUM, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_HOSPITAL_NUM, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_HOSPITAL_NUM <-  paste0( '{', SH_05_HOSPITAL_NUM, '}', collapse=';' ) 
 } 
 
@@ -94,7 +94,7 @@ V_BILL_EXPLAIN_ACT_NOPAY_X <- paste( V1, V2 , sep='|' )
 SH_05_BILL_EXPLAIN_ACT_NOPAY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_BILL_EXPLAIN_ACT_NOPAY_X ) )
 if( length( SH_05_BILL_EXPLAIN_ACT_NOPAY_X ) > 1 )
 { 
-  create_record( varname=SH_05_BILL_EXPLAIN_ACT_NOPAY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_BILL_EXPLAIN_ACT_NOPAY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_BILL_EXPLAIN_ACT_NOPAY_X <-  paste0( '{', SH_05_BILL_EXPLAIN_ACT_NOPAY_X, '}', collapse=';' ) 
 } 
 
@@ -114,7 +114,7 @@ V_CHARGE_MT_AMT_BILLED_X <- paste( V1, V2 , sep='|' )
 SH_05_CHARGE_MT_AMT_BILLED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHARGE_MT_AMT_BILLED_X ) )
 if( length( SH_05_CHARGE_MT_AMT_BILLED_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHARGE_MT_AMT_BILLED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHARGE_MT_AMT_BILLED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHARGE_MT_AMT_BILLED_X <-  paste0( '{', SH_05_CHARGE_MT_AMT_BILLED_X, '}', collapse=';' ) 
 } 
 
@@ -134,7 +134,7 @@ V_CHNA_CONDUCTED_X <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_CONDUCTED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_CONDUCTED_X ) )
 if( length( SH_05_CHNA_CONDUCTED_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_CONDUCTED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_CONDUCTED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_CONDUCTED_X <-  paste0( '{', SH_05_CHNA_CONDUCTED_X, '}', collapse=';' ) 
 } 
 
@@ -154,7 +154,7 @@ V_CHNA_AVBL_PUB_X <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_AVBL_PUB_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_AVBL_PUB_X ) )
 if( length( SH_05_CHNA_AVBL_PUB_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_AVBL_PUB_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_AVBL_PUB_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_AVBL_PUB_X <-  paste0( '{', SH_05_CHNA_AVBL_PUB_X, '}', collapse=';' ) 
 } 
 
@@ -174,7 +174,7 @@ V_BILL_3RD_PARTY_COLLEC_X <- paste( V1, V2 , sep='|' )
 SH_05_BILL_3RD_PARTY_COLLEC_X <- xml2::xml_text( xml2::xml_find_all( doc, V_BILL_3RD_PARTY_COLLEC_X ) )
 if( length( SH_05_BILL_3RD_PARTY_COLLEC_X ) > 1 )
 { 
-  create_record( varname=SH_05_BILL_3RD_PARTY_COLLEC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_BILL_3RD_PARTY_COLLEC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_BILL_3RD_PARTY_COLLEC_X <-  paste0( '{', SH_05_BILL_3RD_PARTY_COLLEC_X, '}', collapse=';' ) 
 } 
 
@@ -194,7 +194,7 @@ V_CHNA_DESC_DEFINITION_COM_X <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_DESC_DEFINITION_COM_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_DESC_DEFINITION_COM_X ) )
 if( length( SH_05_CHNA_DESC_DEFINITION_COM_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_DESC_DEFINITION_COM_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_DESC_DEFINITION_COM_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_DESC_DEFINITION_COM_X <-  paste0( '{', SH_05_CHNA_DESC_DEFINITION_COM_X, '}', collapse=';' ) 
 } 
 
@@ -214,7 +214,7 @@ V_CHNA_DESC_DEMOGRAPHICS_X <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_DESC_DEMOGRAPHICS_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_DESC_DEMOGRAPHICS_X ) )
 if( length( SH_05_CHNA_DESC_DEMOGRAPHICS_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_DESC_DEMOGRAPHICS_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_DESC_DEMOGRAPHICS_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_DESC_DEMOGRAPHICS_X <-  paste0( '{', SH_05_CHNA_DESC_DEMOGRAPHICS_X, '}', collapse=';' ) 
 } 
 
@@ -234,7 +234,7 @@ V_CHNA_DESC_HEALTH_NEED_X <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_DESC_HEALTH_NEED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_DESC_HEALTH_NEED_X ) )
 if( length( SH_05_CHNA_DESC_HEALTH_NEED_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_DESC_HEALTH_NEED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_DESC_HEALTH_NEED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_DESC_HEALTH_NEED_X <-  paste0( '{', SH_05_CHNA_DESC_HEALTH_NEED_X, '}', collapse=';' ) 
 } 
 
@@ -254,7 +254,7 @@ V_CHNA_DESC_CONSULTING_X <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_DESC_CONSULTING_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_DESC_CONSULTING_X ) )
 if( length( SH_05_CHNA_DESC_CONSULTING_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_DESC_CONSULTING_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_DESC_CONSULTING_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_DESC_CONSULTING_X <-  paste0( '{', SH_05_CHNA_DESC_CONSULTING_X, '}', collapse=';' ) 
 } 
 
@@ -274,7 +274,7 @@ V_FAP_CRITERIA_EXPLAIN_X <- paste( V1, V2 , sep='|' )
 SH_05_FAP_CRITERIA_EXPLAIN_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FAP_CRITERIA_EXPLAIN_X ) )
 if( length( SH_05_FAP_CRITERIA_EXPLAIN_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_CRITERIA_EXPLAIN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_CRITERIA_EXPLAIN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_CRITERIA_EXPLAIN_X <-  paste0( '{', SH_05_FAP_CRITERIA_EXPLAIN_X, '}', collapse=';' ) 
 } 
 
@@ -294,7 +294,7 @@ V_EMERGENCY_LIMIT_CARE_X <- paste( V1, V2 , sep='|' )
 SH_05_EMERGENCY_LIMIT_CARE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_EMERGENCY_LIMIT_CARE_X ) )
 if( length( SH_05_EMERGENCY_LIMIT_CARE_X ) > 1 )
 { 
-  create_record( varname=SH_05_EMERGENCY_LIMIT_CARE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_EMERGENCY_LIMIT_CARE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_EMERGENCY_LIMIT_CARE_X <-  paste0( '{', SH_05_EMERGENCY_LIMIT_CARE_X, '}', collapse=';' ) 
 } 
 
@@ -314,7 +314,7 @@ V_CHNA_EXCISE_TAX_4959_AMT <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_EXCISE_TAX_4959_AMT <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_EXCISE_TAX_4959_AMT ) )
 if( length( SH_05_CHNA_EXCISE_TAX_4959_AMT ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_EXCISE_TAX_4959_AMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_EXCISE_TAX_4959_AMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_EXCISE_TAX_4959_AMT <-  paste0( '{', SH_05_CHNA_EXCISE_TAX_4959_AMT, '}', collapse=';' ) 
 } 
 
@@ -334,7 +334,7 @@ V_CHNA_DESC_RESOURCES_X <- paste( V1, V2 , sep='|' )
 SH_01_CHNA_DESC_RESOURCES_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_DESC_RESOURCES_X ) )
 if( length( SH_01_CHNA_DESC_RESOURCES_X ) > 1 )
 { 
-  create_record( varname=SH_01_CHNA_DESC_RESOURCES_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_01_CHNA_DESC_RESOURCES_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_01_CHNA_DESC_RESOURCES_X <-  paste0( '{', SH_01_CHNA_DESC_RESOURCES_X, '}', collapse=';' ) 
 } 
 
@@ -354,7 +354,7 @@ V_FAP_METHOD_EXPLAIN_X <- paste( V1, V2 , sep='|' )
 SH_05_FAP_METHOD_EXPLAIN_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FAP_METHOD_EXPLAIN_X ) )
 if( length( SH_05_FAP_METHOD_EXPLAIN_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_METHOD_EXPLAIN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_METHOD_EXPLAIN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_METHOD_EXPLAIN_X <-  paste0( '{', SH_05_FAP_METHOD_EXPLAIN_X, '}', collapse=';' ) 
 } 
 
@@ -374,7 +374,7 @@ V_FAP_BASIS_EXPLAIN_X <- paste( V1, V2 , sep='|' )
 SH_05_FAP_BASIS_EXPLAIN_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FAP_BASIS_EXPLAIN_X ) )
 if( length( SH_05_FAP_BASIS_EXPLAIN_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_BASIS_EXPLAIN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_BASIS_EXPLAIN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_BASIS_EXPLAIN_X <-  paste0( '{', SH_05_FAP_BASIS_EXPLAIN_X, '}', collapse=';' ) 
 } 
 
@@ -394,7 +394,7 @@ V_CHNA_4959_FORM4720_FILED_X <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_4959_FORM4720_FILED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_4959_FORM4720_FILED_X ) )
 if( length( SH_05_CHNA_4959_FORM4720_FILED_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_4959_FORM4720_FILED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_4959_FORM4720_FILED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_4959_FORM4720_FILED_X <-  paste0( '{', SH_05_CHNA_4959_FORM4720_FILED_X, '}', collapse=';' ) 
 } 
 
@@ -414,7 +414,7 @@ V_CHARGE_FAP_GRO_CHARGE_X <- paste( V1, V2 , sep='|' )
 SH_05_CHARGE_FAP_GRO_CHARGE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHARGE_FAP_GRO_CHARGE_X ) )
 if( length( SH_05_CHARGE_FAP_GRO_CHARGE_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHARGE_FAP_GRO_CHARGE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHARGE_FAP_GRO_CHARGE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHARGE_FAP_GRO_CHARGE_X <-  paste0( '{', SH_05_CHARGE_FAP_GRO_CHARGE_X, '}', collapse=';' ) 
 } 
 
@@ -435,7 +435,7 @@ V_HOSPITAL_FACILITY_NAME_L1 <- paste( V1, V2, V3 , sep='|' )
 SH_05_HOSPITAL_FACILITY_NAME_L1 <- xml2::xml_text( xml2::xml_find_all( doc, V_HOSPITAL_FACILITY_NAME_L1 ) )
 if( length( SH_05_HOSPITAL_FACILITY_NAME_L1 ) > 1 )
 { 
-  create_record( varname=SH_05_HOSPITAL_FACILITY_NAME_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_HOSPITAL_FACILITY_NAME_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_HOSPITAL_FACILITY_NAME_L1 <-  paste0( '{', SH_05_HOSPITAL_FACILITY_NAME_L1, '}', collapse=';' ) 
 } 
 
@@ -456,7 +456,7 @@ V_HOSPITAL_FACILITY_NAME_L2 <- paste( V1, V2, V3 , sep='|' )
 SH_05_HOSPITAL_FACILITY_NAME_L2 <- xml2::xml_text( xml2::xml_find_all( doc, V_HOSPITAL_FACILITY_NAME_L2 ) )
 if( length( SH_05_HOSPITAL_FACILITY_NAME_L2 ) > 1 )
 { 
-  create_record( varname=SH_05_HOSPITAL_FACILITY_NAME_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_HOSPITAL_FACILITY_NAME_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_HOSPITAL_FACILITY_NAME_L2 <-  paste0( '{', SH_05_HOSPITAL_FACILITY_NAME_L2, '}', collapse=';' ) 
 } 
 
@@ -476,7 +476,7 @@ V_HOSPITAL_FACILITY_LINE_NUM <- paste( V1, V2 , sep='|' )
 SH_05_HOSPITAL_FACILITY_LINE_NUM <- xml2::xml_text( xml2::xml_find_all( doc, V_HOSPITAL_FACILITY_LINE_NUM ) )
 if( length( SH_05_HOSPITAL_FACILITY_LINE_NUM ) > 1 )
 { 
-  create_record( varname=SH_05_HOSPITAL_FACILITY_LINE_NUM, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_HOSPITAL_FACILITY_LINE_NUM, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_HOSPITAL_FACILITY_LINE_NUM <-  paste0( '{', SH_05_HOSPITAL_FACILITY_LINE_NUM, '}', collapse=';' ) 
 } 
 
@@ -496,7 +496,7 @@ V_CHNA_DESC_DATA_OBTAINED_X <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_DESC_DATA_OBTAINED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_DESC_DATA_OBTAINED_X ) )
 if( length( SH_05_CHNA_DESC_DATA_OBTAINED_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_DESC_DATA_OBTAINED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_DESC_DATA_OBTAINED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_DESC_DATA_OBTAINED_X <-  paste0( '{', SH_05_CHNA_DESC_DATA_OBTAINED_X, '}', collapse=';' ) 
 } 
 
@@ -516,7 +516,7 @@ V_CHNA_DESC_IDENTIFYING_X <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_DESC_IDENTIFYING_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_DESC_IDENTIFYING_X ) )
 if( length( SH_05_CHNA_DESC_IDENTIFYING_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_DESC_IDENTIFYING_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_DESC_IDENTIFYING_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_DESC_IDENTIFYING_X <-  paste0( '{', SH_05_CHNA_DESC_IDENTIFYING_X, '}', collapse=';' ) 
 } 
 
@@ -536,7 +536,7 @@ V_CHNA_DESC_INFO_GAP_X <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_DESC_INFO_GAP_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_DESC_INFO_GAP_X ) )
 if( length( SH_05_CHNA_DESC_INFO_GAP_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_DESC_INFO_GAP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_DESC_INFO_GAP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_DESC_INFO_GAP_X <-  paste0( '{', SH_05_CHNA_DESC_INFO_GAP_X, '}', collapse=';' ) 
 } 
 
@@ -556,7 +556,7 @@ V_CHNA_YEAR_CONDUCTED <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_YEAR_CONDUCTED <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_YEAR_CONDUCTED ) )
 if( length( SH_05_CHNA_YEAR_CONDUCTED ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_YEAR_CONDUCTED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_YEAR_CONDUCTED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_YEAR_CONDUCTED <-  paste0( '{', SH_05_CHNA_YEAR_CONDUCTED, '}', collapse=';' ) 
 } 
 
@@ -576,7 +576,7 @@ V_EMERGENCY_NO_CARE_X <- paste( V1, V2 , sep='|' )
 SH_05_EMERGENCY_NO_CARE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_EMERGENCY_NO_CARE_X ) )
 if( length( SH_05_EMERGENCY_NO_CARE_X ) > 1 )
 { 
-  create_record( varname=SH_05_EMERGENCY_NO_CARE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_EMERGENCY_NO_CARE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_EMERGENCY_NO_CARE_X <-  paste0( '{', SH_05_EMERGENCY_NO_CARE_X, '}', collapse=';' ) 
 } 
 
@@ -596,7 +596,7 @@ V_EMERGENCY_NO_POLICY_X <- paste( V1, V2 , sep='|' )
 SH_05_EMERGENCY_NO_POLICY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_EMERGENCY_NO_POLICY_X ) )
 if( length( SH_05_EMERGENCY_NO_POLICY_X ) > 1 )
 { 
-  create_record( varname=SH_05_EMERGENCY_NO_POLICY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_EMERGENCY_NO_POLICY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_EMERGENCY_NO_POLICY_X <-  paste0( '{', SH_05_EMERGENCY_NO_POLICY_X, '}', collapse=';' ) 
 } 
 
@@ -616,7 +616,7 @@ V_EMERGENCY_NODISCR_POLICY_X <- paste( V1, V2 , sep='|' )
 SH_05_EMERGENCY_NODISCR_POLICY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_EMERGENCY_NODISCR_POLICY_X ) )
 if( length( SH_05_EMERGENCY_NODISCR_POLICY_X ) > 1 )
 { 
-  create_record( varname=SH_05_EMERGENCY_NODISCR_POLICY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_EMERGENCY_NODISCR_POLICY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_EMERGENCY_NODISCR_POLICY_X <-  paste0( '{', SH_05_EMERGENCY_NODISCR_POLICY_X, '}', collapse=';' ) 
 } 
 
@@ -636,7 +636,7 @@ V_CHNA_EXCISE_TAX_4959_X <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_EXCISE_TAX_4959_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_EXCISE_TAX_4959_X ) )
 if( length( SH_05_CHNA_EXCISE_TAX_4959_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_EXCISE_TAX_4959_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_EXCISE_TAX_4959_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_EXCISE_TAX_4959_X <-  paste0( '{', SH_05_CHNA_EXCISE_TAX_4959_X, '}', collapse=';' ) 
 } 
 
@@ -656,7 +656,7 @@ V_CHNA_DESC_OTH_X <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_DESC_OTH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_DESC_OTH_X ) )
 if( length( SH_05_CHNA_DESC_OTH_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_DESC_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_DESC_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_DESC_OTH_X <-  paste0( '{', SH_05_CHNA_DESC_OTH_X, '}', collapse=';' ) 
 } 
 
@@ -676,7 +676,7 @@ V_BILL_3RD_PARTY_OTH_ACT_X <- paste( V1, V2 , sep='|' )
 SH_05_BILL_3RD_PARTY_OTH_ACT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_BILL_3RD_PARTY_OTH_ACT_X ) )
 if( length( SH_05_BILL_3RD_PARTY_OTH_ACT_X ) > 1 )
 { 
-  create_record( varname=SH_05_BILL_3RD_PARTY_OTH_ACT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_BILL_3RD_PARTY_OTH_ACT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_BILL_3RD_PARTY_OTH_ACT_X <-  paste0( '{', SH_05_BILL_3RD_PARTY_OTH_ACT_X, '}', collapse=';' ) 
 } 
 
@@ -696,7 +696,7 @@ V_CHNA_FACILITY_OTH_X <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_FACILITY_OTH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_FACILITY_OTH_X ) )
 if( length( SH_05_CHNA_FACILITY_OTH_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_FACILITY_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_FACILITY_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_FACILITY_OTH_X <-  paste0( '{', SH_05_CHNA_FACILITY_OTH_X, '}', collapse=';' ) 
 } 
 
@@ -716,7 +716,7 @@ V_CHNA_DESC_HEALTH_ISSUE_X <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_DESC_HEALTH_ISSUE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_DESC_HEALTH_ISSUE_X ) )
 if( length( SH_05_CHNA_DESC_HEALTH_ISSUE_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_DESC_HEALTH_ISSUE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_DESC_HEALTH_ISSUE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_DESC_HEALTH_ISSUE_X <-  paste0( '{', SH_05_CHNA_DESC_HEALTH_ISSUE_X, '}', collapse=';' ) 
 } 
 
@@ -736,7 +736,7 @@ V_CHNA_AVBL_OTH_METHOD_X <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_AVBL_OTH_METHOD_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_AVBL_OTH_METHOD_X ) )
 if( length( SH_05_CHNA_AVBL_OTH_METHOD_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_AVBL_OTH_METHOD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_AVBL_OTH_METHOD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_AVBL_OTH_METHOD_X <-  paste0( '{', SH_05_CHNA_AVBL_OTH_METHOD_X, '}', collapse=';' ) 
 } 
 
@@ -756,7 +756,7 @@ V_EMERGENCY_OTH_REASON_X <- paste( V1, V2 , sep='|' )
 SH_05_EMERGENCY_OTH_REASON_X <- xml2::xml_text( xml2::xml_find_all( doc, V_EMERGENCY_OTH_REASON_X ) )
 if( length( SH_05_EMERGENCY_OTH_REASON_X ) > 1 )
 { 
-  create_record( varname=SH_05_EMERGENCY_OTH_REASON_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_EMERGENCY_OTH_REASON_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_EMERGENCY_OTH_REASON_X <-  paste0( '{', SH_05_EMERGENCY_OTH_REASON_X, '}', collapse=';' ) 
 } 
 
@@ -776,7 +776,7 @@ V_CHNA_AVBL_WEBSITE_X <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_AVBL_WEBSITE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_AVBL_WEBSITE_X ) )
 if( length( SH_05_CHNA_AVBL_WEBSITE_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_AVBL_WEBSITE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_AVBL_WEBSITE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_AVBL_WEBSITE_X <-  paste0( '{', SH_05_CHNA_AVBL_WEBSITE_X, '}', collapse=';' ) 
 } 
 
@@ -796,7 +796,7 @@ V_BILL_PERMIT_OTH_ACT_X <- paste( V1, V2 , sep='|' )
 SH_05_BILL_PERMIT_OTH_ACT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_BILL_PERMIT_OTH_ACT_X ) )
 if( length( SH_05_BILL_PERMIT_OTH_ACT_X ) > 1 )
 { 
-  create_record( varname=SH_05_BILL_PERMIT_OTH_ACT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_BILL_PERMIT_OTH_ACT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_BILL_PERMIT_OTH_ACT_X <-  paste0( '{', SH_05_BILL_PERMIT_OTH_ACT_X, '}', collapse=';' ) 
 } 
 
@@ -816,7 +816,7 @@ V_BILL_PERMIT_AGENCY_X <- paste( V1, V2 , sep='|' )
 SH_05_BILL_PERMIT_AGENCY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_BILL_PERMIT_AGENCY_X ) )
 if( length( SH_05_BILL_PERMIT_AGENCY_X ) > 1 )
 { 
-  create_record( varname=SH_05_BILL_PERMIT_AGENCY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_BILL_PERMIT_AGENCY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_BILL_PERMIT_AGENCY_X <-  paste0( '{', SH_05_BILL_PERMIT_AGENCY_X, '}', collapse=';' ) 
 } 
 
@@ -836,7 +836,7 @@ V_BILL_3RD_PARTY_AGENCY_X <- paste( V1, V2 , sep='|' )
 SH_05_BILL_3RD_PARTY_AGENCY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_BILL_3RD_PARTY_AGENCY_X ) )
 if( length( SH_05_BILL_3RD_PARTY_AGENCY_X ) > 1 )
 { 
-  create_record( varname=SH_05_BILL_3RD_PARTY_AGENCY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_BILL_3RD_PARTY_AGENCY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_BILL_3RD_PARTY_AGENCY_X <-  paste0( '{', SH_05_BILL_3RD_PARTY_AGENCY_X, '}', collapse=';' ) 
 } 
 
@@ -856,7 +856,7 @@ V_CHNA_TAKE_COM_ACC_X <- paste( V1, V2 , sep='|' )
 SH_05_CHNA_TAKE_COM_ACC_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CHNA_TAKE_COM_ACC_X ) )
 if( length( SH_05_CHNA_TAKE_COM_ACC_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_TAKE_COM_ACC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_TAKE_COM_ACC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_TAKE_COM_ACC_X <-  paste0( '{', SH_05_CHNA_TAKE_COM_ACC_X, '}', collapse=';' ) 
 } 
 
@@ -873,7 +873,7 @@ if( length( SH_05_CHNA_TAKE_COM_ACC_X ) > 1 )
 SH_05_FAP_CRITERIA_ASSET_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/AssetLevelCriteriaInd' ) )
 if( length( SH_05_FAP_CRITERIA_ASSET_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_CRITERIA_ASSET_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_CRITERIA_ASSET_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_CRITERIA_ASSET_X <-  paste0( '{', SH_05_FAP_CRITERIA_ASSET_X, '}', collapse=';' ) 
 } 
 
@@ -890,7 +890,7 @@ if( length( SH_05_FAP_CRITERIA_ASSET_X ) > 1 )
 SH_05_CHNA_FACILITY_NON_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/CHNAConductedWithNonFcltsInd' ) )
 if( length( SH_05_CHNA_FACILITY_NON_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_FACILITY_NON_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_FACILITY_NON_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_FACILITY_NON_X <-  paste0( '{', SH_05_CHNA_FACILITY_NON_X, '}', collapse=';' ) 
 } 
 
@@ -907,7 +907,7 @@ if( length( SH_05_CHNA_FACILITY_NON_X ) > 1 )
 SH_05_FAP_AVBL_COM_NOTIFIED_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/CommuntityNotifiedFAPInd' ) )
 if( length( SH_05_FAP_AVBL_COM_NOTIFIED_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_AVBL_COM_NOTIFIED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_AVBL_COM_NOTIFIED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_AVBL_COM_NOTIFIED_X <-  paste0( '{', SH_05_FAP_AVBL_COM_NOTIFIED_X, '}', collapse=';' ) 
 } 
 
@@ -924,7 +924,7 @@ if( length( SH_05_FAP_AVBL_COM_NOTIFIED_X ) > 1 )
 SH_05_FAP_METHOD_DESC_INFO_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/DescribedInfoInd' ) )
 if( length( SH_05_FAP_METHOD_DESC_INFO_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_METHOD_DESC_INFO_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_METHOD_DESC_INFO_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_METHOD_DESC_INFO_X <-  paste0( '{', SH_05_FAP_METHOD_DESC_INFO_X, '}', collapse=';' ) 
 } 
 
@@ -941,7 +941,7 @@ if( length( SH_05_FAP_METHOD_DESC_INFO_X ) > 1 )
 SH_05_FAP_METHOD_DESC_DOC_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/DescribedSuprtDocInd' ) )
 if( length( SH_05_FAP_METHOD_DESC_DOC_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_METHOD_DESC_DOC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_METHOD_DESC_DOC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_METHOD_DESC_DOC_X <-  paste0( '{', SH_05_FAP_METHOD_DESC_DOC_X, '}', collapse=';' ) 
 } 
 
@@ -958,7 +958,7 @@ if( length( SH_05_FAP_METHOD_DESC_DOC_X ) > 1 )
 SH_05_BILL_3RD_PARTY_LEGAL_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/EngagedLegalJudicialProcessInd' ) )
 if( length( SH_05_BILL_3RD_PARTY_LEGAL_X ) > 1 )
 { 
-  create_record( varname=SH_05_BILL_3RD_PARTY_LEGAL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_BILL_3RD_PARTY_LEGAL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_BILL_3RD_PARTY_LEGAL_X <-  paste0( '{', SH_05_BILL_3RD_PARTY_LEGAL_X, '}', collapse=';' ) 
 } 
 
@@ -975,7 +975,7 @@ if( length( SH_05_BILL_3RD_PARTY_LEGAL_X ) > 1 )
 SH_05_BILL_3RD_PARTY_SELL_DEBT_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/EngagedSellingDebtInd' ) )
 if( length( SH_05_BILL_3RD_PARTY_SELL_DEBT_X ) > 1 )
 { 
-  create_record( varname=SH_05_BILL_3RD_PARTY_SELL_DEBT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_BILL_3RD_PARTY_SELL_DEBT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_BILL_3RD_PARTY_SELL_DEBT_X <-  paste0( '{', SH_05_BILL_3RD_PARTY_SELL_DEBT_X, '}', collapse=';' ) 
 } 
 
@@ -992,7 +992,7 @@ if( length( SH_05_BILL_3RD_PARTY_SELL_DEBT_X ) > 1 )
 SH_05_FAP_AVBL_FORM_WEBSITE_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/FAPAppAvailableOnWebsiteInd' ) )
 if( length( SH_05_FAP_AVBL_FORM_WEBSITE_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_AVBL_FORM_WEBSITE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_AVBL_FORM_WEBSITE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_AVBL_FORM_WEBSITE_X <-  paste0( '{', SH_05_FAP_AVBL_FORM_WEBSITE_X, '}', collapse=';' ) 
 } 
 
@@ -1009,7 +1009,7 @@ if( length( SH_05_FAP_AVBL_FORM_WEBSITE_X ) > 1 )
 SH_05_FAP_AVBL_FORM_WEBSITE <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/FAPAppAvailableOnWebsiteURLTxt' ) )
 if( length( SH_05_FAP_AVBL_FORM_WEBSITE ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_AVBL_FORM_WEBSITE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_AVBL_FORM_WEBSITE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_AVBL_FORM_WEBSITE <-  paste0( '{', SH_05_FAP_AVBL_FORM_WEBSITE, '}', collapse=';' ) 
 } 
 
@@ -1026,7 +1026,7 @@ if( length( SH_05_FAP_AVBL_FORM_WEBSITE ) > 1 )
 SH_05_FAP_AVBL_FORM_REQUEST_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/FAPAppAvlblOnRequestNoChrgInd' ) )
 if( length( SH_05_FAP_AVBL_FORM_REQUEST_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_AVBL_FORM_REQUEST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_AVBL_FORM_REQUEST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_AVBL_FORM_REQUEST_X <-  paste0( '{', SH_05_FAP_AVBL_FORM_REQUEST_X, '}', collapse=';' ) 
 } 
 
@@ -1043,7 +1043,7 @@ if( length( SH_05_FAP_AVBL_FORM_REQUEST_X ) > 1 )
 SH_05_FAP_AVBL_WEBSITE_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/FAPAvailableOnWebsiteInd' ) )
 if( length( SH_05_FAP_AVBL_WEBSITE_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_AVBL_WEBSITE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_AVBL_WEBSITE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_AVBL_WEBSITE_X <-  paste0( '{', SH_05_FAP_AVBL_WEBSITE_X, '}', collapse=';' ) 
 } 
 
@@ -1060,7 +1060,7 @@ if( length( SH_05_FAP_AVBL_WEBSITE_X ) > 1 )
 SH_05_FAP_AVBL_WEBSITE <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/FAPAvailableOnWebsiteURLTxt' ) )
 if( length( SH_05_FAP_AVBL_WEBSITE ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_AVBL_WEBSITE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_AVBL_WEBSITE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_AVBL_WEBSITE <-  paste0( '{', SH_05_FAP_AVBL_WEBSITE, '}', collapse=';' ) 
 } 
 
@@ -1077,7 +1077,7 @@ if( length( SH_05_FAP_AVBL_WEBSITE ) > 1 )
 SH_05_FAP_AVBL_REQUEST_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/FAPAvlblOnRequestNoChargeInd' ) )
 if( length( SH_05_FAP_AVBL_REQUEST_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_AVBL_REQUEST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_AVBL_REQUEST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_AVBL_REQUEST_X <-  paste0( '{', SH_05_FAP_AVBL_REQUEST_X, '}', collapse=';' ) 
 } 
 
@@ -1094,7 +1094,7 @@ if( length( SH_05_FAP_AVBL_REQUEST_X ) > 1 )
 SH_05_FAP_AVBL_SUMMARY_REQUEST_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/FAPSumAvlblOnRequestNoChrgInd' ) )
 if( length( SH_05_FAP_AVBL_SUMMARY_REQUEST_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_AVBL_SUMMARY_REQUEST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_AVBL_SUMMARY_REQUEST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_AVBL_SUMMARY_REQUEST_X <-  paste0( '{', SH_05_FAP_AVBL_SUMMARY_REQUEST_X, '}', collapse=';' ) 
 } 
 
@@ -1111,7 +1111,7 @@ if( length( SH_05_FAP_AVBL_SUMMARY_REQUEST_X ) > 1 )
 SH_05_FAP_AVBL_SUMMARY_WEBSITE_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/FAPSummaryOnWebsiteInd' ) )
 if( length( SH_05_FAP_AVBL_SUMMARY_WEBSITE_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_AVBL_SUMMARY_WEBSITE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_AVBL_SUMMARY_WEBSITE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_AVBL_SUMMARY_WEBSITE_X <-  paste0( '{', SH_05_FAP_AVBL_SUMMARY_WEBSITE_X, '}', collapse=';' ) 
 } 
 
@@ -1128,7 +1128,7 @@ if( length( SH_05_FAP_AVBL_SUMMARY_WEBSITE_X ) > 1 )
 SH_05_FAP_AVBL_SUMMARY_WEBSITE <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/FAPSummaryOnWebsiteURLTxt' ) )
 if( length( SH_05_FAP_AVBL_SUMMARY_WEBSITE ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_AVBL_SUMMARY_WEBSITE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_AVBL_SUMMARY_WEBSITE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_AVBL_SUMMARY_WEBSITE <-  paste0( '{', SH_05_FAP_AVBL_SUMMARY_WEBSITE, '}', collapse=';' ) 
 } 
 
@@ -1145,7 +1145,7 @@ if( length( SH_05_FAP_AVBL_SUMMARY_WEBSITE ) > 1 )
 SH_05_CHNA_FIRST_LIC_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/FirstLicensedCYOrPYInd' ) )
 if( length( SH_05_CHNA_FIRST_LIC_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_FIRST_LIC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_FIRST_LIC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_FIRST_LIC_X <-  paste0( '{', SH_05_CHNA_FIRST_LIC_X, '}', collapse=';' ) 
 } 
 
@@ -1162,7 +1162,7 @@ if( length( SH_05_CHNA_FIRST_LIC_X ) > 1 )
 SH_05_FAP_CRITERIA_PCT_FPG_DCNT <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/FPGFamilyIncmLmtDscntCarePct' ) )
 if( length( SH_05_FAP_CRITERIA_PCT_FPG_DCNT ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_CRITERIA_PCT_FPG_DCNT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_CRITERIA_PCT_FPG_DCNT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_CRITERIA_PCT_FPG_DCNT <-  paste0( '{', SH_05_FAP_CRITERIA_PCT_FPG_DCNT, '}', collapse=';' ) 
 } 
 
@@ -1179,7 +1179,7 @@ if( length( SH_05_FAP_CRITERIA_PCT_FPG_DCNT ) > 1 )
 SH_05_FAP_CRITERIA_PCT_FPG_FREE <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/FPGFamilyIncmLmtFreeCarePct' ) )
 if( length( SH_05_FAP_CRITERIA_PCT_FPG_FREE ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_CRITERIA_PCT_FPG_FREE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_CRITERIA_PCT_FPG_FREE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_CRITERIA_PCT_FPG_FREE <-  paste0( '{', SH_05_FAP_CRITERIA_PCT_FPG_FREE, '}', collapse=';' ) 
 } 
 
@@ -1196,7 +1196,7 @@ if( length( SH_05_FAP_CRITERIA_PCT_FPG_FREE ) > 1 )
 SH_05_FAP_CRITERIA_PCT_FPG_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/FPGFamilyIncmLmtFreeDscntInd' ) )
 if( length( SH_05_FAP_CRITERIA_PCT_FPG_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_CRITERIA_PCT_FPG_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_CRITERIA_PCT_FPG_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_CRITERIA_PCT_FPG_X <-  paste0( '{', SH_05_FAP_CRITERIA_PCT_FPG_X, '}', collapse=';' ) 
 } 
 
@@ -1213,7 +1213,7 @@ if( length( SH_05_FAP_CRITERIA_PCT_FPG_X ) > 1 )
 SH_05_CHNA_IMPLEMENT_ADOPT_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/ImplementationStrategyAdoptInd' ) )
 if( length( SH_05_CHNA_IMPLEMENT_ADOPT_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_IMPLEMENT_ADOPT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_IMPLEMENT_ADOPT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_IMPLEMENT_ADOPT_X <-  paste0( '{', SH_05_CHNA_IMPLEMENT_ADOPT_X, '}', collapse=';' ) 
 } 
 
@@ -1230,7 +1230,7 @@ if( length( SH_05_CHNA_IMPLEMENT_ADOPT_X ) > 1 )
 SH_05_CHNA_IMPLEMENT_ADOPT_YEAR <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/ImplementationStrategyAdptYr' ) )
 if( length( SH_05_CHNA_IMPLEMENT_ADOPT_YEAR ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_IMPLEMENT_ADOPT_YEAR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_IMPLEMENT_ADOPT_YEAR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_IMPLEMENT_ADOPT_YEAR <-  paste0( '{', SH_05_CHNA_IMPLEMENT_ADOPT_YEAR, '}', collapse=';' ) 
 } 
 
@@ -1247,7 +1247,7 @@ if( length( SH_05_CHNA_IMPLEMENT_ADOPT_YEAR ) > 1 )
 SH_05_FAP_AVBL_PUBLICITY_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/IncludesPublicityMeasuresInd' ) )
 if( length( SH_05_FAP_AVBL_PUBLICITY_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_AVBL_PUBLICITY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_AVBL_PUBLICITY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_AVBL_PUBLICITY_X <-  paste0( '{', SH_05_FAP_AVBL_PUBLICITY_X, '}', collapse=';' ) 
 } 
 
@@ -1264,7 +1264,7 @@ if( length( SH_05_FAP_AVBL_PUBLICITY_X ) > 1 )
 SH_05_FAP_CRITERIA_INCOME_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/IncomeLevelCriteriaInd' ) )
 if( length( SH_05_FAP_CRITERIA_INCOME_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_CRITERIA_INCOME_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_CRITERIA_INCOME_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_CRITERIA_INCOME_X <-  paste0( '{', SH_05_FAP_CRITERIA_INCOME_X, '}', collapse=';' ) 
 } 
 
@@ -1281,7 +1281,7 @@ if( length( SH_05_FAP_CRITERIA_INCOME_X ) > 1 )
 SH_05_FAP_CRITERIA_INSURANCE_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/InsuranceStatusCriteriaInd' ) )
 if( length( SH_05_FAP_CRITERIA_INSURANCE_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_CRITERIA_INSURANCE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_CRITERIA_INSURANCE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_CRITERIA_INSURANCE_X <-  paste0( '{', SH_05_FAP_CRITERIA_INSURANCE_X, '}', collapse=';' ) 
 } 
 
@@ -1298,7 +1298,7 @@ if( length( SH_05_FAP_CRITERIA_INSURANCE_X ) > 1 )
 SH_05_FAP_CRITERIA_INDIGENCY_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/MedicalIndigencyCriteriaInd' ) )
 if( length( SH_05_FAP_CRITERIA_INDIGENCY_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_CRITERIA_INDIGENCY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_CRITERIA_INDIGENCY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_CRITERIA_INDIGENCY_X <-  paste0( '{', SH_05_FAP_CRITERIA_INDIGENCY_X, '}', collapse=';' ) 
 } 
 
@@ -1315,7 +1315,7 @@ if( length( SH_05_FAP_CRITERIA_INDIGENCY_X ) > 1 )
 SH_05_BILL_MADE_NO_ACT_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/NoneMadeInd' ) )
 if( length( SH_05_BILL_MADE_NO_ACT_X ) > 1 )
 { 
-  create_record( varname=SH_05_BILL_MADE_NO_ACT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_BILL_MADE_NO_ACT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_BILL_MADE_NO_ACT_X <-  paste0( '{', SH_05_BILL_MADE_NO_ACT_X, '}', collapse=';' ) 
 } 
 
@@ -1332,7 +1332,7 @@ if( length( SH_05_BILL_MADE_NO_ACT_X ) > 1 )
 SH_05_BILL_MADE_OTH_ACT_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/OtherActionsTakenInd' ) )
 if( length( SH_05_BILL_MADE_OTH_ACT_X ) > 1 )
 { 
-  create_record( varname=SH_05_BILL_MADE_OTH_ACT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_BILL_MADE_OTH_ACT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_BILL_MADE_OTH_ACT_X <-  paste0( '{', SH_05_BILL_MADE_OTH_ACT_X, '}', collapse=';' ) 
 } 
 
@@ -1349,7 +1349,7 @@ if( length( SH_05_BILL_MADE_OTH_ACT_X ) > 1 )
 SH_05_FAP_CRITERIA_OTH_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/OtherCriteriaInd' ) )
 if( length( SH_05_FAP_CRITERIA_OTH_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_CRITERIA_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_CRITERIA_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_CRITERIA_OTH_X <-  paste0( '{', SH_05_FAP_CRITERIA_OTH_X, '}', collapse=';' ) 
 } 
 
@@ -1366,7 +1366,7 @@ if( length( SH_05_FAP_CRITERIA_OTH_X ) > 1 )
 SH_05_FAP_METHOD_OTH_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/OtherMethodInd' ) )
 if( length( SH_05_FAP_METHOD_OTH_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_METHOD_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_METHOD_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_METHOD_OTH_X <-  paste0( '{', SH_05_FAP_METHOD_OTH_X, '}', collapse=';' ) 
 } 
 
@@ -1383,7 +1383,7 @@ if( length( SH_05_FAP_METHOD_OTH_X ) > 1 )
 SH_05_FAP_AVBL_OTH_PUBLICITY_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/OtherPublicityInd' ) )
 if( length( SH_05_FAP_AVBL_OTH_PUBLICITY_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_AVBL_OTH_PUBLICITY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_AVBL_OTH_PUBLICITY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_AVBL_OTH_PUBLICITY_X <-  paste0( '{', SH_05_FAP_AVBL_OTH_PUBLICITY_X, '}', collapse=';' ) 
 } 
 
@@ -1400,7 +1400,7 @@ if( length( SH_05_FAP_AVBL_OTH_PUBLICITY_X ) > 1 )
 SH_05_CHNA_AVBL_OTH_WEBSITE_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/OtherWebsiteInd' ) )
 if( length( SH_05_CHNA_AVBL_OTH_WEBSITE_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_AVBL_OTH_WEBSITE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_AVBL_OTH_WEBSITE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_AVBL_OTH_WEBSITE_X <-  paste0( '{', SH_05_CHNA_AVBL_OTH_WEBSITE_X, '}', collapse=';' ) 
 } 
 
@@ -1417,7 +1417,7 @@ if( length( SH_05_CHNA_AVBL_OTH_WEBSITE_X ) > 1 )
 SH_05_CHNA_AVBL_OTH_WEBSITE <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/OtherWebsiteURLTxt' ) )
 if( length( SH_05_CHNA_AVBL_OTH_WEBSITE ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_AVBL_OTH_WEBSITE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_AVBL_OTH_WEBSITE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_AVBL_OTH_WEBSITE <-  paste0( '{', SH_05_CHNA_AVBL_OTH_WEBSITE, '}', collapse=';' ) 
 } 
 
@@ -1434,7 +1434,7 @@ if( length( SH_05_CHNA_AVBL_OTH_WEBSITE ) > 1 )
 SH_05_CHNA_AVBL_WEBSITE <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/OwnWebsiteURLTxt' ) )
 if( length( SH_05_CHNA_AVBL_WEBSITE ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_AVBL_WEBSITE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_AVBL_WEBSITE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_AVBL_WEBSITE <-  paste0( '{', SH_05_CHNA_AVBL_WEBSITE, '}', collapse=';' ) 
 } 
 
@@ -1451,7 +1451,7 @@ if( length( SH_05_CHNA_AVBL_WEBSITE ) > 1 )
 SH_05_CHNA_AVBL_PAPER_COPY_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/PaperCopyPublicInspectionInd' ) )
 if( length( SH_05_CHNA_AVBL_PAPER_COPY_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_AVBL_PAPER_COPY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_AVBL_PAPER_COPY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_AVBL_PAPER_COPY_X <-  paste0( '{', SH_05_CHNA_AVBL_PAPER_COPY_X, '}', collapse=';' ) 
 } 
 
@@ -1468,7 +1468,7 @@ if( length( SH_05_CHNA_AVBL_PAPER_COPY_X ) > 1 )
 SH_05_BILL_PERMIT_LEGAL_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/PermitLegalJudicialProcessInd' ) )
 if( length( SH_05_BILL_PERMIT_LEGAL_X ) > 1 )
 { 
-  create_record( varname=SH_05_BILL_PERMIT_LEGAL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_BILL_PERMIT_LEGAL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_BILL_PERMIT_LEGAL_X <-  paste0( '{', SH_05_BILL_PERMIT_LEGAL_X, '}', collapse=';' ) 
 } 
 
@@ -1485,7 +1485,7 @@ if( length( SH_05_BILL_PERMIT_LEGAL_X ) > 1 )
 SH_05_BILL_PERMIT_NO_ACT_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/PermitNoActionsInd' ) )
 if( length( SH_05_BILL_PERMIT_NO_ACT_X ) > 1 )
 { 
-  create_record( varname=SH_05_BILL_PERMIT_NO_ACT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_BILL_PERMIT_NO_ACT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_BILL_PERMIT_NO_ACT_X <-  paste0( '{', SH_05_BILL_PERMIT_NO_ACT_X, '}', collapse=';' ) 
 } 
 
@@ -1502,7 +1502,7 @@ if( length( SH_05_BILL_PERMIT_NO_ACT_X ) > 1 )
 SH_05_BILL_PERMIT_SELL_DEBT_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/PermitSellingDebtInd' ) )
 if( length( SH_05_BILL_PERMIT_SELL_DEBT_X ) > 1 )
 { 
-  create_record( varname=SH_05_BILL_PERMIT_SELL_DEBT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_BILL_PERMIT_SELL_DEBT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_BILL_PERMIT_SELL_DEBT_X <-  paste0( '{', SH_05_BILL_PERMIT_SELL_DEBT_X, '}', collapse=';' ) 
 } 
 
@@ -1519,7 +1519,7 @@ if( length( SH_05_BILL_PERMIT_SELL_DEBT_X ) > 1 )
 SH_05_FAP_METHOD_INFO_HOSPITAL_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/ProvidedHospitalContactInd' ) )
 if( length( SH_05_FAP_METHOD_INFO_HOSPITAL_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_METHOD_INFO_HOSPITAL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_METHOD_INFO_HOSPITAL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_METHOD_INFO_HOSPITAL_X <-  paste0( '{', SH_05_FAP_METHOD_INFO_HOSPITAL_X, '}', collapse=';' ) 
 } 
 
@@ -1536,7 +1536,7 @@ if( length( SH_05_FAP_METHOD_INFO_HOSPITAL_X ) > 1 )
 SH_05_FAP_METHOD_INFO_NPO_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/ProvidedNonprofitContactInd' ) )
 if( length( SH_05_FAP_METHOD_INFO_NPO_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_METHOD_INFO_NPO_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_METHOD_INFO_NPO_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_METHOD_INFO_NPO_X <-  paste0( '{', SH_05_FAP_METHOD_INFO_NPO_X, '}', collapse=';' ) 
 } 
 
@@ -1553,7 +1553,7 @@ if( length( SH_05_FAP_METHOD_INFO_NPO_X ) > 1 )
 SH_05_FAP_CRITERIA_RESIDENCY_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/ResidencyCriteriaInd' ) )
 if( length( SH_05_FAP_CRITERIA_RESIDENCY_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_CRITERIA_RESIDENCY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_CRITERIA_RESIDENCY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_CRITERIA_RESIDENCY_X <-  paste0( '{', SH_05_FAP_CRITERIA_RESIDENCY_X, '}', collapse=';' ) 
 } 
 
@@ -1570,7 +1570,7 @@ if( length( SH_05_FAP_CRITERIA_RESIDENCY_X ) > 1 )
 SH_05_CHNA_STRATEGY_ATTACHED_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/StrategyAttachedInd' ) )
 if( length( SH_05_CHNA_STRATEGY_ATTACHED_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_STRATEGY_ATTACHED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_STRATEGY_ATTACHED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_STRATEGY_ATTACHED_X <-  paste0( '{', SH_05_CHNA_STRATEGY_ATTACHED_X, '}', collapse=';' ) 
 } 
 
@@ -1587,7 +1587,7 @@ if( length( SH_05_CHNA_STRATEGY_ATTACHED_X ) > 1 )
 SH_05_CHNA_STRATEGY_WEBSITE_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/StrategyPostedWebsiteInd' ) )
 if( length( SH_05_CHNA_STRATEGY_WEBSITE_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_STRATEGY_WEBSITE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_STRATEGY_WEBSITE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_STRATEGY_WEBSITE_X <-  paste0( '{', SH_05_CHNA_STRATEGY_WEBSITE_X, '}', collapse=';' ) 
 } 
 
@@ -1604,7 +1604,7 @@ if( length( SH_05_CHNA_STRATEGY_WEBSITE_X ) > 1 )
 SH_05_CHNA_STRATEGY_WEBSITE <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/StrategyWebsiteURLTxt' ) )
 if( length( SH_05_CHNA_STRATEGY_WEBSITE ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_STRATEGY_WEBSITE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_STRATEGY_WEBSITE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_STRATEGY_WEBSITE <-  paste0( '{', SH_05_CHNA_STRATEGY_WEBSITE, '}', collapse=';' ) 
 } 
 
@@ -1621,7 +1621,7 @@ if( length( SH_05_CHNA_STRATEGY_WEBSITE ) > 1 )
 SH_05_CHNA_TAX_EXEMPT_HOSPITAL_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/TaxExemptHospitalCYOrPYInd' ) )
 if( length( SH_05_CHNA_TAX_EXEMPT_HOSPITAL_X ) > 1 )
 { 
-  create_record( varname=SH_05_CHNA_TAX_EXEMPT_HOSPITAL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_CHNA_TAX_EXEMPT_HOSPITAL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_CHNA_TAX_EXEMPT_HOSPITAL_X <-  paste0( '{', SH_05_CHNA_TAX_EXEMPT_HOSPITAL_X, '}', collapse=';' ) 
 } 
 
@@ -1638,7 +1638,7 @@ if( length( SH_05_CHNA_TAX_EXEMPT_HOSPITAL_X ) > 1 )
 SH_05_FAP_CRITERIA_UNINSURED_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleH/HospitalFcltyPoliciesPrctcGrp/UnderinsuranceStatCriteriaInd' ) )
 if( length( SH_05_FAP_CRITERIA_UNINSURED_X ) > 1 )
 { 
-  create_record( varname=SH_05_FAP_CRITERIA_UNINSURED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SH_05_FAP_CRITERIA_UNINSURED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SH_05_FAP_CRITERIA_UNINSURED_X <-  paste0( '{', SH_05_FAP_CRITERIA_UNINSURED_X, '}', collapse=';' ) 
 } 
 

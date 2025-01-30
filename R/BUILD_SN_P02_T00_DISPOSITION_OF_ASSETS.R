@@ -35,7 +35,7 @@ V_ORG_DTK_DIR_SUCCESSOR_X <- paste( V1, V2, V3 , sep='|' )
 SN_02_ORG_DTK_DIR_SUCCESSOR_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_DTK_DIR_SUCCESSOR_X ) )
 if( length( SN_02_ORG_DTK_DIR_SUCCESSOR_X ) > 1 )
 { 
-  create_record( varname=SN_02_ORG_DTK_DIR_SUCCESSOR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SN_02_ORG_DTK_DIR_SUCCESSOR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SN_02_ORG_DTK_DIR_SUCCESSOR_X <-  paste0( '{', SN_02_ORG_DTK_DIR_SUCCESSOR_X, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_ORG_DTK_EMPL_SUCCESSOR_X <- paste( V1, V2, V3 , sep='|' )
 SN_02_ORG_DTK_EMPL_SUCCESSOR_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_DTK_EMPL_SUCCESSOR_X ) )
 if( length( SN_02_ORG_DTK_EMPL_SUCCESSOR_X ) > 1 )
 { 
-  create_record( varname=SN_02_ORG_DTK_EMPL_SUCCESSOR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SN_02_ORG_DTK_EMPL_SUCCESSOR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SN_02_ORG_DTK_EMPL_SUCCESSOR_X <-  paste0( '{', SN_02_ORG_DTK_EMPL_SUCCESSOR_X, '}', collapse=';' ) 
 } 
 
@@ -77,7 +77,7 @@ V_ORG_DTK_OWN_SUCCESSOR_X <- paste( V1, V2, V3 , sep='|' )
 SN_02_ORG_DTK_OWN_SUCCESSOR_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_DTK_OWN_SUCCESSOR_X ) )
 if( length( SN_02_ORG_DTK_OWN_SUCCESSOR_X ) > 1 )
 { 
-  create_record( varname=SN_02_ORG_DTK_OWN_SUCCESSOR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SN_02_ORG_DTK_OWN_SUCCESSOR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SN_02_ORG_DTK_OWN_SUCCESSOR_X <-  paste0( '{', SN_02_ORG_DTK_OWN_SUCCESSOR_X, '}', collapse=';' ) 
 } 
 
@@ -98,7 +98,7 @@ V_ORG_DTK_REC_COMP_X <- paste( V1, V2, V3 , sep='|' )
 SN_02_ORG_DTK_REC_COMP_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_DTK_REC_COMP_X ) )
 if( length( SN_02_ORG_DTK_REC_COMP_X ) > 1 )
 { 
-  create_record( varname=SN_02_ORG_DTK_REC_COMP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SN_02_ORG_DTK_REC_COMP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SN_02_ORG_DTK_REC_COMP_X <-  paste0( '{', SN_02_ORG_DTK_REC_COMP_X, '}', collapse=';' ) 
 } 
 

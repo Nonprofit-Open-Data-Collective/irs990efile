@@ -35,7 +35,7 @@ V_EMT_EXP_INCURRED_ENFORCE <- paste( V1, V2, V3 , sep='|' )
 SD_02_EMT_EXP_INCURRED_ENFORCE <- xml2::xml_text( xml2::xml_find_all( doc, V_EMT_EXP_INCURRED_ENFORCE ) )
 if( length( SD_02_EMT_EXP_INCURRED_ENFORCE ) > 1 )
 { 
-  create_record( varname=SD_02_EMT_EXP_INCURRED_ENFORCE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_02_EMT_EXP_INCURRED_ENFORCE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_02_EMT_EXP_INCURRED_ENFORCE <-  paste0( '{', SD_02_EMT_EXP_INCURRED_ENFORCE, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_EMT_HIST_LAND_AREA_X <- paste( V1, V2, V3 , sep='|' )
 SD_02_EMT_HIST_LAND_AREA_X <- xml2::xml_text( xml2::xml_find_all( doc, V_EMT_HIST_LAND_AREA_X ) )
 if( length( SD_02_EMT_HIST_LAND_AREA_X ) > 1 )
 { 
-  create_record( varname=SD_02_EMT_HIST_LAND_AREA_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_02_EMT_HIST_LAND_AREA_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_02_EMT_HIST_LAND_AREA_X <-  paste0( '{', SD_02_EMT_HIST_LAND_AREA_X, '}', collapse=';' ) 
 } 
 
@@ -77,7 +77,7 @@ V_EMT_HIST_STR_X <- paste( V1, V2, V3 , sep='|' )
 SD_02_EMT_HIST_STR_X <- xml2::xml_text( xml2::xml_find_all( doc, V_EMT_HIST_STR_X ) )
 if( length( SD_02_EMT_HIST_STR_X ) > 1 )
 { 
-  create_record( varname=SD_02_EMT_HIST_STR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_02_EMT_HIST_STR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_02_EMT_HIST_STR_X <-  paste0( '{', SD_02_EMT_HIST_STR_X, '}', collapse=';' ) 
 } 
 
@@ -98,7 +98,7 @@ V_EMT_NUM_MODIFIED <- paste( V1, V2, V3 , sep='|' )
 SD_02_EMT_NUM_MODIFIED <- xml2::xml_text( xml2::xml_find_all( doc, V_EMT_NUM_MODIFIED ) )
 if( length( SD_02_EMT_NUM_MODIFIED ) > 1 )
 { 
-  create_record( varname=SD_02_EMT_NUM_MODIFIED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_02_EMT_NUM_MODIFIED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_02_EMT_NUM_MODIFIED <-  paste0( '{', SD_02_EMT_NUM_MODIFIED, '}', collapse=';' ) 
 } 
 
@@ -119,7 +119,7 @@ V_EMT_NUM_HIST_STR <- paste( V1, V2, V3 , sep='|' )
 SD_02_EMT_NUM_HIST_STR <- xml2::xml_text( xml2::xml_find_all( doc, V_EMT_NUM_HIST_STR ) )
 if( length( SD_02_EMT_NUM_HIST_STR ) > 1 )
 { 
-  create_record( varname=SD_02_EMT_NUM_HIST_STR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_02_EMT_NUM_HIST_STR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_02_EMT_NUM_HIST_STR <-  paste0( '{', SD_02_EMT_NUM_HIST_STR, '}', collapse=';' ) 
 } 
 
@@ -140,7 +140,7 @@ V_EMT_NUM_HIST_STR_AFTER_06 <- paste( V1, V2, V3 , sep='|' )
 SD_02_EMT_NUM_HIST_STR_AFTER_06 <- xml2::xml_text( xml2::xml_find_all( doc, V_EMT_NUM_HIST_STR_AFTER_06 ) )
 if( length( SD_02_EMT_NUM_HIST_STR_AFTER_06 ) > 1 )
 { 
-  create_record( varname=SD_02_EMT_NUM_HIST_STR_AFTER_06, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_02_EMT_NUM_HIST_STR_AFTER_06, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_02_EMT_NUM_HIST_STR_AFTER_06 <-  paste0( '{', SD_02_EMT_NUM_HIST_STR_AFTER_06, '}', collapse=';' ) 
 } 
 
@@ -161,7 +161,7 @@ V_EMT_NUM_STATES <- paste( V1, V2, V3 , sep='|' )
 SD_02_EMT_NUM_STATES <- xml2::xml_text( xml2::xml_find_all( doc, V_EMT_NUM_STATES ) )
 if( length( SD_02_EMT_NUM_STATES ) > 1 )
 { 
-  create_record( varname=SD_02_EMT_NUM_STATES, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_02_EMT_NUM_STATES, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_02_EMT_NUM_STATES <-  paste0( '{', SD_02_EMT_NUM_STATES, '}', collapse=';' ) 
 } 
 
@@ -182,7 +182,7 @@ V_EMT_PUB_USE_X <- paste( V1, V2, V3 , sep='|' )
 SD_02_EMT_PUB_USE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_EMT_PUB_USE_X ) )
 if( length( SD_02_EMT_PUB_USE_X ) > 1 )
 { 
-  create_record( varname=SD_02_EMT_PUB_USE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_02_EMT_PUB_USE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_02_EMT_PUB_USE_X <-  paste0( '{', SD_02_EMT_PUB_USE_X, '}', collapse=';' ) 
 } 
 
@@ -203,7 +203,7 @@ V_EMT_OPEN_SPACE_X <- paste( V1, V2, V3 , sep='|' )
 SD_02_EMT_OPEN_SPACE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_EMT_OPEN_SPACE_X ) )
 if( length( SD_02_EMT_OPEN_SPACE_X ) > 1 )
 { 
-  create_record( varname=SD_02_EMT_OPEN_SPACE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_02_EMT_OPEN_SPACE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_02_EMT_OPEN_SPACE_X <-  paste0( '{', SD_02_EMT_OPEN_SPACE_X, '}', collapse=';' ) 
 } 
 
@@ -224,7 +224,7 @@ V_EMT_NATURAL_HABITAT_X <- paste( V1, V2, V3 , sep='|' )
 SD_02_EMT_NATURAL_HABITAT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_EMT_NATURAL_HABITAT_X ) )
 if( length( SD_02_EMT_NATURAL_HABITAT_X ) > 1 )
 { 
-  create_record( varname=SD_02_EMT_NATURAL_HABITAT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_02_EMT_NATURAL_HABITAT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_02_EMT_NATURAL_HABITAT_X <-  paste0( '{', SD_02_EMT_NATURAL_HABITAT_X, '}', collapse=';' ) 
 } 
 
@@ -245,7 +245,7 @@ V_EMT_170H_SATISFIED_X <- paste( V1, V2, V3 , sep='|' )
 SD_02_EMT_170H_SATISFIED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_EMT_170H_SATISFIED_X ) )
 if( length( SD_02_EMT_170H_SATISFIED_X ) > 1 )
 { 
-  create_record( varname=SD_02_EMT_170H_SATISFIED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_02_EMT_170H_SATISFIED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_02_EMT_170H_SATISFIED_X <-  paste0( '{', SD_02_EMT_170H_SATISFIED_X, '}', collapse=';' ) 
 } 
 
@@ -266,7 +266,7 @@ V_EMT_STAFF_HOURS_ENFORCE <- paste( V1, V2, V3 , sep='|' )
 SD_02_EMT_STAFF_HOURS_ENFORCE <- xml2::xml_text( xml2::xml_find_all( doc, V_EMT_STAFF_HOURS_ENFORCE ) )
 if( length( SD_02_EMT_STAFF_HOURS_ENFORCE ) > 1 )
 { 
-  create_record( varname=SD_02_EMT_STAFF_HOURS_ENFORCE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_02_EMT_STAFF_HOURS_ENFORCE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_02_EMT_STAFF_HOURS_ENFORCE <-  paste0( '{', SD_02_EMT_STAFF_HOURS_ENFORCE, '}', collapse=';' ) 
 } 
 
@@ -287,7 +287,7 @@ V_EMT_TOT_ACREAGE <- paste( V1, V2, V3 , sep='|' )
 SD_02_EMT_TOT_ACREAGE <- xml2::xml_text( xml2::xml_find_all( doc, V_EMT_TOT_ACREAGE ) )
 if( length( SD_02_EMT_TOT_ACREAGE ) > 1 )
 { 
-  create_record( varname=SD_02_EMT_TOT_ACREAGE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_02_EMT_TOT_ACREAGE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_02_EMT_TOT_ACREAGE <-  paste0( '{', SD_02_EMT_TOT_ACREAGE, '}', collapse=';' ) 
 } 
 
@@ -308,7 +308,7 @@ V_EMT_TOT_NUM <- paste( V1, V2, V3 , sep='|' )
 SD_02_EMT_TOT_NUM <- xml2::xml_text( xml2::xml_find_all( doc, V_EMT_TOT_NUM ) )
 if( length( SD_02_EMT_TOT_NUM ) > 1 )
 { 
-  create_record( varname=SD_02_EMT_TOT_NUM, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_02_EMT_TOT_NUM, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_02_EMT_TOT_NUM <-  paste0( '{', SD_02_EMT_TOT_NUM, '}', collapse=';' ) 
 } 
 
@@ -329,7 +329,7 @@ V_EMT_WRITTEN_POLICY_X <- paste( V1, V2, V3 , sep='|' )
 SD_02_EMT_WRITTEN_POLICY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_EMT_WRITTEN_POLICY_X ) )
 if( length( SD_02_EMT_WRITTEN_POLICY_X ) > 1 )
 { 
-  create_record( varname=SD_02_EMT_WRITTEN_POLICY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_02_EMT_WRITTEN_POLICY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_02_EMT_WRITTEN_POLICY_X <-  paste0( '{', SD_02_EMT_WRITTEN_POLICY_X, '}', collapse=';' ) 
 } 
 

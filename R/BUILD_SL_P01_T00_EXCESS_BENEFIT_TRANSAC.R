@@ -35,7 +35,7 @@ V_TRANSAC_AMT_TAX_IMPOSED <- paste( V1, V2, V3 , sep='|' )
 SL_01_TRANSAC_AMT_TAX_IMPOSED <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_AMT_TAX_IMPOSED ) )
 if( length( SL_01_TRANSAC_AMT_TAX_IMPOSED ) > 1 )
 { 
-  create_record( varname=SL_01_TRANSAC_AMT_TAX_IMPOSED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SL_01_TRANSAC_AMT_TAX_IMPOSED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SL_01_TRANSAC_AMT_TAX_IMPOSED <-  paste0( '{', SL_01_TRANSAC_AMT_TAX_IMPOSED, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_TRANSAC_AMT_TAX_REIMBURSED <- paste( V1, V2, V3 , sep='|' )
 SL_01_TRANSAC_AMT_TAX_REIMBURSED <- xml2::xml_text( xml2::xml_find_all( doc, V_TRANSAC_AMT_TAX_REIMBURSED ) )
 if( length( SL_01_TRANSAC_AMT_TAX_REIMBURSED ) > 1 )
 { 
-  create_record( varname=SL_01_TRANSAC_AMT_TAX_REIMBURSED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SL_01_TRANSAC_AMT_TAX_REIMBURSED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SL_01_TRANSAC_AMT_TAX_REIMBURSED <-  paste0( '{', SL_01_TRANSAC_AMT_TAX_REIMBURSED, '}', collapse=';' ) 
 } 
 

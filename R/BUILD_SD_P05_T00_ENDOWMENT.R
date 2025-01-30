@@ -35,7 +35,7 @@ V_RLTD_ORG_LISTED_SCHED_R_X <- paste( V1, V2, V3 , sep='|' )
 SD_05_RLTD_ORG_LISTED_SCHED_R_X <- xml2::xml_text( xml2::xml_find_all( doc, V_RLTD_ORG_LISTED_SCHED_R_X ) )
 if( length( SD_05_RLTD_ORG_LISTED_SCHED_R_X ) > 1 )
 { 
-  create_record( varname=SD_05_RLTD_ORG_LISTED_SCHED_R_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_RLTD_ORG_LISTED_SCHED_R_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_RLTD_ORG_LISTED_SCHED_R_X <-  paste0( '{', SD_05_RLTD_ORG_LISTED_SCHED_R_X, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_PCT_L1G_BOARD_DESIGNATED <- paste( V1, V2, V3 , sep='|' )
 SD_05_PCT_L1G_BOARD_DESIGNATED <- xml2::xml_text( xml2::xml_find_all( doc, V_PCT_L1G_BOARD_DESIGNATED ) )
 if( length( SD_05_PCT_L1G_BOARD_DESIGNATED ) > 1 )
 { 
-  create_record( varname=SD_05_PCT_L1G_BOARD_DESIGNATED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_PCT_L1G_BOARD_DESIGNATED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_PCT_L1G_BOARD_DESIGNATED <-  paste0( '{', SD_05_PCT_L1G_BOARD_DESIGNATED, '}', collapse=';' ) 
 } 
 
@@ -77,7 +77,7 @@ V_ENDOW_EXP_ADMIN_CY <- paste( V1, V2, V3 , sep='|' )
 SD_05_ENDOW_EXP_ADMIN_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_EXP_ADMIN_CY ) )
 if( length( SD_05_ENDOW_EXP_ADMIN_CY ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_EXP_ADMIN_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_EXP_ADMIN_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_EXP_ADMIN_CY <-  paste0( '{', SD_05_ENDOW_EXP_ADMIN_CY, '}', collapse=';' ) 
 } 
 
@@ -98,7 +98,7 @@ V_ENDOW_BALANCE_BOY_CY <- paste( V1, V2, V3 , sep='|' )
 SD_05_ENDOW_BALANCE_BOY_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_BALANCE_BOY_CY ) )
 if( length( SD_05_ENDOW_BALANCE_BOY_CY ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_BALANCE_BOY_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_BALANCE_BOY_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_BALANCE_BOY_CY <-  paste0( '{', SD_05_ENDOW_BALANCE_BOY_CY, '}', collapse=';' ) 
 } 
 
@@ -119,7 +119,7 @@ V_ENDOW_CONTR_CY <- paste( V1, V2, V3 , sep='|' )
 SD_05_ENDOW_CONTR_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_CONTR_CY ) )
 if( length( SD_05_ENDOW_CONTR_CY ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_CONTR_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_CONTR_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_CONTR_CY <-  paste0( '{', SD_05_ENDOW_CONTR_CY, '}', collapse=';' ) 
 } 
 
@@ -140,7 +140,7 @@ V_ENDOW_BALANCE_EOY_CY <- paste( V1, V2, V3 , sep='|' )
 SD_05_ENDOW_BALANCE_EOY_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_BALANCE_EOY_CY ) )
 if( length( SD_05_ENDOW_BALANCE_EOY_CY ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_BALANCE_EOY_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_BALANCE_EOY_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_BALANCE_EOY_CY <-  paste0( '{', SD_05_ENDOW_BALANCE_EOY_CY, '}', collapse=';' ) 
 } 
 
@@ -161,7 +161,7 @@ V_ENDOW_GRANT_CY <- paste( V1, V2, V3 , sep='|' )
 SD_05_ENDOW_GRANT_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_GRANT_CY ) )
 if( length( SD_05_ENDOW_GRANT_CY ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_GRANT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_GRANT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_GRANT_CY <-  paste0( '{', SD_05_ENDOW_GRANT_CY, '}', collapse=';' ) 
 } 
 
@@ -182,7 +182,7 @@ V_ENDOW_INVEST_CY <- paste( V1, V2, V3 , sep='|' )
 SD_05_ENDOW_INVEST_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_INVEST_CY ) )
 if( length( SD_05_ENDOW_INVEST_CY ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_INVEST_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_INVEST_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_INVEST_CY <-  paste0( '{', SD_05_ENDOW_INVEST_CY, '}', collapse=';' ) 
 } 
 
@@ -203,7 +203,7 @@ V_ENDOW_EXP_OTH_CY <- paste( V1, V2, V3 , sep='|' )
 SD_05_ENDOW_EXP_OTH_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_EXP_OTH_CY ) )
 if( length( SD_05_ENDOW_EXP_OTH_CY ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_EXP_OTH_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_EXP_OTH_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_EXP_OTH_CY <-  paste0( '{', SD_05_ENDOW_EXP_OTH_CY, '}', collapse=';' ) 
 } 
 
@@ -223,7 +223,7 @@ V_ENDOW_EXP_ADMIN_CY_M1 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_EXP_ADMIN_CY_M1 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_EXP_ADMIN_CY_M1 ) )
 if( length( SD_05_ENDOW_EXP_ADMIN_CY_M1 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_EXP_ADMIN_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_EXP_ADMIN_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_EXP_ADMIN_CY_M1 <-  paste0( '{', SD_05_ENDOW_EXP_ADMIN_CY_M1, '}', collapse=';' ) 
 } 
 
@@ -243,7 +243,7 @@ V_ENDOW_BALANCE_BOY_CY_M1 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_BALANCE_BOY_CY_M1 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_BALANCE_BOY_CY_M1 ) )
 if( length( SD_05_ENDOW_BALANCE_BOY_CY_M1 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_BALANCE_BOY_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_BALANCE_BOY_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_BALANCE_BOY_CY_M1 <-  paste0( '{', SD_05_ENDOW_BALANCE_BOY_CY_M1, '}', collapse=';' ) 
 } 
 
@@ -263,7 +263,7 @@ V_ENDOW_CONTR_CY_M1 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_CONTR_CY_M1 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_CONTR_CY_M1 ) )
 if( length( SD_05_ENDOW_CONTR_CY_M1 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_CONTR_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_CONTR_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_CONTR_CY_M1 <-  paste0( '{', SD_05_ENDOW_CONTR_CY_M1, '}', collapse=';' ) 
 } 
 
@@ -283,7 +283,7 @@ V_ENDOW_BALANCE_EOY_CY_M1 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_BALANCE_EOY_CY_M1 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_BALANCE_EOY_CY_M1 ) )
 if( length( SD_05_ENDOW_BALANCE_EOY_CY_M1 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_BALANCE_EOY_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_BALANCE_EOY_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_BALANCE_EOY_CY_M1 <-  paste0( '{', SD_05_ENDOW_BALANCE_EOY_CY_M1, '}', collapse=';' ) 
 } 
 
@@ -303,7 +303,7 @@ V_ENDOW_GRANT_CY_M1 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_GRANT_CY_M1 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_GRANT_CY_M1 ) )
 if( length( SD_05_ENDOW_GRANT_CY_M1 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_GRANT_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_GRANT_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_GRANT_CY_M1 <-  paste0( '{', SD_05_ENDOW_GRANT_CY_M1, '}', collapse=';' ) 
 } 
 
@@ -323,7 +323,7 @@ V_ENDOW_INVEST_CY_M1 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_INVEST_CY_M1 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_INVEST_CY_M1 ) )
 if( length( SD_05_ENDOW_INVEST_CY_M1 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_INVEST_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_INVEST_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_INVEST_CY_M1 <-  paste0( '{', SD_05_ENDOW_INVEST_CY_M1, '}', collapse=';' ) 
 } 
 
@@ -343,7 +343,7 @@ V_ENDOW_EXP_OTH_CY_M1 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_EXP_OTH_CY_M1 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_EXP_OTH_CY_M1 ) )
 if( length( SD_05_ENDOW_EXP_OTH_CY_M1 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_EXP_OTH_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_EXP_OTH_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_EXP_OTH_CY_M1 <-  paste0( '{', SD_05_ENDOW_EXP_OTH_CY_M1, '}', collapse=';' ) 
 } 
 
@@ -363,7 +363,7 @@ V_ENDOW_EXP_ADMIN_CY_M2 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_EXP_ADMIN_CY_M2 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_EXP_ADMIN_CY_M2 ) )
 if( length( SD_05_ENDOW_EXP_ADMIN_CY_M2 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_EXP_ADMIN_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_EXP_ADMIN_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_EXP_ADMIN_CY_M2 <-  paste0( '{', SD_05_ENDOW_EXP_ADMIN_CY_M2, '}', collapse=';' ) 
 } 
 
@@ -383,7 +383,7 @@ V_ENDOW_BALANCE_BOY_CY_M2 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_BALANCE_BOY_CY_M2 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_BALANCE_BOY_CY_M2 ) )
 if( length( SD_05_ENDOW_BALANCE_BOY_CY_M2 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_BALANCE_BOY_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_BALANCE_BOY_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_BALANCE_BOY_CY_M2 <-  paste0( '{', SD_05_ENDOW_BALANCE_BOY_CY_M2, '}', collapse=';' ) 
 } 
 
@@ -403,7 +403,7 @@ V_ENDOW_CONTR_CY_M2 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_CONTR_CY_M2 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_CONTR_CY_M2 ) )
 if( length( SD_05_ENDOW_CONTR_CY_M2 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_CONTR_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_CONTR_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_CONTR_CY_M2 <-  paste0( '{', SD_05_ENDOW_CONTR_CY_M2, '}', collapse=';' ) 
 } 
 
@@ -423,7 +423,7 @@ V_ENDOW_BALANCE_EOY_CY_M2 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_BALANCE_EOY_CY_M2 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_BALANCE_EOY_CY_M2 ) )
 if( length( SD_05_ENDOW_BALANCE_EOY_CY_M2 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_BALANCE_EOY_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_BALANCE_EOY_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_BALANCE_EOY_CY_M2 <-  paste0( '{', SD_05_ENDOW_BALANCE_EOY_CY_M2, '}', collapse=';' ) 
 } 
 
@@ -443,7 +443,7 @@ V_ENDOW_GRANT_CY_M2 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_GRANT_CY_M2 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_GRANT_CY_M2 ) )
 if( length( SD_05_ENDOW_GRANT_CY_M2 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_GRANT_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_GRANT_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_GRANT_CY_M2 <-  paste0( '{', SD_05_ENDOW_GRANT_CY_M2, '}', collapse=';' ) 
 } 
 
@@ -463,7 +463,7 @@ V_ENDOW_INVEST_CY_M2 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_INVEST_CY_M2 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_INVEST_CY_M2 ) )
 if( length( SD_05_ENDOW_INVEST_CY_M2 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_INVEST_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_INVEST_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_INVEST_CY_M2 <-  paste0( '{', SD_05_ENDOW_INVEST_CY_M2, '}', collapse=';' ) 
 } 
 
@@ -483,7 +483,7 @@ V_ENDOW_EXP_OTH_CY_M2 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_EXP_OTH_CY_M2 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_EXP_OTH_CY_M2 ) )
 if( length( SD_05_ENDOW_EXP_OTH_CY_M2 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_EXP_OTH_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_EXP_OTH_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_EXP_OTH_CY_M2 <-  paste0( '{', SD_05_ENDOW_EXP_OTH_CY_M2, '}', collapse=';' ) 
 } 
 
@@ -503,7 +503,7 @@ V_ENDOW_EXP_ADMIN_CY_M3 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_EXP_ADMIN_CY_M3 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_EXP_ADMIN_CY_M3 ) )
 if( length( SD_05_ENDOW_EXP_ADMIN_CY_M3 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_EXP_ADMIN_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_EXP_ADMIN_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_EXP_ADMIN_CY_M3 <-  paste0( '{', SD_05_ENDOW_EXP_ADMIN_CY_M3, '}', collapse=';' ) 
 } 
 
@@ -523,7 +523,7 @@ V_ENDOW_BALANCE_BOY_CY_M3 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_BALANCE_BOY_CY_M3 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_BALANCE_BOY_CY_M3 ) )
 if( length( SD_05_ENDOW_BALANCE_BOY_CY_M3 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_BALANCE_BOY_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_BALANCE_BOY_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_BALANCE_BOY_CY_M3 <-  paste0( '{', SD_05_ENDOW_BALANCE_BOY_CY_M3, '}', collapse=';' ) 
 } 
 
@@ -543,7 +543,7 @@ V_ENDOW_CONTR_CY_M3 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_CONTR_CY_M3 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_CONTR_CY_M3 ) )
 if( length( SD_05_ENDOW_CONTR_CY_M3 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_CONTR_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_CONTR_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_CONTR_CY_M3 <-  paste0( '{', SD_05_ENDOW_CONTR_CY_M3, '}', collapse=';' ) 
 } 
 
@@ -563,7 +563,7 @@ V_ENDOW_BALANCE_EOY_CY_M3 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_BALANCE_EOY_CY_M3 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_BALANCE_EOY_CY_M3 ) )
 if( length( SD_05_ENDOW_BALANCE_EOY_CY_M3 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_BALANCE_EOY_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_BALANCE_EOY_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_BALANCE_EOY_CY_M3 <-  paste0( '{', SD_05_ENDOW_BALANCE_EOY_CY_M3, '}', collapse=';' ) 
 } 
 
@@ -583,7 +583,7 @@ V_ENDOW_GRANT_CY_M3 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_GRANT_CY_M3 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_GRANT_CY_M3 ) )
 if( length( SD_05_ENDOW_GRANT_CY_M3 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_GRANT_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_GRANT_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_GRANT_CY_M3 <-  paste0( '{', SD_05_ENDOW_GRANT_CY_M3, '}', collapse=';' ) 
 } 
 
@@ -603,7 +603,7 @@ V_ENDOW_INVEST_CY_M3 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_INVEST_CY_M3 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_INVEST_CY_M3 ) )
 if( length( SD_05_ENDOW_INVEST_CY_M3 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_INVEST_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_INVEST_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_INVEST_CY_M3 <-  paste0( '{', SD_05_ENDOW_INVEST_CY_M3, '}', collapse=';' ) 
 } 
 
@@ -623,7 +623,7 @@ V_ENDOW_EXP_OTH_CY_M3 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_EXP_OTH_CY_M3 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_EXP_OTH_CY_M3 ) )
 if( length( SD_05_ENDOW_EXP_OTH_CY_M3 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_EXP_OTH_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_EXP_OTH_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_EXP_OTH_CY_M3 <-  paste0( '{', SD_05_ENDOW_EXP_OTH_CY_M3, '}', collapse=';' ) 
 } 
 
@@ -643,7 +643,7 @@ V_ENDOW_EXP_ADMIN_CY_M4 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_EXP_ADMIN_CY_M4 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_EXP_ADMIN_CY_M4 ) )
 if( length( SD_05_ENDOW_EXP_ADMIN_CY_M4 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_EXP_ADMIN_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_EXP_ADMIN_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_EXP_ADMIN_CY_M4 <-  paste0( '{', SD_05_ENDOW_EXP_ADMIN_CY_M4, '}', collapse=';' ) 
 } 
 
@@ -663,7 +663,7 @@ V_ENDOW_BALANCE_BOY_CY_M4 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_BALANCE_BOY_CY_M4 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_BALANCE_BOY_CY_M4 ) )
 if( length( SD_05_ENDOW_BALANCE_BOY_CY_M4 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_BALANCE_BOY_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_BALANCE_BOY_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_BALANCE_BOY_CY_M4 <-  paste0( '{', SD_05_ENDOW_BALANCE_BOY_CY_M4, '}', collapse=';' ) 
 } 
 
@@ -683,7 +683,7 @@ V_ENDOW_CONTR_CY_M4 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_CONTR_CY_M4 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_CONTR_CY_M4 ) )
 if( length( SD_05_ENDOW_CONTR_CY_M4 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_CONTR_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_CONTR_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_CONTR_CY_M4 <-  paste0( '{', SD_05_ENDOW_CONTR_CY_M4, '}', collapse=';' ) 
 } 
 
@@ -703,7 +703,7 @@ V_ENDOW_BALANCE_EOY_CY_M4 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_BALANCE_EOY_CY_M4 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_BALANCE_EOY_CY_M4 ) )
 if( length( SD_05_ENDOW_BALANCE_EOY_CY_M4 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_BALANCE_EOY_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_BALANCE_EOY_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_BALANCE_EOY_CY_M4 <-  paste0( '{', SD_05_ENDOW_BALANCE_EOY_CY_M4, '}', collapse=';' ) 
 } 
 
@@ -723,7 +723,7 @@ V_ENDOW_GRANT_CY_M4 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_GRANT_CY_M4 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_GRANT_CY_M4 ) )
 if( length( SD_05_ENDOW_GRANT_CY_M4 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_GRANT_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_GRANT_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_GRANT_CY_M4 <-  paste0( '{', SD_05_ENDOW_GRANT_CY_M4, '}', collapse=';' ) 
 } 
 
@@ -743,7 +743,7 @@ V_ENDOW_INVEST_CY_M4 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_INVEST_CY_M4 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_INVEST_CY_M4 ) )
 if( length( SD_05_ENDOW_INVEST_CY_M4 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_INVEST_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_INVEST_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_INVEST_CY_M4 <-  paste0( '{', SD_05_ENDOW_INVEST_CY_M4, '}', collapse=';' ) 
 } 
 
@@ -763,7 +763,7 @@ V_ENDOW_EXP_OTH_CY_M4 <- paste( V1, V2 , sep='|' )
 SD_05_ENDOW_EXP_OTH_CY_M4 <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_EXP_OTH_CY_M4 ) )
 if( length( SD_05_ENDOW_EXP_OTH_CY_M4 ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_EXP_OTH_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_EXP_OTH_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_EXP_OTH_CY_M4 <-  paste0( '{', SD_05_ENDOW_EXP_OTH_CY_M4, '}', collapse=';' ) 
 } 
 
@@ -784,7 +784,7 @@ V_ENDOW_HELD_ORG_RLTD_X <- paste( V1, V2, V3 , sep='|' )
 SD_05_ENDOW_HELD_ORG_RLTD_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_HELD_ORG_RLTD_X ) )
 if( length( SD_05_ENDOW_HELD_ORG_RLTD_X ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_HELD_ORG_RLTD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_HELD_ORG_RLTD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_HELD_ORG_RLTD_X <-  paste0( '{', SD_05_ENDOW_HELD_ORG_RLTD_X, '}', collapse=';' ) 
 } 
 
@@ -805,7 +805,7 @@ V_ENDOW_HELD_ORG_UNRLTD_X <- paste( V1, V2, V3 , sep='|' )
 SD_05_ENDOW_HELD_ORG_UNRLTD_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ENDOW_HELD_ORG_UNRLTD_X ) )
 if( length( SD_05_ENDOW_HELD_ORG_UNRLTD_X ) > 1 )
 { 
-  create_record( varname=SD_05_ENDOW_HELD_ORG_UNRLTD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_ENDOW_HELD_ORG_UNRLTD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_ENDOW_HELD_ORG_UNRLTD_X <-  paste0( '{', SD_05_ENDOW_HELD_ORG_UNRLTD_X, '}', collapse=';' ) 
 } 
 
@@ -826,7 +826,7 @@ V_PCT_L1G_PERMANENT_ENDOW <- paste( V1, V2, V3 , sep='|' )
 SD_05_PCT_L1G_PERMANENT_ENDOW <- xml2::xml_text( xml2::xml_find_all( doc, V_PCT_L1G_PERMANENT_ENDOW ) )
 if( length( SD_05_PCT_L1G_PERMANENT_ENDOW ) > 1 )
 { 
-  create_record( varname=SD_05_PCT_L1G_PERMANENT_ENDOW, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_PCT_L1G_PERMANENT_ENDOW, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_PCT_L1G_PERMANENT_ENDOW <-  paste0( '{', SD_05_PCT_L1G_PERMANENT_ENDOW, '}', collapse=';' ) 
 } 
 
@@ -847,7 +847,7 @@ V_PCT_L1G_TERM_ENDOW <- paste( V1, V2, V3 , sep='|' )
 SD_05_PCT_L1G_TERM_ENDOW <- xml2::xml_text( xml2::xml_find_all( doc, V_PCT_L1G_TERM_ENDOW ) )
 if( length( SD_05_PCT_L1G_TERM_ENDOW ) > 1 )
 { 
-  create_record( varname=SD_05_PCT_L1G_TERM_ENDOW, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_05_PCT_L1G_TERM_ENDOW, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_05_PCT_L1G_TERM_ENDOW <-  paste0( '{', SD_05_PCT_L1G_TERM_ENDOW, '}', collapse=';' ) 
 } 
 

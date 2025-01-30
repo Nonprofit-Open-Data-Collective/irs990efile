@@ -4,14 +4,14 @@
 \alias{build_tables_parallel}
 \title{Parallel Build of Tables}
 \usage{
-build_tables_parallel(groups, year, fx.names = NULL)
+build_tables_parallel(batch.ids, year, fx.names = NULL)
 }
 \arguments{
-\item{groups}{A list of URL groups to process.}
-
 \item{year}{The tax year associated with the data.}
 
 \item{fx.names}{A vector of function names for processing tables.}
+
+\item{groups}{A list of URL groups to process.}
 }
 \value{
 A vector of failed URLs.

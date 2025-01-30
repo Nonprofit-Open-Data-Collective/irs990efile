@@ -4,7 +4,7 @@
 \alias{parsapply_tables}
 \title{Passing arguments to parSapply}
 \usage{
-parsapply_tables(index.group)
+parsapply_tables(batch.id)
 }
 \description{
 Pass arguments to parallel sapply table function.

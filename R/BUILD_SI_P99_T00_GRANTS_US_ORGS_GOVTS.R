@@ -34,7 +34,7 @@ V_GRANT_US_ORG_LT_5K_X <- paste( V1, V2 , sep='|' )
 SI_99_GRANT_US_ORG_LT_5K_X <- xml2::xml_text( xml2::xml_find_all( doc, V_GRANT_US_ORG_LT_5K_X ) )
 if( length( SI_99_GRANT_US_ORG_LT_5K_X ) > 1 )
 { 
-  create_record( varname=SI_99_GRANT_US_ORG_LT_5K_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SI_99_GRANT_US_ORG_LT_5K_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SI_99_GRANT_US_ORG_LT_5K_X <-  paste0( '{', SI_99_GRANT_US_ORG_LT_5K_X, '}', collapse=';' ) 
 } 
 

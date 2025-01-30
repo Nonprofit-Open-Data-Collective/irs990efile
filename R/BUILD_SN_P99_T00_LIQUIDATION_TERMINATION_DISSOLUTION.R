@@ -34,7 +34,7 @@ V_ORG_DATE_LETTER <- paste( V1, V2 , sep='|' )
 SN_99_ORG_DATE_LETTER <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_DATE_LETTER ) )
 if( length( SN_99_ORG_DATE_LETTER ) > 1 )
 { 
-  create_record( varname=SN_99_ORG_DATE_LETTER, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SN_99_ORG_DATE_LETTER, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SN_99_ORG_DATE_LETTER <-  paste0( '{', SN_99_ORG_DATE_LETTER, '}', collapse=';' ) 
 } 
 
@@ -54,7 +54,7 @@ V_ORG_DETERMIN_LETTER_X <- paste( V1, V2 , sep='|' )
 SN_99_ORG_DETERMIN_LETTER_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_DETERMIN_LETTER_X ) )
 if( length( SN_99_ORG_DETERMIN_LETTER_X ) > 1 )
 { 
-  create_record( varname=SN_99_ORG_DETERMIN_LETTER_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SN_99_ORG_DETERMIN_LETTER_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SN_99_ORG_DETERMIN_LETTER_X <-  paste0( '{', SN_99_ORG_DETERMIN_LETTER_X, '}', collapse=';' ) 
 } 
 

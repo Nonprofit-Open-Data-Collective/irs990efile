@@ -35,7 +35,7 @@ V_PROP_HELD_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_PROP_HELD_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PROP_HELD_X ) )
 if( length( SM_01_PROP_HELD_X ) > 1 )
 { 
-  create_record( varname=SM_01_PROP_HELD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_PROP_HELD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_PROP_HELD_X <-  paste0( '{', SM_01_PROP_HELD_X, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_ARCHAE_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_ARCHAE_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_ARCHAE_METHOD_REV ) )
 if( length( SM_01_ARCHAE_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_ARCHAE_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_ARCHAE_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_ARCHAE_METHOD_REV <-  paste0( '{', SM_01_ARCHAE_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -77,7 +77,7 @@ V_ARCHAE_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_ARCHAE_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ARCHAE_NONCSH_X ) )
 if( length( SM_01_ARCHAE_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_ARCHAE_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_ARCHAE_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_ARCHAE_NONCSH_X <-  paste0( '{', SM_01_ARCHAE_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -98,7 +98,7 @@ V_ARCHAE_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_ARCHAE_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_ARCHAE_NONCSH_CONTR ) )
 if( length( SM_01_ARCHAE_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_ARCHAE_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_ARCHAE_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_ARCHAE_NONCSH_CONTR <-  paste0( '{', SM_01_ARCHAE_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -119,7 +119,7 @@ V_ARCHAE_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_ARCHAE_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_ARCHAE_NUM_CONTR ) )
 if( length( SM_01_ARCHAE_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_ARCHAE_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_ARCHAE_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_ARCHAE_NUM_CONTR <-  paste0( '{', SM_01_ARCHAE_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -140,7 +140,7 @@ V_ART_FRACT_INT_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_ART_FRACT_INT_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_ART_FRACT_INT_METHOD_REV ) )
 if( length( SM_01_ART_FRACT_INT_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_ART_FRACT_INT_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_ART_FRACT_INT_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_ART_FRACT_INT_METHOD_REV <-  paste0( '{', SM_01_ART_FRACT_INT_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -161,7 +161,7 @@ V_ART_FRACT_INT_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_ART_FRACT_INT_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ART_FRACT_INT_NONCSH_X ) )
 if( length( SM_01_ART_FRACT_INT_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_ART_FRACT_INT_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_ART_FRACT_INT_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_ART_FRACT_INT_NONCSH_X <-  paste0( '{', SM_01_ART_FRACT_INT_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -182,7 +182,7 @@ V_ART_FRACT_INT_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_ART_FRACT_INT_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_ART_FRACT_INT_NONCSH_CONTR ) )
 if( length( SM_01_ART_FRACT_INT_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_ART_FRACT_INT_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_ART_FRACT_INT_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_ART_FRACT_INT_NONCSH_CONTR <-  paste0( '{', SM_01_ART_FRACT_INT_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -203,7 +203,7 @@ V_ART_FRACT_INT_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_ART_FRACT_INT_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_ART_FRACT_INT_NUM_CONTR ) )
 if( length( SM_01_ART_FRACT_INT_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_ART_FRACT_INT_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_ART_FRACT_INT_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_ART_FRACT_INT_NUM_CONTR <-  paste0( '{', SM_01_ART_FRACT_INT_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -224,7 +224,7 @@ V_ART_HIST_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_ART_HIST_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_ART_HIST_METHOD_REV ) )
 if( length( SM_01_ART_HIST_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_ART_HIST_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_ART_HIST_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_ART_HIST_METHOD_REV <-  paste0( '{', SM_01_ART_HIST_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -245,7 +245,7 @@ V_ART_HIST_TREASURE_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_ART_HIST_TREASURE_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ART_HIST_TREASURE_NONCSH_X ) )
 if( length( SM_01_ART_HIST_TREASURE_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_ART_HIST_TREASURE_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_ART_HIST_TREASURE_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_ART_HIST_TREASURE_NONCSH_X <-  paste0( '{', SM_01_ART_HIST_TREASURE_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -266,7 +266,7 @@ V_ART_HIST_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_ART_HIST_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_ART_HIST_NONCSH_CONTR ) )
 if( length( SM_01_ART_HIST_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_ART_HIST_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_ART_HIST_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_ART_HIST_NONCSH_CONTR <-  paste0( '{', SM_01_ART_HIST_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -287,7 +287,7 @@ V_ART_HIST_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_ART_HIST_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_ART_HIST_NUM_CONTR ) )
 if( length( SM_01_ART_HIST_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_ART_HIST_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_ART_HIST_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_ART_HIST_NUM_CONTR <-  paste0( '{', SM_01_ART_HIST_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -308,7 +308,7 @@ V_BOAT_PLANE_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_BOAT_PLANE_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_BOAT_PLANE_METHOD_REV ) )
 if( length( SM_01_BOAT_PLANE_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_BOAT_PLANE_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_BOAT_PLANE_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_BOAT_PLANE_METHOD_REV <-  paste0( '{', SM_01_BOAT_PLANE_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -329,7 +329,7 @@ V_BOAT_PLANE_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_BOAT_PLANE_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_BOAT_PLANE_NONCSH_X ) )
 if( length( SM_01_BOAT_PLANE_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_BOAT_PLANE_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_BOAT_PLANE_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_BOAT_PLANE_NONCSH_X <-  paste0( '{', SM_01_BOAT_PLANE_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -350,7 +350,7 @@ V_BOAT_PLANE_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_BOAT_PLANE_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_BOAT_PLANE_NONCSH_CONTR ) )
 if( length( SM_01_BOAT_PLANE_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_BOAT_PLANE_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_BOAT_PLANE_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_BOAT_PLANE_NONCSH_CONTR <-  paste0( '{', SM_01_BOAT_PLANE_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -371,7 +371,7 @@ V_BOAT_PLANE_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_BOAT_PLANE_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_BOAT_PLANE_NUM_CONTR ) )
 if( length( SM_01_BOAT_PLANE_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_BOAT_PLANE_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_BOAT_PLANE_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_BOAT_PLANE_NUM_CONTR <-  paste0( '{', SM_01_BOAT_PLANE_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -392,7 +392,7 @@ V_BOOK_PUBLICA_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_BOOK_PUBLICA_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_BOOK_PUBLICA_METHOD_REV ) )
 if( length( SM_01_BOOK_PUBLICA_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_BOOK_PUBLICA_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_BOOK_PUBLICA_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_BOOK_PUBLICA_METHOD_REV <-  paste0( '{', SM_01_BOOK_PUBLICA_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -413,7 +413,7 @@ V_BOOK_PUBLICA_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_BOOK_PUBLICA_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_BOOK_PUBLICA_NONCSH_X ) )
 if( length( SM_01_BOOK_PUBLICA_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_BOOK_PUBLICA_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_BOOK_PUBLICA_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_BOOK_PUBLICA_NONCSH_X <-  paste0( '{', SM_01_BOOK_PUBLICA_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -434,7 +434,7 @@ V_BOOK_PUBLICA_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_BOOK_PUBLICA_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_BOOK_PUBLICA_NONCSH_CONTR ) )
 if( length( SM_01_BOOK_PUBLICA_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_BOOK_PUBLICA_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_BOOK_PUBLICA_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_BOOK_PUBLICA_NONCSH_CONTR <-  paste0( '{', SM_01_BOOK_PUBLICA_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -455,7 +455,7 @@ V_CAR_BEHICLE_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_CAR_BEHICLE_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_CAR_BEHICLE_METHOD_REV ) )
 if( length( SM_01_CAR_BEHICLE_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_CAR_BEHICLE_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_CAR_BEHICLE_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_CAR_BEHICLE_METHOD_REV <-  paste0( '{', SM_01_CAR_BEHICLE_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -476,7 +476,7 @@ V_CAR_BEHICLE_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_CAR_BEHICLE_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CAR_BEHICLE_NONCSH_X ) )
 if( length( SM_01_CAR_BEHICLE_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_CAR_BEHICLE_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_CAR_BEHICLE_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_CAR_BEHICLE_NONCSH_X <-  paste0( '{', SM_01_CAR_BEHICLE_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -497,7 +497,7 @@ V_CAR_BEHICLE_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_CAR_BEHICLE_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_CAR_BEHICLE_NONCSH_CONTR ) )
 if( length( SM_01_CAR_BEHICLE_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_CAR_BEHICLE_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_CAR_BEHICLE_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_CAR_BEHICLE_NONCSH_CONTR <-  paste0( '{', SM_01_CAR_BEHICLE_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -518,7 +518,7 @@ V_CAR_BEHICLE_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_CAR_BEHICLE_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_CAR_BEHICLE_NUM_CONTR ) )
 if( length( SM_01_CAR_BEHICLE_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_CAR_BEHICLE_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_CAR_BEHICLE_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_CAR_BEHICLE_NUM_CONTR <-  paste0( '{', SM_01_CAR_BEHICLE_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -539,7 +539,7 @@ V_CLOTHING_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_CLOTHING_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_CLOTHING_METHOD_REV ) )
 if( length( SM_01_CLOTHING_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_CLOTHING_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_CLOTHING_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_CLOTHING_METHOD_REV <-  paste0( '{', SM_01_CLOTHING_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -560,7 +560,7 @@ V_CLOTHING_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_CLOTHING_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_CLOTHING_NONCSH_X ) )
 if( length( SM_01_CLOTHING_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_CLOTHING_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_CLOTHING_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_CLOTHING_NONCSH_X <-  paste0( '{', SM_01_CLOTHING_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -581,7 +581,7 @@ V_CLOTHING_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_CLOTHING_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_CLOTHING_NONCSH_CONTR ) )
 if( length( SM_01_CLOTHING_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_CLOTHING_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_CLOTHING_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_CLOTHING_NONCSH_CONTR <-  paste0( '{', SM_01_CLOTHING_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -602,7 +602,7 @@ V_COLLECTIBLES_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_COLLECTIBLES_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_COLLECTIBLES_METHOD_REV ) )
 if( length( SM_01_COLLECTIBLES_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_COLLECTIBLES_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_COLLECTIBLES_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_COLLECTIBLES_METHOD_REV <-  paste0( '{', SM_01_COLLECTIBLES_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -623,7 +623,7 @@ V_COLLECTIBLES_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_COLLECTIBLES_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COLLECTIBLES_NONCSH_X ) )
 if( length( SM_01_COLLECTIBLES_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_COLLECTIBLES_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_COLLECTIBLES_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_COLLECTIBLES_NONCSH_X <-  paste0( '{', SM_01_COLLECTIBLES_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -644,7 +644,7 @@ V_COLLECTIBLES_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_COLLECTIBLES_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_COLLECTIBLES_NONCSH_CONTR ) )
 if( length( SM_01_COLLECTIBLES_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_COLLECTIBLES_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_COLLECTIBLES_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_COLLECTIBLES_NONCSH_CONTR <-  paste0( '{', SM_01_COLLECTIBLES_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -665,7 +665,7 @@ V_COLLECTIBLES_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_COLLECTIBLES_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_COLLECTIBLES_NUM_CONTR ) )
 if( length( SM_01_COLLECTIBLES_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_COLLECTIBLES_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_COLLECTIBLES_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_COLLECTIBLES_NUM_CONTR <-  paste0( '{', SM_01_COLLECTIBLES_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -686,7 +686,7 @@ V_DRUG_MEDICAL_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_DRUG_MEDICAL_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_DRUG_MEDICAL_METHOD_REV ) )
 if( length( SM_01_DRUG_MEDICAL_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_DRUG_MEDICAL_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_DRUG_MEDICAL_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_DRUG_MEDICAL_METHOD_REV <-  paste0( '{', SM_01_DRUG_MEDICAL_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -707,7 +707,7 @@ V_DRUG_MEDICAL_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_DRUG_MEDICAL_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_DRUG_MEDICAL_NONCSH_X ) )
 if( length( SM_01_DRUG_MEDICAL_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_DRUG_MEDICAL_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_DRUG_MEDICAL_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_DRUG_MEDICAL_NONCSH_X <-  paste0( '{', SM_01_DRUG_MEDICAL_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -728,7 +728,7 @@ V_DRUG_MEDICAL_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_DRUG_MEDICAL_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_DRUG_MEDICAL_NONCSH_CONTR ) )
 if( length( SM_01_DRUG_MEDICAL_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_DRUG_MEDICAL_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_DRUG_MEDICAL_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_DRUG_MEDICAL_NONCSH_CONTR <-  paste0( '{', SM_01_DRUG_MEDICAL_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -749,7 +749,7 @@ V_DRUG_MEDICAL_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_DRUG_MEDICAL_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_DRUG_MEDICAL_NUM_CONTR ) )
 if( length( SM_01_DRUG_MEDICAL_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_DRUG_MEDICAL_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_DRUG_MEDICAL_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_DRUG_MEDICAL_NUM_CONTR <-  paste0( '{', SM_01_DRUG_MEDICAL_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -770,7 +770,7 @@ V_FOOD_INV_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_FOOD_INV_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_FOOD_INV_METHOD_REV ) )
 if( length( SM_01_FOOD_INV_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_FOOD_INV_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_FOOD_INV_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_FOOD_INV_METHOD_REV <-  paste0( '{', SM_01_FOOD_INV_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -791,7 +791,7 @@ V_FOOD_INV_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_FOOD_INV_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FOOD_INV_NONCSH_X ) )
 if( length( SM_01_FOOD_INV_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_FOOD_INV_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_FOOD_INV_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_FOOD_INV_NONCSH_X <-  paste0( '{', SM_01_FOOD_INV_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -812,7 +812,7 @@ V_FOOD_INV_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_FOOD_INV_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_FOOD_INV_NONCSH_CONTR ) )
 if( length( SM_01_FOOD_INV_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_FOOD_INV_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_FOOD_INV_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_FOOD_INV_NONCSH_CONTR <-  paste0( '{', SM_01_FOOD_INV_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -833,7 +833,7 @@ V_FOOD_INV_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_FOOD_INV_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_FOOD_INV_NUM_CONTR ) )
 if( length( SM_01_FOOD_INV_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_FOOD_INV_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_FOOD_INV_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_FOOD_INV_NUM_CONTR <-  paste0( '{', SM_01_FOOD_INV_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -854,7 +854,7 @@ V_NUM_FORM_8283_REC <- paste( V1, V2, V3 , sep='|' )
 SM_01_NUM_FORM_8283_REC <- xml2::xml_text( xml2::xml_find_all( doc, V_NUM_FORM_8283_REC ) )
 if( length( SM_01_NUM_FORM_8283_REC ) > 1 )
 { 
-  create_record( varname=SM_01_NUM_FORM_8283_REC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_NUM_FORM_8283_REC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_NUM_FORM_8283_REC <-  paste0( '{', SM_01_NUM_FORM_8283_REC, '}', collapse=';' ) 
 } 
 
@@ -875,7 +875,7 @@ V_HIST_ARTIFACT_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_HIST_ARTIFACT_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_HIST_ARTIFACT_METHOD_REV ) )
 if( length( SM_01_HIST_ARTIFACT_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_HIST_ARTIFACT_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_HIST_ARTIFACT_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_HIST_ARTIFACT_METHOD_REV <-  paste0( '{', SM_01_HIST_ARTIFACT_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -896,7 +896,7 @@ V_HIST_ARTIFACT_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_HIST_ARTIFACT_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_HIST_ARTIFACT_NONCSH_X ) )
 if( length( SM_01_HIST_ARTIFACT_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_HIST_ARTIFACT_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_HIST_ARTIFACT_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_HIST_ARTIFACT_NONCSH_X <-  paste0( '{', SM_01_HIST_ARTIFACT_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -917,7 +917,7 @@ V_HIST_ARTIFACT_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_HIST_ARTIFACT_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_HIST_ARTIFACT_NUM_CONTR ) )
 if( length( SM_01_HIST_ARTIFACT_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_HIST_ARTIFACT_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_HIST_ARTIFACT_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_HIST_ARTIFACT_NUM_CONTR <-  paste0( '{', SM_01_HIST_ARTIFACT_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -938,7 +938,7 @@ V_HIST_ARTIFACT_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_HIST_ARTIFACT_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_HIST_ARTIFACT_NONCSH_CONTR ) )
 if( length( SM_01_HIST_ARTIFACT_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_HIST_ARTIFACT_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_HIST_ARTIFACT_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_HIST_ARTIFACT_NONCSH_CONTR <-  paste0( '{', SM_01_HIST_ARTIFACT_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -959,7 +959,7 @@ V_IP_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_IP_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_IP_METHOD_REV ) )
 if( length( SM_01_IP_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_IP_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_IP_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_IP_METHOD_REV <-  paste0( '{', SM_01_IP_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -980,7 +980,7 @@ V_IP_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_IP_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_IP_NONCSH_X ) )
 if( length( SM_01_IP_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_IP_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_IP_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_IP_NONCSH_X <-  paste0( '{', SM_01_IP_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -1001,7 +1001,7 @@ V_IP_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_IP_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_IP_NUM_CONTR ) )
 if( length( SM_01_IP_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_IP_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_IP_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_IP_NUM_CONTR <-  paste0( '{', SM_01_IP_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1022,7 +1022,7 @@ V_IP_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_IP_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_IP_NONCSH_CONTR ) )
 if( length( SM_01_IP_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_IP_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_IP_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_IP_NONCSH_CONTR <-  paste0( '{', SM_01_IP_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1043,7 +1043,7 @@ V_QUAL_HIST_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_QUAL_HIST_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_QUAL_HIST_METHOD_REV ) )
 if( length( SM_01_QUAL_HIST_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_QUAL_HIST_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_QUAL_HIST_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_QUAL_HIST_METHOD_REV <-  paste0( '{', SM_01_QUAL_HIST_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -1064,7 +1064,7 @@ V_QUAL_HIST_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_QUAL_HIST_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_QUAL_HIST_NONCSH_X ) )
 if( length( SM_01_QUAL_HIST_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_QUAL_HIST_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_QUAL_HIST_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_QUAL_HIST_NONCSH_X <-  paste0( '{', SM_01_QUAL_HIST_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -1085,7 +1085,7 @@ V_QUAL_HIST_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_QUAL_HIST_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_QUAL_HIST_NUM_CONTR ) )
 if( length( SM_01_QUAL_HIST_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_QUAL_HIST_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_QUAL_HIST_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_QUAL_HIST_NUM_CONTR <-  paste0( '{', SM_01_QUAL_HIST_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1106,7 +1106,7 @@ V_QUAL_HIST_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_QUAL_HIST_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_QUAL_HIST_NONCSH_CONTR ) )
 if( length( SM_01_QUAL_HIST_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_QUAL_HIST_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_QUAL_HIST_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_QUAL_HIST_NONCSH_CONTR <-  paste0( '{', SM_01_QUAL_HIST_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1127,7 +1127,7 @@ V_QUAL_OTH_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_QUAL_OTH_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_QUAL_OTH_METHOD_REV ) )
 if( length( SM_01_QUAL_OTH_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_QUAL_OTH_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_QUAL_OTH_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_QUAL_OTH_METHOD_REV <-  paste0( '{', SM_01_QUAL_OTH_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -1148,7 +1148,7 @@ V_QUAL_OTH_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_QUAL_OTH_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_QUAL_OTH_NONCSH_X ) )
 if( length( SM_01_QUAL_OTH_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_QUAL_OTH_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_QUAL_OTH_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_QUAL_OTH_NONCSH_X <-  paste0( '{', SM_01_QUAL_OTH_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -1169,7 +1169,7 @@ V_QUAL_OTH_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_QUAL_OTH_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_QUAL_OTH_NUM_CONTR ) )
 if( length( SM_01_QUAL_OTH_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_QUAL_OTH_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_QUAL_OTH_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_QUAL_OTH_NUM_CONTR <-  paste0( '{', SM_01_QUAL_OTH_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1190,7 +1190,7 @@ V_QUAL_OTH_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_QUAL_OTH_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_QUAL_OTH_NONCSH_CONTR ) )
 if( length( SM_01_QUAL_OTH_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_QUAL_OTH_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_QUAL_OTH_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_QUAL_OTH_NONCSH_CONTR <-  paste0( '{', SM_01_QUAL_OTH_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1211,7 +1211,7 @@ V_RE_COMMERCIAL_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_RE_COMMERCIAL_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_RE_COMMERCIAL_METHOD_REV ) )
 if( length( SM_01_RE_COMMERCIAL_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_RE_COMMERCIAL_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_RE_COMMERCIAL_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_RE_COMMERCIAL_METHOD_REV <-  paste0( '{', SM_01_RE_COMMERCIAL_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -1232,7 +1232,7 @@ V_RE_COMMERCIAL_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_RE_COMMERCIAL_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_RE_COMMERCIAL_NONCSH_X ) )
 if( length( SM_01_RE_COMMERCIAL_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_RE_COMMERCIAL_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_RE_COMMERCIAL_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_RE_COMMERCIAL_NONCSH_X <-  paste0( '{', SM_01_RE_COMMERCIAL_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -1253,7 +1253,7 @@ V_RE_COMMERCIAL_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_RE_COMMERCIAL_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_RE_COMMERCIAL_NUM_CONTR ) )
 if( length( SM_01_RE_COMMERCIAL_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_RE_COMMERCIAL_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_RE_COMMERCIAL_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_RE_COMMERCIAL_NUM_CONTR <-  paste0( '{', SM_01_RE_COMMERCIAL_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1274,7 +1274,7 @@ V_RE_COMMERCIAL_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_RE_COMMERCIAL_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_RE_COMMERCIAL_NONCSH_CONTR ) )
 if( length( SM_01_RE_COMMERCIAL_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_RE_COMMERCIAL_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_RE_COMMERCIAL_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_RE_COMMERCIAL_NONCSH_CONTR <-  paste0( '{', SM_01_RE_COMMERCIAL_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1295,7 +1295,7 @@ V_RE_OTH_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_RE_OTH_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_RE_OTH_METHOD_REV ) )
 if( length( SM_01_RE_OTH_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_RE_OTH_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_RE_OTH_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_RE_OTH_METHOD_REV <-  paste0( '{', SM_01_RE_OTH_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -1316,7 +1316,7 @@ V_RE_OTH_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_RE_OTH_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_RE_OTH_NONCSH_X ) )
 if( length( SM_01_RE_OTH_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_RE_OTH_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_RE_OTH_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_RE_OTH_NONCSH_X <-  paste0( '{', SM_01_RE_OTH_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -1337,7 +1337,7 @@ V_RE_OTH_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_RE_OTH_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_RE_OTH_NUM_CONTR ) )
 if( length( SM_01_RE_OTH_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_RE_OTH_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_RE_OTH_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_RE_OTH_NUM_CONTR <-  paste0( '{', SM_01_RE_OTH_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1358,7 +1358,7 @@ V_RE_OTH_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_RE_OTH_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_RE_OTH_NONCSH_CONTR ) )
 if( length( SM_01_RE_OTH_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_RE_OTH_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_RE_OTH_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_RE_OTH_NONCSH_CONTR <-  paste0( '{', SM_01_RE_OTH_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1379,7 +1379,7 @@ V_RE_RESID_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_RE_RESID_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_RE_RESID_METHOD_REV ) )
 if( length( SM_01_RE_RESID_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_RE_RESID_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_RE_RESID_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_RE_RESID_METHOD_REV <-  paste0( '{', SM_01_RE_RESID_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -1400,7 +1400,7 @@ V_RE_RESID_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_RE_RESID_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_RE_RESID_NONCSH_X ) )
 if( length( SM_01_RE_RESID_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_RE_RESID_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_RE_RESID_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_RE_RESID_NONCSH_X <-  paste0( '{', SM_01_RE_RESID_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -1421,7 +1421,7 @@ V_RE_RESID_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_RE_RESID_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_RE_RESID_NUM_CONTR ) )
 if( length( SM_01_RE_RESID_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_RE_RESID_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_RE_RESID_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_RE_RESID_NUM_CONTR <-  paste0( '{', SM_01_RE_RESID_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1442,7 +1442,7 @@ V_RE_RESID_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_RE_RESID_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_RE_RESID_NONCSH_CONTR ) )
 if( length( SM_01_RE_RESID_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_RE_RESID_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_RE_RESID_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_RE_RESID_NONCSH_CONTR <-  paste0( '{', SM_01_RE_RESID_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1463,7 +1463,7 @@ V_REVIEW_PROCESS_UNUSUAL_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_REVIEW_PROCESS_UNUSUAL_X <- xml2::xml_text( xml2::xml_find_all( doc, V_REVIEW_PROCESS_UNUSUAL_X ) )
 if( length( SM_01_REVIEW_PROCESS_UNUSUAL_X ) > 1 )
 { 
-  create_record( varname=SM_01_REVIEW_PROCESS_UNUSUAL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_REVIEW_PROCESS_UNUSUAL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_REVIEW_PROCESS_UNUSUAL_X <-  paste0( '{', SM_01_REVIEW_PROCESS_UNUSUAL_X, '}', collapse=';' ) 
 } 
 
@@ -1484,7 +1484,7 @@ V_SPECIMENS_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_SPECIMENS_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_SPECIMENS_METHOD_REV ) )
 if( length( SM_01_SPECIMENS_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_SPECIMENS_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SPECIMENS_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SPECIMENS_METHOD_REV <-  paste0( '{', SM_01_SPECIMENS_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -1505,7 +1505,7 @@ V_SPECIMENS_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_SPECIMENS_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_SPECIMENS_NONCSH_X ) )
 if( length( SM_01_SPECIMENS_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_SPECIMENS_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SPECIMENS_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SPECIMENS_NONCSH_X <-  paste0( '{', SM_01_SPECIMENS_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -1526,7 +1526,7 @@ V_SPECIMENS_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_SPECIMENS_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_SPECIMENS_NUM_CONTR ) )
 if( length( SM_01_SPECIMENS_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_SPECIMENS_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SPECIMENS_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SPECIMENS_NUM_CONTR <-  paste0( '{', SM_01_SPECIMENS_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1547,7 +1547,7 @@ V_SPECIMENS_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_SPECIMENS_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_SPECIMENS_NONCSH_CONTR ) )
 if( length( SM_01_SPECIMENS_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_SPECIMENS_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SPECIMENS_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SPECIMENS_NONCSH_CONTR <-  paste0( '{', SM_01_SPECIMENS_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1568,7 +1568,7 @@ V_SEC_STCK_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_SEC_STCK_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_SEC_STCK_METHOD_REV ) )
 if( length( SM_01_SEC_STCK_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_SEC_STCK_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SEC_STCK_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SEC_STCK_METHOD_REV <-  paste0( '{', SM_01_SEC_STCK_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -1589,7 +1589,7 @@ V_SEC_STCK_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_SEC_STCK_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_SEC_STCK_NONCSH_X ) )
 if( length( SM_01_SEC_STCK_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_SEC_STCK_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SEC_STCK_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SEC_STCK_NONCSH_X <-  paste0( '{', SM_01_SEC_STCK_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -1610,7 +1610,7 @@ V_SEC_STCK_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_SEC_STCK_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_SEC_STCK_NUM_CONTR ) )
 if( length( SM_01_SEC_STCK_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_SEC_STCK_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SEC_STCK_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SEC_STCK_NUM_CONTR <-  paste0( '{', SM_01_SEC_STCK_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1631,7 +1631,7 @@ V_SEC_STCK_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_SEC_STCK_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_SEC_STCK_NONCSH_CONTR ) )
 if( length( SM_01_SEC_STCK_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_SEC_STCK_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SEC_STCK_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SEC_STCK_NONCSH_CONTR <-  paste0( '{', SM_01_SEC_STCK_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1652,7 +1652,7 @@ V_SEC_MISC_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_SEC_MISC_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_SEC_MISC_METHOD_REV ) )
 if( length( SM_01_SEC_MISC_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_SEC_MISC_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SEC_MISC_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SEC_MISC_METHOD_REV <-  paste0( '{', SM_01_SEC_MISC_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -1673,7 +1673,7 @@ V_SEC_MISC_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_SEC_MISC_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_SEC_MISC_NONCSH_X ) )
 if( length( SM_01_SEC_MISC_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_SEC_MISC_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SEC_MISC_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SEC_MISC_NONCSH_X <-  paste0( '{', SM_01_SEC_MISC_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -1694,7 +1694,7 @@ V_SEC_MISC_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_SEC_MISC_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_SEC_MISC_NUM_CONTR ) )
 if( length( SM_01_SEC_MISC_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_SEC_MISC_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SEC_MISC_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SEC_MISC_NUM_CONTR <-  paste0( '{', SM_01_SEC_MISC_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1715,7 +1715,7 @@ V_SEC_MISC_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_SEC_MISC_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_SEC_MISC_NONCSH_CONTR ) )
 if( length( SM_01_SEC_MISC_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_SEC_MISC_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SEC_MISC_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SEC_MISC_NONCSH_CONTR <-  paste0( '{', SM_01_SEC_MISC_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1736,7 +1736,7 @@ V_SEC_PTR_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_SEC_PTR_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_SEC_PTR_METHOD_REV ) )
 if( length( SM_01_SEC_PTR_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_SEC_PTR_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SEC_PTR_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SEC_PTR_METHOD_REV <-  paste0( '{', SM_01_SEC_PTR_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -1757,7 +1757,7 @@ V_SEC_PTR_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_SEC_PTR_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_SEC_PTR_NONCSH_X ) )
 if( length( SM_01_SEC_PTR_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_SEC_PTR_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SEC_PTR_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SEC_PTR_NONCSH_X <-  paste0( '{', SM_01_SEC_PTR_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -1778,7 +1778,7 @@ V_SEC_PTR_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_SEC_PTR_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_SEC_PTR_NUM_CONTR ) )
 if( length( SM_01_SEC_PTR_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_SEC_PTR_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SEC_PTR_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SEC_PTR_NUM_CONTR <-  paste0( '{', SM_01_SEC_PTR_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1799,7 +1799,7 @@ V_SEC_PTR_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_SEC_PTR_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_SEC_PTR_NONCSH_CONTR ) )
 if( length( SM_01_SEC_PTR_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_SEC_PTR_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SEC_PTR_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SEC_PTR_NONCSH_CONTR <-  paste0( '{', SM_01_SEC_PTR_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1820,7 +1820,7 @@ V_SEC_PUB_TRADE_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_SEC_PUB_TRADE_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_SEC_PUB_TRADE_METHOD_REV ) )
 if( length( SM_01_SEC_PUB_TRADE_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_SEC_PUB_TRADE_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SEC_PUB_TRADE_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SEC_PUB_TRADE_METHOD_REV <-  paste0( '{', SM_01_SEC_PUB_TRADE_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -1841,7 +1841,7 @@ V_SEC_PUB_TRADE_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_SEC_PUB_TRADE_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_SEC_PUB_TRADE_NONCSH_X ) )
 if( length( SM_01_SEC_PUB_TRADE_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_SEC_PUB_TRADE_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SEC_PUB_TRADE_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SEC_PUB_TRADE_NONCSH_X <-  paste0( '{', SM_01_SEC_PUB_TRADE_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -1862,7 +1862,7 @@ V_SEC_PUB_TRADE_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_SEC_PUB_TRADE_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_SEC_PUB_TRADE_NUM_CONTR ) )
 if( length( SM_01_SEC_PUB_TRADE_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_SEC_PUB_TRADE_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SEC_PUB_TRADE_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SEC_PUB_TRADE_NUM_CONTR <-  paste0( '{', SM_01_SEC_PUB_TRADE_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1883,7 +1883,7 @@ V_SEC_PUB_TRADE_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_SEC_PUB_TRADE_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_SEC_PUB_TRADE_NONCSH_CONTR ) )
 if( length( SM_01_SEC_PUB_TRADE_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_SEC_PUB_TRADE_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_SEC_PUB_TRADE_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_SEC_PUB_TRADE_NONCSH_CONTR <-  paste0( '{', SM_01_SEC_PUB_TRADE_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1904,7 +1904,7 @@ V_TAXIDERMY_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_TAXIDERMY_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_TAXIDERMY_METHOD_REV ) )
 if( length( SM_01_TAXIDERMY_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_TAXIDERMY_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_TAXIDERMY_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_TAXIDERMY_METHOD_REV <-  paste0( '{', SM_01_TAXIDERMY_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -1925,7 +1925,7 @@ V_TAXIDERMY_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_TAXIDERMY_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_TAXIDERMY_NONCSH_X ) )
 if( length( SM_01_TAXIDERMY_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_TAXIDERMY_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_TAXIDERMY_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_TAXIDERMY_NONCSH_X <-  paste0( '{', SM_01_TAXIDERMY_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -1946,7 +1946,7 @@ V_TAXIDERMY_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_TAXIDERMY_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_TAXIDERMY_NUM_CONTR ) )
 if( length( SM_01_TAXIDERMY_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_TAXIDERMY_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_TAXIDERMY_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_TAXIDERMY_NUM_CONTR <-  paste0( '{', SM_01_TAXIDERMY_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1967,7 +1967,7 @@ V_TAXIDERMY_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_TAXIDERMY_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_TAXIDERMY_NONCSH_CONTR ) )
 if( length( SM_01_TAXIDERMY_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_TAXIDERMY_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_TAXIDERMY_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_TAXIDERMY_NONCSH_CONTR <-  paste0( '{', SM_01_TAXIDERMY_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 
@@ -1988,7 +1988,7 @@ V_THIRD_PARTIES_USED_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_THIRD_PARTIES_USED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_THIRD_PARTIES_USED_X ) )
 if( length( SM_01_THIRD_PARTIES_USED_X ) > 1 )
 { 
-  create_record( varname=SM_01_THIRD_PARTIES_USED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_THIRD_PARTIES_USED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_THIRD_PARTIES_USED_X <-  paste0( '{', SM_01_THIRD_PARTIES_USED_X, '}', collapse=';' ) 
 } 
 
@@ -2009,7 +2009,7 @@ V_ART_WORK_METHOD_REV <- paste( V1, V2, V3 , sep='|' )
 SM_01_ART_WORK_METHOD_REV <- xml2::xml_text( xml2::xml_find_all( doc, V_ART_WORK_METHOD_REV ) )
 if( length( SM_01_ART_WORK_METHOD_REV ) > 1 )
 { 
-  create_record( varname=SM_01_ART_WORK_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_ART_WORK_METHOD_REV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_ART_WORK_METHOD_REV <-  paste0( '{', SM_01_ART_WORK_METHOD_REV, '}', collapse=';' ) 
 } 
 
@@ -2030,7 +2030,7 @@ V_ART_WORK_NONCSH_X <- paste( V1, V2, V3 , sep='|' )
 SM_01_ART_WORK_NONCSH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ART_WORK_NONCSH_X ) )
 if( length( SM_01_ART_WORK_NONCSH_X ) > 1 )
 { 
-  create_record( varname=SM_01_ART_WORK_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_ART_WORK_NONCSH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_ART_WORK_NONCSH_X <-  paste0( '{', SM_01_ART_WORK_NONCSH_X, '}', collapse=';' ) 
 } 
 
@@ -2051,7 +2051,7 @@ V_ART_WORK_NUM_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_ART_WORK_NUM_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_ART_WORK_NUM_CONTR ) )
 if( length( SM_01_ART_WORK_NUM_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_ART_WORK_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_ART_WORK_NUM_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_ART_WORK_NUM_CONTR <-  paste0( '{', SM_01_ART_WORK_NUM_CONTR, '}', collapse=';' ) 
 } 
 
@@ -2072,7 +2072,7 @@ V_ART_WORK_NONCSH_CONTR <- paste( V1, V2, V3 , sep='|' )
 SM_01_ART_WORK_NONCSH_CONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_ART_WORK_NONCSH_CONTR ) )
 if( length( SM_01_ART_WORK_NONCSH_CONTR ) > 1 )
 { 
-  create_record( varname=SM_01_ART_WORK_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SM_01_ART_WORK_NONCSH_CONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SM_01_ART_WORK_NONCSH_CONTR <-  paste0( '{', SM_01_ART_WORK_NONCSH_CONTR, '}', collapse=';' ) 
 } 
 

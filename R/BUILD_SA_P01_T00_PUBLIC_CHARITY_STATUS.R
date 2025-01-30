@@ -35,7 +35,7 @@ V_PCSTAT_SUPPORT_ORG_NUM <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_SUPPORT_ORG_NUM <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_SUPPORT_ORG_NUM ) )
 if( length( SA_01_PCSTAT_SUPPORT_ORG_NUM ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_SUPPORT_ORG_NUM, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_SUPPORT_ORG_NUM, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_SUPPORT_ORG_NUM <-  paste0( '{', SA_01_PCSTAT_SUPPORT_ORG_NUM, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_PCSTAT_CERTIFICATION_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_CERTIFICATION_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_CERTIFICATION_X ) )
 if( length( SA_01_PCSTAT_CERTIFICATION_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_CERTIFICATION_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_CERTIFICATION_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_CERTIFICATION_X <-  paste0( '{', SA_01_PCSTAT_CERTIFICATION_X, '}', collapse=';' ) 
 } 
 
@@ -77,7 +77,7 @@ V_PCSTAT_CHURCH_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_CHURCH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_CHURCH_X ) )
 if( length( SA_01_PCSTAT_CHURCH_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_CHURCH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_CHURCH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_CHURCH_X <-  paste0( '{', SA_01_PCSTAT_CHURCH_X, '}', collapse=';' ) 
 } 
 
@@ -98,7 +98,7 @@ V_PCSTAT_COLLEGE_BEN_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_COLLEGE_BEN_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_COLLEGE_BEN_X ) )
 if( length( SA_01_PCSTAT_COLLEGE_BEN_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_COLLEGE_BEN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_COLLEGE_BEN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_COLLEGE_BEN_X <-  paste0( '{', SA_01_PCSTAT_COLLEGE_BEN_X, '}', collapse=';' ) 
 } 
 
@@ -119,7 +119,7 @@ V_PCSTAT_COM_TRUST_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_COM_TRUST_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_COM_TRUST_X ) )
 if( length( SA_01_PCSTAT_COM_TRUST_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_COM_TRUST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_COM_TRUST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_COM_TRUST_X <-  paste0( '{', SA_01_PCSTAT_COM_TRUST_X, '}', collapse=';' ) 
 } 
 
@@ -140,7 +140,7 @@ V_PCSTAT_CONTR_35PCT_CE_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_CONTR_35PCT_CE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_CONTR_35PCT_CE_X ) )
 if( length( SA_01_PCSTAT_CONTR_35PCT_CE_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_CONTR_35PCT_CE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_CONTR_35PCT_CE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_CONTR_35PCT_CE_X <-  paste0( '{', SA_01_PCSTAT_CONTR_35PCT_CE_X, '}', collapse=';' ) 
 } 
 
@@ -161,7 +161,7 @@ V_PCSTAT_CONTR_PERS_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_CONTR_PERS_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_CONTR_PERS_X ) )
 if( length( SA_01_PCSTAT_CONTR_PERS_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_CONTR_PERS_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_CONTR_PERS_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_CONTR_PERS_X <-  paste0( '{', SA_01_PCSTAT_CONTR_PERS_X, '}', collapse=';' ) 
 } 
 
@@ -182,7 +182,7 @@ V_PCSTAT_CONTR_FAM_PARTY_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_CONTR_FAM_PARTY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_CONTR_FAM_PARTY_X ) )
 if( length( SA_01_PCSTAT_CONTR_FAM_PARTY_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_CONTR_FAM_PARTY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_CONTR_FAM_PARTY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_CONTR_FAM_PARTY_X <-  paste0( '{', SA_01_PCSTAT_CONTR_FAM_PARTY_X, '}', collapse=';' ) 
 } 
 
@@ -203,7 +203,7 @@ V_PCSTAT_GOVT_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_GOVT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_GOVT_X ) )
 if( length( SA_01_PCSTAT_GOVT_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_GOVT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_GOVT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_GOVT_X <-  paste0( '{', SA_01_PCSTAT_GOVT_X, '}', collapse=';' ) 
 } 
 
@@ -224,7 +224,7 @@ V_PCSTAT_HOSPITAL_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_HOSPITAL_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_HOSPITAL_X ) )
 if( length( SA_01_PCSTAT_HOSPITAL_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_HOSPITAL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_HOSPITAL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_HOSPITAL_X <-  paste0( '{', SA_01_PCSTAT_HOSPITAL_X, '}', collapse=';' ) 
 } 
 
@@ -246,7 +246,7 @@ V_PCSTAT_HOSPITAL_ADDR_CITY <- paste( V1, V2, V3, V4 , sep='|' )
 SA_01_PCSTAT_HOSPITAL_ADDR_CITY <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_HOSPITAL_ADDR_CITY ) )
 if( length( SA_01_PCSTAT_HOSPITAL_ADDR_CITY ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_HOSPITAL_ADDR_CITY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_HOSPITAL_ADDR_CITY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_HOSPITAL_ADDR_CITY <-  paste0( '{', SA_01_PCSTAT_HOSPITAL_ADDR_CITY, '}', collapse=';' ) 
 } 
 
@@ -268,7 +268,7 @@ V_PCSTAT_HOSPITAL_NAME_L1 <- paste( V1, V2, V3, V4 , sep='|' )
 SA_01_PCSTAT_HOSPITAL_NAME_L1 <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_HOSPITAL_NAME_L1 ) )
 if( length( SA_01_PCSTAT_HOSPITAL_NAME_L1 ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_HOSPITAL_NAME_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_HOSPITAL_NAME_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_HOSPITAL_NAME_L1 <-  paste0( '{', SA_01_PCSTAT_HOSPITAL_NAME_L1, '}', collapse=';' ) 
 } 
 
@@ -290,7 +290,7 @@ V_PCSTAT_HOSPITAL_NAME_L2 <- paste( V1, V2, V3, V4 , sep='|' )
 SA_01_PCSTAT_HOSPITAL_NAME_L2 <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_HOSPITAL_NAME_L2 ) )
 if( length( SA_01_PCSTAT_HOSPITAL_NAME_L2 ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_HOSPITAL_NAME_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_HOSPITAL_NAME_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_HOSPITAL_NAME_L2 <-  paste0( '{', SA_01_PCSTAT_HOSPITAL_NAME_L2, '}', collapse=';' ) 
 } 
 
@@ -312,7 +312,7 @@ V_PCSTAT_HOSPITAL_ADDR_STATE <- paste( V1, V2, V3, V4 , sep='|' )
 SA_01_PCSTAT_HOSPITAL_ADDR_STATE <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_HOSPITAL_ADDR_STATE ) )
 if( length( SA_01_PCSTAT_HOSPITAL_ADDR_STATE ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_HOSPITAL_ADDR_STATE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_HOSPITAL_ADDR_STATE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_HOSPITAL_ADDR_STATE <-  paste0( '{', SA_01_PCSTAT_HOSPITAL_ADDR_STATE, '}', collapse=';' ) 
 } 
 
@@ -333,7 +333,7 @@ V_PCSTAT_MEDICAL_RSRCH_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_MEDICAL_RSRCH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_MEDICAL_RSRCH_X ) )
 if( length( SA_01_PCSTAT_MEDICAL_RSRCH_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_MEDICAL_RSRCH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_MEDICAL_RSRCH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_MEDICAL_RSRCH_X <-  paste0( '{', SA_01_PCSTAT_MEDICAL_RSRCH_X, '}', collapse=';' ) 
 } 
 
@@ -354,7 +354,7 @@ V_PCSTAT_GOVT_PUB_SUPPORT_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_GOVT_PUB_SUPPORT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_GOVT_PUB_SUPPORT_X ) )
 if( length( SA_01_PCSTAT_GOVT_PUB_SUPPORT_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_GOVT_PUB_SUPPORT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_GOVT_PUB_SUPPORT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_GOVT_PUB_SUPPORT_X <-  paste0( '{', SA_01_PCSTAT_GOVT_PUB_SUPPORT_X, '}', collapse=';' ) 
 } 
 
@@ -375,7 +375,7 @@ V_PCSTAT_PUB_SUPPORT_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_PUB_SUPPORT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_PUB_SUPPORT_X ) )
 if( length( SA_01_PCSTAT_PUB_SUPPORT_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_PUB_SUPPORT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_PUB_SUPPORT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_PUB_SUPPORT_X <-  paste0( '{', SA_01_PCSTAT_PUB_SUPPORT_X, '}', collapse=';' ) 
 } 
 
@@ -396,7 +396,7 @@ V_PCSTAT_SCHOOL_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_SCHOOL_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_SCHOOL_X ) )
 if( length( SA_01_PCSTAT_SCHOOL_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_SCHOOL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_SCHOOL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_SCHOOL_X <-  paste0( '{', SA_01_PCSTAT_SCHOOL_X, '}', collapse=';' ) 
 } 
 
@@ -417,7 +417,7 @@ V_PCSTAT_ORG_AMT_SUPPORT_TOT <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_ORG_AMT_SUPPORT_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_ORG_AMT_SUPPORT_TOT ) )
 if( length( SA_01_PCSTAT_ORG_AMT_SUPPORT_TOT ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_ORG_AMT_SUPPORT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_ORG_AMT_SUPPORT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_ORG_AMT_SUPPORT_TOT <-  paste0( '{', SA_01_PCSTAT_ORG_AMT_SUPPORT_TOT, '}', collapse=';' ) 
 } 
 
@@ -438,7 +438,7 @@ V_PCSTAT_SUPPORT_T1_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_SUPPORT_T1_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_SUPPORT_T1_X ) )
 if( length( SA_01_PCSTAT_SUPPORT_T1_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_SUPPORT_T1_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_SUPPORT_T1_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_SUPPORT_T1_X <-  paste0( '{', SA_01_PCSTAT_SUPPORT_T1_X, '}', collapse=';' ) 
 } 
 
@@ -459,7 +459,7 @@ V_PCSTAT_SUPPORT_T2_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_SUPPORT_T2_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_SUPPORT_T2_X ) )
 if( length( SA_01_PCSTAT_SUPPORT_T2_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_SUPPORT_T2_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_SUPPORT_T2_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_SUPPORT_T2_X <-  paste0( '{', SA_01_PCSTAT_SUPPORT_T2_X, '}', collapse=';' ) 
 } 
 
@@ -480,7 +480,7 @@ V_PCSTAT_SUPPORT_T3_FUNC_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_SUPPORT_T3_FUNC_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_SUPPORT_T3_FUNC_X ) )
 if( length( SA_01_PCSTAT_SUPPORT_T3_FUNC_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_SUPPORT_T3_FUNC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_SUPPORT_T3_FUNC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_SUPPORT_T3_FUNC_X <-  paste0( '{', SA_01_PCSTAT_SUPPORT_T3_FUNC_X, '}', collapse=';' ) 
 } 
 
@@ -500,7 +500,7 @@ V_PCSTAT_SUPPORT_T3_OTH_X <- paste( V1, V2 , sep='|' )
 SA_01_PCSTAT_SUPPORT_T3_OTH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_SUPPORT_T3_OTH_X ) )
 if( length( SA_01_PCSTAT_SUPPORT_T3_OTH_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_SUPPORT_T3_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_SUPPORT_T3_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_SUPPORT_T3_OTH_X <-  paste0( '{', SA_01_PCSTAT_SUPPORT_T3_OTH_X, '}', collapse=';' ) 
 } 
 
@@ -521,7 +521,7 @@ V_PCSTAT_SUPPORT_ORG_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_SUPPORT_ORG_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_SUPPORT_ORG_X ) )
 if( length( SA_01_PCSTAT_SUPPORT_ORG_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_SUPPORT_ORG_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_SUPPORT_ORG_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_SUPPORT_ORG_X <-  paste0( '{', SA_01_PCSTAT_SUPPORT_ORG_X, '}', collapse=';' ) 
 } 
 
@@ -542,7 +542,7 @@ V_PCSTAT_PUB_SAFETY_TEST_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_PUB_SAFETY_TEST_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_PUB_SAFETY_TEST_X ) )
 if( length( SA_01_PCSTAT_PUB_SAFETY_TEST_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_PUB_SAFETY_TEST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_PUB_SAFETY_TEST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_PUB_SAFETY_TEST_X <-  paste0( '{', SA_01_PCSTAT_PUB_SAFETY_TEST_X, '}', collapse=';' ) 
 } 
 
@@ -563,7 +563,7 @@ V_PCSTAT_DETERMIN_IRS_X <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_DETERMIN_IRS_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_DETERMIN_IRS_X ) )
 if( length( SA_01_PCSTAT_DETERMIN_IRS_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_DETERMIN_IRS_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_DETERMIN_IRS_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_DETERMIN_IRS_X <-  paste0( '{', SA_01_PCSTAT_DETERMIN_IRS_X, '}', collapse=';' ) 
 } 
 
@@ -584,7 +584,7 @@ V_PCSTAT_HOSPITAL_ADDR_CNTR <- paste( V1, V2, V3 , sep='|' )
 SA_01_PCSTAT_HOSPITAL_ADDR_CNTR <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_HOSPITAL_ADDR_CNTR ) )
 if( length( SA_01_PCSTAT_HOSPITAL_ADDR_CNTR ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_HOSPITAL_ADDR_CNTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_HOSPITAL_ADDR_CNTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_HOSPITAL_ADDR_CNTR <-  paste0( '{', SA_01_PCSTAT_HOSPITAL_ADDR_CNTR, '}', collapse=';' ) 
 } 
 
@@ -601,7 +601,7 @@ if( length( SA_01_PCSTAT_HOSPITAL_ADDR_CNTR ) > 1 )
 SA_01_PCSTAT_ORG_AMT_OTH_TOT <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/OtherSupportSumAmt' ) )
 if( length( SA_01_PCSTAT_ORG_AMT_OTH_TOT ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_ORG_AMT_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_ORG_AMT_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_ORG_AMT_OTH_TOT <-  paste0( '{', SA_01_PCSTAT_ORG_AMT_OTH_TOT, '}', collapse=';' ) 
 } 
 
@@ -621,7 +621,7 @@ V_PCSTAT_SUPPORT_T3_NOFUNC_X <- paste( V1, V2 , sep='|' )
 SA_01_PCSTAT_SUPPORT_T3_NOFUNC_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PCSTAT_SUPPORT_T3_NOFUNC_X ) )
 if( length( SA_01_PCSTAT_SUPPORT_T3_NOFUNC_X ) > 1 )
 { 
-  create_record( varname=SA_01_PCSTAT_SUPPORT_T3_NOFUNC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_01_PCSTAT_SUPPORT_T3_NOFUNC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_01_PCSTAT_SUPPORT_T3_NOFUNC_X <-  paste0( '{', SA_01_PCSTAT_SUPPORT_T3_NOFUNC_X, '}', collapse=';' ) 
 } 
 

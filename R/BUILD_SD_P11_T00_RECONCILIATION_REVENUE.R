@@ -35,7 +35,7 @@ V_RECO_REV_DONATED_SVC <- paste( V1, V2, V3 , sep='|' )
 SD_11_RECO_REV_DONATED_SVC <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_REV_DONATED_SVC ) )
 if( length( SD_11_RECO_REV_DONATED_SVC ) > 1 )
 { 
-  create_record( varname=SD_11_RECO_REV_DONATED_SVC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_11_RECO_REV_DONATED_SVC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_11_RECO_REV_DONATED_SVC <-  paste0( '{', SD_11_RECO_REV_DONATED_SVC, '}', collapse=';' ) 
 } 
 
@@ -57,7 +57,7 @@ V_RECO_REV_TOT_PER_AFS <- paste( V1, V2, V3, V4 , sep='|' )
 SD_11_RECO_REV_TOT_PER_AFS <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_REV_TOT_PER_AFS ) )
 if( length( SD_11_RECO_REV_TOT_PER_AFS ) > 1 )
 { 
-  create_record( varname=SD_11_RECO_REV_TOT_PER_AFS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_11_RECO_REV_TOT_PER_AFS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_11_RECO_REV_TOT_PER_AFS <-  paste0( '{', SD_11_RECO_REV_TOT_PER_AFS, '}', collapse=';' ) 
 } 
 
@@ -78,7 +78,7 @@ V_RECO_REV_INVEST_NO_INCL <- paste( V1, V2, V3 , sep='|' )
 SD_11_RECO_REV_INVEST_NO_INCL <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_REV_INVEST_NO_INCL ) )
 if( length( SD_11_RECO_REV_INVEST_NO_INCL ) > 1 )
 { 
-  create_record( varname=SD_11_RECO_REV_INVEST_NO_INCL, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_11_RECO_REV_INVEST_NO_INCL, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_11_RECO_REV_INVEST_NO_INCL <-  paste0( '{', SD_11_RECO_REV_INVEST_NO_INCL, '}', collapse=';' ) 
 } 
 
@@ -99,7 +99,7 @@ V_RECO_REV_SUBTRACT_L2E_L1 <- paste( V1, V2, V3 , sep='|' )
 SD_11_RECO_REV_SUBTRACT_L2E_L1 <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_REV_SUBTRACT_L2E_L1 ) )
 if( length( SD_11_RECO_REV_SUBTRACT_L2E_L1 ) > 1 )
 { 
-  create_record( varname=SD_11_RECO_REV_SUBTRACT_L2E_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_11_RECO_REV_SUBTRACT_L2E_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_11_RECO_REV_SUBTRACT_L2E_L1 <-  paste0( '{', SD_11_RECO_REV_SUBTRACT_L2E_L1, '}', collapse=';' ) 
 } 
 
@@ -120,7 +120,7 @@ V_RECO_REV_NUGAINS_INVEST <- paste( V1, V2, V3 , sep='|' )
 SD_11_RECO_REV_NUGAINS_INVEST <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_REV_NUGAINS_INVEST ) )
 if( length( SD_11_RECO_REV_NUGAINS_INVEST ) > 1 )
 { 
-  create_record( varname=SD_11_RECO_REV_NUGAINS_INVEST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_11_RECO_REV_NUGAINS_INVEST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_11_RECO_REV_NUGAINS_INVEST <-  paste0( '{', SD_11_RECO_REV_NUGAINS_INVEST, '}', collapse=';' ) 
 } 
 
@@ -141,7 +141,7 @@ V_RECO_REV_OTH <- paste( V1, V2, V3 , sep='|' )
 SD_11_RECO_REV_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_REV_OTH ) )
 if( length( SD_11_RECO_REV_OTH ) > 1 )
 { 
-  create_record( varname=SD_11_RECO_REV_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_11_RECO_REV_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_11_RECO_REV_OTH <-  paste0( '{', SD_11_RECO_REV_OTH, '}', collapse=';' ) 
 } 
 
@@ -162,7 +162,7 @@ V_RECO_REV_OTH_NO_INCL <- paste( V1, V2, V3 , sep='|' )
 SD_11_RECO_REV_OTH_NO_INCL <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_REV_OTH_NO_INCL ) )
 if( length( SD_11_RECO_REV_OTH_NO_INCL ) > 1 )
 { 
-  create_record( varname=SD_11_RECO_REV_OTH_NO_INCL, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_11_RECO_REV_OTH_NO_INCL, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_11_RECO_REV_OTH_NO_INCL <-  paste0( '{', SD_11_RECO_REV_OTH_NO_INCL, '}', collapse=';' ) 
 } 
 
@@ -183,7 +183,7 @@ V_RECO_REV_GRANT_PY <- paste( V1, V2, V3 , sep='|' )
 SD_11_RECO_REV_GRANT_PY <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_REV_GRANT_PY ) )
 if( length( SD_11_RECO_REV_GRANT_PY ) > 1 )
 { 
-  create_record( varname=SD_11_RECO_REV_GRANT_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_11_RECO_REV_GRANT_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_11_RECO_REV_GRANT_PY <-  paste0( '{', SD_11_RECO_REV_GRANT_PY, '}', collapse=';' ) 
 } 
 
@@ -204,7 +204,7 @@ V_RECO_REV_ADD_L2ABCD <- paste( V1, V2, V3 , sep='|' )
 SD_11_RECO_REV_ADD_L2ABCD <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_REV_ADD_L2ABCD ) )
 if( length( SD_11_RECO_REV_ADD_L2ABCD ) > 1 )
 { 
-  create_record( varname=SD_11_RECO_REV_ADD_L2ABCD, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_11_RECO_REV_ADD_L2ABCD, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_11_RECO_REV_ADD_L2ABCD <-  paste0( '{', SD_11_RECO_REV_ADD_L2ABCD, '}', collapse=';' ) 
 } 
 
@@ -224,7 +224,7 @@ V_RECO_REV_ADD_L4AB <- paste( V1, V2 , sep='|' )
 SD_11_RECO_REV_ADD_L4AB <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_REV_ADD_L4AB ) )
 if( length( SD_11_RECO_REV_ADD_L4AB ) > 1 )
 { 
-  create_record( varname=SD_11_RECO_REV_ADD_L4AB, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_11_RECO_REV_ADD_L4AB, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_11_RECO_REV_ADD_L4AB <-  paste0( '{', SD_11_RECO_REV_ADD_L4AB, '}', collapse=';' ) 
 } 
 
@@ -245,7 +245,7 @@ V_RECO_REV_TOT <- paste( V1, V2, V3 , sep='|' )
 SD_11_RECO_REV_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_REV_TOT ) )
 if( length( SD_11_RECO_REV_TOT ) > 1 )
 { 
-  create_record( varname=SD_11_RECO_REV_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_11_RECO_REV_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_11_RECO_REV_TOT <-  paste0( '{', SD_11_RECO_REV_TOT, '}', collapse=';' ) 
 } 
 

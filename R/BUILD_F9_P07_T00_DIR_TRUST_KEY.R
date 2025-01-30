@@ -37,7 +37,7 @@ V_COMP_KONTR_NUM_GT_100K <- paste( V1, V2, V3, V4, V5 , sep='|' )
 F9_07_COMP_KONTR_NUM_GT_100K <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_KONTR_NUM_GT_100K ) )
 if( length( F9_07_COMP_KONTR_NUM_GT_100K ) > 1 )
 { 
-  create_record( varname=F9_07_COMP_KONTR_NUM_GT_100K, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_07_COMP_KONTR_NUM_GT_100K, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_07_COMP_KONTR_NUM_GT_100K <-  paste0( '{', F9_07_COMP_KONTR_NUM_GT_100K, '}', collapse=';' ) 
 } 
 
@@ -58,7 +58,7 @@ V_COMP_DTK_COMP_OTH_SOURCE_X <- paste( V1, V2, V3 , sep='|' )
 F9_07_COMP_DTK_COMP_OTH_SOURCE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_DTK_COMP_OTH_SOURCE_X ) )
 if( length( F9_07_COMP_DTK_COMP_OTH_SOURCE_X ) > 1 )
 { 
-  create_record( varname=F9_07_COMP_DTK_COMP_OTH_SOURCE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_07_COMP_DTK_COMP_OTH_SOURCE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_07_COMP_DTK_COMP_OTH_SOURCE_X <-  paste0( '{', F9_07_COMP_DTK_COMP_OTH_SOURCE_X, '}', collapse=';' ) 
 } 
 
@@ -79,7 +79,7 @@ V_COMP_DTK_FORMER_LISTED_X <- paste( V1, V2, V3 , sep='|' )
 F9_07_COMP_DTK_FORMER_LISTED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_DTK_FORMER_LISTED_X ) )
 if( length( F9_07_COMP_DTK_FORMER_LISTED_X ) > 1 )
 { 
-  create_record( varname=F9_07_COMP_DTK_FORMER_LISTED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_07_COMP_DTK_FORMER_LISTED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_07_COMP_DTK_FORMER_LISTED_X <-  paste0( '{', F9_07_COMP_DTK_FORMER_LISTED_X, '}', collapse=';' ) 
 } 
 
@@ -100,7 +100,7 @@ V_COMP_DTK_COMP_GT_150K_X <- paste( V1, V2, V3 , sep='|' )
 F9_07_COMP_DTK_COMP_GT_150K_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_DTK_COMP_GT_150K_X ) )
 if( length( F9_07_COMP_DTK_COMP_GT_150K_X ) > 1 )
 { 
-  create_record( varname=F9_07_COMP_DTK_COMP_GT_150K_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_07_COMP_DTK_COMP_GT_150K_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_07_COMP_DTK_COMP_GT_150K_X <-  paste0( '{', F9_07_COMP_DTK_COMP_GT_150K_X, '}', collapse=';' ) 
 } 
 
@@ -121,7 +121,7 @@ V_COMP_DTK_NO_LISTED_X <- paste( V1, V2, V3 , sep='|' )
 F9_07_COMP_DTK_NO_LISTED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_DTK_NO_LISTED_X ) )
 if( length( F9_07_COMP_DTK_NO_LISTED_X ) > 1 )
 { 
-  create_record( varname=F9_07_COMP_DTK_NO_LISTED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_07_COMP_DTK_NO_LISTED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_07_COMP_DTK_NO_LISTED_X <-  paste0( '{', F9_07_COMP_DTK_NO_LISTED_X, '}', collapse=';' ) 
 } 
 
@@ -142,7 +142,7 @@ V_COMP_DTK_NUM_GT_100K <- paste( V1, V2, V3 , sep='|' )
 F9_07_COMP_DTK_NUM_GT_100K <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_DTK_NUM_GT_100K ) )
 if( length( F9_07_COMP_DTK_NUM_GT_100K ) > 1 )
 { 
-  create_record( varname=F9_07_COMP_DTK_NUM_GT_100K, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_07_COMP_DTK_NUM_GT_100K, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_07_COMP_DTK_NUM_GT_100K <-  paste0( '{', F9_07_COMP_DTK_NUM_GT_100K, '}', collapse=';' ) 
 } 
 
@@ -159,7 +159,7 @@ if( length( F9_07_COMP_DTK_NUM_GT_100K ) > 1 )
 F9_07_COMP_DTK_COMP_ORG_SUBTOT <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990/Form990PartVIISectionA/TotalColumnD' ) )
 if( length( F9_07_COMP_DTK_COMP_ORG_SUBTOT ) > 1 )
 { 
-  create_record( varname=F9_07_COMP_DTK_COMP_ORG_SUBTOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_07_COMP_DTK_COMP_ORG_SUBTOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_07_COMP_DTK_COMP_ORG_SUBTOT <-  paste0( '{', F9_07_COMP_DTK_COMP_ORG_SUBTOT, '}', collapse=';' ) 
 } 
 
@@ -176,7 +176,7 @@ if( length( F9_07_COMP_DTK_COMP_ORG_SUBTOT ) > 1 )
 F9_07_COMP_DTK_COMP_RLTD_SUBTOT <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990/Form990PartVIISectionA/TotalColumnE' ) )
 if( length( F9_07_COMP_DTK_COMP_RLTD_SUBTOT ) > 1 )
 { 
-  create_record( varname=F9_07_COMP_DTK_COMP_RLTD_SUBTOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_07_COMP_DTK_COMP_RLTD_SUBTOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_07_COMP_DTK_COMP_RLTD_SUBTOT <-  paste0( '{', F9_07_COMP_DTK_COMP_RLTD_SUBTOT, '}', collapse=';' ) 
 } 
 
@@ -193,7 +193,7 @@ if( length( F9_07_COMP_DTK_COMP_RLTD_SUBTOT ) > 1 )
 F9_07_COMP_DTK_COMP_OTH_SUBTOT <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990/Form990PartVIISectionA/TotalColumnF' ) )
 if( length( F9_07_COMP_DTK_COMP_OTH_SUBTOT ) > 1 )
 { 
-  create_record( varname=F9_07_COMP_DTK_COMP_OTH_SUBTOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_07_COMP_DTK_COMP_OTH_SUBTOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_07_COMP_DTK_COMP_OTH_SUBTOT <-  paste0( '{', F9_07_COMP_DTK_COMP_OTH_SUBTOT, '}', collapse=';' ) 
 } 
 
@@ -217,7 +217,7 @@ V_INFO_SCHED_O_X <- paste( V1, V2, V3, V4, V5, V6 , sep='|' )
 F9_07_INFO_SCHED_O_X <- xml2::xml_text( xml2::xml_find_all( doc, V_INFO_SCHED_O_X ) )
 if( length( F9_07_INFO_SCHED_O_X ) > 1 )
 { 
-  create_record( varname=F9_07_INFO_SCHED_O_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_07_INFO_SCHED_O_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_07_INFO_SCHED_O_X <-  paste0( '{', F9_07_INFO_SCHED_O_X, '}', collapse=';' ) 
 } 
 
@@ -237,7 +237,7 @@ V_COMP_DTK_COMP_OTH_TOT <- paste( V1, V2 , sep='|' )
 F9_07_COMP_DTK_COMP_OTH_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_DTK_COMP_OTH_TOT ) )
 if( length( F9_07_COMP_DTK_COMP_OTH_TOT ) > 1 )
 { 
-  create_record( varname=F9_07_COMP_DTK_COMP_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_07_COMP_DTK_COMP_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_07_COMP_DTK_COMP_OTH_TOT <-  paste0( '{', F9_07_COMP_DTK_COMP_OTH_TOT, '}', collapse=';' ) 
 } 
 
@@ -257,7 +257,7 @@ V_COMP_DTK_COMP_RLTD_TOT <- paste( V1, V2 , sep='|' )
 F9_07_COMP_DTK_COMP_RLTD_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_DTK_COMP_RLTD_TOT ) )
 if( length( F9_07_COMP_DTK_COMP_RLTD_TOT ) > 1 )
 { 
-  create_record( varname=F9_07_COMP_DTK_COMP_RLTD_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_07_COMP_DTK_COMP_RLTD_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_07_COMP_DTK_COMP_RLTD_TOT <-  paste0( '{', F9_07_COMP_DTK_COMP_RLTD_TOT, '}', collapse=';' ) 
 } 
 
@@ -277,7 +277,7 @@ V_COMP_DTK_COMP_ORG_TOT <- paste( V1, V2 , sep='|' )
 F9_07_COMP_DTK_COMP_ORG_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_DTK_COMP_ORG_TOT ) )
 if( length( F9_07_COMP_DTK_COMP_ORG_TOT ) > 1 )
 { 
-  create_record( varname=F9_07_COMP_DTK_COMP_ORG_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_07_COMP_DTK_COMP_ORG_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_07_COMP_DTK_COMP_ORG_TOT <-  paste0( '{', F9_07_COMP_DTK_COMP_ORG_TOT, '}', collapse=';' ) 
 } 
 
@@ -297,7 +297,7 @@ V_SCHED_A_FILED_X <- paste( V1, V2 , sep='|' )
 F9_07_SCHED_A_FILED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_SCHED_A_FILED_X ) )
 if( length( F9_07_SCHED_A_FILED_X ) > 1 )
 { 
-  create_record( varname=F9_07_SCHED_A_FILED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_07_SCHED_A_FILED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_07_SCHED_A_FILED_X <-  paste0( '{', F9_07_SCHED_A_FILED_X, '}', collapse=';' ) 
 } 
 
@@ -317,7 +317,7 @@ V_COMP_DTK_NUM_GT_100K_HCE <- paste( V1, V2 , sep='|' )
 F9_07_COMP_DTK_NUM_GT_100K_HCE <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_DTK_NUM_GT_100K_HCE ) )
 if( length( F9_07_COMP_DTK_NUM_GT_100K_HCE ) > 1 )
 { 
-  create_record( varname=F9_07_COMP_DTK_NUM_GT_100K_HCE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_07_COMP_DTK_NUM_GT_100K_HCE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_07_COMP_DTK_NUM_GT_100K_HCE <-  paste0( '{', F9_07_COMP_DTK_NUM_GT_100K_HCE, '}', collapse=';' ) 
 } 
 

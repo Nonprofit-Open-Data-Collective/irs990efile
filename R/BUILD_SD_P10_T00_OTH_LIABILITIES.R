@@ -35,7 +35,7 @@ V_LIAB_FED_INCOME_TAX_BV <- paste( V1, V2, V3 , sep='|' )
 SD_10_LIAB_FED_INCOME_TAX_BV <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_FED_INCOME_TAX_BV ) )
 if( length( SD_10_LIAB_FED_INCOME_TAX_BV ) > 1 )
 { 
-  create_record( varname=SD_10_LIAB_FED_INCOME_TAX_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_10_LIAB_FED_INCOME_TAX_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_10_LIAB_FED_INCOME_TAX_BV <-  paste0( '{', SD_10_LIAB_FED_INCOME_TAX_BV, '}', collapse=';' ) 
 } 
 
@@ -55,7 +55,7 @@ V_LIAB_FOOTNOTE_PART_08_X <- paste( V1, V2 , sep='|' )
 SD_10_LIAB_FOOTNOTE_PART_08_X <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_FOOTNOTE_PART_08_X ) )
 if( length( SD_10_LIAB_FOOTNOTE_PART_08_X ) > 1 )
 { 
-  create_record( varname=SD_10_LIAB_FOOTNOTE_PART_08_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_10_LIAB_FOOTNOTE_PART_08_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_10_LIAB_FOOTNOTE_PART_08_X <-  paste0( '{', SD_10_LIAB_FOOTNOTE_PART_08_X, '}', collapse=';' ) 
 } 
 
@@ -76,7 +76,7 @@ V_LIAB_TOT_BV <- paste( V1, V2, V3 , sep='|' )
 SD_10_LIAB_TOT_BV <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_TOT_BV ) )
 if( length( SD_10_LIAB_TOT_BV ) > 1 )
 { 
-  create_record( varname=SD_10_LIAB_TOT_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_10_LIAB_TOT_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_10_LIAB_TOT_BV <-  paste0( '{', SD_10_LIAB_TOT_BV, '}', collapse=';' ) 
 } 
 

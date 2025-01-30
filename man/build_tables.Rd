@@ -4,7 +4,7 @@
 \alias{build_tables}
 \title{Build Tables}
 \usage{
-build_tables(urls, year, fx.names = NULL, table.names = NULL)
+build_tables(urls, year, fx.names = NULL)
 }
 \arguments{
 \item{urls}{A vector of URLs to process.}

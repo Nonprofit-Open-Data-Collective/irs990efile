@@ -35,7 +35,7 @@ V_EXP_FEE_OTH_PAY_KONTR <- paste( V1, V2, V3 , sep='|' )
 F9_01_EXP_FEE_OTH_PAY_KONTR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_OTH_PAY_KONTR ) )
 if( length( F9_01_EXP_FEE_OTH_PAY_KONTR ) > 1 )
 { 
-  create_record( varname=F9_01_EXP_FEE_OTH_PAY_KONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_01_EXP_FEE_OTH_PAY_KONTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_01_EXP_FEE_OTH_PAY_KONTR <-  paste0( '{', F9_01_EXP_FEE_OTH_PAY_KONTR, '}', collapse=';' ) 
 } 
 
@@ -55,7 +55,7 @@ V_INFO_SCHED_O_X <- paste( V1, V2 , sep='|' )
 F9_01_INFO_SCHED_O_X <- xml2::xml_text( xml2::xml_find_all( doc, V_INFO_SCHED_O_X ) )
 if( length( F9_01_INFO_SCHED_O_X ) > 1 )
 { 
-  create_record( varname=F9_01_INFO_SCHED_O_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_01_INFO_SCHED_O_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_01_INFO_SCHED_O_X <-  paste0( '{', F9_01_INFO_SCHED_O_X, '}', collapse=';' ) 
 } 
 

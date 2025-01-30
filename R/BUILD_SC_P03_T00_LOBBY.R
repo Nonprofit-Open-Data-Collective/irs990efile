@@ -35,7 +35,7 @@ V_AMT_AGGREGATE_REPORTED <- paste( V1, V2, V3 , sep='|' )
 SC_03_AMT_AGGREGATE_REPORTED <- xml2::xml_text( xml2::xml_find_all( doc, V_AMT_AGGREGATE_REPORTED ) )
 if( length( SC_03_AMT_AGGREGATE_REPORTED ) > 1 )
 { 
-  create_record( varname=SC_03_AMT_AGGREGATE_REPORTED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_03_AMT_AGGREGATE_REPORTED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_03_AMT_AGGREGATE_REPORTED <-  paste0( '{', SC_03_AMT_AGGREGATE_REPORTED, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_AGREE_CARRYOVER_LOB_PY_X <- paste( V1, V2, V3 , sep='|' )
 SC_03_AGREE_CARRYOVER_LOB_PY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_AGREE_CARRYOVER_LOB_PY_X ) )
 if( length( SC_03_AGREE_CARRYOVER_LOB_PY_X ) > 1 )
 { 
-  create_record( varname=SC_03_AGREE_CARRYOVER_LOB_PY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_03_AGREE_CARRYOVER_LOB_PY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_03_AGREE_CARRYOVER_LOB_PY_X <-  paste0( '{', SC_03_AGREE_CARRYOVER_LOB_PY_X, '}', collapse=';' ) 
 } 
 
@@ -77,7 +77,7 @@ V_AMT_CARRYOVER_NY <- paste( V1, V2, V3 , sep='|' )
 SC_03_AMT_CARRYOVER_NY <- xml2::xml_text( xml2::xml_find_all( doc, V_AMT_CARRYOVER_NY ) )
 if( length( SC_03_AMT_CARRYOVER_NY ) > 1 )
 { 
-  create_record( varname=SC_03_AMT_CARRYOVER_NY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_03_AMT_CARRYOVER_NY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_03_AMT_CARRYOVER_NY <-  paste0( '{', SC_03_AMT_CARRYOVER_NY, '}', collapse=';' ) 
 } 
 
@@ -98,7 +98,7 @@ V_AMT_DUE_ASSESS <- paste( V1, V2, V3 , sep='|' )
 SC_03_AMT_DUE_ASSESS <- xml2::xml_text( xml2::xml_find_all( doc, V_AMT_DUE_ASSESS ) )
 if( length( SC_03_AMT_DUE_ASSESS ) > 1 )
 { 
-  create_record( varname=SC_03_AMT_DUE_ASSESS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_03_AMT_DUE_ASSESS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_03_AMT_DUE_ASSESS <-  paste0( '{', SC_03_AMT_DUE_ASSESS, '}', collapse=';' ) 
 } 
 
@@ -119,7 +119,7 @@ V_NONDEDUCT_LOB_CARRYOVER <- paste( V1, V2, V3 , sep='|' )
 SC_03_NONDEDUCT_LOB_CARRYOVER <- xml2::xml_text( xml2::xml_find_all( doc, V_NONDEDUCT_LOB_CARRYOVER ) )
 if( length( SC_03_NONDEDUCT_LOB_CARRYOVER ) > 1 )
 { 
-  create_record( varname=SC_03_NONDEDUCT_LOB_CARRYOVER, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_03_NONDEDUCT_LOB_CARRYOVER, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_03_NONDEDUCT_LOB_CARRYOVER <-  paste0( '{', SC_03_NONDEDUCT_LOB_CARRYOVER, '}', collapse=';' ) 
 } 
 
@@ -140,7 +140,7 @@ V_NONDEDUCT_LOB_CY <- paste( V1, V2, V3 , sep='|' )
 SC_03_NONDEDUCT_LOB_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_NONDEDUCT_LOB_CY ) )
 if( length( SC_03_NONDEDUCT_LOB_CY ) > 1 )
 { 
-  create_record( varname=SC_03_NONDEDUCT_LOB_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_03_NONDEDUCT_LOB_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_03_NONDEDUCT_LOB_CY <-  paste0( '{', SC_03_NONDEDUCT_LOB_CY, '}', collapse=';' ) 
 } 
 
@@ -161,7 +161,7 @@ V_NONDEDUCT_LOB_TOT <- paste( V1, V2, V3 , sep='|' )
 SC_03_NONDEDUCT_LOB_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_NONDEDUCT_LOB_TOT ) )
 if( length( SC_03_NONDEDUCT_LOB_TOT ) > 1 )
 { 
-  create_record( varname=SC_03_NONDEDUCT_LOB_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_03_NONDEDUCT_LOB_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_03_NONDEDUCT_LOB_TOT <-  paste0( '{', SC_03_NONDEDUCT_LOB_TOT, '}', collapse=';' ) 
 } 
 
@@ -182,7 +182,7 @@ V_INHOUSE_LOB_EXP_LT_2K_X <- paste( V1, V2, V3 , sep='|' )
 SC_03_INHOUSE_LOB_EXP_LT_2K_X <- xml2::xml_text( xml2::xml_find_all( doc, V_INHOUSE_LOB_EXP_LT_2K_X ) )
 if( length( SC_03_INHOUSE_LOB_EXP_LT_2K_X ) > 1 )
 { 
-  create_record( varname=SC_03_INHOUSE_LOB_EXP_LT_2K_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_03_INHOUSE_LOB_EXP_LT_2K_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_03_INHOUSE_LOB_EXP_LT_2K_X <-  paste0( '{', SC_03_INHOUSE_LOB_EXP_LT_2K_X, '}', collapse=';' ) 
 } 
 
@@ -203,7 +203,7 @@ V_DUES_NONDEDUCT_X <- paste( V1, V2, V3 , sep='|' )
 SC_03_DUES_NONDEDUCT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_DUES_NONDEDUCT_X ) )
 if( length( SC_03_DUES_NONDEDUCT_X ) > 1 )
 { 
-  create_record( varname=SC_03_DUES_NONDEDUCT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_03_DUES_NONDEDUCT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_03_DUES_NONDEDUCT_X <-  paste0( '{', SC_03_DUES_NONDEDUCT_X, '}', collapse=';' ) 
 } 
 
@@ -224,7 +224,7 @@ V_AMT_TAXABLE_LOB <- paste( V1, V2, V3 , sep='|' )
 SC_03_AMT_TAXABLE_LOB <- xml2::xml_text( xml2::xml_find_all( doc, V_AMT_TAXABLE_LOB ) )
 if( length( SC_03_AMT_TAXABLE_LOB ) > 1 )
 { 
-  create_record( varname=SC_03_AMT_TAXABLE_LOB, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_03_AMT_TAXABLE_LOB, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_03_AMT_TAXABLE_LOB <-  paste0( '{', SC_03_AMT_TAXABLE_LOB, '}', collapse=';' ) 
 } 
 

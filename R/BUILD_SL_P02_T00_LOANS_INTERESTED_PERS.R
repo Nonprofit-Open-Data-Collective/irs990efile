@@ -35,7 +35,7 @@ V_LOAN_BALANCE_DUE_TOT <- paste( V1, V2, V3 , sep='|' )
 SL_02_LOAN_BALANCE_DUE_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_LOAN_BALANCE_DUE_TOT ) )
 if( length( SL_02_LOAN_BALANCE_DUE_TOT ) > 1 )
 { 
-  create_record( varname=SL_02_LOAN_BALANCE_DUE_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SL_02_LOAN_BALANCE_DUE_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SL_02_LOAN_BALANCE_DUE_TOT <-  paste0( '{', SL_02_LOAN_BALANCE_DUE_TOT, '}', collapse=';' ) 
 } 
 

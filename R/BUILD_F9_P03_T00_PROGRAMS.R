@@ -35,7 +35,7 @@ V_PROG_EXP_OTH_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_03_PROG_EXP_OTH_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_PROG_EXP_OTH_TOT ) )
 if( length( F9_03_PROG_EXP_OTH_TOT ) > 1 )
 { 
-  create_record( varname=F9_03_PROG_EXP_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_03_PROG_EXP_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_03_PROG_EXP_OTH_TOT <-  paste0( '{', F9_03_PROG_EXP_OTH_TOT, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_PROG_GRANT_OTH_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_03_PROG_GRANT_OTH_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_PROG_GRANT_OTH_TOT ) )
 if( length( F9_03_PROG_GRANT_OTH_TOT ) > 1 )
 { 
-  create_record( varname=F9_03_PROG_GRANT_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_03_PROG_GRANT_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_03_PROG_GRANT_OTH_TOT <-  paste0( '{', F9_03_PROG_GRANT_OTH_TOT, '}', collapse=';' ) 
 } 
 
@@ -77,7 +77,7 @@ V_PROG_REV_OTH_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_03_PROG_REV_OTH_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_PROG_REV_OTH_TOT ) )
 if( length( F9_03_PROG_REV_OTH_TOT ) > 1 )
 { 
-  create_record( varname=F9_03_PROG_REV_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_03_PROG_REV_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_03_PROG_REV_OTH_TOT <-  paste0( '{', F9_03_PROG_REV_OTH_TOT, '}', collapse=';' ) 
 } 
 
@@ -101,7 +101,7 @@ V_PROG_EXP_TOT <- paste( V1, V2, V3, V4, V5, V6 , sep='|' )
 F9_03_PROG_EXP_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_PROG_EXP_TOT ) )
 if( length( F9_03_PROG_EXP_TOT ) > 1 )
 { 
-  create_record( varname=F9_03_PROG_EXP_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_03_PROG_EXP_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_03_PROG_EXP_TOT <-  paste0( '{', F9_03_PROG_EXP_TOT, '}', collapse=';' ) 
 } 
 
@@ -123,7 +123,7 @@ V_INFO_SCHED_O_X <- paste( V1, V2, V3, V4 , sep='|' )
 F9_03_INFO_SCHED_O_X <- xml2::xml_text( xml2::xml_find_all( doc, V_INFO_SCHED_O_X ) )
 if( length( F9_03_INFO_SCHED_O_X ) > 1 )
 { 
-  create_record( varname=F9_03_INFO_SCHED_O_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_03_INFO_SCHED_O_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_03_INFO_SCHED_O_X <-  paste0( '{', F9_03_INFO_SCHED_O_X, '}', collapse=';' ) 
 } 
 

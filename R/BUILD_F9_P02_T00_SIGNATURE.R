@@ -31,7 +31,7 @@ TAX_YEAR <- keys[['TAX_YEAR']]
 F9_02_SIGNING_OFF_NAME_FIRST <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnHeader/SigningOfficerGrp/PersonFullName/PersonFirstNm' ) )
 if( length( F9_02_SIGNING_OFF_NAME_FIRST ) > 1 )
 { 
-  create_record( varname=F9_02_SIGNING_OFF_NAME_FIRST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_SIGNING_OFF_NAME_FIRST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_SIGNING_OFF_NAME_FIRST <-  paste0( '{', F9_02_SIGNING_OFF_NAME_FIRST, '}', collapse=';' ) 
 } 
 
@@ -48,7 +48,7 @@ if( length( F9_02_SIGNING_OFF_NAME_FIRST ) > 1 )
 F9_02_SIGNING_OFF_NAME_LAST <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnHeader/SigningOfficerGrp/PersonFullName/PersonLastNm' ) )
 if( length( F9_02_SIGNING_OFF_NAME_LAST ) > 1 )
 { 
-  create_record( varname=F9_02_SIGNING_OFF_NAME_LAST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_SIGNING_OFF_NAME_LAST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_SIGNING_OFF_NAME_LAST <-  paste0( '{', F9_02_SIGNING_OFF_NAME_LAST, '}', collapse=';' ) 
 } 
 
@@ -69,7 +69,7 @@ V_PREP_PERS_PHONE <- paste( V1, V2, V3 , sep='|' )
 F9_02_PREP_PERS_PHONE <- xml2::xml_text( xml2::xml_find_all( doc, V_PREP_PERS_PHONE ) )
 if( length( F9_02_PREP_PERS_PHONE ) > 1 )
 { 
-  create_record( varname=F9_02_PREP_PERS_PHONE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_PREP_PERS_PHONE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_PREP_PERS_PHONE <-  paste0( '{', F9_02_PREP_PERS_PHONE, '}', collapse=';' ) 
 } 
 
@@ -90,7 +90,7 @@ V_SIGNING_OFF_PHONE <- paste( V1, V2, V3 , sep='|' )
 F9_02_SIGNING_OFF_PHONE <- xml2::xml_text( xml2::xml_find_all( doc, V_SIGNING_OFF_PHONE ) )
 if( length( F9_02_SIGNING_OFF_PHONE ) > 1 )
 { 
-  create_record( varname=F9_02_SIGNING_OFF_PHONE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_SIGNING_OFF_PHONE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_SIGNING_OFF_PHONE <-  paste0( '{', F9_02_SIGNING_OFF_PHONE, '}', collapse=';' ) 
 } 
 
@@ -110,7 +110,7 @@ V_DISC_PREP_THIRD_PARTY_X <- paste( V1, V2 , sep='|' )
 F9_02_DISC_PREP_THIRD_PARTY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_DISC_PREP_THIRD_PARTY_X ) )
 if( length( F9_02_DISC_PREP_THIRD_PARTY_X ) > 1 )
 { 
-  create_record( varname=F9_02_DISC_PREP_THIRD_PARTY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_DISC_PREP_THIRD_PARTY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_DISC_PREP_THIRD_PARTY_X <-  paste0( '{', F9_02_DISC_PREP_THIRD_PARTY_X, '}', collapse=';' ) 
 } 
 
@@ -130,7 +130,7 @@ V_SIGNING_OFF_NAME <- paste( V1, V2 , sep='|' )
 F9_02_SIGNING_OFF_NAME <- xml2::xml_text( xml2::xml_find_all( doc, V_SIGNING_OFF_NAME ) )
 if( length( F9_02_SIGNING_OFF_NAME ) > 1 )
 { 
-  create_record( varname=F9_02_SIGNING_OFF_NAME, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_SIGNING_OFF_NAME, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_SIGNING_OFF_NAME <-  paste0( '{', F9_02_SIGNING_OFF_NAME, '}', collapse=';' ) 
 } 
 
@@ -150,7 +150,7 @@ V_SIGNING_OFF_TITLE <- paste( V1, V2 , sep='|' )
 F9_02_SIGNING_OFF_TITLE <- xml2::xml_text( xml2::xml_find_all( doc, V_SIGNING_OFF_TITLE ) )
 if( length( F9_02_SIGNING_OFF_TITLE ) > 1 )
 { 
-  create_record( varname=F9_02_SIGNING_OFF_TITLE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_SIGNING_OFF_TITLE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_SIGNING_OFF_TITLE <-  paste0( '{', F9_02_SIGNING_OFF_TITLE, '}', collapse=';' ) 
 } 
 
@@ -170,7 +170,7 @@ V_SIGNING_OFF_SIGNTR_DATE <- paste( V1, V2 , sep='|' )
 F9_02_SIGNING_OFF_SIGNTR_DATE <- xml2::xml_text( xml2::xml_find_all( doc, V_SIGNING_OFF_SIGNTR_DATE ) )
 if( length( F9_02_SIGNING_OFF_SIGNTR_DATE ) > 1 )
 { 
-  create_record( varname=F9_02_SIGNING_OFF_SIGNTR_DATE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_SIGNING_OFF_SIGNTR_DATE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_SIGNING_OFF_SIGNTR_DATE <-  paste0( '{', F9_02_SIGNING_OFF_SIGNTR_DATE, '}', collapse=';' ) 
 } 
 
@@ -190,7 +190,7 @@ V_PREP_PERS_SIGNTR_DATE <- paste( V1, V2 , sep='|' )
 F9_02_PREP_PERS_SIGNTR_DATE <- xml2::xml_text( xml2::xml_find_all( doc, V_PREP_PERS_SIGNTR_DATE ) )
 if( length( F9_02_PREP_PERS_SIGNTR_DATE ) > 1 )
 { 
-  create_record( varname=F9_02_PREP_PERS_SIGNTR_DATE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_PREP_PERS_SIGNTR_DATE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_PREP_PERS_SIGNTR_DATE <-  paste0( '{', F9_02_PREP_PERS_SIGNTR_DATE, '}', collapse=';' ) 
 } 
 
@@ -210,7 +210,7 @@ V_PREP_PERS_NAME <- paste( V1, V2 , sep='|' )
 F9_02_PREP_PERS_NAME <- xml2::xml_text( xml2::xml_find_all( doc, V_PREP_PERS_NAME ) )
 if( length( F9_02_PREP_PERS_NAME ) > 1 )
 { 
-  create_record( varname=F9_02_PREP_PERS_NAME, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_PREP_PERS_NAME, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_PREP_PERS_NAME <-  paste0( '{', F9_02_PREP_PERS_NAME, '}', collapse=';' ) 
 } 
 
@@ -230,7 +230,7 @@ V_PREP_PERS_PTIN <- paste( V1, V2 , sep='|' )
 F9_02_PREP_PERS_PTIN <- xml2::xml_text( xml2::xml_find_all( doc, V_PREP_PERS_PTIN ) )
 if( length( F9_02_PREP_PERS_PTIN ) > 1 )
 { 
-  create_record( varname=F9_02_PREP_PERS_PTIN, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_PREP_PERS_PTIN, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_PREP_PERS_PTIN <-  paste0( '{', F9_02_PREP_PERS_PTIN, '}', collapse=';' ) 
 } 
 
@@ -247,7 +247,7 @@ if( length( F9_02_PREP_PERS_PTIN ) > 1 )
 F9_02_PREP_SELF_EMPL_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnHeader/Preparer/SelfEmployed' ) )
 if( length( F9_02_PREP_SELF_EMPL_X ) > 1 )
 { 
-  create_record( varname=F9_02_PREP_SELF_EMPL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_PREP_SELF_EMPL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_PREP_SELF_EMPL_X <-  paste0( '{', F9_02_PREP_SELF_EMPL_X, '}', collapse=';' ) 
 } 
 
@@ -267,7 +267,7 @@ V_PREP_FIRM_EIN <- paste( V1, V2 , sep='|' )
 F9_02_PREP_FIRM_EIN <- xml2::xml_text( xml2::xml_find_all( doc, V_PREP_FIRM_EIN ) )
 if( length( F9_02_PREP_FIRM_EIN ) > 1 )
 { 
-  create_record( varname=F9_02_PREP_FIRM_EIN, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_PREP_FIRM_EIN, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_PREP_FIRM_EIN <-  paste0( '{', F9_02_PREP_FIRM_EIN, '}', collapse=';' ) 
 } 
 
@@ -288,7 +288,7 @@ V_PREP_FIRM_NAME_L1 <- paste( V1, V2, V3 , sep='|' )
 F9_02_PREP_FIRM_NAME_L1 <- xml2::xml_text( xml2::xml_find_all( doc, V_PREP_FIRM_NAME_L1 ) )
 if( length( F9_02_PREP_FIRM_NAME_L1 ) > 1 )
 { 
-  create_record( varname=F9_02_PREP_FIRM_NAME_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_PREP_FIRM_NAME_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_PREP_FIRM_NAME_L1 <-  paste0( '{', F9_02_PREP_FIRM_NAME_L1, '}', collapse=';' ) 
 } 
 
@@ -309,7 +309,7 @@ V_PREP_FIRM_NAME_L2 <- paste( V1, V2, V3 , sep='|' )
 F9_02_PREP_FIRM_NAME_L2 <- xml2::xml_text( xml2::xml_find_all( doc, V_PREP_FIRM_NAME_L2 ) )
 if( length( F9_02_PREP_FIRM_NAME_L2 ) > 1 )
 { 
-  create_record( varname=F9_02_PREP_FIRM_NAME_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_PREP_FIRM_NAME_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_PREP_FIRM_NAME_L2 <-  paste0( '{', F9_02_PREP_FIRM_NAME_L2, '}', collapse=';' ) 
 } 
 
@@ -333,7 +333,7 @@ V_PREP_FIRM_ADDR_L1 <- paste( V1, V2, V3, V4, V5, V6 , sep='|' )
 F9_02_PREP_FIRM_ADDR_L1 <- xml2::xml_text( xml2::xml_find_all( doc, V_PREP_FIRM_ADDR_L1 ) )
 if( length( F9_02_PREP_FIRM_ADDR_L1 ) > 1 )
 { 
-  create_record( varname=F9_02_PREP_FIRM_ADDR_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_PREP_FIRM_ADDR_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_PREP_FIRM_ADDR_L1 <-  paste0( '{', F9_02_PREP_FIRM_ADDR_L1, '}', collapse=';' ) 
 } 
 
@@ -357,7 +357,7 @@ V_PREP_FIRM_ADDR_L2 <- paste( V1, V2, V3, V4, V5, V6 , sep='|' )
 F9_02_PREP_FIRM_ADDR_L2 <- xml2::xml_text( xml2::xml_find_all( doc, V_PREP_FIRM_ADDR_L2 ) )
 if( length( F9_02_PREP_FIRM_ADDR_L2 ) > 1 )
 { 
-  create_record( varname=F9_02_PREP_FIRM_ADDR_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_PREP_FIRM_ADDR_L2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_PREP_FIRM_ADDR_L2 <-  paste0( '{', F9_02_PREP_FIRM_ADDR_L2, '}', collapse=';' ) 
 } 
 
@@ -381,7 +381,7 @@ V_PREP_FIRM_ADDR_CITY <- paste( V1, V2, V3, V4, V5, V6 , sep='|' )
 F9_02_PREP_FIRM_ADDR_CITY <- xml2::xml_text( xml2::xml_find_all( doc, V_PREP_FIRM_ADDR_CITY ) )
 if( length( F9_02_PREP_FIRM_ADDR_CITY ) > 1 )
 { 
-  create_record( varname=F9_02_PREP_FIRM_ADDR_CITY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_PREP_FIRM_ADDR_CITY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_PREP_FIRM_ADDR_CITY <-  paste0( '{', F9_02_PREP_FIRM_ADDR_CITY, '}', collapse=';' ) 
 } 
 
@@ -402,7 +402,7 @@ V_PREP_FIRM_ADDR_CNTR <- paste( V1, V2, V3 , sep='|' )
 F9_02_PREP_FIRM_ADDR_CNTR <- xml2::xml_text( xml2::xml_find_all( doc, V_PREP_FIRM_ADDR_CNTR ) )
 if( length( F9_02_PREP_FIRM_ADDR_CNTR ) > 1 )
 { 
-  create_record( varname=F9_02_PREP_FIRM_ADDR_CNTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_PREP_FIRM_ADDR_CNTR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_PREP_FIRM_ADDR_CNTR <-  paste0( '{', F9_02_PREP_FIRM_ADDR_CNTR, '}', collapse=';' ) 
 } 
 
@@ -426,7 +426,7 @@ V_PREP_FIRM_ADDR_ZIP <- paste( V1, V2, V3, V4, V5, V6 , sep='|' )
 F9_02_PREP_FIRM_ADDR_ZIP <- xml2::xml_text( xml2::xml_find_all( doc, V_PREP_FIRM_ADDR_ZIP ) )
 if( length( F9_02_PREP_FIRM_ADDR_ZIP ) > 1 )
 { 
-  create_record( varname=F9_02_PREP_FIRM_ADDR_ZIP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_PREP_FIRM_ADDR_ZIP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_PREP_FIRM_ADDR_ZIP <-  paste0( '{', F9_02_PREP_FIRM_ADDR_ZIP, '}', collapse=';' ) 
 } 
 
@@ -450,7 +450,7 @@ V_PREP_FIRM_ADDR_STATE <- paste( V1, V2, V3, V4, V5, V6 , sep='|' )
 F9_02_PREP_FIRM_ADDR_STATE <- xml2::xml_text( xml2::xml_find_all( doc, V_PREP_FIRM_ADDR_STATE ) )
 if( length( F9_02_PREP_FIRM_ADDR_STATE ) > 1 )
 { 
-  create_record( varname=F9_02_PREP_FIRM_ADDR_STATE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_PREP_FIRM_ADDR_STATE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_PREP_FIRM_ADDR_STATE <-  paste0( '{', F9_02_PREP_FIRM_ADDR_STATE, '}', collapse=';' ) 
 } 
 
@@ -467,7 +467,7 @@ if( length( F9_02_PREP_FIRM_ADDR_STATE ) > 1 )
 F9_02_PREP_PERS_SELF_EMPL_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnHeader/PreparerPersonGrp/SelfEmployedInd' ) )
 if( length( F9_02_PREP_PERS_SELF_EMPL_X ) > 1 )
 { 
-  create_record( varname=F9_02_PREP_PERS_SELF_EMPL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_02_PREP_PERS_SELF_EMPL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_02_PREP_PERS_SELF_EMPL_X <-  paste0( '{', F9_02_PREP_PERS_SELF_EMPL_X, '}', collapse=';' ) 
 } 
 

@@ -35,7 +35,7 @@ V_GRANT_US_ORG_501C3_TOT <- paste( V1, V2, V3 , sep='|' )
 SI_02_GRANT_US_ORG_501C3_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_GRANT_US_ORG_501C3_TOT ) )
 if( length( SI_02_GRANT_US_ORG_501C3_TOT ) > 1 )
 { 
-  create_record( varname=SI_02_GRANT_US_ORG_501C3_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SI_02_GRANT_US_ORG_501C3_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SI_02_GRANT_US_ORG_501C3_TOT <-  paste0( '{', SI_02_GRANT_US_ORG_501C3_TOT, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_GRANT_US_ORG_OTH_TOT <- paste( V1, V2, V3 , sep='|' )
 SI_02_GRANT_US_ORG_OTH_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_GRANT_US_ORG_OTH_TOT ) )
 if( length( SI_02_GRANT_US_ORG_OTH_TOT ) > 1 )
 { 
-  create_record( varname=SI_02_GRANT_US_ORG_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SI_02_GRANT_US_ORG_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SI_02_GRANT_US_ORG_OTH_TOT <-  paste0( '{', SI_02_GRANT_US_ORG_OTH_TOT, '}', collapse=';' ) 
 } 
 

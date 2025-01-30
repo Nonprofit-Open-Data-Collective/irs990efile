@@ -36,7 +36,7 @@ V_NAFB_FOLLOW_SFAS117_X <- paste( V1, V2, V3, V4 , sep='|' )
 F9_10_NAFB_FOLLOW_SFAS117_X <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_FOLLOW_SFAS117_X ) )
 if( length( F9_10_NAFB_FOLLOW_SFAS117_X ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_FOLLOW_SFAS117_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_FOLLOW_SFAS117_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_FOLLOW_SFAS117_X <-  paste0( '{', F9_10_NAFB_FOLLOW_SFAS117_X, '}', collapse=';' ) 
 } 
 
@@ -59,7 +59,7 @@ V_NAFB_NO_FOLLOW_SFAS117_X <- paste( V1, V2, V3, V4, V5 , sep='|' )
 F9_10_NAFB_NO_FOLLOW_SFAS117_X <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_NO_FOLLOW_SFAS117_X ) )
 if( length( F9_10_NAFB_NO_FOLLOW_SFAS117_X ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_NO_FOLLOW_SFAS117_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_NO_FOLLOW_SFAS117_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_NO_FOLLOW_SFAS117_X <-  paste0( '{', F9_10_NAFB_NO_FOLLOW_SFAS117_X, '}', collapse=';' ) 
 } 
 
@@ -80,7 +80,7 @@ V_LIAB_ACC_PAYABLE_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_ACC_PAYABLE_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_ACC_PAYABLE_BOY ) )
 if( length( F9_10_LIAB_ACC_PAYABLE_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_ACC_PAYABLE_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_ACC_PAYABLE_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_ACC_PAYABLE_BOY <-  paste0( '{', F9_10_LIAB_ACC_PAYABLE_BOY, '}', collapse=';' ) 
 } 
 
@@ -101,7 +101,7 @@ V_LIAB_ACC_PAYABLE_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_ACC_PAYABLE_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_ACC_PAYABLE_EOY ) )
 if( length( F9_10_LIAB_ACC_PAYABLE_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_ACC_PAYABLE_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_ACC_PAYABLE_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_ACC_PAYABLE_EOY <-  paste0( '{', F9_10_LIAB_ACC_PAYABLE_EOY, '}', collapse=';' ) 
 } 
 
@@ -122,7 +122,7 @@ V_ASSET_ACC_NET_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_ACC_NET_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_ACC_NET_BOY ) )
 if( length( F9_10_ASSET_ACC_NET_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_ACC_NET_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_ACC_NET_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_ACC_NET_BOY <-  paste0( '{', F9_10_ASSET_ACC_NET_BOY, '}', collapse=';' ) 
 } 
 
@@ -143,7 +143,7 @@ V_ASSET_ACC_NET_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_ACC_NET_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_ACC_NET_EOY ) )
 if( length( F9_10_ASSET_ACC_NET_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_ACC_NET_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_ACC_NET_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_ACC_NET_EOY <-  paste0( '{', F9_10_ASSET_ACC_NET_EOY, '}', collapse=';' ) 
 } 
 
@@ -164,7 +164,7 @@ V_NAFB_CAP_STCK_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_NAFB_CAP_STCK_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_CAP_STCK_BOY ) )
 if( length( F9_10_NAFB_CAP_STCK_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_CAP_STCK_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_CAP_STCK_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_CAP_STCK_BOY <-  paste0( '{', F9_10_NAFB_CAP_STCK_BOY, '}', collapse=';' ) 
 } 
 
@@ -185,7 +185,7 @@ V_NAFB_CAP_STCK_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_NAFB_CAP_STCK_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_CAP_STCK_EOY ) )
 if( length( F9_10_NAFB_CAP_STCK_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_CAP_STCK_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_CAP_STCK_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_CAP_STCK_EOY <-  paste0( '{', F9_10_NAFB_CAP_STCK_EOY, '}', collapse=';' ) 
 } 
 
@@ -206,7 +206,7 @@ V_ASSET_CASH_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_CASH_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_CASH_BOY ) )
 if( length( F9_10_ASSET_CASH_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_CASH_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_CASH_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_CASH_BOY <-  paste0( '{', F9_10_ASSET_CASH_BOY, '}', collapse=';' ) 
 } 
 
@@ -227,7 +227,7 @@ V_ASSET_CASH_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_CASH_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_CASH_EOY ) )
 if( length( F9_10_ASSET_CASH_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_CASH_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_CASH_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_CASH_EOY <-  paste0( '{', F9_10_ASSET_CASH_EOY, '}', collapse=';' ) 
 } 
 
@@ -248,7 +248,7 @@ V_LIAB_REV_DEFERRED_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_REV_DEFERRED_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_REV_DEFERRED_BOY ) )
 if( length( F9_10_LIAB_REV_DEFERRED_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_REV_DEFERRED_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_REV_DEFERRED_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_REV_DEFERRED_BOY <-  paste0( '{', F9_10_LIAB_REV_DEFERRED_BOY, '}', collapse=';' ) 
 } 
 
@@ -269,7 +269,7 @@ V_LIAB_REV_DEFERRED_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_REV_DEFERRED_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_REV_DEFERRED_EOY ) )
 if( length( F9_10_LIAB_REV_DEFERRED_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_REV_DEFERRED_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_REV_DEFERRED_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_REV_DEFERRED_EOY <-  paste0( '{', F9_10_LIAB_REV_DEFERRED_EOY, '}', collapse=';' ) 
 } 
 
@@ -290,7 +290,7 @@ V_LIAB_ESCROW_ACC_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_ESCROW_ACC_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_ESCROW_ACC_BOY ) )
 if( length( F9_10_LIAB_ESCROW_ACC_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_ESCROW_ACC_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_ESCROW_ACC_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_ESCROW_ACC_BOY <-  paste0( '{', F9_10_LIAB_ESCROW_ACC_BOY, '}', collapse=';' ) 
 } 
 
@@ -311,7 +311,7 @@ V_LIAB_ESCROW_ACC_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_ESCROW_ACC_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_ESCROW_ACC_EOY ) )
 if( length( F9_10_LIAB_ESCROW_ACC_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_ESCROW_ACC_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_ESCROW_ACC_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_ESCROW_ACC_EOY <-  paste0( '{', F9_10_LIAB_ESCROW_ACC_EOY, '}', collapse=';' ) 
 } 
 
@@ -332,7 +332,7 @@ V_LIAB_GRANT_PAYABLE_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_GRANT_PAYABLE_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_GRANT_PAYABLE_BOY ) )
 if( length( F9_10_LIAB_GRANT_PAYABLE_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_GRANT_PAYABLE_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_GRANT_PAYABLE_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_GRANT_PAYABLE_BOY <-  paste0( '{', F9_10_LIAB_GRANT_PAYABLE_BOY, '}', collapse=';' ) 
 } 
 
@@ -353,7 +353,7 @@ V_LIAB_GRANT_PAYABLE_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_GRANT_PAYABLE_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_GRANT_PAYABLE_EOY ) )
 if( length( F9_10_LIAB_GRANT_PAYABLE_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_GRANT_PAYABLE_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_GRANT_PAYABLE_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_GRANT_PAYABLE_EOY <-  paste0( '{', F9_10_LIAB_GRANT_PAYABLE_EOY, '}', collapse=';' ) 
 } 
 
@@ -374,7 +374,7 @@ V_ASSET_INTANGIBLE_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_INTANGIBLE_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_INTANGIBLE_BOY ) )
 if( length( F9_10_ASSET_INTANGIBLE_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_INTANGIBLE_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_INTANGIBLE_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_INTANGIBLE_BOY <-  paste0( '{', F9_10_ASSET_INTANGIBLE_BOY, '}', collapse=';' ) 
 } 
 
@@ -395,7 +395,7 @@ V_ASSET_INTANGIBLE_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_INTANGIBLE_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_INTANGIBLE_EOY ) )
 if( length( F9_10_ASSET_INTANGIBLE_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_INTANGIBLE_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_INTANGIBLE_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_INTANGIBLE_EOY <-  paste0( '{', F9_10_ASSET_INTANGIBLE_EOY, '}', collapse=';' ) 
 } 
 
@@ -416,7 +416,7 @@ V_ASSET_INV_SALE_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_INV_SALE_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_INV_SALE_BOY ) )
 if( length( F9_10_ASSET_INV_SALE_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_INV_SALE_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_INV_SALE_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_INV_SALE_BOY <-  paste0( '{', F9_10_ASSET_INV_SALE_BOY, '}', collapse=';' ) 
 } 
 
@@ -437,7 +437,7 @@ V_ASSET_INV_SALE_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_INV_SALE_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_INV_SALE_EOY ) )
 if( length( F9_10_ASSET_INV_SALE_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_INV_SALE_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_INV_SALE_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_INV_SALE_EOY <-  paste0( '{', F9_10_ASSET_INV_SALE_EOY, '}', collapse=';' ) 
 } 
 
@@ -458,7 +458,7 @@ V_ASSET_INVEST_SEC_OTH_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_INVEST_SEC_OTH_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_INVEST_SEC_OTH_BOY ) )
 if( length( F9_10_ASSET_INVEST_SEC_OTH_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_INVEST_SEC_OTH_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_INVEST_SEC_OTH_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_INVEST_SEC_OTH_BOY <-  paste0( '{', F9_10_ASSET_INVEST_SEC_OTH_BOY, '}', collapse=';' ) 
 } 
 
@@ -479,7 +479,7 @@ V_ASSET_INVEST_SEC_OTH_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_INVEST_SEC_OTH_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_INVEST_SEC_OTH_EOY ) )
 if( length( F9_10_ASSET_INVEST_SEC_OTH_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_INVEST_SEC_OTH_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_INVEST_SEC_OTH_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_INVEST_SEC_OTH_EOY <-  paste0( '{', F9_10_ASSET_INVEST_SEC_OTH_EOY, '}', collapse=';' ) 
 } 
 
@@ -500,7 +500,7 @@ V_ASSET_INVEST_PROG_RLTD_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_INVEST_PROG_RLTD_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_INVEST_PROG_RLTD_BOY ) )
 if( length( F9_10_ASSET_INVEST_PROG_RLTD_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_INVEST_PROG_RLTD_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_INVEST_PROG_RLTD_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_INVEST_PROG_RLTD_BOY <-  paste0( '{', F9_10_ASSET_INVEST_PROG_RLTD_BOY, '}', collapse=';' ) 
 } 
 
@@ -521,7 +521,7 @@ V_ASSET_INVEST_PROG_RLTD_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_INVEST_PROG_RLTD_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_INVEST_PROG_RLTD_EOY ) )
 if( length( F9_10_ASSET_INVEST_PROG_RLTD_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_INVEST_PROG_RLTD_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_INVEST_PROG_RLTD_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_INVEST_PROG_RLTD_EOY <-  paste0( '{', F9_10_ASSET_INVEST_PROG_RLTD_EOY, '}', collapse=';' ) 
 } 
 
@@ -542,7 +542,7 @@ V_ASSET_INVEST_SEC_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_INVEST_SEC_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_INVEST_SEC_BOY ) )
 if( length( F9_10_ASSET_INVEST_SEC_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_INVEST_SEC_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_INVEST_SEC_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_INVEST_SEC_BOY <-  paste0( '{', F9_10_ASSET_INVEST_SEC_BOY, '}', collapse=';' ) 
 } 
 
@@ -563,7 +563,7 @@ V_ASSET_INVEST_SEC_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_INVEST_SEC_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_INVEST_SEC_EOY ) )
 if( length( F9_10_ASSET_INVEST_SEC_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_INVEST_SEC_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_INVEST_SEC_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_INVEST_SEC_EOY <-  paste0( '{', F9_10_ASSET_INVEST_SEC_EOY, '}', collapse=';' ) 
 } 
 
@@ -584,7 +584,7 @@ V_ASSET_LAND_BLDG_DEPREC <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_LAND_BLDG_DEPREC <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_LAND_BLDG_DEPREC ) )
 if( length( F9_10_ASSET_LAND_BLDG_DEPREC ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_LAND_BLDG_DEPREC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_LAND_BLDG_DEPREC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_LAND_BLDG_DEPREC <-  paste0( '{', F9_10_ASSET_LAND_BLDG_DEPREC, '}', collapse=';' ) 
 } 
 
@@ -605,7 +605,7 @@ V_ASSET_LAND_BLDG <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_LAND_BLDG <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_LAND_BLDG ) )
 if( length( F9_10_ASSET_LAND_BLDG ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_LAND_BLDG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_LAND_BLDG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_LAND_BLDG <-  paste0( '{', F9_10_ASSET_LAND_BLDG, '}', collapse=';' ) 
 } 
 
@@ -628,7 +628,7 @@ V_ASSET_LAND_BLDG_NET_BOY <- paste( V1, V2, V3, V4, V5 , sep='|' )
 F9_10_ASSET_LAND_BLDG_NET_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_LAND_BLDG_NET_BOY ) )
 if( length( F9_10_ASSET_LAND_BLDG_NET_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_LAND_BLDG_NET_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_LAND_BLDG_NET_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_LAND_BLDG_NET_BOY <-  paste0( '{', F9_10_ASSET_LAND_BLDG_NET_BOY, '}', collapse=';' ) 
 } 
 
@@ -651,7 +651,7 @@ V_ASSET_LAND_BLDG_NET_EOY <- paste( V1, V2, V3, V4, V5 , sep='|' )
 F9_10_ASSET_LAND_BLDG_NET_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_LAND_BLDG_NET_EOY ) )
 if( length( F9_10_ASSET_LAND_BLDG_NET_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_LAND_BLDG_NET_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_LAND_BLDG_NET_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_LAND_BLDG_NET_EOY <-  paste0( '{', F9_10_ASSET_LAND_BLDG_NET_EOY, '}', collapse=';' ) 
 } 
 
@@ -672,7 +672,7 @@ V_LIAB_LOAN_OFF_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_LOAN_OFF_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_LOAN_OFF_BOY ) )
 if( length( F9_10_LIAB_LOAN_OFF_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_LOAN_OFF_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_LOAN_OFF_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_LOAN_OFF_BOY <-  paste0( '{', F9_10_LIAB_LOAN_OFF_BOY, '}', collapse=';' ) 
 } 
 
@@ -693,7 +693,7 @@ V_LIAB_LOAN_OFF_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_LOAN_OFF_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_LOAN_OFF_EOY ) )
 if( length( F9_10_LIAB_LOAN_OFF_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_LOAN_OFF_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_LOAN_OFF_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_LOAN_OFF_EOY <-  paste0( '{', F9_10_LIAB_LOAN_OFF_EOY, '}', collapse=';' ) 
 } 
 
@@ -714,7 +714,7 @@ V_LIAB_MTG_NOTE_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_MTG_NOTE_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_MTG_NOTE_BOY ) )
 if( length( F9_10_LIAB_MTG_NOTE_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_MTG_NOTE_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_MTG_NOTE_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_MTG_NOTE_BOY <-  paste0( '{', F9_10_LIAB_MTG_NOTE_BOY, '}', collapse=';' ) 
 } 
 
@@ -735,7 +735,7 @@ V_LIAB_MTG_NOTE_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_MTG_NOTE_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_MTG_NOTE_EOY ) )
 if( length( F9_10_LIAB_MTG_NOTE_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_MTG_NOTE_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_MTG_NOTE_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_MTG_NOTE_EOY <-  paste0( '{', F9_10_LIAB_MTG_NOTE_EOY, '}', collapse=';' ) 
 } 
 
@@ -756,7 +756,7 @@ V_ASSET_OTH_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_OTH_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_OTH_BOY ) )
 if( length( F9_10_ASSET_OTH_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_OTH_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_OTH_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_OTH_BOY <-  paste0( '{', F9_10_ASSET_OTH_BOY, '}', collapse=';' ) 
 } 
 
@@ -777,7 +777,7 @@ V_ASSET_OTH_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_OTH_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_OTH_EOY ) )
 if( length( F9_10_ASSET_OTH_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_OTH_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_OTH_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_OTH_EOY <-  paste0( '{', F9_10_ASSET_OTH_EOY, '}', collapse=';' ) 
 } 
 
@@ -798,7 +798,7 @@ V_LIAB_OTH_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_OTH_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_OTH_BOY ) )
 if( length( F9_10_LIAB_OTH_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_OTH_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_OTH_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_OTH_BOY <-  paste0( '{', F9_10_LIAB_OTH_BOY, '}', collapse=';' ) 
 } 
 
@@ -819,7 +819,7 @@ V_LIAB_OTH_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_OTH_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_OTH_EOY ) )
 if( length( F9_10_LIAB_OTH_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_OTH_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_OTH_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_OTH_EOY <-  paste0( '{', F9_10_LIAB_OTH_EOY, '}', collapse=';' ) 
 } 
 
@@ -840,7 +840,7 @@ V_ASSET_NOTE_LOAN_NET_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_NOTE_LOAN_NET_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_NOTE_LOAN_NET_BOY ) )
 if( length( F9_10_ASSET_NOTE_LOAN_NET_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_NOTE_LOAN_NET_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_NOTE_LOAN_NET_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_NOTE_LOAN_NET_BOY <-  paste0( '{', F9_10_ASSET_NOTE_LOAN_NET_BOY, '}', collapse=';' ) 
 } 
 
@@ -861,7 +861,7 @@ V_ASSET_NOTE_LOAN_NET_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_NOTE_LOAN_NET_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_NOTE_LOAN_NET_EOY ) )
 if( length( F9_10_ASSET_NOTE_LOAN_NET_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_NOTE_LOAN_NET_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_NOTE_LOAN_NET_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_NOTE_LOAN_NET_EOY <-  paste0( '{', F9_10_ASSET_NOTE_LOAN_NET_EOY, '}', collapse=';' ) 
 } 
 
@@ -882,7 +882,7 @@ V_NAFB_CAP_SURPLUS_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_NAFB_CAP_SURPLUS_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_CAP_SURPLUS_BOY ) )
 if( length( F9_10_NAFB_CAP_SURPLUS_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_CAP_SURPLUS_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_CAP_SURPLUS_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_CAP_SURPLUS_BOY <-  paste0( '{', F9_10_NAFB_CAP_SURPLUS_BOY, '}', collapse=';' ) 
 } 
 
@@ -903,7 +903,7 @@ V_NAFB_CAP_SURPLUS_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_NAFB_CAP_SURPLUS_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_CAP_SURPLUS_EOY ) )
 if( length( F9_10_NAFB_CAP_SURPLUS_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_CAP_SURPLUS_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_CAP_SURPLUS_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_CAP_SURPLUS_EOY <-  paste0( '{', F9_10_NAFB_CAP_SURPLUS_EOY, '}', collapse=';' ) 
 } 
 
@@ -924,7 +924,7 @@ V_NAFB_RESTRICT_PERM_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_NAFB_RESTRICT_PERM_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_RESTRICT_PERM_BOY ) )
 if( length( F9_10_NAFB_RESTRICT_PERM_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_RESTRICT_PERM_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_RESTRICT_PERM_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_RESTRICT_PERM_BOY <-  paste0( '{', F9_10_NAFB_RESTRICT_PERM_BOY, '}', collapse=';' ) 
 } 
 
@@ -945,7 +945,7 @@ V_NAFB_RESTRICT_PERM_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_NAFB_RESTRICT_PERM_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_RESTRICT_PERM_EOY ) )
 if( length( F9_10_NAFB_RESTRICT_PERM_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_RESTRICT_PERM_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_RESTRICT_PERM_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_RESTRICT_PERM_EOY <-  paste0( '{', F9_10_NAFB_RESTRICT_PERM_EOY, '}', collapse=';' ) 
 } 
 
@@ -966,7 +966,7 @@ V_ASSET_PLEDGE_NET_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_PLEDGE_NET_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_PLEDGE_NET_BOY ) )
 if( length( F9_10_ASSET_PLEDGE_NET_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_PLEDGE_NET_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_PLEDGE_NET_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_PLEDGE_NET_BOY <-  paste0( '{', F9_10_ASSET_PLEDGE_NET_BOY, '}', collapse=';' ) 
 } 
 
@@ -987,7 +987,7 @@ V_ASSET_PLEDGE_NET_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_PLEDGE_NET_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_PLEDGE_NET_EOY ) )
 if( length( F9_10_ASSET_PLEDGE_NET_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_PLEDGE_NET_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_PLEDGE_NET_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_PLEDGE_NET_EOY <-  paste0( '{', F9_10_ASSET_PLEDGE_NET_EOY, '}', collapse=';' ) 
 } 
 
@@ -1008,7 +1008,7 @@ V_ASSET_EXP_PREPAID_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_EXP_PREPAID_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_EXP_PREPAID_BOY ) )
 if( length( F9_10_ASSET_EXP_PREPAID_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_EXP_PREPAID_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_EXP_PREPAID_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_EXP_PREPAID_BOY <-  paste0( '{', F9_10_ASSET_EXP_PREPAID_BOY, '}', collapse=';' ) 
 } 
 
@@ -1029,7 +1029,7 @@ V_ASSET_EXP_PREPAID_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_EXP_PREPAID_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_EXP_PREPAID_EOY ) )
 if( length( F9_10_ASSET_EXP_PREPAID_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_EXP_PREPAID_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_EXP_PREPAID_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_EXP_PREPAID_EOY <-  paste0( '{', F9_10_ASSET_EXP_PREPAID_EOY, '}', collapse=';' ) 
 } 
 
@@ -1050,7 +1050,7 @@ V_ASSET_LOAN_DSQ_PERS_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_LOAN_DSQ_PERS_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_LOAN_DSQ_PERS_BOY ) )
 if( length( F9_10_ASSET_LOAN_DSQ_PERS_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_LOAN_DSQ_PERS_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_LOAN_DSQ_PERS_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_LOAN_DSQ_PERS_BOY <-  paste0( '{', F9_10_ASSET_LOAN_DSQ_PERS_BOY, '}', collapse=';' ) 
 } 
 
@@ -1071,7 +1071,7 @@ V_ASSET_LOAN_DSQ_PERS_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_LOAN_DSQ_PERS_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_LOAN_DSQ_PERS_EOY ) )
 if( length( F9_10_ASSET_LOAN_DSQ_PERS_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_LOAN_DSQ_PERS_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_LOAN_DSQ_PERS_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_LOAN_DSQ_PERS_EOY <-  paste0( '{', F9_10_ASSET_LOAN_DSQ_PERS_EOY, '}', collapse=';' ) 
 } 
 
@@ -1092,7 +1092,7 @@ V_ASSET_LOAN_OFF_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_LOAN_OFF_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_LOAN_OFF_BOY ) )
 if( length( F9_10_ASSET_LOAN_OFF_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_LOAN_OFF_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_LOAN_OFF_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_LOAN_OFF_BOY <-  paste0( '{', F9_10_ASSET_LOAN_OFF_BOY, '}', collapse=';' ) 
 } 
 
@@ -1113,7 +1113,7 @@ V_ASSET_LOAN_OFF_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_LOAN_OFF_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_LOAN_OFF_EOY ) )
 if( length( F9_10_ASSET_LOAN_OFF_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_LOAN_OFF_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_LOAN_OFF_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_LOAN_OFF_EOY <-  paste0( '{', F9_10_ASSET_LOAN_OFF_EOY, '}', collapse=';' ) 
 } 
 
@@ -1134,7 +1134,7 @@ V_NAFB_EARNING_RETAINED_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_NAFB_EARNING_RETAINED_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_EARNING_RETAINED_BOY ) )
 if( length( F9_10_NAFB_EARNING_RETAINED_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_EARNING_RETAINED_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_EARNING_RETAINED_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_EARNING_RETAINED_BOY <-  paste0( '{', F9_10_NAFB_EARNING_RETAINED_BOY, '}', collapse=';' ) 
 } 
 
@@ -1155,7 +1155,7 @@ V_NAFB_EARNING_RETAINED_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_NAFB_EARNING_RETAINED_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_EARNING_RETAINED_EOY ) )
 if( length( F9_10_NAFB_EARNING_RETAINED_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_EARNING_RETAINED_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_EARNING_RETAINED_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_EARNING_RETAINED_EOY <-  paste0( '{', F9_10_NAFB_EARNING_RETAINED_EOY, '}', collapse=';' ) 
 } 
 
@@ -1176,7 +1176,7 @@ V_ASSET_SAVING_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_SAVING_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_SAVING_BOY ) )
 if( length( F9_10_ASSET_SAVING_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_SAVING_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_SAVING_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_SAVING_BOY <-  paste0( '{', F9_10_ASSET_SAVING_BOY, '}', collapse=';' ) 
 } 
 
@@ -1197,7 +1197,7 @@ V_ASSET_SAVING_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_ASSET_SAVING_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_SAVING_EOY ) )
 if( length( F9_10_ASSET_SAVING_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_SAVING_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_SAVING_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_SAVING_EOY <-  paste0( '{', F9_10_ASSET_SAVING_EOY, '}', collapse=';' ) 
 } 
 
@@ -1218,7 +1218,7 @@ V_LIAB_TAX_EXEMPT_BOND_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_TAX_EXEMPT_BOND_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_TAX_EXEMPT_BOND_BOY ) )
 if( length( F9_10_LIAB_TAX_EXEMPT_BOND_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_TAX_EXEMPT_BOND_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_TAX_EXEMPT_BOND_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_TAX_EXEMPT_BOND_BOY <-  paste0( '{', F9_10_LIAB_TAX_EXEMPT_BOND_BOY, '}', collapse=';' ) 
 } 
 
@@ -1239,7 +1239,7 @@ V_LIAB_TAX_EXEMPT_BOND_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_TAX_EXEMPT_BOND_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_TAX_EXEMPT_BOND_EOY ) )
 if( length( F9_10_LIAB_TAX_EXEMPT_BOND_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_TAX_EXEMPT_BOND_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_TAX_EXEMPT_BOND_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_TAX_EXEMPT_BOND_EOY <-  paste0( '{', F9_10_LIAB_TAX_EXEMPT_BOND_EOY, '}', collapse=';' ) 
 } 
 
@@ -1260,7 +1260,7 @@ V_NAFB_RESTRICT_TEMP_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_NAFB_RESTRICT_TEMP_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_RESTRICT_TEMP_BOY ) )
 if( length( F9_10_NAFB_RESTRICT_TEMP_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_RESTRICT_TEMP_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_RESTRICT_TEMP_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_RESTRICT_TEMP_BOY <-  paste0( '{', F9_10_NAFB_RESTRICT_TEMP_BOY, '}', collapse=';' ) 
 } 
 
@@ -1281,7 +1281,7 @@ V_NAFB_RESTRICT_TEMP_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_NAFB_RESTRICT_TEMP_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_RESTRICT_TEMP_EOY ) )
 if( length( F9_10_NAFB_RESTRICT_TEMP_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_RESTRICT_TEMP_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_RESTRICT_TEMP_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_RESTRICT_TEMP_EOY <-  paste0( '{', F9_10_NAFB_RESTRICT_TEMP_EOY, '}', collapse=';' ) 
 } 
 
@@ -1305,7 +1305,7 @@ V_ASSET_TOT_BOY <- paste( V1, V2, V3, V4, V5, V6 , sep='|' )
 F9_10_ASSET_TOT_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_TOT_BOY ) )
 if( length( F9_10_ASSET_TOT_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_TOT_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_TOT_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_TOT_BOY <-  paste0( '{', F9_10_ASSET_TOT_BOY, '}', collapse=';' ) 
 } 
 
@@ -1329,7 +1329,7 @@ V_ASSET_TOT_EOY <- paste( V1, V2, V3, V4, V5, V6 , sep='|' )
 F9_10_ASSET_TOT_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_TOT_EOY ) )
 if( length( F9_10_ASSET_TOT_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_TOT_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_TOT_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_TOT_EOY <-  paste0( '{', F9_10_ASSET_TOT_EOY, '}', collapse=';' ) 
 } 
 
@@ -1354,7 +1354,7 @@ V_LIAB_TOT_BOY <- paste( V1, V2, V3, V4, V5, V6, V7 , sep='|' )
 F9_10_LIAB_TOT_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_TOT_BOY ) )
 if( length( F9_10_LIAB_TOT_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_TOT_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_TOT_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_TOT_BOY <-  paste0( '{', F9_10_LIAB_TOT_BOY, '}', collapse=';' ) 
 } 
 
@@ -1379,7 +1379,7 @@ V_LIAB_TOT_EOY <- paste( V1, V2, V3, V4, V5, V6, V7 , sep='|' )
 F9_10_LIAB_TOT_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_TOT_EOY ) )
 if( length( F9_10_LIAB_TOT_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_TOT_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_TOT_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_TOT_EOY <-  paste0( '{', F9_10_LIAB_TOT_EOY, '}', collapse=';' ) 
 } 
 
@@ -1400,7 +1400,7 @@ V_NAFB_TOT_LIAB_NAFB_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_NAFB_TOT_LIAB_NAFB_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_TOT_LIAB_NAFB_BOY ) )
 if( length( F9_10_NAFB_TOT_LIAB_NAFB_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_TOT_LIAB_NAFB_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_TOT_LIAB_NAFB_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_TOT_LIAB_NAFB_BOY <-  paste0( '{', F9_10_NAFB_TOT_LIAB_NAFB_BOY, '}', collapse=';' ) 
 } 
 
@@ -1421,7 +1421,7 @@ V_NAFB_TOT_LIAB_NAFB_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_NAFB_TOT_LIAB_NAFB_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_TOT_LIAB_NAFB_EOY ) )
 if( length( F9_10_NAFB_TOT_LIAB_NAFB_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_TOT_LIAB_NAFB_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_TOT_LIAB_NAFB_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_TOT_LIAB_NAFB_EOY <-  paste0( '{', F9_10_NAFB_TOT_LIAB_NAFB_EOY, '}', collapse=';' ) 
 } 
 
@@ -1446,7 +1446,7 @@ V_NAFB_TOT_BOY <- paste( V1, V2, V3, V4, V5, V6, V7 , sep='|' )
 F9_10_NAFB_TOT_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_TOT_BOY ) )
 if( length( F9_10_NAFB_TOT_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_TOT_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_TOT_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_TOT_BOY <-  paste0( '{', F9_10_NAFB_TOT_BOY, '}', collapse=';' ) 
 } 
 
@@ -1471,7 +1471,7 @@ V_NAFB_TOT_EOY <- paste( V1, V2, V3, V4, V5, V6, V7 , sep='|' )
 F9_10_NAFB_TOT_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_TOT_EOY ) )
 if( length( F9_10_NAFB_TOT_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_TOT_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_TOT_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_TOT_EOY <-  paste0( '{', F9_10_NAFB_TOT_EOY, '}', collapse=';' ) 
 } 
 
@@ -1492,7 +1492,7 @@ V_NAFB_UNRESTRICT_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_NAFB_UNRESTRICT_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_UNRESTRICT_BOY ) )
 if( length( F9_10_NAFB_UNRESTRICT_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_UNRESTRICT_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_UNRESTRICT_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_UNRESTRICT_BOY <-  paste0( '{', F9_10_NAFB_UNRESTRICT_BOY, '}', collapse=';' ) 
 } 
 
@@ -1513,7 +1513,7 @@ V_NAFB_UNRESTRICT_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_NAFB_UNRESTRICT_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_NAFB_UNRESTRICT_EOY ) )
 if( length( F9_10_NAFB_UNRESTRICT_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_NAFB_UNRESTRICT_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_NAFB_UNRESTRICT_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_NAFB_UNRESTRICT_EOY <-  paste0( '{', F9_10_NAFB_UNRESTRICT_EOY, '}', collapse=';' ) 
 } 
 
@@ -1534,7 +1534,7 @@ V_LIAB_NOTE_UNSEC_BOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_NOTE_UNSEC_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_NOTE_UNSEC_BOY ) )
 if( length( F9_10_LIAB_NOTE_UNSEC_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_NOTE_UNSEC_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_NOTE_UNSEC_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_NOTE_UNSEC_BOY <-  paste0( '{', F9_10_LIAB_NOTE_UNSEC_BOY, '}', collapse=';' ) 
 } 
 
@@ -1555,7 +1555,7 @@ V_LIAB_NOTE_UNSEC_EOY <- paste( V1, V2, V3 , sep='|' )
 F9_10_LIAB_NOTE_UNSEC_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_LIAB_NOTE_UNSEC_EOY ) )
 if( length( F9_10_LIAB_NOTE_UNSEC_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_LIAB_NOTE_UNSEC_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_LIAB_NOTE_UNSEC_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_LIAB_NOTE_UNSEC_EOY <-  paste0( '{', F9_10_LIAB_NOTE_UNSEC_EOY, '}', collapse=';' ) 
 } 
 
@@ -1578,7 +1578,7 @@ V_INFO_SCHED_O_X <- paste( V1, V2, V3, V4, V5 , sep='|' )
 F9_10_INFO_SCHED_O_X <- xml2::xml_text( xml2::xml_find_all( doc, V_INFO_SCHED_O_X ) )
 if( length( F9_10_INFO_SCHED_O_X ) > 1 )
 { 
-  create_record( varname=F9_10_INFO_SCHED_O_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_INFO_SCHED_O_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_INFO_SCHED_O_X <-  paste0( '{', F9_10_INFO_SCHED_O_X, '}', collapse=';' ) 
 } 
 
@@ -1598,7 +1598,7 @@ V_ASSET_CASH_SAVING_BOY <- paste( V1, V2 , sep='|' )
 F9_10_ASSET_CASH_SAVING_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_CASH_SAVING_BOY ) )
 if( length( F9_10_ASSET_CASH_SAVING_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_CASH_SAVING_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_CASH_SAVING_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_CASH_SAVING_BOY <-  paste0( '{', F9_10_ASSET_CASH_SAVING_BOY, '}', collapse=';' ) 
 } 
 
@@ -1618,7 +1618,7 @@ V_ASSET_CASH_SAVING_EOY <- paste( V1, V2 , sep='|' )
 F9_10_ASSET_CASH_SAVING_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_CASH_SAVING_EOY ) )
 if( length( F9_10_ASSET_CASH_SAVING_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_CASH_SAVING_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_CASH_SAVING_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_CASH_SAVING_EOY <-  paste0( '{', F9_10_ASSET_CASH_SAVING_EOY, '}', collapse=';' ) 
 } 
 
@@ -1638,7 +1638,7 @@ V_ASSET_LAND_BLDG_BOY <- paste( V1, V2 , sep='|' )
 F9_10_ASSET_LAND_BLDG_BOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_LAND_BLDG_BOY ) )
 if( length( F9_10_ASSET_LAND_BLDG_BOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_LAND_BLDG_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_LAND_BLDG_BOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_LAND_BLDG_BOY <-  paste0( '{', F9_10_ASSET_LAND_BLDG_BOY, '}', collapse=';' ) 
 } 
 
@@ -1658,7 +1658,7 @@ V_ASSET_LAND_BLDG_EOY <- paste( V1, V2 , sep='|' )
 F9_10_ASSET_LAND_BLDG_EOY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_LAND_BLDG_EOY ) )
 if( length( F9_10_ASSET_LAND_BLDG_EOY ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_LAND_BLDG_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_LAND_BLDG_EOY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_LAND_BLDG_EOY <-  paste0( '{', F9_10_ASSET_LAND_BLDG_EOY, '}', collapse=';' ) 
 } 
 
@@ -1680,7 +1680,7 @@ V_ASSET_OTH_BOY_V2 <- paste( V1, V2, V3, V4 , sep='|' )
 F9_10_ASSET_OTH_BOY_V2 <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_OTH_BOY_V2 ) )
 if( length( F9_10_ASSET_OTH_BOY_V2 ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_OTH_BOY_V2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_OTH_BOY_V2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_OTH_BOY_V2 <-  paste0( '{', F9_10_ASSET_OTH_BOY_V2, '}', collapse=';' ) 
 } 
 
@@ -1702,7 +1702,7 @@ V_ASSET_OTH_EOY_V2 <- paste( V1, V2, V3, V4 , sep='|' )
 F9_10_ASSET_OTH_EOY_V2 <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_OTH_EOY_V2 ) )
 if( length( F9_10_ASSET_OTH_EOY_V2 ) > 1 )
 { 
-  create_record( varname=F9_10_ASSET_OTH_EOY_V2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_10_ASSET_OTH_EOY_V2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_10_ASSET_OTH_EOY_V2 <-  paste0( '{', F9_10_ASSET_OTH_EOY_V2, '}', collapse=';' ) 
 } 
 

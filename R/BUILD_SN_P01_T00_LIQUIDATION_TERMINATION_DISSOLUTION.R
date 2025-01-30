@@ -35,7 +35,7 @@ V_ORG_ATTORNEY_NOTIFIED_X <- paste( V1, V2, V3 , sep='|' )
 SN_01_ORG_ATTORNEY_NOTIFIED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_ATTORNEY_NOTIFIED_X ) )
 if( length( SN_01_ORG_ATTORNEY_NOTIFIED_X ) > 1 )
 { 
-  create_record( varname=SN_01_ORG_ATTORNEY_NOTIFIED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SN_01_ORG_ATTORNEY_NOTIFIED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SN_01_ORG_ATTORNEY_NOTIFIED_X <-  paste0( '{', SN_01_ORG_ATTORNEY_NOTIFIED_X, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_ORG_ASSET_DIST_GVRN_X <- paste( V1, V2, V3 , sep='|' )
 SN_01_ORG_ASSET_DIST_GVRN_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_ASSET_DIST_GVRN_X ) )
 if( length( SN_01_ORG_ASSET_DIST_GVRN_X ) > 1 )
 { 
-  create_record( varname=SN_01_ORG_ASSET_DIST_GVRN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SN_01_ORG_ASSET_DIST_GVRN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SN_01_ORG_ASSET_DIST_GVRN_X <-  paste0( '{', SN_01_ORG_ASSET_DIST_GVRN_X, '}', collapse=';' ) 
 } 
 
@@ -77,7 +77,7 @@ V_ORG_BOND_LIAB_DISCHARGED_X <- paste( V1, V2, V3 , sep='|' )
 SN_01_ORG_BOND_LIAB_DISCHARGED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_BOND_LIAB_DISCHARGED_X ) )
 if( length( SN_01_ORG_BOND_LIAB_DISCHARGED_X ) > 1 )
 { 
-  create_record( varname=SN_01_ORG_BOND_LIAB_DISCHARGED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SN_01_ORG_BOND_LIAB_DISCHARGED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SN_01_ORG_BOND_LIAB_DISCHARGED_X <-  paste0( '{', SN_01_ORG_BOND_LIAB_DISCHARGED_X, '}', collapse=';' ) 
 } 
 
@@ -98,7 +98,7 @@ V_ORG_BOND_OUTSTANDING_X <- paste( V1, V2, V3 , sep='|' )
 SN_01_ORG_BOND_OUTSTANDING_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_BOND_OUTSTANDING_X ) )
 if( length( SN_01_ORG_BOND_OUTSTANDING_X ) > 1 )
 { 
-  create_record( varname=SN_01_ORG_BOND_OUTSTANDING_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SN_01_ORG_BOND_OUTSTANDING_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SN_01_ORG_BOND_OUTSTANDING_X <-  paste0( '{', SN_01_ORG_BOND_OUTSTANDING_X, '}', collapse=';' ) 
 } 
 
@@ -119,7 +119,7 @@ V_ORG_DTK_DIR_SUCCESSOR_X <- paste( V1, V2, V3 , sep='|' )
 SN_01_ORG_DTK_DIR_SUCCESSOR_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_DTK_DIR_SUCCESSOR_X ) )
 if( length( SN_01_ORG_DTK_DIR_SUCCESSOR_X ) > 1 )
 { 
-  create_record( varname=SN_01_ORG_DTK_DIR_SUCCESSOR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SN_01_ORG_DTK_DIR_SUCCESSOR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SN_01_ORG_DTK_DIR_SUCCESSOR_X <-  paste0( '{', SN_01_ORG_DTK_DIR_SUCCESSOR_X, '}', collapse=';' ) 
 } 
 
@@ -140,7 +140,7 @@ V_ORG_DTK_EMPL_SUCCESSOR_X <- paste( V1, V2, V3 , sep='|' )
 SN_01_ORG_DTK_EMPL_SUCCESSOR_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_DTK_EMPL_SUCCESSOR_X ) )
 if( length( SN_01_ORG_DTK_EMPL_SUCCESSOR_X ) > 1 )
 { 
-  create_record( varname=SN_01_ORG_DTK_EMPL_SUCCESSOR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SN_01_ORG_DTK_EMPL_SUCCESSOR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SN_01_ORG_DTK_EMPL_SUCCESSOR_X <-  paste0( '{', SN_01_ORG_DTK_EMPL_SUCCESSOR_X, '}', collapse=';' ) 
 } 
 
@@ -161,7 +161,7 @@ V_ORG_LIAB_PAID_X <- paste( V1, V2, V3 , sep='|' )
 SN_01_ORG_LIAB_PAID_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_LIAB_PAID_X ) )
 if( length( SN_01_ORG_LIAB_PAID_X ) > 1 )
 { 
-  create_record( varname=SN_01_ORG_LIAB_PAID_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SN_01_ORG_LIAB_PAID_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SN_01_ORG_LIAB_PAID_X <-  paste0( '{', SN_01_ORG_LIAB_PAID_X, '}', collapse=';' ) 
 } 
 
@@ -182,7 +182,7 @@ V_ORG_DTK_OWN_SUCCESSOR_X <- paste( V1, V2, V3 , sep='|' )
 SN_01_ORG_DTK_OWN_SUCCESSOR_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_DTK_OWN_SUCCESSOR_X ) )
 if( length( SN_01_ORG_DTK_OWN_SUCCESSOR_X ) > 1 )
 { 
-  create_record( varname=SN_01_ORG_DTK_OWN_SUCCESSOR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SN_01_ORG_DTK_OWN_SUCCESSOR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SN_01_ORG_DTK_OWN_SUCCESSOR_X <-  paste0( '{', SN_01_ORG_DTK_OWN_SUCCESSOR_X, '}', collapse=';' ) 
 } 
 
@@ -203,7 +203,7 @@ V_ORG_DTK_REC_COMP_X <- paste( V1, V2, V3 , sep='|' )
 SN_01_ORG_DTK_REC_COMP_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_DTK_REC_COMP_X ) )
 if( length( SN_01_ORG_DTK_REC_COMP_X ) > 1 )
 { 
-  create_record( varname=SN_01_ORG_DTK_REC_COMP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SN_01_ORG_DTK_REC_COMP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SN_01_ORG_DTK_REC_COMP_X <-  paste0( '{', SN_01_ORG_DTK_REC_COMP_X, '}', collapse=';' ) 
 } 
 
@@ -224,7 +224,7 @@ V_ORG_REQ_NOTIFY_ATTORNEY_X <- paste( V1, V2, V3 , sep='|' )
 SN_01_ORG_REQ_NOTIFY_ATTORNEY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_REQ_NOTIFY_ATTORNEY_X ) )
 if( length( SN_01_ORG_REQ_NOTIFY_ATTORNEY_X ) > 1 )
 { 
-  create_record( varname=SN_01_ORG_REQ_NOTIFY_ATTORNEY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SN_01_ORG_REQ_NOTIFY_ATTORNEY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SN_01_ORG_REQ_NOTIFY_ATTORNEY_X <-  paste0( '{', SN_01_ORG_REQ_NOTIFY_ATTORNEY_X, '}', collapse=';' ) 
 } 
 

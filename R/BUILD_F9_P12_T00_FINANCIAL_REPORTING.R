@@ -35,7 +35,7 @@ V_FINSTAT_COMPILE_X <- paste( V1, V2, V3 , sep='|' )
 F9_12_FINSTAT_COMPILE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FINSTAT_COMPILE_X ) )
 if( length( F9_12_FINSTAT_COMPILE_X ) > 1 )
 { 
-  create_record( varname=F9_12_FINSTAT_COMPILE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_12_FINSTAT_COMPILE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_12_FINSTAT_COMPILE_X <-  paste0( '{', F9_12_FINSTAT_COMPILE_X, '}', collapse=';' ) 
 } 
 
@@ -55,7 +55,7 @@ V_FINSTAT_COMPILE_BOTH_X <- paste( V1, V2 , sep='|' )
 F9_12_FINSTAT_COMPILE_BOTH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FINSTAT_COMPILE_BOTH_X ) )
 if( length( F9_12_FINSTAT_COMPILE_BOTH_X ) > 1 )
 { 
-  create_record( varname=F9_12_FINSTAT_COMPILE_BOTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_12_FINSTAT_COMPILE_BOTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_12_FINSTAT_COMPILE_BOTH_X <-  paste0( '{', F9_12_FINSTAT_COMPILE_BOTH_X, '}', collapse=';' ) 
 } 
 
@@ -75,7 +75,7 @@ V_FINSTAT_COMPILE_CONSOL_X <- paste( V1, V2 , sep='|' )
 F9_12_FINSTAT_COMPILE_CONSOL_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FINSTAT_COMPILE_CONSOL_X ) )
 if( length( F9_12_FINSTAT_COMPILE_CONSOL_X ) > 1 )
 { 
-  create_record( varname=F9_12_FINSTAT_COMPILE_CONSOL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_12_FINSTAT_COMPILE_CONSOL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_12_FINSTAT_COMPILE_CONSOL_X <-  paste0( '{', F9_12_FINSTAT_COMPILE_CONSOL_X, '}', collapse=';' ) 
 } 
 
@@ -95,7 +95,7 @@ V_FINSTAT_COMPILE_SEP_X <- paste( V1, V2 , sep='|' )
 F9_12_FINSTAT_COMPILE_SEP_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FINSTAT_COMPILE_SEP_X ) )
 if( length( F9_12_FINSTAT_COMPILE_SEP_X ) > 1 )
 { 
-  create_record( varname=F9_12_FINSTAT_COMPILE_SEP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_12_FINSTAT_COMPILE_SEP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_12_FINSTAT_COMPILE_SEP_X <-  paste0( '{', F9_12_FINSTAT_COMPILE_SEP_X, '}', collapse=';' ) 
 } 
 
@@ -116,7 +116,7 @@ V_FINSTAT_AUDIT_COMMITTEE_X <- paste( V1, V2, V3 , sep='|' )
 F9_12_FINSTAT_AUDIT_COMMITTEE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FINSTAT_AUDIT_COMMITTEE_X ) )
 if( length( F9_12_FINSTAT_AUDIT_COMMITTEE_X ) > 1 )
 { 
-  create_record( varname=F9_12_FINSTAT_AUDIT_COMMITTEE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_12_FINSTAT_AUDIT_COMMITTEE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_12_FINSTAT_AUDIT_COMMITTEE_X <-  paste0( '{', F9_12_FINSTAT_AUDIT_COMMITTEE_X, '}', collapse=';' ) 
 } 
 
@@ -137,7 +137,7 @@ V_FINSTAT_FED_AUDIT_PERF_X <- paste( V1, V2, V3 , sep='|' )
 F9_12_FINSTAT_FED_AUDIT_PERF_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FINSTAT_FED_AUDIT_PERF_X ) )
 if( length( F9_12_FINSTAT_FED_AUDIT_PERF_X ) > 1 )
 { 
-  create_record( varname=F9_12_FINSTAT_FED_AUDIT_PERF_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_12_FINSTAT_FED_AUDIT_PERF_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_12_FINSTAT_FED_AUDIT_PERF_X <-  paste0( '{', F9_12_FINSTAT_FED_AUDIT_PERF_X, '}', collapse=';' ) 
 } 
 
@@ -158,7 +158,7 @@ V_FINSTAT_FED_AUDIT_REQ_X <- paste( V1, V2, V3 , sep='|' )
 F9_12_FINSTAT_FED_AUDIT_REQ_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FINSTAT_FED_AUDIT_REQ_X ) )
 if( length( F9_12_FINSTAT_FED_AUDIT_REQ_X ) > 1 )
 { 
-  create_record( varname=F9_12_FINSTAT_FED_AUDIT_REQ_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_12_FINSTAT_FED_AUDIT_REQ_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_12_FINSTAT_FED_AUDIT_REQ_X <-  paste0( '{', F9_12_FINSTAT_FED_AUDIT_REQ_X, '}', collapse=';' ) 
 } 
 
@@ -179,7 +179,7 @@ V_FINSTAT_AUDIT_BOTH_X <- paste( V1, V2, V3 , sep='|' )
 F9_12_FINSTAT_AUDIT_BOTH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FINSTAT_AUDIT_BOTH_X ) )
 if( length( F9_12_FINSTAT_AUDIT_BOTH_X ) > 1 )
 { 
-  create_record( varname=F9_12_FINSTAT_AUDIT_BOTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_12_FINSTAT_AUDIT_BOTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_12_FINSTAT_AUDIT_BOTH_X <-  paste0( '{', F9_12_FINSTAT_AUDIT_BOTH_X, '}', collapse=';' ) 
 } 
 
@@ -200,7 +200,7 @@ V_FINSTAT_AUDIT_CONSOL_X <- paste( V1, V2, V3 , sep='|' )
 F9_12_FINSTAT_AUDIT_CONSOL_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FINSTAT_AUDIT_CONSOL_X ) )
 if( length( F9_12_FINSTAT_AUDIT_CONSOL_X ) > 1 )
 { 
-  create_record( varname=F9_12_FINSTAT_AUDIT_CONSOL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_12_FINSTAT_AUDIT_CONSOL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_12_FINSTAT_AUDIT_CONSOL_X <-  paste0( '{', F9_12_FINSTAT_AUDIT_CONSOL_X, '}', collapse=';' ) 
 } 
 
@@ -221,7 +221,7 @@ V_FINSTAT_AUDIT_SEP_X <- paste( V1, V2, V3 , sep='|' )
 F9_12_FINSTAT_AUDIT_SEP_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FINSTAT_AUDIT_SEP_X ) )
 if( length( F9_12_FINSTAT_AUDIT_SEP_X ) > 1 )
 { 
-  create_record( varname=F9_12_FINSTAT_AUDIT_SEP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_12_FINSTAT_AUDIT_SEP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_12_FINSTAT_AUDIT_SEP_X <-  paste0( '{', F9_12_FINSTAT_AUDIT_SEP_X, '}', collapse=';' ) 
 } 
 
@@ -242,7 +242,7 @@ V_FINSTAT_AUDIT_X <- paste( V1, V2, V3 , sep='|' )
 F9_12_FINSTAT_AUDIT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FINSTAT_AUDIT_X ) )
 if( length( F9_12_FINSTAT_AUDIT_X ) > 1 )
 { 
-  create_record( varname=F9_12_FINSTAT_AUDIT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_12_FINSTAT_AUDIT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_12_FINSTAT_AUDIT_X <-  paste0( '{', F9_12_FINSTAT_AUDIT_X, '}', collapse=';' ) 
 } 
 
@@ -265,7 +265,7 @@ V_FINSTAT_METHOD_ACC_ACCRU_X <- paste( V1, V2, V3, V4, V5 , sep='|' )
 F9_12_FINSTAT_METHOD_ACC_ACCRU_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FINSTAT_METHOD_ACC_ACCRU_X ) )
 if( length( F9_12_FINSTAT_METHOD_ACC_ACCRU_X ) > 1 )
 { 
-  create_record( varname=F9_12_FINSTAT_METHOD_ACC_ACCRU_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_12_FINSTAT_METHOD_ACC_ACCRU_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_12_FINSTAT_METHOD_ACC_ACCRU_X <-  paste0( '{', F9_12_FINSTAT_METHOD_ACC_ACCRU_X, '}', collapse=';' ) 
 } 
 
@@ -288,7 +288,7 @@ V_FINSTAT_METHOD_ACC_CASH_X <- paste( V1, V2, V3, V4, V5 , sep='|' )
 F9_12_FINSTAT_METHOD_ACC_CASH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FINSTAT_METHOD_ACC_CASH_X ) )
 if( length( F9_12_FINSTAT_METHOD_ACC_CASH_X ) > 1 )
 { 
-  create_record( varname=F9_12_FINSTAT_METHOD_ACC_CASH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_12_FINSTAT_METHOD_ACC_CASH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_12_FINSTAT_METHOD_ACC_CASH_X <-  paste0( '{', F9_12_FINSTAT_METHOD_ACC_CASH_X, '}', collapse=';' ) 
 } 
 
@@ -309,7 +309,7 @@ V_FINSTAT_METHOD_ACC_OTH_X <- paste( V1, V2, V3 , sep='|' )
 F9_12_FINSTAT_METHOD_ACC_OTH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FINSTAT_METHOD_ACC_OTH_X ) )
 if( length( F9_12_FINSTAT_METHOD_ACC_OTH_X ) > 1 )
 { 
-  create_record( varname=F9_12_FINSTAT_METHOD_ACC_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_12_FINSTAT_METHOD_ACC_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_12_FINSTAT_METHOD_ACC_OTH_X <-  paste0( '{', F9_12_FINSTAT_METHOD_ACC_OTH_X, '}', collapse=';' ) 
 } 
 
@@ -329,7 +329,7 @@ V_INFO_SCHED_O_X <- paste( V1, V2 , sep='|' )
 F9_12_INFO_SCHED_O_X <- xml2::xml_text( xml2::xml_find_all( doc, V_INFO_SCHED_O_X ) )
 if( length( F9_12_INFO_SCHED_O_X ) > 1 )
 { 
-  create_record( varname=F9_12_INFO_SCHED_O_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_12_INFO_SCHED_O_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_12_INFO_SCHED_O_X <-  paste0( '{', F9_12_INFO_SCHED_O_X, '}', collapse=';' ) 
 } 
 
@@ -349,7 +349,7 @@ V_FINSTAT_METHOD_ACC_OTH <- paste( V1, V2 , sep='|' )
 F9_12_FINSTAT_METHOD_ACC_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_FINSTAT_METHOD_ACC_OTH ) )
 if( length( F9_12_FINSTAT_METHOD_ACC_OTH ) > 1 )
 { 
-  create_record( varname=F9_12_FINSTAT_METHOD_ACC_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_12_FINSTAT_METHOD_ACC_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_12_FINSTAT_METHOD_ACC_OTH <-  paste0( '{', F9_12_FINSTAT_METHOD_ACC_OTH, '}', collapse=';' ) 
 } 
 

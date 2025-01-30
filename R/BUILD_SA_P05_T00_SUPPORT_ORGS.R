@@ -31,7 +31,7 @@ TAX_YEAR <- keys[['TAX_YEAR']]
 SA_05_DIST_ALLOC_EXCESS_CY_M3 <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/ExcessDistributionCyovYr3Amt' ) )
 if( length( SA_05_DIST_ALLOC_EXCESS_CY_M3 ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_EXCESS_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_EXCESS_CY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_EXCESS_CY_M3 <-  paste0( '{', SA_05_DIST_ALLOC_EXCESS_CY_M3, '}', collapse=';' ) 
 } 
 
@@ -48,7 +48,7 @@ if( length( SA_05_DIST_ALLOC_EXCESS_CY_M3 ) > 1 )
 SA_05_DIST_ALLOC_EXCESS_NY_M4 <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/ExcessFromYear4Amt' ) )
 if( length( SA_05_DIST_ALLOC_EXCESS_NY_M4 ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_EXCESS_NY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_EXCESS_NY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_EXCESS_NY_M4 <-  paste0( '{', SA_05_DIST_ALLOC_EXCESS_NY_M4, '}', collapse=';' ) 
 } 
 
@@ -65,7 +65,7 @@ if( length( SA_05_DIST_ALLOC_EXCESS_NY_M4 ) > 1 )
 SA_05_DIST_ALLOC_EXCESS_CY_M4 <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/ExcessDistributionCyovYr4Amt' ) )
 if( length( SA_05_DIST_ALLOC_EXCESS_CY_M4 ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_EXCESS_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_EXCESS_CY_M4, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_EXCESS_CY_M4 <-  paste0( '{', SA_05_DIST_ALLOC_EXCESS_CY_M4, '}', collapse=';' ) 
 } 
 
@@ -82,7 +82,7 @@ if( length( SA_05_DIST_ALLOC_EXCESS_CY_M4 ) > 1 )
 SA_05_DIST_ALLOC_EXCESS_NY_M5 <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/ExcessFromYear5Amt' ) )
 if( length( SA_05_DIST_ALLOC_EXCESS_NY_M5 ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_EXCESS_NY_M5, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_EXCESS_NY_M5, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_EXCESS_NY_M5 <-  paste0( '{', SA_05_DIST_ALLOC_EXCESS_NY_M5, '}', collapse=';' ) 
 } 
 
@@ -99,7 +99,7 @@ if( length( SA_05_DIST_ALLOC_EXCESS_NY_M5 ) > 1 )
 SA_05_DIST_ALLOC_EXCESS_CY_M5 <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/ExcessDistributionCyovYr5Amt' ) )
 if( length( SA_05_DIST_ALLOC_EXCESS_CY_M5 ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_EXCESS_CY_M5, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_EXCESS_CY_M5, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_EXCESS_CY_M5 <-  paste0( '{', SA_05_DIST_ALLOC_EXCESS_CY_M5, '}', collapse=';' ) 
 } 
 
@@ -116,7 +116,7 @@ if( length( SA_05_DIST_ALLOC_EXCESS_CY_M5 ) > 1 )
 SA_05_NETINCOME_ADJ_ADD_L123_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/AdjustedNetIncomeGrp/AdjustedGrossIncomeGrp/CurrentYearAmt' ) )
 if( length( SA_05_NETINCOME_ADJ_ADD_L123_CY ) > 1 )
 { 
-  create_record( varname=SA_05_NETINCOME_ADJ_ADD_L123_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_NETINCOME_ADJ_ADD_L123_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_NETINCOME_ADJ_ADD_L123_CY <-  paste0( '{', SA_05_NETINCOME_ADJ_ADD_L123_CY, '}', collapse=';' ) 
 } 
 
@@ -133,7 +133,7 @@ if( length( SA_05_NETINCOME_ADJ_ADD_L123_CY ) > 1 )
 SA_05_NETINCOME_ADJ_ADD_L123_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/AdjustedNetIncomeGrp/AdjustedGrossIncomeGrp/PriorYearAmt' ) )
 if( length( SA_05_NETINCOME_ADJ_ADD_L123_PY ) > 1 )
 { 
-  create_record( varname=SA_05_NETINCOME_ADJ_ADD_L123_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_NETINCOME_ADJ_ADD_L123_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_NETINCOME_ADJ_ADD_L123_PY <-  paste0( '{', SA_05_NETINCOME_ADJ_ADD_L123_PY, '}', collapse=';' ) 
 } 
 
@@ -150,7 +150,7 @@ if( length( SA_05_NETINCOME_ADJ_ADD_L123_PY ) > 1 )
 SA_05_NETINCOME_ADJ_DEPREC_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/AdjustedNetIncomeGrp/DepreciationDepletionGrp/CurrentYearAmt' ) )
 if( length( SA_05_NETINCOME_ADJ_DEPREC_CY ) > 1 )
 { 
-  create_record( varname=SA_05_NETINCOME_ADJ_DEPREC_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_NETINCOME_ADJ_DEPREC_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_NETINCOME_ADJ_DEPREC_CY <-  paste0( '{', SA_05_NETINCOME_ADJ_DEPREC_CY, '}', collapse=';' ) 
 } 
 
@@ -167,7 +167,7 @@ if( length( SA_05_NETINCOME_ADJ_DEPREC_CY ) > 1 )
 SA_05_NETINCOME_ADJ_DEPREC_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/AdjustedNetIncomeGrp/DepreciationDepletionGrp/PriorYearAmt' ) )
 if( length( SA_05_NETINCOME_ADJ_DEPREC_PY ) > 1 )
 { 
-  create_record( varname=SA_05_NETINCOME_ADJ_DEPREC_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_NETINCOME_ADJ_DEPREC_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_NETINCOME_ADJ_DEPREC_PY <-  paste0( '{', SA_05_NETINCOME_ADJ_DEPREC_PY, '}', collapse=';' ) 
 } 
 
@@ -184,7 +184,7 @@ if( length( SA_05_NETINCOME_ADJ_DEPREC_PY ) > 1 )
 SA_05_NETINCOME_ADJ_CAP_GAIN_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/AdjustedNetIncomeGrp/NetSTCapitalGainAdjNetIncmGrp/CurrentYearAmt' ) )
 if( length( SA_05_NETINCOME_ADJ_CAP_GAIN_CY ) > 1 )
 { 
-  create_record( varname=SA_05_NETINCOME_ADJ_CAP_GAIN_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_NETINCOME_ADJ_CAP_GAIN_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_NETINCOME_ADJ_CAP_GAIN_CY <-  paste0( '{', SA_05_NETINCOME_ADJ_CAP_GAIN_CY, '}', collapse=';' ) 
 } 
 
@@ -201,7 +201,7 @@ if( length( SA_05_NETINCOME_ADJ_CAP_GAIN_CY ) > 1 )
 SA_05_NETINCOME_ADJ_CAP_GAIN_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/AdjustedNetIncomeGrp/NetSTCapitalGainAdjNetIncmGrp/PriorYearAmt' ) )
 if( length( SA_05_NETINCOME_ADJ_CAP_GAIN_PY ) > 1 )
 { 
-  create_record( varname=SA_05_NETINCOME_ADJ_CAP_GAIN_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_NETINCOME_ADJ_CAP_GAIN_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_NETINCOME_ADJ_CAP_GAIN_PY <-  paste0( '{', SA_05_NETINCOME_ADJ_CAP_GAIN_PY, '}', collapse=';' ) 
 } 
 
@@ -218,7 +218,7 @@ if( length( SA_05_NETINCOME_ADJ_CAP_GAIN_PY ) > 1 )
 SA_05_NETINCOME_ADJ_EXP_OTH_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/AdjustedNetIncomeGrp/OtherExpensesGrp/CurrentYearAmt' ) )
 if( length( SA_05_NETINCOME_ADJ_EXP_OTH_CY ) > 1 )
 { 
-  create_record( varname=SA_05_NETINCOME_ADJ_EXP_OTH_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_NETINCOME_ADJ_EXP_OTH_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_NETINCOME_ADJ_EXP_OTH_CY <-  paste0( '{', SA_05_NETINCOME_ADJ_EXP_OTH_CY, '}', collapse=';' ) 
 } 
 
@@ -235,7 +235,7 @@ if( length( SA_05_NETINCOME_ADJ_EXP_OTH_CY ) > 1 )
 SA_05_NETINCOME_ADJ_EXP_OTH_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/AdjustedNetIncomeGrp/OtherExpensesGrp/PriorYearAmt' ) )
 if( length( SA_05_NETINCOME_ADJ_EXP_OTH_PY ) > 1 )
 { 
-  create_record( varname=SA_05_NETINCOME_ADJ_EXP_OTH_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_NETINCOME_ADJ_EXP_OTH_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_NETINCOME_ADJ_EXP_OTH_PY <-  paste0( '{', SA_05_NETINCOME_ADJ_EXP_OTH_PY, '}', collapse=';' ) 
 } 
 
@@ -252,7 +252,7 @@ if( length( SA_05_NETINCOME_ADJ_EXP_OTH_PY ) > 1 )
 SA_05_NETINCOME_ADJ_OTH_GRO_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/AdjustedNetIncomeGrp/OtherGrossIncomeGrp/CurrentYearAmt' ) )
 if( length( SA_05_NETINCOME_ADJ_OTH_GRO_CY ) > 1 )
 { 
-  create_record( varname=SA_05_NETINCOME_ADJ_OTH_GRO_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_NETINCOME_ADJ_OTH_GRO_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_NETINCOME_ADJ_OTH_GRO_CY <-  paste0( '{', SA_05_NETINCOME_ADJ_OTH_GRO_CY, '}', collapse=';' ) 
 } 
 
@@ -269,7 +269,7 @@ if( length( SA_05_NETINCOME_ADJ_OTH_GRO_CY ) > 1 )
 SA_05_NETINCOME_ADJ_OTH_GRO_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/AdjustedNetIncomeGrp/OtherGrossIncomeGrp/PriorYearAmt' ) )
 if( length( SA_05_NETINCOME_ADJ_OTH_GRO_PY ) > 1 )
 { 
-  create_record( varname=SA_05_NETINCOME_ADJ_OTH_GRO_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_NETINCOME_ADJ_OTH_GRO_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_NETINCOME_ADJ_OTH_GRO_PY <-  paste0( '{', SA_05_NETINCOME_ADJ_OTH_GRO_PY, '}', collapse=';' ) 
 } 
 
@@ -286,7 +286,7 @@ if( length( SA_05_NETINCOME_ADJ_OTH_GRO_PY ) > 1 )
 SA_05_NETINCOME_ADJ_PRODUCT_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/AdjustedNetIncomeGrp/ProductionIncomeGrp/CurrentYearAmt' ) )
 if( length( SA_05_NETINCOME_ADJ_PRODUCT_CY ) > 1 )
 { 
-  create_record( varname=SA_05_NETINCOME_ADJ_PRODUCT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_NETINCOME_ADJ_PRODUCT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_NETINCOME_ADJ_PRODUCT_CY <-  paste0( '{', SA_05_NETINCOME_ADJ_PRODUCT_CY, '}', collapse=';' ) 
 } 
 
@@ -303,7 +303,7 @@ if( length( SA_05_NETINCOME_ADJ_PRODUCT_CY ) > 1 )
 SA_05_NETINCOME_ADJ_PRODUCT_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/AdjustedNetIncomeGrp/ProductionIncomeGrp/PriorYearAmt' ) )
 if( length( SA_05_NETINCOME_ADJ_PRODUCT_PY ) > 1 )
 { 
-  create_record( varname=SA_05_NETINCOME_ADJ_PRODUCT_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_NETINCOME_ADJ_PRODUCT_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_NETINCOME_ADJ_PRODUCT_PY <-  paste0( '{', SA_05_NETINCOME_ADJ_PRODUCT_PY, '}', collapse=';' ) 
 } 
 
@@ -320,7 +320,7 @@ if( length( SA_05_NETINCOME_ADJ_PRODUCT_PY ) > 1 )
 SA_05_NETINCOME_ADJ_RECOVERY_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/AdjustedNetIncomeGrp/RecoveriesPYDistributionsGrp/CurrentYearAmt' ) )
 if( length( SA_05_NETINCOME_ADJ_RECOVERY_CY ) > 1 )
 { 
-  create_record( varname=SA_05_NETINCOME_ADJ_RECOVERY_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_NETINCOME_ADJ_RECOVERY_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_NETINCOME_ADJ_RECOVERY_CY <-  paste0( '{', SA_05_NETINCOME_ADJ_RECOVERY_CY, '}', collapse=';' ) 
 } 
 
@@ -337,7 +337,7 @@ if( length( SA_05_NETINCOME_ADJ_RECOVERY_CY ) > 1 )
 SA_05_NETINCOME_ADJ_RECOVERY_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/AdjustedNetIncomeGrp/RecoveriesPYDistributionsGrp/PriorYearAmt' ) )
 if( length( SA_05_NETINCOME_ADJ_RECOVERY_PY ) > 1 )
 { 
-  create_record( varname=SA_05_NETINCOME_ADJ_RECOVERY_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_NETINCOME_ADJ_RECOVERY_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_NETINCOME_ADJ_RECOVERY_PY <-  paste0( '{', SA_05_NETINCOME_ADJ_RECOVERY_PY, '}', collapse=';' ) 
 } 
 
@@ -354,7 +354,7 @@ if( length( SA_05_NETINCOME_ADJ_RECOVERY_PY ) > 1 )
 SA_05_NETINCOME_ADJ_TOT_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/AdjustedNetIncomeGrp/TotalAdjustedNetIncomeGrp/CurrentYearAmt' ) )
 if( length( SA_05_NETINCOME_ADJ_TOT_CY ) > 1 )
 { 
-  create_record( varname=SA_05_NETINCOME_ADJ_TOT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_NETINCOME_ADJ_TOT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_NETINCOME_ADJ_TOT_CY <-  paste0( '{', SA_05_NETINCOME_ADJ_TOT_CY, '}', collapse=';' ) 
 } 
 
@@ -371,7 +371,7 @@ if( length( SA_05_NETINCOME_ADJ_TOT_CY ) > 1 )
 SA_05_NETINCOME_ADJ_TOT_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/AdjustedNetIncomeGrp/TotalAdjustedNetIncomeGrp/PriorYearAmt' ) )
 if( length( SA_05_NETINCOME_ADJ_TOT_PY ) > 1 )
 { 
-  create_record( varname=SA_05_NETINCOME_ADJ_TOT_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_NETINCOME_ADJ_TOT_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_NETINCOME_ADJ_TOT_PY <-  paste0( '{', SA_05_NETINCOME_ADJ_TOT_PY, '}', collapse=';' ) 
 } 
 
@@ -391,7 +391,7 @@ V_DIST_AMT_NETINCOME_ADJ_CY <- paste( V1, V2 , sep='|' )
 SA_05_DIST_AMT_NETINCOME_ADJ_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_DIST_AMT_NETINCOME_ADJ_CY ) )
 if( length( SA_05_DIST_AMT_NETINCOME_ADJ_CY ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_AMT_NETINCOME_ADJ_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_AMT_NETINCOME_ADJ_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_AMT_NETINCOME_ADJ_CY <-  paste0( '{', SA_05_DIST_AMT_NETINCOME_ADJ_CY, '}', collapse=';' ) 
 } 
 
@@ -411,7 +411,7 @@ V_DIST_AMT_ADJ_CY <- paste( V1, V2 , sep='|' )
 SA_05_DIST_AMT_ADJ_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_DIST_AMT_ADJ_CY ) )
 if( length( SA_05_DIST_AMT_ADJ_CY ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_AMT_ADJ_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_AMT_ADJ_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_AMT_ADJ_CY <-  paste0( '{', SA_05_DIST_AMT_ADJ_CY, '}', collapse=';' ) 
 } 
 
@@ -431,7 +431,7 @@ V_DIST_AMT_GREATER_L23_CY <- paste( V1, V2 , sep='|' )
 SA_05_DIST_AMT_GREATER_L23_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_DIST_AMT_GREATER_L23_CY ) )
 if( length( SA_05_DIST_AMT_GREATER_L23_CY ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_AMT_GREATER_L23_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_AMT_GREATER_L23_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_AMT_GREATER_L23_CY <-  paste0( '{', SA_05_DIST_AMT_GREATER_L23_CY, '}', collapse=';' ) 
 } 
 
@@ -451,7 +451,7 @@ V_DIST_AMT_IMCOME_TAX_CY <- paste( V1, V2 , sep='|' )
 SA_05_DIST_AMT_IMCOME_TAX_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_DIST_AMT_IMCOME_TAX_CY ) )
 if( length( SA_05_DIST_AMT_IMCOME_TAX_CY ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_AMT_IMCOME_TAX_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_AMT_IMCOME_TAX_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_AMT_IMCOME_TAX_CY <-  paste0( '{', SA_05_DIST_AMT_IMCOME_TAX_CY, '}', collapse=';' ) 
 } 
 
@@ -471,7 +471,7 @@ V_DIST_AMT_85PCT_L1_CY <- paste( V1, V2 , sep='|' )
 SA_05_DIST_AMT_85PCT_L1_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_DIST_AMT_85PCT_L1_CY ) )
 if( length( SA_05_DIST_AMT_85PCT_L1_CY ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_AMT_85PCT_L1_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_AMT_85PCT_L1_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_AMT_85PCT_L1_CY <-  paste0( '{', SA_05_DIST_AMT_85PCT_L1_CY, '}', collapse=';' ) 
 } 
 
@@ -491,7 +491,7 @@ V_DIST_AMT_ASSET_MINIM_CY <- paste( V1, V2 , sep='|' )
 SA_05_DIST_AMT_ASSET_MINIM_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_DIST_AMT_ASSET_MINIM_CY ) )
 if( length( SA_05_DIST_AMT_ASSET_MINIM_CY ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_AMT_ASSET_MINIM_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_AMT_ASSET_MINIM_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_AMT_ASSET_MINIM_CY <-  paste0( '{', SA_05_DIST_AMT_ASSET_MINIM_CY, '}', collapse=';' ) 
 } 
 
@@ -511,7 +511,7 @@ V_DIST_AMT_FIRST_Y_T3_X <- paste( V1, V2 , sep='|' )
 SA_05_DIST_AMT_FIRST_Y_T3_X <- xml2::xml_text( xml2::xml_find_all( doc, V_DIST_AMT_FIRST_Y_T3_X ) )
 if( length( SA_05_DIST_AMT_FIRST_Y_T3_X ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_AMT_FIRST_Y_T3_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_AMT_FIRST_Y_T3_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_AMT_FIRST_Y_T3_X <-  paste0( '{', SA_05_DIST_AMT_FIRST_Y_T3_X, '}', collapse=';' ) 
 } 
 
@@ -528,7 +528,7 @@ if( length( SA_05_DIST_AMT_FIRST_Y_T3_X ) > 1 )
 SA_05_DIST_ALLOC_DIST_APPLY_DA <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/CYDistriAppDistributableAmt' ) )
 if( length( SA_05_DIST_ALLOC_DIST_APPLY_DA ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_DIST_APPLY_DA, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_DIST_APPLY_DA, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_DIST_APPLY_DA <-  paste0( '{', SA_05_DIST_ALLOC_DIST_APPLY_DA, '}', collapse=';' ) 
 } 
 
@@ -545,7 +545,7 @@ if( length( SA_05_DIST_ALLOC_DIST_APPLY_DA ) > 1 )
 SA_05_DIST_ALLOC_DIST_APPLY_UD <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/CYDistribAppUnderdistriPYAmt' ) )
 if( length( SA_05_DIST_ALLOC_DIST_APPLY_UD ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_DIST_APPLY_UD, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_DIST_APPLY_UD, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_DIST_APPLY_UD <-  paste0( '{', SA_05_DIST_ALLOC_DIST_APPLY_UD, '}', collapse=';' ) 
 } 
 
@@ -562,7 +562,7 @@ if( length( SA_05_DIST_ALLOC_DIST_APPLY_UD ) > 1 )
 SA_05_DIST_ALLOC_ADJ_DA <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/CYDistributableAsAdjustedAmt' ) )
 if( length( SA_05_DIST_ALLOC_ADJ_DA ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_ADJ_DA, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_ADJ_DA, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_ADJ_DA <-  paste0( '{', SA_05_DIST_ALLOC_ADJ_DA, '}', collapse=';' ) 
 } 
 
@@ -579,7 +579,7 @@ if( length( SA_05_DIST_ALLOC_ADJ_DA ) > 1 )
 SA_05_DIST_ALLOC_EXCESS_APPLY_DA <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/CyovAppliedUnderdistrCPYAmt' ) )
 if( length( SA_05_DIST_ALLOC_EXCESS_APPLY_DA ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_EXCESS_APPLY_DA, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_EXCESS_APPLY_DA, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_EXCESS_APPLY_DA <-  paste0( '{', SA_05_DIST_ALLOC_EXCESS_APPLY_DA, '}', collapse=';' ) 
 } 
 
@@ -596,7 +596,7 @@ if( length( SA_05_DIST_ALLOC_EXCESS_APPLY_DA ) > 1 )
 SA_05_DIST_ALLOC_EXCESS_APPLY_UD <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/CyovAppliedUnderdistriPYAmt' ) )
 if( length( SA_05_DIST_ALLOC_EXCESS_APPLY_UD ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_EXCESS_APPLY_UD, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_EXCESS_APPLY_UD, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_EXCESS_APPLY_UD <-  paste0( '{', SA_05_DIST_ALLOC_EXCESS_APPLY_UD, '}', collapse=';' ) 
 } 
 
@@ -613,7 +613,7 @@ if( length( SA_05_DIST_ALLOC_EXCESS_APPLY_UD ) > 1 )
 SA_05_DIST_ALLOC_DIST_TOT <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/CYTotalAnnualDistributionsAmt' ) )
 if( length( SA_05_DIST_ALLOC_DIST_TOT ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_DIST_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_DIST_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_DIST_TOT <-  paste0( '{', SA_05_DIST_ALLOC_DIST_TOT, '}', collapse=';' ) 
 } 
 
@@ -630,7 +630,7 @@ if( length( SA_05_DIST_ALLOC_DIST_TOT ) > 1 )
 SA_05_DIST_ALLOC_DIST_REMAIN <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/ExcessDistributionAmt' ) )
 if( length( SA_05_DIST_ALLOC_DIST_REMAIN ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_DIST_REMAIN, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_DIST_REMAIN, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_DIST_REMAIN <-  paste0( '{', SA_05_DIST_ALLOC_DIST_REMAIN, '}', collapse=';' ) 
 } 
 
@@ -647,7 +647,7 @@ if( length( SA_05_DIST_ALLOC_DIST_REMAIN ) > 1 )
 SA_05_DIST_ALLOC_EXCESS_REMAIN <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/ExcessDistributionCyovAmt' ) )
 if( length( SA_05_DIST_ALLOC_EXCESS_REMAIN ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_EXCESS_REMAIN, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_EXCESS_REMAIN, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_EXCESS_REMAIN <-  paste0( '{', SA_05_DIST_ALLOC_EXCESS_REMAIN, '}', collapse=';' ) 
 } 
 
@@ -664,7 +664,7 @@ if( length( SA_05_DIST_ALLOC_EXCESS_REMAIN ) > 1 )
 SA_05_DIST_ALLOC_EXCESS_CY_M1 <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/ExcessDistributionCyovYr1Amt' ) )
 if( length( SA_05_DIST_ALLOC_EXCESS_CY_M1 ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_EXCESS_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_EXCESS_CY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_EXCESS_CY_M1 <-  paste0( '{', SA_05_DIST_ALLOC_EXCESS_CY_M1, '}', collapse=';' ) 
 } 
 
@@ -681,7 +681,7 @@ if( length( SA_05_DIST_ALLOC_EXCESS_CY_M1 ) > 1 )
 SA_05_DIST_ALLOC_EXCESS_CY_M2 <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/ExcessDistributionCyovYr2Amt' ) )
 if( length( SA_05_DIST_ALLOC_EXCESS_CY_M2 ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_EXCESS_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_EXCESS_CY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_EXCESS_CY_M2 <-  paste0( '{', SA_05_DIST_ALLOC_EXCESS_CY_M2, '}', collapse=';' ) 
 } 
 
@@ -698,7 +698,7 @@ if( length( SA_05_DIST_ALLOC_EXCESS_CY_M2 ) > 1 )
 SA_05_DIST_ALLOC_EXCESS_NY_TOT <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/ExcessDistriCyovToNextYrAmt' ) )
 if( length( SA_05_DIST_ALLOC_EXCESS_NY_TOT ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_EXCESS_NY_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_EXCESS_NY_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_EXCESS_NY_TOT <-  paste0( '{', SA_05_DIST_ALLOC_EXCESS_NY_TOT, '}', collapse=';' ) 
 } 
 
@@ -715,7 +715,7 @@ if( length( SA_05_DIST_ALLOC_EXCESS_NY_TOT ) > 1 )
 SA_05_DIST_ALLOC_EXCESS_NY_M1 <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/ExcessFromYear1Amt' ) )
 if( length( SA_05_DIST_ALLOC_EXCESS_NY_M1 ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_EXCESS_NY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_EXCESS_NY_M1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_EXCESS_NY_M1 <-  paste0( '{', SA_05_DIST_ALLOC_EXCESS_NY_M1, '}', collapse=';' ) 
 } 
 
@@ -732,7 +732,7 @@ if( length( SA_05_DIST_ALLOC_EXCESS_NY_M1 ) > 1 )
 SA_05_DIST_ALLOC_EXCESS_NY_M2 <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/ExcessFromYear2Amt' ) )
 if( length( SA_05_DIST_ALLOC_EXCESS_NY_M2 ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_EXCESS_NY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_EXCESS_NY_M2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_EXCESS_NY_M2 <-  paste0( '{', SA_05_DIST_ALLOC_EXCESS_NY_M2, '}', collapse=';' ) 
 } 
 
@@ -749,7 +749,7 @@ if( length( SA_05_DIST_ALLOC_EXCESS_NY_M2 ) > 1 )
 SA_05_DIST_ALLOC_EXCESS_NY_M3 <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/ExcessFromYear3Amt' ) )
 if( length( SA_05_DIST_ALLOC_EXCESS_NY_M3 ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_EXCESS_NY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_EXCESS_NY_M3, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_EXCESS_NY_M3 <-  paste0( '{', SA_05_DIST_ALLOC_EXCESS_NY_M3, '}', collapse=';' ) 
 } 
 
@@ -766,7 +766,7 @@ if( length( SA_05_DIST_ALLOC_EXCESS_NY_M3 ) > 1 )
 SA_05_DIST_ALLOC_REMAINING_DA <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/RemainingUnderdistriCYAmt' ) )
 if( length( SA_05_DIST_ALLOC_REMAINING_DA ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_REMAINING_DA, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_REMAINING_DA, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_REMAINING_DA <-  paste0( '{', SA_05_DIST_ALLOC_REMAINING_DA, '}', collapse=';' ) 
 } 
 
@@ -783,7 +783,7 @@ if( length( SA_05_DIST_ALLOC_REMAINING_DA ) > 1 )
 SA_05_DIST_ALLOC_REMAINING_UD <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/RemainingUnderdistriPYAmt' ) )
 if( length( SA_05_DIST_ALLOC_REMAINING_UD ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_REMAINING_UD, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_REMAINING_UD, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_REMAINING_UD <-  paste0( '{', SA_05_DIST_ALLOC_REMAINING_UD, '}', collapse=';' ) 
 } 
 
@@ -800,7 +800,7 @@ if( length( SA_05_DIST_ALLOC_REMAINING_UD ) > 1 )
 SA_05_DIST_ALLOC_EXCESS_TOT_ED <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/TotalExcessDistributionCyovAmt' ) )
 if( length( SA_05_DIST_ALLOC_EXCESS_TOT_ED ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_EXCESS_TOT_ED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_EXCESS_TOT_ED, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_EXCESS_TOT_ED <-  paste0( '{', SA_05_DIST_ALLOC_EXCESS_TOT_ED, '}', collapse=';' ) 
 } 
 
@@ -817,7 +817,7 @@ if( length( SA_05_DIST_ALLOC_EXCESS_TOT_ED ) > 1 )
 SA_05_DIST_ALLOC_UNDERDIST_UD <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionAllocationsGrp/UnderdistributionsAmt' ) )
 if( length( SA_05_DIST_ALLOC_UNDERDIST_UD ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_ALLOC_UNDERDIST_UD, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_ALLOC_UNDERDIST_UD, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_ALLOC_UNDERDIST_UD <-  paste0( '{', SA_05_DIST_ALLOC_UNDERDIST_UD, '}', collapse=';' ) 
 } 
 
@@ -834,7 +834,7 @@ if( length( SA_05_DIST_ALLOC_UNDERDIST_UD ) > 1 )
 SA_05_DIST_PAID_EXP_ADMIN_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionsGrp/CYAdministrativeExpensePaidAmt' ) )
 if( length( SA_05_DIST_PAID_EXP_ADMIN_CY ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_PAID_EXP_ADMIN_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_PAID_EXP_ADMIN_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_PAID_EXP_ADMIN_CY <-  paste0( '{', SA_05_DIST_PAID_EXP_ADMIN_CY, '}', collapse=';' ) 
 } 
 
@@ -851,7 +851,7 @@ if( length( SA_05_DIST_PAID_EXP_ADMIN_CY ) > 1 )
 SA_05_DIST_PAID_ATTENTIVE_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionsGrp/CYDistriAttentiveSuprtOrgAmt' ) )
 if( length( SA_05_DIST_PAID_ATTENTIVE_CY ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_PAID_ATTENTIVE_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_PAID_ATTENTIVE_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_PAID_ATTENTIVE_CY <-  paste0( '{', SA_05_DIST_PAID_ATTENTIVE_CY, '}', collapse=';' ) 
 } 
 
@@ -868,7 +868,7 @@ if( length( SA_05_DIST_PAID_ATTENTIVE_CY ) > 1 )
 SA_05_DIST_PAID_ADJ_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionsGrp/CYDistributableAsAdjustedAmt' ) )
 if( length( SA_05_DIST_PAID_ADJ_CY ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_PAID_ADJ_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_PAID_ADJ_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_PAID_ADJ_CY <-  paste0( '{', SA_05_DIST_PAID_ADJ_CY, '}', collapse=';' ) 
 } 
 
@@ -885,7 +885,7 @@ if( length( SA_05_DIST_PAID_ADJ_CY ) > 1 )
 SA_05_DIST_PAID_DIVIDE_L89_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionsGrp/CYDistributionYrRt' ) )
 if( length( SA_05_DIST_PAID_DIVIDE_L89_CY ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_PAID_DIVIDE_L89_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_PAID_DIVIDE_L89_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_PAID_DIVIDE_L89_CY <-  paste0( '{', SA_05_DIST_PAID_DIVIDE_L89_CY, '}', collapse=';' ) 
 } 
 
@@ -902,7 +902,7 @@ if( length( SA_05_DIST_PAID_DIVIDE_L89_CY ) > 1 )
 SA_05_DIST_PAID_OTH_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionsGrp/CYOtherDistributionsAmt' ) )
 if( length( SA_05_DIST_PAID_OTH_CY ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_PAID_OTH_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_PAID_OTH_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_PAID_OTH_CY <-  paste0( '{', SA_05_DIST_PAID_OTH_CY, '}', collapse=';' ) 
 } 
 
@@ -919,7 +919,7 @@ if( length( SA_05_DIST_PAID_OTH_CY ) > 1 )
 SA_05_DIST_PAID_ORG_EXEMPT_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionsGrp/CYPaidAccomplishExemptPrpsAmt' ) )
 if( length( SA_05_DIST_PAID_ORG_EXEMPT_CY ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_PAID_ORG_EXEMPT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_PAID_ORG_EXEMPT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_PAID_ORG_EXEMPT_CY <-  paste0( '{', SA_05_DIST_PAID_ORG_EXEMPT_CY, '}', collapse=';' ) 
 } 
 
@@ -936,7 +936,7 @@ if( length( SA_05_DIST_PAID_ORG_EXEMPT_CY ) > 1 )
 SA_05_DIST_PAID_EXCESS_INCOME_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionsGrp/CYPdInExcessIncomeActivityAmt' ) )
 if( length( SA_05_DIST_PAID_EXCESS_INCOME_CY ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_PAID_EXCESS_INCOME_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_PAID_EXCESS_INCOME_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_PAID_EXCESS_INCOME_CY <-  paste0( '{', SA_05_DIST_PAID_EXCESS_INCOME_CY, '}', collapse=';' ) 
 } 
 
@@ -953,7 +953,7 @@ if( length( SA_05_DIST_PAID_EXCESS_INCOME_CY ) > 1 )
 SA_05_DIST_PAID_TOT_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionsGrp/CYTotalAnnualDistributionsAmt' ) )
 if( length( SA_05_DIST_PAID_TOT_CY ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_PAID_TOT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_PAID_TOT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_PAID_TOT_CY <-  paste0( '{', SA_05_DIST_PAID_TOT_CY, '}', collapse=';' ) 
 } 
 
@@ -970,7 +970,7 @@ if( length( SA_05_DIST_PAID_TOT_CY ) > 1 )
 SA_05_DIST_PAID_EXEMPT_ASSET_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionsGrp/ExemptUseAssetsAcquisPaidAmt' ) )
 if( length( SA_05_DIST_PAID_EXEMPT_ASSET_CY ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_PAID_EXEMPT_ASSET_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_PAID_EXEMPT_ASSET_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_PAID_EXEMPT_ASSET_CY <-  paste0( '{', SA_05_DIST_PAID_EXEMPT_ASSET_CY, '}', collapse=';' ) 
 } 
 
@@ -987,7 +987,7 @@ if( length( SA_05_DIST_PAID_EXEMPT_ASSET_CY ) > 1 )
 SA_05_DIST_PAID_SET_ASIDE_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/DistributionsGrp/QualifiedSetAsideAmt' ) )
 if( length( SA_05_DIST_PAID_SET_ASIDE_CY ) > 1 )
 { 
-  create_record( varname=SA_05_DIST_PAID_SET_ASIDE_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_DIST_PAID_SET_ASIDE_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_DIST_PAID_SET_ASIDE_CY <-  paste0( '{', SA_05_DIST_PAID_SET_ASIDE_CY, '}', collapse=';' ) 
 } 
 
@@ -1007,7 +1007,7 @@ V_ASSET_MINIM_INDEPTED_CY <- paste( V1, V2 , sep='|' )
 SA_05_ASSET_MINIM_INDEPTED_CY <- xml2::xml_text( xml2::xml_find_all( doc, V_ASSET_MINIM_INDEPTED_CY ) )
 if( length( SA_05_ASSET_MINIM_INDEPTED_CY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_INDEPTED_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_INDEPTED_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_INDEPTED_CY <-  paste0( '{', SA_05_ASSET_MINIM_INDEPTED_CY, '}', collapse=';' ) 
 } 
 
@@ -1024,7 +1024,7 @@ if( length( SA_05_ASSET_MINIM_INDEPTED_CY ) > 1 )
 SA_05_ASSET_MINIM_L2_L1D_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/AdjustedFMVLessIndebtednessGrp/CurrentYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_L2_L1D_CY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_L2_L1D_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_L2_L1D_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_L2_L1D_CY <-  paste0( '{', SA_05_ASSET_MINIM_L2_L1D_CY, '}', collapse=';' ) 
 } 
 
@@ -1041,7 +1041,7 @@ if( length( SA_05_ASSET_MINIM_L2_L1D_CY ) > 1 )
 SA_05_ASSET_MINIM_L2_L1D_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/AdjustedFMVLessIndebtednessGrp/PriorYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_L2_L1D_PY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_L2_L1D_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_L2_L1D_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_L2_L1D_PY <-  paste0( '{', SA_05_ASSET_MINIM_L2_L1D_PY, '}', collapse=';' ) 
 } 
 
@@ -1058,7 +1058,7 @@ if( length( SA_05_ASSET_MINIM_L2_L1D_PY ) > 1 )
 SA_05_ASSET_MINIM_FMV_CASH_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/AverageMonthlyCashBalancesGrp/CurrentYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_FMV_CASH_CY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_FMV_CASH_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_FMV_CASH_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_FMV_CASH_CY <-  paste0( '{', SA_05_ASSET_MINIM_FMV_CASH_CY, '}', collapse=';' ) 
 } 
 
@@ -1075,7 +1075,7 @@ if( length( SA_05_ASSET_MINIM_FMV_CASH_CY ) > 1 )
 SA_05_ASSET_MINIM_FMV_CASH_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/AverageMonthlyCashBalancesGrp/PriorYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_FMV_CASH_PY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_FMV_CASH_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_FMV_CASH_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_FMV_CASH_PY <-  paste0( '{', SA_05_ASSET_MINIM_FMV_CASH_PY, '}', collapse=';' ) 
 } 
 
@@ -1092,7 +1092,7 @@ if( length( SA_05_ASSET_MINIM_FMV_CASH_PY ) > 1 )
 SA_05_ASSET_MINIM_FMV_SEC_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/AverageMonthlyFMVOfSecGrp/CurrentYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_FMV_SEC_CY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_FMV_SEC_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_FMV_SEC_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_FMV_SEC_CY <-  paste0( '{', SA_05_ASSET_MINIM_FMV_SEC_CY, '}', collapse=';' ) 
 } 
 
@@ -1109,7 +1109,7 @@ if( length( SA_05_ASSET_MINIM_FMV_SEC_CY ) > 1 )
 SA_05_ASSET_MINIM_FMV_SEC_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/AverageMonthlyFMVOfSecGrp/PriorYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_FMV_SEC_PY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_FMV_SEC_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_FMV_SEC_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_FMV_SEC_PY <-  paste0( '{', SA_05_ASSET_MINIM_FMV_SEC_PY, '}', collapse=';' ) 
 } 
 
@@ -1126,7 +1126,7 @@ if( length( SA_05_ASSET_MINIM_FMV_SEC_PY ) > 1 )
 SA_05_ASSET_MINIM_CASH_EXEMPT_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/CashDeemedCharitableGrp/CurrentYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_CASH_EXEMPT_CY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_CASH_EXEMPT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_CASH_EXEMPT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_CASH_EXEMPT_CY <-  paste0( '{', SA_05_ASSET_MINIM_CASH_EXEMPT_CY, '}', collapse=';' ) 
 } 
 
@@ -1143,7 +1143,7 @@ if( length( SA_05_ASSET_MINIM_CASH_EXEMPT_CY ) > 1 )
 SA_05_ASSET_MINIM_CASH_EXEMPT_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/CashDeemedCharitableGrp/PriorYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_CASH_EXEMPT_PY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_CASH_EXEMPT_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_CASH_EXEMPT_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_CASH_EXEMPT_PY <-  paste0( '{', SA_05_ASSET_MINIM_CASH_EXEMPT_PY, '}', collapse=';' ) 
 } 
 
@@ -1160,7 +1160,7 @@ if( length( SA_05_ASSET_MINIM_CASH_EXEMPT_PY ) > 1 )
 SA_05_ASSET_MINIM_FMV_DISCOUNT <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/DiscountClaimedAmt' ) )
 if( length( SA_05_ASSET_MINIM_FMV_DISCOUNT ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_FMV_DISCOUNT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_FMV_DISCOUNT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_FMV_DISCOUNT <-  paste0( '{', SA_05_ASSET_MINIM_FMV_DISCOUNT, '}', collapse=';' ) 
 } 
 
@@ -1177,7 +1177,7 @@ if( length( SA_05_ASSET_MINIM_FMV_DISCOUNT ) > 1 )
 SA_05_ASSET_MINIM_FMV_OTH_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/FMVOtherNonExemptUseAssetGrp/CurrentYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_FMV_OTH_CY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_FMV_OTH_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_FMV_OTH_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_FMV_OTH_CY <-  paste0( '{', SA_05_ASSET_MINIM_FMV_OTH_CY, '}', collapse=';' ) 
 } 
 
@@ -1194,7 +1194,7 @@ if( length( SA_05_ASSET_MINIM_FMV_OTH_CY ) > 1 )
 SA_05_ASSET_MINIM_FMV_OTH_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/FMVOtherNonExemptUseAssetGrp/PriorYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_FMV_OTH_PY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_FMV_OTH_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_FMV_OTH_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_FMV_OTH_PY <-  paste0( '{', SA_05_ASSET_MINIM_FMV_OTH_PY, '}', collapse=';' ) 
 } 
 
@@ -1211,7 +1211,7 @@ if( length( SA_05_ASSET_MINIM_FMV_OTH_PY ) > 1 )
 SA_05_ASSET_MINIM_NON_EXEMPT_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/NetVlNonExemptUseAssetsGrp/CurrentYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_NON_EXEMPT_CY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_NON_EXEMPT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_NON_EXEMPT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_NON_EXEMPT_CY <-  paste0( '{', SA_05_ASSET_MINIM_NON_EXEMPT_CY, '}', collapse=';' ) 
 } 
 
@@ -1228,7 +1228,7 @@ if( length( SA_05_ASSET_MINIM_NON_EXEMPT_CY ) > 1 )
 SA_05_ASSET_MINIM_NON_EXEMPT_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/NetVlNonExemptUseAssetsGrp/PriorYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_NON_EXEMPT_PY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_NON_EXEMPT_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_NON_EXEMPT_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_NON_EXEMPT_PY <-  paste0( '{', SA_05_ASSET_MINIM_NON_EXEMPT_PY, '}', collapse=';' ) 
 } 
 
@@ -1245,7 +1245,7 @@ if( length( SA_05_ASSET_MINIM_NON_EXEMPT_PY ) > 1 )
 SA_05_ASSET_MINIM_MULTIPLY_L5_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/PctOfNetVlNonExemptUseAstGrp/CurrentYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_MULTIPLY_L5_CY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_MULTIPLY_L5_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_MULTIPLY_L5_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_MULTIPLY_L5_CY <-  paste0( '{', SA_05_ASSET_MINIM_MULTIPLY_L5_CY, '}', collapse=';' ) 
 } 
 
@@ -1262,7 +1262,7 @@ if( length( SA_05_ASSET_MINIM_MULTIPLY_L5_CY ) > 1 )
 SA_05_ASSET_MINIM_MULTIPLY_L5_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/PctOfNetVlNonExemptUseAstGrp/PriorYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_MULTIPLY_L5_PY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_MULTIPLY_L5_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_MULTIPLY_L5_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_MULTIPLY_L5_PY <-  paste0( '{', SA_05_ASSET_MINIM_MULTIPLY_L5_PY, '}', collapse=';' ) 
 } 
 
@@ -1279,7 +1279,7 @@ if( length( SA_05_ASSET_MINIM_MULTIPLY_L5_PY ) > 1 )
 SA_05_ASSET_MINIM_RECOVERIES_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/RecoveriesPYDistriMinAssetGrp/CurrentYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_RECOVERIES_CY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_RECOVERIES_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_RECOVERIES_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_RECOVERIES_CY <-  paste0( '{', SA_05_ASSET_MINIM_RECOVERIES_CY, '}', collapse=';' ) 
 } 
 
@@ -1296,7 +1296,7 @@ if( length( SA_05_ASSET_MINIM_RECOVERIES_CY ) > 1 )
 SA_05_ASSET_MINIM_RECOVERIES_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/RecoveriesPYDistriMinAssetGrp/PriorYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_RECOVERIES_PY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_RECOVERIES_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_RECOVERIES_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_RECOVERIES_PY <-  paste0( '{', SA_05_ASSET_MINIM_RECOVERIES_PY, '}', collapse=';' ) 
 } 
 
@@ -1313,7 +1313,7 @@ if( length( SA_05_ASSET_MINIM_RECOVERIES_PY ) > 1 )
 SA_05_ASSET_MINIM_FMV_TOT_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/TotalFMVOfNonExemptUseAssetGrp/CurrentYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_FMV_TOT_CY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_FMV_TOT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_FMV_TOT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_FMV_TOT_CY <-  paste0( '{', SA_05_ASSET_MINIM_FMV_TOT_CY, '}', collapse=';' ) 
 } 
 
@@ -1330,7 +1330,7 @@ if( length( SA_05_ASSET_MINIM_FMV_TOT_CY ) > 1 )
 SA_05_ASSET_MINIM_FMV_TOT_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/TotalFMVOfNonExemptUseAssetGrp/PriorYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_FMV_TOT_PY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_FMV_TOT_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_FMV_TOT_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_FMV_TOT_PY <-  paste0( '{', SA_05_ASSET_MINIM_FMV_TOT_PY, '}', collapse=';' ) 
 } 
 
@@ -1347,7 +1347,7 @@ if( length( SA_05_ASSET_MINIM_FMV_TOT_PY ) > 1 )
 SA_05_ASSET_MINIM_TOT_CY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/TotalMinimumAssetGrp/CurrentYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_TOT_CY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_TOT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_TOT_CY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_TOT_CY <-  paste0( '{', SA_05_ASSET_MINIM_TOT_CY, '}', collapse=';' ) 
 } 
 
@@ -1364,7 +1364,7 @@ if( length( SA_05_ASSET_MINIM_TOT_CY ) > 1 )
 SA_05_ASSET_MINIM_TOT_PY <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MinimumAssetAmountGrp/TotalMinimumAssetGrp/PriorYearAmt' ) )
 if( length( SA_05_ASSET_MINIM_TOT_PY ) > 1 )
 { 
-  create_record( varname=SA_05_ASSET_MINIM_TOT_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_ASSET_MINIM_TOT_PY, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_ASSET_MINIM_TOT_PY <-  paste0( '{', SA_05_ASSET_MINIM_TOT_PY, '}', collapse=';' ) 
 } 
 
@@ -1381,7 +1381,7 @@ if( length( SA_05_ASSET_MINIM_TOT_PY ) > 1 )
 SA_05_TRUST_INTEGRAL_PART_TEST_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/TrustIntegralPartTestInd' ) )
 if( length( SA_05_TRUST_INTEGRAL_PART_TEST_X ) > 1 )
 { 
-  create_record( varname=SA_05_TRUST_INTEGRAL_PART_TEST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_05_TRUST_INTEGRAL_PART_TEST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_05_TRUST_INTEGRAL_PART_TEST_X <-  paste0( '{', SA_05_TRUST_INTEGRAL_PART_TEST_X, '}', collapse=';' ) 
 } 
 

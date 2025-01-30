@@ -35,7 +35,7 @@ V_ORG_BLDG_BV <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_BLDG_BV <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_BLDG_BV ) )
 if( length( SD_06_ORG_BLDG_BV ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_BLDG_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_BLDG_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_BLDG_BV <-  paste0( '{', SD_06_ORG_BLDG_BV, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_ORG_BLDG_DEPREC <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_BLDG_DEPREC <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_BLDG_DEPREC ) )
 if( length( SD_06_ORG_BLDG_DEPREC ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_BLDG_DEPREC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_BLDG_DEPREC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_BLDG_DEPREC <-  paste0( '{', SD_06_ORG_BLDG_DEPREC, '}', collapse=';' ) 
 } 
 
@@ -77,7 +77,7 @@ V_ORG_BLDG_COST_INVEST <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_BLDG_COST_INVEST <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_BLDG_COST_INVEST ) )
 if( length( SD_06_ORG_BLDG_COST_INVEST ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_BLDG_COST_INVEST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_BLDG_COST_INVEST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_BLDG_COST_INVEST <-  paste0( '{', SD_06_ORG_BLDG_COST_INVEST, '}', collapse=';' ) 
 } 
 
@@ -98,7 +98,7 @@ V_ORG_BLDG_COST_OTH <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_BLDG_COST_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_BLDG_COST_OTH ) )
 if( length( SD_06_ORG_BLDG_COST_OTH ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_BLDG_COST_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_BLDG_COST_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_BLDG_COST_OTH <-  paste0( '{', SD_06_ORG_BLDG_COST_OTH, '}', collapse=';' ) 
 } 
 
@@ -119,7 +119,7 @@ V_ORG_EQUIP_BV <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_EQUIP_BV <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_EQUIP_BV ) )
 if( length( SD_06_ORG_EQUIP_BV ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_EQUIP_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_EQUIP_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_EQUIP_BV <-  paste0( '{', SD_06_ORG_EQUIP_BV, '}', collapse=';' ) 
 } 
 
@@ -140,7 +140,7 @@ V_ORG_EQUIP_DEPREC <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_EQUIP_DEPREC <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_EQUIP_DEPREC ) )
 if( length( SD_06_ORG_EQUIP_DEPREC ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_EQUIP_DEPREC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_EQUIP_DEPREC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_EQUIP_DEPREC <-  paste0( '{', SD_06_ORG_EQUIP_DEPREC, '}', collapse=';' ) 
 } 
 
@@ -161,7 +161,7 @@ V_ORG_EQUIP_COST_INVEST <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_EQUIP_COST_INVEST <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_EQUIP_COST_INVEST ) )
 if( length( SD_06_ORG_EQUIP_COST_INVEST ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_EQUIP_COST_INVEST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_EQUIP_COST_INVEST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_EQUIP_COST_INVEST <-  paste0( '{', SD_06_ORG_EQUIP_COST_INVEST, '}', collapse=';' ) 
 } 
 
@@ -182,7 +182,7 @@ V_ORG_EQUIP_COST_OTH <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_EQUIP_COST_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_EQUIP_COST_OTH ) )
 if( length( SD_06_ORG_EQUIP_COST_OTH ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_EQUIP_COST_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_EQUIP_COST_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_EQUIP_COST_OTH <-  paste0( '{', SD_06_ORG_EQUIP_COST_OTH, '}', collapse=';' ) 
 } 
 
@@ -203,7 +203,7 @@ V_ORG_LAND_BV <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_LAND_BV <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_LAND_BV ) )
 if( length( SD_06_ORG_LAND_BV ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_LAND_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_LAND_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_LAND_BV <-  paste0( '{', SD_06_ORG_LAND_BV, '}', collapse=';' ) 
 } 
 
@@ -224,7 +224,7 @@ V_ORG_LAND_COST_INVEST <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_LAND_COST_INVEST <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_LAND_COST_INVEST ) )
 if( length( SD_06_ORG_LAND_COST_INVEST ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_LAND_COST_INVEST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_LAND_COST_INVEST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_LAND_COST_INVEST <-  paste0( '{', SD_06_ORG_LAND_COST_INVEST, '}', collapse=';' ) 
 } 
 
@@ -245,7 +245,7 @@ V_ORG_LAND_COST_OTH <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_LAND_COST_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_LAND_COST_OTH ) )
 if( length( SD_06_ORG_LAND_COST_OTH ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_LAND_COST_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_LAND_COST_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_LAND_COST_OTH <-  paste0( '{', SD_06_ORG_LAND_COST_OTH, '}', collapse=';' ) 
 } 
 
@@ -266,7 +266,7 @@ V_ORG_LEASEHOLD_BV <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_LEASEHOLD_BV <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_LEASEHOLD_BV ) )
 if( length( SD_06_ORG_LEASEHOLD_BV ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_LEASEHOLD_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_LEASEHOLD_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_LEASEHOLD_BV <-  paste0( '{', SD_06_ORG_LEASEHOLD_BV, '}', collapse=';' ) 
 } 
 
@@ -287,7 +287,7 @@ V_ORG_LEASEHOLD_DEPREC <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_LEASEHOLD_DEPREC <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_LEASEHOLD_DEPREC ) )
 if( length( SD_06_ORG_LEASEHOLD_DEPREC ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_LEASEHOLD_DEPREC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_LEASEHOLD_DEPREC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_LEASEHOLD_DEPREC <-  paste0( '{', SD_06_ORG_LEASEHOLD_DEPREC, '}', collapse=';' ) 
 } 
 
@@ -308,7 +308,7 @@ V_ORG_LEASEHOLD_COST_INVEST <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_LEASEHOLD_COST_INVEST <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_LEASEHOLD_COST_INVEST ) )
 if( length( SD_06_ORG_LEASEHOLD_COST_INVEST ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_LEASEHOLD_COST_INVEST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_LEASEHOLD_COST_INVEST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_LEASEHOLD_COST_INVEST <-  paste0( '{', SD_06_ORG_LEASEHOLD_COST_INVEST, '}', collapse=';' ) 
 } 
 
@@ -329,7 +329,7 @@ V_ORG_LEASEHOLD_COST_OTH <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_LEASEHOLD_COST_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_LEASEHOLD_COST_OTH ) )
 if( length( SD_06_ORG_LEASEHOLD_COST_OTH ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_LEASEHOLD_COST_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_LEASEHOLD_COST_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_LEASEHOLD_COST_OTH <-  paste0( '{', SD_06_ORG_LEASEHOLD_COST_OTH, '}', collapse=';' ) 
 } 
 
@@ -350,7 +350,7 @@ V_ORG_OTH_BV <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_OTH_BV <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_OTH_BV ) )
 if( length( SD_06_ORG_OTH_BV ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_OTH_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_OTH_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_OTH_BV <-  paste0( '{', SD_06_ORG_OTH_BV, '}', collapse=';' ) 
 } 
 
@@ -371,7 +371,7 @@ V_ORG_OTH_DEPREC <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_OTH_DEPREC <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_OTH_DEPREC ) )
 if( length( SD_06_ORG_OTH_DEPREC ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_OTH_DEPREC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_OTH_DEPREC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_OTH_DEPREC <-  paste0( '{', SD_06_ORG_OTH_DEPREC, '}', collapse=';' ) 
 } 
 
@@ -392,7 +392,7 @@ V_ORG_OTH_COST_INVEST <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_OTH_COST_INVEST <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_OTH_COST_INVEST ) )
 if( length( SD_06_ORG_OTH_COST_INVEST ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_OTH_COST_INVEST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_OTH_COST_INVEST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_OTH_COST_INVEST <-  paste0( '{', SD_06_ORG_OTH_COST_INVEST, '}', collapse=';' ) 
 } 
 
@@ -413,7 +413,7 @@ V_ORG_OTH_COST_OTH <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_OTH_COST_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_OTH_COST_OTH ) )
 if( length( SD_06_ORG_OTH_COST_OTH ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_OTH_COST_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_OTH_COST_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_OTH_COST_OTH <-  paste0( '{', SD_06_ORG_OTH_COST_OTH, '}', collapse=';' ) 
 } 
 
@@ -434,7 +434,7 @@ V_ORG_TOT_BV <- paste( V1, V2, V3 , sep='|' )
 SD_06_ORG_TOT_BV <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_TOT_BV ) )
 if( length( SD_06_ORG_TOT_BV ) > 1 )
 { 
-  create_record( varname=SD_06_ORG_TOT_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_06_ORG_TOT_BV, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_06_ORG_TOT_BV <-  paste0( '{', SD_06_ORG_TOT_BV, '}', collapse=';' ) 
 } 
 

@@ -36,7 +36,7 @@ V_EXP_FEE_SVC_ACC_FUNDR <- paste( V1, V2, V3, V4 , sep='|' )
 F9_09_EXP_FEE_SVC_ACC_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_ACC_FUNDR ) )
 if( length( F9_09_EXP_FEE_SVC_ACC_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_ACC_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_ACC_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_ACC_FUNDR <-  paste0( '{', F9_09_EXP_FEE_SVC_ACC_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -58,7 +58,7 @@ V_EXP_FEE_SVC_ACC_MGMT <- paste( V1, V2, V3, V4 , sep='|' )
 F9_09_EXP_FEE_SVC_ACC_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_ACC_MGMT ) )
 if( length( F9_09_EXP_FEE_SVC_ACC_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_ACC_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_ACC_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_ACC_MGMT <-  paste0( '{', F9_09_EXP_FEE_SVC_ACC_MGMT, '}', collapse=';' ) 
 } 
 
@@ -80,7 +80,7 @@ V_EXP_FEE_SVC_ACC_PROG <- paste( V1, V2, V3, V4 , sep='|' )
 F9_09_EXP_FEE_SVC_ACC_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_ACC_PROG ) )
 if( length( F9_09_EXP_FEE_SVC_ACC_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_ACC_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_ACC_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_ACC_PROG <-  paste0( '{', F9_09_EXP_FEE_SVC_ACC_PROG, '}', collapse=';' ) 
 } 
 
@@ -102,7 +102,7 @@ V_EXP_FEE_SVC_ACC_TOT <- paste( V1, V2, V3, V4 , sep='|' )
 F9_09_EXP_FEE_SVC_ACC_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_ACC_TOT ) )
 if( length( F9_09_EXP_FEE_SVC_ACC_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_ACC_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_ACC_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_ACC_TOT <-  paste0( '{', F9_09_EXP_FEE_SVC_ACC_TOT, '}', collapse=';' ) 
 } 
 
@@ -123,7 +123,7 @@ V_EXP_AD_PROMO_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_AD_PROMO_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_AD_PROMO_FUNDR ) )
 if( length( F9_09_EXP_AD_PROMO_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_AD_PROMO_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_AD_PROMO_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_AD_PROMO_FUNDR <-  paste0( '{', F9_09_EXP_AD_PROMO_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -144,7 +144,7 @@ V_EXP_AD_PROMO_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_AD_PROMO_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_AD_PROMO_MGMT ) )
 if( length( F9_09_EXP_AD_PROMO_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_AD_PROMO_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_AD_PROMO_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_AD_PROMO_MGMT <-  paste0( '{', F9_09_EXP_AD_PROMO_MGMT, '}', collapse=';' ) 
 } 
 
@@ -165,7 +165,7 @@ V_EXP_AD_PROMO_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_AD_PROMO_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_AD_PROMO_PROG ) )
 if( length( F9_09_EXP_AD_PROMO_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_AD_PROMO_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_AD_PROMO_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_AD_PROMO_PROG <-  paste0( '{', F9_09_EXP_AD_PROMO_PROG, '}', collapse=';' ) 
 } 
 
@@ -186,7 +186,7 @@ V_EXP_AD_PROMO_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_AD_PROMO_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_AD_PROMO_TOT ) )
 if( length( F9_09_EXP_AD_PROMO_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_AD_PROMO_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_AD_PROMO_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_AD_PROMO_TOT <-  paste0( '{', F9_09_EXP_AD_PROMO_TOT, '}', collapse=';' ) 
 } 
 
@@ -207,7 +207,7 @@ V_EXP_OTH_OTH_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OTH_OTH_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OTH_OTH_FUNDR ) )
 if( length( F9_09_EXP_OTH_OTH_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OTH_OTH_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OTH_OTH_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OTH_OTH_FUNDR <-  paste0( '{', F9_09_EXP_OTH_OTH_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -228,7 +228,7 @@ V_EXP_OTH_OTH_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OTH_OTH_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OTH_OTH_MGMT ) )
 if( length( F9_09_EXP_OTH_OTH_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OTH_OTH_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OTH_OTH_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OTH_OTH_MGMT <-  paste0( '{', F9_09_EXP_OTH_OTH_MGMT, '}', collapse=';' ) 
 } 
 
@@ -249,7 +249,7 @@ V_EXP_OTH_OTH_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OTH_OTH_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OTH_OTH_PROG ) )
 if( length( F9_09_EXP_OTH_OTH_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OTH_OTH_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OTH_OTH_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OTH_OTH_PROG <-  paste0( '{', F9_09_EXP_OTH_OTH_PROG, '}', collapse=';' ) 
 } 
 
@@ -270,7 +270,7 @@ V_EXP_OTH_OTH_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OTH_OTH_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OTH_OTH_TOT ) )
 if( length( F9_09_EXP_OTH_OTH_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OTH_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OTH_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OTH_OTH_TOT <-  paste0( '{', F9_09_EXP_OTH_OTH_TOT, '}', collapse=';' ) 
 } 
 
@@ -292,7 +292,7 @@ V_EXP_BEN_PAID_MEMB_PROG <- paste( V1, V2, V3, V4 , sep='|' )
 F9_09_EXP_BEN_PAID_MEMB_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_BEN_PAID_MEMB_PROG ) )
 if( length( F9_09_EXP_BEN_PAID_MEMB_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_BEN_PAID_MEMB_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_BEN_PAID_MEMB_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_BEN_PAID_MEMB_PROG <-  paste0( '{', F9_09_EXP_BEN_PAID_MEMB_PROG, '}', collapse=';' ) 
 } 
 
@@ -314,7 +314,7 @@ V_EXP_BEN_PAID_MEMB_TOT <- paste( V1, V2, V3, V4 , sep='|' )
 F9_09_EXP_BEN_PAID_MEMB_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_BEN_PAID_MEMB_TOT ) )
 if( length( F9_09_EXP_BEN_PAID_MEMB_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_BEN_PAID_MEMB_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_BEN_PAID_MEMB_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_BEN_PAID_MEMB_TOT <-  paste0( '{', F9_09_EXP_BEN_PAID_MEMB_TOT, '}', collapse=';' ) 
 } 
 
@@ -335,7 +335,7 @@ V_EXP_COMP_DTK_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_COMP_DTK_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_COMP_DTK_FUNDR ) )
 if( length( F9_09_EXP_COMP_DTK_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_COMP_DTK_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_COMP_DTK_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_COMP_DTK_FUNDR <-  paste0( '{', F9_09_EXP_COMP_DTK_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -356,7 +356,7 @@ V_EXP_COMP_DTK_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_COMP_DTK_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_COMP_DTK_MGMT ) )
 if( length( F9_09_EXP_COMP_DTK_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_COMP_DTK_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_COMP_DTK_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_COMP_DTK_MGMT <-  paste0( '{', F9_09_EXP_COMP_DTK_MGMT, '}', collapse=';' ) 
 } 
 
@@ -377,7 +377,7 @@ V_EXP_COMP_DTK_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_COMP_DTK_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_COMP_DTK_PROG ) )
 if( length( F9_09_EXP_COMP_DTK_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_COMP_DTK_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_COMP_DTK_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_COMP_DTK_PROG <-  paste0( '{', F9_09_EXP_COMP_DTK_PROG, '}', collapse=';' ) 
 } 
 
@@ -398,7 +398,7 @@ V_EXP_COMP_DTK_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_COMP_DTK_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_COMP_DTK_TOT ) )
 if( length( F9_09_EXP_COMP_DTK_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_COMP_DTK_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_COMP_DTK_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_COMP_DTK_TOT <-  paste0( '{', F9_09_EXP_COMP_DTK_TOT, '}', collapse=';' ) 
 } 
 
@@ -419,7 +419,7 @@ V_EXP_COMP_DSQ_PERS_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_COMP_DSQ_PERS_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_COMP_DSQ_PERS_FUNDR ) )
 if( length( F9_09_EXP_COMP_DSQ_PERS_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_COMP_DSQ_PERS_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_COMP_DSQ_PERS_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_COMP_DSQ_PERS_FUNDR <-  paste0( '{', F9_09_EXP_COMP_DSQ_PERS_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -440,7 +440,7 @@ V_EXP_COMP_DSQ_PERS_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_COMP_DSQ_PERS_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_COMP_DSQ_PERS_MGMT ) )
 if( length( F9_09_EXP_COMP_DSQ_PERS_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_COMP_DSQ_PERS_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_COMP_DSQ_PERS_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_COMP_DSQ_PERS_MGMT <-  paste0( '{', F9_09_EXP_COMP_DSQ_PERS_MGMT, '}', collapse=';' ) 
 } 
 
@@ -461,7 +461,7 @@ V_EXP_COMP_DSQ_PERS_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_COMP_DSQ_PERS_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_COMP_DSQ_PERS_PROG ) )
 if( length( F9_09_EXP_COMP_DSQ_PERS_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_COMP_DSQ_PERS_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_COMP_DSQ_PERS_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_COMP_DSQ_PERS_PROG <-  paste0( '{', F9_09_EXP_COMP_DSQ_PERS_PROG, '}', collapse=';' ) 
 } 
 
@@ -482,7 +482,7 @@ V_EXP_COMP_DSQ_PERS_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_COMP_DSQ_PERS_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_COMP_DSQ_PERS_TOT ) )
 if( length( F9_09_EXP_COMP_DSQ_PERS_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_COMP_DSQ_PERS_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_COMP_DSQ_PERS_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_COMP_DSQ_PERS_TOT <-  paste0( '{', F9_09_EXP_COMP_DSQ_PERS_TOT, '}', collapse=';' ) 
 } 
 
@@ -504,7 +504,7 @@ V_EXP_CONF_MEETING_FUNDR <- paste( V1, V2, V3, V4 , sep='|' )
 F9_09_EXP_CONF_MEETING_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_CONF_MEETING_FUNDR ) )
 if( length( F9_09_EXP_CONF_MEETING_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_CONF_MEETING_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_CONF_MEETING_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_CONF_MEETING_FUNDR <-  paste0( '{', F9_09_EXP_CONF_MEETING_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -526,7 +526,7 @@ V_EXP_CONF_MEETING_MGMT <- paste( V1, V2, V3, V4 , sep='|' )
 F9_09_EXP_CONF_MEETING_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_CONF_MEETING_MGMT ) )
 if( length( F9_09_EXP_CONF_MEETING_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_CONF_MEETING_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_CONF_MEETING_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_CONF_MEETING_MGMT <-  paste0( '{', F9_09_EXP_CONF_MEETING_MGMT, '}', collapse=';' ) 
 } 
 
@@ -548,7 +548,7 @@ V_EXP_CONF_MEETING_PROG <- paste( V1, V2, V3, V4 , sep='|' )
 F9_09_EXP_CONF_MEETING_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_CONF_MEETING_PROG ) )
 if( length( F9_09_EXP_CONF_MEETING_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_CONF_MEETING_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_CONF_MEETING_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_CONF_MEETING_PROG <-  paste0( '{', F9_09_EXP_CONF_MEETING_PROG, '}', collapse=';' ) 
 } 
 
@@ -570,7 +570,7 @@ V_EXP_CONF_MEETING_TOT <- paste( V1, V2, V3, V4 , sep='|' )
 F9_09_EXP_CONF_MEETING_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_CONF_MEETING_TOT ) )
 if( length( F9_09_EXP_CONF_MEETING_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_CONF_MEETING_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_CONF_MEETING_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_CONF_MEETING_TOT <-  paste0( '{', F9_09_EXP_CONF_MEETING_TOT, '}', collapse=';' ) 
 } 
 
@@ -592,7 +592,7 @@ V_EXP_DEPREC_FUNDR <- paste( V1, V2, V3, V4 , sep='|' )
 F9_09_EXP_DEPREC_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_DEPREC_FUNDR ) )
 if( length( F9_09_EXP_DEPREC_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_DEPREC_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_DEPREC_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_DEPREC_FUNDR <-  paste0( '{', F9_09_EXP_DEPREC_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -614,7 +614,7 @@ V_EXP_DEPREC_MGMT <- paste( V1, V2, V3, V4 , sep='|' )
 F9_09_EXP_DEPREC_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_DEPREC_MGMT ) )
 if( length( F9_09_EXP_DEPREC_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_DEPREC_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_DEPREC_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_DEPREC_MGMT <-  paste0( '{', F9_09_EXP_DEPREC_MGMT, '}', collapse=';' ) 
 } 
 
@@ -636,7 +636,7 @@ V_EXP_DEPREC_PROG <- paste( V1, V2, V3, V4 , sep='|' )
 F9_09_EXP_DEPREC_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_DEPREC_PROG ) )
 if( length( F9_09_EXP_DEPREC_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_DEPREC_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_DEPREC_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_DEPREC_PROG <-  paste0( '{', F9_09_EXP_DEPREC_PROG, '}', collapse=';' ) 
 } 
 
@@ -658,7 +658,7 @@ V_EXP_DEPREC_TOT <- paste( V1, V2, V3, V4 , sep='|' )
 F9_09_EXP_DEPREC_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_DEPREC_TOT ) )
 if( length( F9_09_EXP_DEPREC_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_DEPREC_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_DEPREC_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_DEPREC_TOT <-  paste0( '{', F9_09_EXP_DEPREC_TOT, '}', collapse=';' ) 
 } 
 
@@ -679,7 +679,7 @@ V_EXP_FEE_SVC_INVEST_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_INVEST_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_INVEST_FUNDR ) )
 if( length( F9_09_EXP_FEE_SVC_INVEST_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_INVEST_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_INVEST_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_INVEST_FUNDR <-  paste0( '{', F9_09_EXP_FEE_SVC_INVEST_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -700,7 +700,7 @@ V_EXP_FEE_SVC_INVEST_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_INVEST_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_INVEST_MGMT ) )
 if( length( F9_09_EXP_FEE_SVC_INVEST_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_INVEST_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_INVEST_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_INVEST_MGMT <-  paste0( '{', F9_09_EXP_FEE_SVC_INVEST_MGMT, '}', collapse=';' ) 
 } 
 
@@ -721,7 +721,7 @@ V_EXP_FEE_SVC_INVEST_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_INVEST_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_INVEST_PROG ) )
 if( length( F9_09_EXP_FEE_SVC_INVEST_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_INVEST_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_INVEST_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_INVEST_PROG <-  paste0( '{', F9_09_EXP_FEE_SVC_INVEST_PROG, '}', collapse=';' ) 
 } 
 
@@ -742,7 +742,7 @@ V_EXP_FEE_SVC_INVEST_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_INVEST_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_INVEST_TOT ) )
 if( length( F9_09_EXP_FEE_SVC_INVEST_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_INVEST_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_INVEST_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_INVEST_TOT <-  paste0( '{', F9_09_EXP_FEE_SVC_INVEST_TOT, '}', collapse=';' ) 
 } 
 
@@ -764,7 +764,7 @@ V_EXP_FEE_SVC_LEGAL_FUNDR <- paste( V1, V2, V3, V4 , sep='|' )
 F9_09_EXP_FEE_SVC_LEGAL_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_LEGAL_FUNDR ) )
 if( length( F9_09_EXP_FEE_SVC_LEGAL_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_LEGAL_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_LEGAL_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_LEGAL_FUNDR <-  paste0( '{', F9_09_EXP_FEE_SVC_LEGAL_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -785,7 +785,7 @@ V_EXP_FEE_SVC_LEGAL_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_LEGAL_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_LEGAL_MGMT ) )
 if( length( F9_09_EXP_FEE_SVC_LEGAL_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_LEGAL_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_LEGAL_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_LEGAL_MGMT <-  paste0( '{', F9_09_EXP_FEE_SVC_LEGAL_MGMT, '}', collapse=';' ) 
 } 
 
@@ -807,7 +807,7 @@ V_EXP_FEE_SVC_LEGAL_PROG <- paste( V1, V2, V3, V4 , sep='|' )
 F9_09_EXP_FEE_SVC_LEGAL_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_LEGAL_PROG ) )
 if( length( F9_09_EXP_FEE_SVC_LEGAL_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_LEGAL_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_LEGAL_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_LEGAL_PROG <-  paste0( '{', F9_09_EXP_FEE_SVC_LEGAL_PROG, '}', collapse=';' ) 
 } 
 
@@ -828,7 +828,7 @@ V_EXP_FEE_SVC_LEGAL_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_LEGAL_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_LEGAL_TOT ) )
 if( length( F9_09_EXP_FEE_SVC_LEGAL_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_LEGAL_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_LEGAL_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_LEGAL_TOT <-  paste0( '{', F9_09_EXP_FEE_SVC_LEGAL_TOT, '}', collapse=';' ) 
 } 
 
@@ -849,7 +849,7 @@ V_EXP_FEE_SVC_LOB_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_LOB_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_LOB_FUNDR ) )
 if( length( F9_09_EXP_FEE_SVC_LOB_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_LOB_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_LOB_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_LOB_FUNDR <-  paste0( '{', F9_09_EXP_FEE_SVC_LOB_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -870,7 +870,7 @@ V_EXP_FEE_SVC_LOB_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_LOB_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_LOB_MGMT ) )
 if( length( F9_09_EXP_FEE_SVC_LOB_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_LOB_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_LOB_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_LOB_MGMT <-  paste0( '{', F9_09_EXP_FEE_SVC_LOB_MGMT, '}', collapse=';' ) 
 } 
 
@@ -891,7 +891,7 @@ V_EXP_FEE_SVC_LOB_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_LOB_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_LOB_PROG ) )
 if( length( F9_09_EXP_FEE_SVC_LOB_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_LOB_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_LOB_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_LOB_PROG <-  paste0( '{', F9_09_EXP_FEE_SVC_LOB_PROG, '}', collapse=';' ) 
 } 
 
@@ -912,7 +912,7 @@ V_EXP_FEE_SVC_LOB_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_LOB_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_LOB_TOT ) )
 if( length( F9_09_EXP_FEE_SVC_LOB_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_LOB_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_LOB_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_LOB_TOT <-  paste0( '{', F9_09_EXP_FEE_SVC_LOB_TOT, '}', collapse=';' ) 
 } 
 
@@ -933,7 +933,7 @@ V_EXP_FEE_SVC_MGMT_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_MGMT_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_MGMT_FUNDR ) )
 if( length( F9_09_EXP_FEE_SVC_MGMT_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_MGMT_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_MGMT_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_MGMT_FUNDR <-  paste0( '{', F9_09_EXP_FEE_SVC_MGMT_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -954,7 +954,7 @@ V_EXP_FEE_SVC_MGMT_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_MGMT_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_MGMT_MGMT ) )
 if( length( F9_09_EXP_FEE_SVC_MGMT_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_MGMT_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_MGMT_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_MGMT_MGMT <-  paste0( '{', F9_09_EXP_FEE_SVC_MGMT_MGMT, '}', collapse=';' ) 
 } 
 
@@ -975,7 +975,7 @@ V_EXP_FEE_SVC_MGMT_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_MGMT_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_MGMT_PROG ) )
 if( length( F9_09_EXP_FEE_SVC_MGMT_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_MGMT_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_MGMT_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_MGMT_PROG <-  paste0( '{', F9_09_EXP_FEE_SVC_MGMT_PROG, '}', collapse=';' ) 
 } 
 
@@ -996,7 +996,7 @@ V_EXP_FEE_SVC_MGMT_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_MGMT_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_MGMT_TOT ) )
 if( length( F9_09_EXP_FEE_SVC_MGMT_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_MGMT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_MGMT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_MGMT_TOT <-  paste0( '{', F9_09_EXP_FEE_SVC_MGMT_TOT, '}', collapse=';' ) 
 } 
 
@@ -1017,7 +1017,7 @@ V_EXP_FEE_SVC_OTH_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_OTH_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_OTH_FUNDR ) )
 if( length( F9_09_EXP_FEE_SVC_OTH_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_OTH_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_OTH_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_OTH_FUNDR <-  paste0( '{', F9_09_EXP_FEE_SVC_OTH_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -1038,7 +1038,7 @@ V_EXP_FEE_SVC_OTH_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_OTH_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_OTH_MGMT ) )
 if( length( F9_09_EXP_FEE_SVC_OTH_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_OTH_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_OTH_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_OTH_MGMT <-  paste0( '{', F9_09_EXP_FEE_SVC_OTH_MGMT, '}', collapse=';' ) 
 } 
 
@@ -1059,7 +1059,7 @@ V_EXP_FEE_SVC_OTH_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_OTH_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_OTH_PROG ) )
 if( length( F9_09_EXP_FEE_SVC_OTH_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_OTH_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_OTH_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_OTH_PROG <-  paste0( '{', F9_09_EXP_FEE_SVC_OTH_PROG, '}', collapse=';' ) 
 } 
 
@@ -1080,7 +1080,7 @@ V_EXP_FEE_SVC_OTH_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_OTH_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_OTH_TOT ) )
 if( length( F9_09_EXP_FEE_SVC_OTH_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_OTH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_OTH_TOT <-  paste0( '{', F9_09_EXP_FEE_SVC_OTH_TOT, '}', collapse=';' ) 
 } 
 
@@ -1101,7 +1101,7 @@ V_EXP_FEE_SVC_FUNDR_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_FUNDR_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_FUNDR_FUNDR ) )
 if( length( F9_09_EXP_FEE_SVC_FUNDR_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_FUNDR_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_FUNDR_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_FUNDR_FUNDR <-  paste0( '{', F9_09_EXP_FEE_SVC_FUNDR_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -1121,7 +1121,7 @@ V_EXP_FEE_SVC_FUNDR_MGMT <- paste( V1, V2 , sep='|' )
 F9_09_EXP_FEE_SVC_FUNDR_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_FUNDR_MGMT ) )
 if( length( F9_09_EXP_FEE_SVC_FUNDR_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_FUNDR_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_FUNDR_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_FUNDR_MGMT <-  paste0( '{', F9_09_EXP_FEE_SVC_FUNDR_MGMT, '}', collapse=';' ) 
 } 
 
@@ -1141,7 +1141,7 @@ V_EXP_FEE_SVC_FUNDR_PROG <- paste( V1, V2 , sep='|' )
 F9_09_EXP_FEE_SVC_FUNDR_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_FUNDR_PROG ) )
 if( length( F9_09_EXP_FEE_SVC_FUNDR_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_FUNDR_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_FUNDR_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_FUNDR_PROG <-  paste0( '{', F9_09_EXP_FEE_SVC_FUNDR_PROG, '}', collapse=';' ) 
 } 
 
@@ -1162,7 +1162,7 @@ V_EXP_FEE_SVC_FUNDR_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_FEE_SVC_FUNDR_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_FEE_SVC_FUNDR_TOT ) )
 if( length( F9_09_EXP_FEE_SVC_FUNDR_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_FEE_SVC_FUNDR_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_FEE_SVC_FUNDR_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_FEE_SVC_FUNDR_TOT <-  paste0( '{', F9_09_EXP_FEE_SVC_FUNDR_TOT, '}', collapse=';' ) 
 } 
 
@@ -1183,7 +1183,7 @@ V_EXP_GRANT_FRGN_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_GRANT_FRGN_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_GRANT_FRGN_PROG ) )
 if( length( F9_09_EXP_GRANT_FRGN_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_GRANT_FRGN_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_GRANT_FRGN_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_GRANT_FRGN_PROG <-  paste0( '{', F9_09_EXP_GRANT_FRGN_PROG, '}', collapse=';' ) 
 } 
 
@@ -1204,7 +1204,7 @@ V_EXP_GRANT_FRGN_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_GRANT_FRGN_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_GRANT_FRGN_TOT ) )
 if( length( F9_09_EXP_GRANT_FRGN_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_GRANT_FRGN_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_GRANT_FRGN_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_GRANT_FRGN_TOT <-  paste0( '{', F9_09_EXP_GRANT_FRGN_TOT, '}', collapse=';' ) 
 } 
 
@@ -1225,7 +1225,7 @@ V_EXP_GRANT_US_INDIV_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_GRANT_US_INDIV_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_GRANT_US_INDIV_PROG ) )
 if( length( F9_09_EXP_GRANT_US_INDIV_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_GRANT_US_INDIV_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_GRANT_US_INDIV_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_GRANT_US_INDIV_PROG <-  paste0( '{', F9_09_EXP_GRANT_US_INDIV_PROG, '}', collapse=';' ) 
 } 
 
@@ -1246,7 +1246,7 @@ V_EXP_GRANT_US_INDIV_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_GRANT_US_INDIV_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_GRANT_US_INDIV_TOT ) )
 if( length( F9_09_EXP_GRANT_US_INDIV_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_GRANT_US_INDIV_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_GRANT_US_INDIV_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_GRANT_US_INDIV_TOT <-  paste0( '{', F9_09_EXP_GRANT_US_INDIV_TOT, '}', collapse=';' ) 
 } 
 
@@ -1267,7 +1267,7 @@ V_EXP_GRANT_US_ORG_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_GRANT_US_ORG_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_GRANT_US_ORG_PROG ) )
 if( length( F9_09_EXP_GRANT_US_ORG_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_GRANT_US_ORG_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_GRANT_US_ORG_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_GRANT_US_ORG_PROG <-  paste0( '{', F9_09_EXP_GRANT_US_ORG_PROG, '}', collapse=';' ) 
 } 
 
@@ -1288,7 +1288,7 @@ V_EXP_GRANT_US_ORG_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_GRANT_US_ORG_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_GRANT_US_ORG_TOT ) )
 if( length( F9_09_EXP_GRANT_US_ORG_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_GRANT_US_ORG_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_GRANT_US_ORG_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_GRANT_US_ORG_TOT <-  paste0( '{', F9_09_EXP_GRANT_US_ORG_TOT, '}', collapse=';' ) 
 } 
 
@@ -1309,7 +1309,7 @@ V_EXP_INFO_TECH_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_INFO_TECH_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_INFO_TECH_FUNDR ) )
 if( length( F9_09_EXP_INFO_TECH_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_INFO_TECH_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_INFO_TECH_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_INFO_TECH_FUNDR <-  paste0( '{', F9_09_EXP_INFO_TECH_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -1330,7 +1330,7 @@ V_EXP_INFO_TECH_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_INFO_TECH_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_INFO_TECH_MGMT ) )
 if( length( F9_09_EXP_INFO_TECH_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_INFO_TECH_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_INFO_TECH_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_INFO_TECH_MGMT <-  paste0( '{', F9_09_EXP_INFO_TECH_MGMT, '}', collapse=';' ) 
 } 
 
@@ -1351,7 +1351,7 @@ V_EXP_INFO_TECH_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_INFO_TECH_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_INFO_TECH_PROG ) )
 if( length( F9_09_EXP_INFO_TECH_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_INFO_TECH_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_INFO_TECH_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_INFO_TECH_PROG <-  paste0( '{', F9_09_EXP_INFO_TECH_PROG, '}', collapse=';' ) 
 } 
 
@@ -1372,7 +1372,7 @@ V_EXP_INFO_TECH_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_INFO_TECH_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_INFO_TECH_TOT ) )
 if( length( F9_09_EXP_INFO_TECH_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_INFO_TECH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_INFO_TECH_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_INFO_TECH_TOT <-  paste0( '{', F9_09_EXP_INFO_TECH_TOT, '}', collapse=';' ) 
 } 
 
@@ -1393,7 +1393,7 @@ V_EXP_INSURANCE_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_INSURANCE_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_INSURANCE_FUNDR ) )
 if( length( F9_09_EXP_INSURANCE_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_INSURANCE_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_INSURANCE_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_INSURANCE_FUNDR <-  paste0( '{', F9_09_EXP_INSURANCE_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -1414,7 +1414,7 @@ V_EXP_INSURANCE_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_INSURANCE_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_INSURANCE_MGMT ) )
 if( length( F9_09_EXP_INSURANCE_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_INSURANCE_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_INSURANCE_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_INSURANCE_MGMT <-  paste0( '{', F9_09_EXP_INSURANCE_MGMT, '}', collapse=';' ) 
 } 
 
@@ -1435,7 +1435,7 @@ V_EXP_INSURANCE_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_INSURANCE_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_INSURANCE_PROG ) )
 if( length( F9_09_EXP_INSURANCE_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_INSURANCE_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_INSURANCE_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_INSURANCE_PROG <-  paste0( '{', F9_09_EXP_INSURANCE_PROG, '}', collapse=';' ) 
 } 
 
@@ -1456,7 +1456,7 @@ V_EXP_INSURANCE_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_INSURANCE_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_INSURANCE_TOT ) )
 if( length( F9_09_EXP_INSURANCE_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_INSURANCE_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_INSURANCE_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_INSURANCE_TOT <-  paste0( '{', F9_09_EXP_INSURANCE_TOT, '}', collapse=';' ) 
 } 
 
@@ -1477,7 +1477,7 @@ V_EXP_INT_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_INT_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_INT_FUNDR ) )
 if( length( F9_09_EXP_INT_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_INT_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_INT_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_INT_FUNDR <-  paste0( '{', F9_09_EXP_INT_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -1498,7 +1498,7 @@ V_EXP_INT_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_INT_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_INT_MGMT ) )
 if( length( F9_09_EXP_INT_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_INT_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_INT_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_INT_MGMT <-  paste0( '{', F9_09_EXP_INT_MGMT, '}', collapse=';' ) 
 } 
 
@@ -1519,7 +1519,7 @@ V_EXP_INT_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_INT_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_INT_PROG ) )
 if( length( F9_09_EXP_INT_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_INT_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_INT_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_INT_PROG <-  paste0( '{', F9_09_EXP_INT_PROG, '}', collapse=';' ) 
 } 
 
@@ -1540,7 +1540,7 @@ V_EXP_INT_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_INT_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_INT_TOT ) )
 if( length( F9_09_EXP_INT_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_INT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_INT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_INT_TOT <-  paste0( '{', F9_09_EXP_INT_TOT, '}', collapse=';' ) 
 } 
 
@@ -1561,7 +1561,7 @@ V_EXP_JOINT_COST_X <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_JOINT_COST_X <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_JOINT_COST_X ) )
 if( length( F9_09_EXP_JOINT_COST_X ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_JOINT_COST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_JOINT_COST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_JOINT_COST_X <-  paste0( '{', F9_09_EXP_JOINT_COST_X, '}', collapse=';' ) 
 } 
 
@@ -1582,7 +1582,7 @@ V_EXP_OCCUPANCY_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OCCUPANCY_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OCCUPANCY_FUNDR ) )
 if( length( F9_09_EXP_OCCUPANCY_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OCCUPANCY_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OCCUPANCY_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OCCUPANCY_FUNDR <-  paste0( '{', F9_09_EXP_OCCUPANCY_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -1603,7 +1603,7 @@ V_EXP_OCCUPANCY_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OCCUPANCY_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OCCUPANCY_MGMT ) )
 if( length( F9_09_EXP_OCCUPANCY_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OCCUPANCY_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OCCUPANCY_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OCCUPANCY_MGMT <-  paste0( '{', F9_09_EXP_OCCUPANCY_MGMT, '}', collapse=';' ) 
 } 
 
@@ -1624,7 +1624,7 @@ V_EXP_OCCUPANCY_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OCCUPANCY_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OCCUPANCY_PROG ) )
 if( length( F9_09_EXP_OCCUPANCY_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OCCUPANCY_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OCCUPANCY_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OCCUPANCY_PROG <-  paste0( '{', F9_09_EXP_OCCUPANCY_PROG, '}', collapse=';' ) 
 } 
 
@@ -1647,7 +1647,7 @@ V_EXP_OCCUPANCY_TOT <- paste( V1, V2, V3, V4, V5 , sep='|' )
 F9_09_EXP_OCCUPANCY_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OCCUPANCY_TOT ) )
 if( length( F9_09_EXP_OCCUPANCY_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OCCUPANCY_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OCCUPANCY_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OCCUPANCY_TOT <-  paste0( '{', F9_09_EXP_OCCUPANCY_TOT, '}', collapse=';' ) 
 } 
 
@@ -1668,7 +1668,7 @@ V_EXP_OFFICE_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OFFICE_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OFFICE_FUNDR ) )
 if( length( F9_09_EXP_OFFICE_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OFFICE_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OFFICE_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OFFICE_FUNDR <-  paste0( '{', F9_09_EXP_OFFICE_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -1689,7 +1689,7 @@ V_EXP_OFFICE_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OFFICE_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OFFICE_MGMT ) )
 if( length( F9_09_EXP_OFFICE_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OFFICE_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OFFICE_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OFFICE_MGMT <-  paste0( '{', F9_09_EXP_OFFICE_MGMT, '}', collapse=';' ) 
 } 
 
@@ -1711,7 +1711,7 @@ V_EXP_OFFICE_PROG <- paste( V1, V2, V3, V4 , sep='|' )
 F9_09_EXP_OFFICE_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OFFICE_PROG ) )
 if( length( F9_09_EXP_OFFICE_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OFFICE_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OFFICE_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OFFICE_PROG <-  paste0( '{', F9_09_EXP_OFFICE_PROG, '}', collapse=';' ) 
 } 
 
@@ -1732,7 +1732,7 @@ V_EXP_OFFICE_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OFFICE_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OFFICE_TOT ) )
 if( length( F9_09_EXP_OFFICE_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OFFICE_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OFFICE_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OFFICE_TOT <-  paste0( '{', F9_09_EXP_OFFICE_TOT, '}', collapse=';' ) 
 } 
 
@@ -1753,7 +1753,7 @@ V_EXP_OTH_EMPL_BEN_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OTH_EMPL_BEN_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OTH_EMPL_BEN_FUNDR ) )
 if( length( F9_09_EXP_OTH_EMPL_BEN_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OTH_EMPL_BEN_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OTH_EMPL_BEN_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OTH_EMPL_BEN_FUNDR <-  paste0( '{', F9_09_EXP_OTH_EMPL_BEN_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -1774,7 +1774,7 @@ V_EXP_OTH_EMPL_BEN_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OTH_EMPL_BEN_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OTH_EMPL_BEN_MGMT ) )
 if( length( F9_09_EXP_OTH_EMPL_BEN_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OTH_EMPL_BEN_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OTH_EMPL_BEN_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OTH_EMPL_BEN_MGMT <-  paste0( '{', F9_09_EXP_OTH_EMPL_BEN_MGMT, '}', collapse=';' ) 
 } 
 
@@ -1795,7 +1795,7 @@ V_EXP_OTH_EMPL_BEN_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OTH_EMPL_BEN_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OTH_EMPL_BEN_PROG ) )
 if( length( F9_09_EXP_OTH_EMPL_BEN_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OTH_EMPL_BEN_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OTH_EMPL_BEN_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OTH_EMPL_BEN_PROG <-  paste0( '{', F9_09_EXP_OTH_EMPL_BEN_PROG, '}', collapse=';' ) 
 } 
 
@@ -1816,7 +1816,7 @@ V_EXP_OTH_EMPL_BEN_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OTH_EMPL_BEN_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OTH_EMPL_BEN_TOT ) )
 if( length( F9_09_EXP_OTH_EMPL_BEN_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OTH_EMPL_BEN_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OTH_EMPL_BEN_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OTH_EMPL_BEN_TOT <-  paste0( '{', F9_09_EXP_OTH_EMPL_BEN_TOT, '}', collapse=';' ) 
 } 
 
@@ -1837,7 +1837,7 @@ V_EXP_OTH_SAL_WAGE_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OTH_SAL_WAGE_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OTH_SAL_WAGE_FUNDR ) )
 if( length( F9_09_EXP_OTH_SAL_WAGE_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OTH_SAL_WAGE_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OTH_SAL_WAGE_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OTH_SAL_WAGE_FUNDR <-  paste0( '{', F9_09_EXP_OTH_SAL_WAGE_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -1858,7 +1858,7 @@ V_EXP_OTH_SAL_WAGE_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OTH_SAL_WAGE_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OTH_SAL_WAGE_MGMT ) )
 if( length( F9_09_EXP_OTH_SAL_WAGE_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OTH_SAL_WAGE_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OTH_SAL_WAGE_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OTH_SAL_WAGE_MGMT <-  paste0( '{', F9_09_EXP_OTH_SAL_WAGE_MGMT, '}', collapse=';' ) 
 } 
 
@@ -1879,7 +1879,7 @@ V_EXP_OTH_SAL_WAGE_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OTH_SAL_WAGE_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OTH_SAL_WAGE_PROG ) )
 if( length( F9_09_EXP_OTH_SAL_WAGE_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OTH_SAL_WAGE_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OTH_SAL_WAGE_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OTH_SAL_WAGE_PROG <-  paste0( '{', F9_09_EXP_OTH_SAL_WAGE_PROG, '}', collapse=';' ) 
 } 
 
@@ -1900,7 +1900,7 @@ V_EXP_OTH_SAL_WAGE_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_OTH_SAL_WAGE_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OTH_SAL_WAGE_TOT ) )
 if( length( F9_09_EXP_OTH_SAL_WAGE_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OTH_SAL_WAGE_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OTH_SAL_WAGE_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OTH_SAL_WAGE_TOT <-  paste0( '{', F9_09_EXP_OTH_SAL_WAGE_TOT, '}', collapse=';' ) 
 } 
 
@@ -1921,7 +1921,7 @@ V_EXP_PAY_AFFIL_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_PAY_AFFIL_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_PAY_AFFIL_FUNDR ) )
 if( length( F9_09_EXP_PAY_AFFIL_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_PAY_AFFIL_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_PAY_AFFIL_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_PAY_AFFIL_FUNDR <-  paste0( '{', F9_09_EXP_PAY_AFFIL_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -1942,7 +1942,7 @@ V_EXP_PAY_AFFIL_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_PAY_AFFIL_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_PAY_AFFIL_MGMT ) )
 if( length( F9_09_EXP_PAY_AFFIL_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_PAY_AFFIL_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_PAY_AFFIL_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_PAY_AFFIL_MGMT <-  paste0( '{', F9_09_EXP_PAY_AFFIL_MGMT, '}', collapse=';' ) 
 } 
 
@@ -1963,7 +1963,7 @@ V_EXP_PAY_AFFIL_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_PAY_AFFIL_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_PAY_AFFIL_PROG ) )
 if( length( F9_09_EXP_PAY_AFFIL_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_PAY_AFFIL_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_PAY_AFFIL_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_PAY_AFFIL_PROG <-  paste0( '{', F9_09_EXP_PAY_AFFIL_PROG, '}', collapse=';' ) 
 } 
 
@@ -1984,7 +1984,7 @@ V_EXP_PAY_AFFIL_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_PAY_AFFIL_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_PAY_AFFIL_TOT ) )
 if( length( F9_09_EXP_PAY_AFFIL_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_PAY_AFFIL_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_PAY_AFFIL_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_PAY_AFFIL_TOT <-  paste0( '{', F9_09_EXP_PAY_AFFIL_TOT, '}', collapse=';' ) 
 } 
 
@@ -2005,7 +2005,7 @@ V_EXP_PAYROLL_TAX_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_PAYROLL_TAX_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_PAYROLL_TAX_FUNDR ) )
 if( length( F9_09_EXP_PAYROLL_TAX_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_PAYROLL_TAX_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_PAYROLL_TAX_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_PAYROLL_TAX_FUNDR <-  paste0( '{', F9_09_EXP_PAYROLL_TAX_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -2026,7 +2026,7 @@ V_EXP_PAYROLL_TAX_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_PAYROLL_TAX_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_PAYROLL_TAX_MGMT ) )
 if( length( F9_09_EXP_PAYROLL_TAX_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_PAYROLL_TAX_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_PAYROLL_TAX_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_PAYROLL_TAX_MGMT <-  paste0( '{', F9_09_EXP_PAYROLL_TAX_MGMT, '}', collapse=';' ) 
 } 
 
@@ -2047,7 +2047,7 @@ V_EXP_PAYROLL_TAX_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_PAYROLL_TAX_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_PAYROLL_TAX_PROG ) )
 if( length( F9_09_EXP_PAYROLL_TAX_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_PAYROLL_TAX_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_PAYROLL_TAX_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_PAYROLL_TAX_PROG <-  paste0( '{', F9_09_EXP_PAYROLL_TAX_PROG, '}', collapse=';' ) 
 } 
 
@@ -2068,7 +2068,7 @@ V_EXP_PAYROLL_TAX_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_PAYROLL_TAX_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_PAYROLL_TAX_TOT ) )
 if( length( F9_09_EXP_PAYROLL_TAX_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_PAYROLL_TAX_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_PAYROLL_TAX_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_PAYROLL_TAX_TOT <-  paste0( '{', F9_09_EXP_PAYROLL_TAX_TOT, '}', collapse=';' ) 
 } 
 
@@ -2089,7 +2089,7 @@ V_EXP_PENSION_CONTR_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_PENSION_CONTR_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_PENSION_CONTR_FUNDR ) )
 if( length( F9_09_EXP_PENSION_CONTR_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_PENSION_CONTR_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_PENSION_CONTR_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_PENSION_CONTR_FUNDR <-  paste0( '{', F9_09_EXP_PENSION_CONTR_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -2110,7 +2110,7 @@ V_EXP_PENSION_CONTR_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_PENSION_CONTR_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_PENSION_CONTR_MGMT ) )
 if( length( F9_09_EXP_PENSION_CONTR_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_PENSION_CONTR_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_PENSION_CONTR_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_PENSION_CONTR_MGMT <-  paste0( '{', F9_09_EXP_PENSION_CONTR_MGMT, '}', collapse=';' ) 
 } 
 
@@ -2131,7 +2131,7 @@ V_EXP_PENSION_CONTR_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_PENSION_CONTR_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_PENSION_CONTR_PROG ) )
 if( length( F9_09_EXP_PENSION_CONTR_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_PENSION_CONTR_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_PENSION_CONTR_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_PENSION_CONTR_PROG <-  paste0( '{', F9_09_EXP_PENSION_CONTR_PROG, '}', collapse=';' ) 
 } 
 
@@ -2152,7 +2152,7 @@ V_EXP_PENSION_CONTR_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_PENSION_CONTR_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_PENSION_CONTR_TOT ) )
 if( length( F9_09_EXP_PENSION_CONTR_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_PENSION_CONTR_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_PENSION_CONTR_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_PENSION_CONTR_TOT <-  paste0( '{', F9_09_EXP_PENSION_CONTR_TOT, '}', collapse=';' ) 
 } 
 
@@ -2173,7 +2173,7 @@ V_EXP_ROY_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_ROY_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_ROY_FUNDR ) )
 if( length( F9_09_EXP_ROY_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_ROY_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_ROY_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_ROY_FUNDR <-  paste0( '{', F9_09_EXP_ROY_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -2194,7 +2194,7 @@ V_EXP_ROY_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_ROY_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_ROY_MGMT ) )
 if( length( F9_09_EXP_ROY_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_ROY_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_ROY_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_ROY_MGMT <-  paste0( '{', F9_09_EXP_ROY_MGMT, '}', collapse=';' ) 
 } 
 
@@ -2215,7 +2215,7 @@ V_EXP_ROY_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_ROY_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_ROY_PROG ) )
 if( length( F9_09_EXP_ROY_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_ROY_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_ROY_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_ROY_PROG <-  paste0( '{', F9_09_EXP_ROY_PROG, '}', collapse=';' ) 
 } 
 
@@ -2236,7 +2236,7 @@ V_EXP_ROY_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_ROY_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_ROY_TOT ) )
 if( length( F9_09_EXP_ROY_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_ROY_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_ROY_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_ROY_TOT <-  paste0( '{', F9_09_EXP_ROY_TOT, '}', collapse=';' ) 
 } 
 
@@ -2257,7 +2257,7 @@ V_EXP_TOT_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_TOT_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_TOT_FUNDR ) )
 if( length( F9_09_EXP_TOT_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_TOT_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_TOT_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_TOT_FUNDR <-  paste0( '{', F9_09_EXP_TOT_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -2278,7 +2278,7 @@ V_EXP_TOT_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_TOT_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_TOT_MGMT ) )
 if( length( F9_09_EXP_TOT_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_TOT_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_TOT_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_TOT_MGMT <-  paste0( '{', F9_09_EXP_TOT_MGMT, '}', collapse=';' ) 
 } 
 
@@ -2299,7 +2299,7 @@ V_EXP_TOT_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_TOT_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_TOT_PROG ) )
 if( length( F9_09_EXP_TOT_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_TOT_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_TOT_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_TOT_PROG <-  paste0( '{', F9_09_EXP_TOT_PROG, '}', collapse=';' ) 
 } 
 
@@ -2320,7 +2320,7 @@ V_EXP_TOT_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_TOT_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_TOT_TOT ) )
 if( length( F9_09_EXP_TOT_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_TOT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_TOT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_TOT_TOT <-  paste0( '{', F9_09_EXP_TOT_TOT, '}', collapse=';' ) 
 } 
 
@@ -2341,7 +2341,7 @@ V_EXP_JOINT_COST_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_JOINT_COST_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_JOINT_COST_FUNDR ) )
 if( length( F9_09_EXP_JOINT_COST_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_JOINT_COST_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_JOINT_COST_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_JOINT_COST_FUNDR <-  paste0( '{', F9_09_EXP_JOINT_COST_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -2362,7 +2362,7 @@ V_EXP_JOINT_COST_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_JOINT_COST_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_JOINT_COST_MGMT ) )
 if( length( F9_09_EXP_JOINT_COST_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_JOINT_COST_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_JOINT_COST_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_JOINT_COST_MGMT <-  paste0( '{', F9_09_EXP_JOINT_COST_MGMT, '}', collapse=';' ) 
 } 
 
@@ -2383,7 +2383,7 @@ V_EXP_JOINT_COST_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_JOINT_COST_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_JOINT_COST_PROG ) )
 if( length( F9_09_EXP_JOINT_COST_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_JOINT_COST_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_JOINT_COST_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_JOINT_COST_PROG <-  paste0( '{', F9_09_EXP_JOINT_COST_PROG, '}', collapse=';' ) 
 } 
 
@@ -2404,7 +2404,7 @@ V_EXP_JOINT_COST_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_JOINT_COST_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_JOINT_COST_TOT ) )
 if( length( F9_09_EXP_JOINT_COST_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_JOINT_COST_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_JOINT_COST_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_JOINT_COST_TOT <-  paste0( '{', F9_09_EXP_JOINT_COST_TOT, '}', collapse=';' ) 
 } 
 
@@ -2425,7 +2425,7 @@ V_EXP_TRAVEL_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_TRAVEL_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_TRAVEL_FUNDR ) )
 if( length( F9_09_EXP_TRAVEL_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_TRAVEL_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_TRAVEL_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_TRAVEL_FUNDR <-  paste0( '{', F9_09_EXP_TRAVEL_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -2446,7 +2446,7 @@ V_EXP_TRAVEL_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_TRAVEL_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_TRAVEL_MGMT ) )
 if( length( F9_09_EXP_TRAVEL_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_TRAVEL_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_TRAVEL_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_TRAVEL_MGMT <-  paste0( '{', F9_09_EXP_TRAVEL_MGMT, '}', collapse=';' ) 
 } 
 
@@ -2467,7 +2467,7 @@ V_EXP_TRAVEL_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_TRAVEL_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_TRAVEL_PROG ) )
 if( length( F9_09_EXP_TRAVEL_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_TRAVEL_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_TRAVEL_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_TRAVEL_PROG <-  paste0( '{', F9_09_EXP_TRAVEL_PROG, '}', collapse=';' ) 
 } 
 
@@ -2488,7 +2488,7 @@ V_EXP_TRAVEL_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_TRAVEL_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_TRAVEL_TOT ) )
 if( length( F9_09_EXP_TRAVEL_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_TRAVEL_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_TRAVEL_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_TRAVEL_TOT <-  paste0( '{', F9_09_EXP_TRAVEL_TOT, '}', collapse=';' ) 
 } 
 
@@ -2509,7 +2509,7 @@ V_EXP_TRAVEL_ENTMT_FUNDR <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_TRAVEL_ENTMT_FUNDR <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_TRAVEL_ENTMT_FUNDR ) )
 if( length( F9_09_EXP_TRAVEL_ENTMT_FUNDR ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_TRAVEL_ENTMT_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_TRAVEL_ENTMT_FUNDR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_TRAVEL_ENTMT_FUNDR <-  paste0( '{', F9_09_EXP_TRAVEL_ENTMT_FUNDR, '}', collapse=';' ) 
 } 
 
@@ -2530,7 +2530,7 @@ V_EXP_TRAVEL_ENTMT_MGMT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_TRAVEL_ENTMT_MGMT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_TRAVEL_ENTMT_MGMT ) )
 if( length( F9_09_EXP_TRAVEL_ENTMT_MGMT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_TRAVEL_ENTMT_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_TRAVEL_ENTMT_MGMT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_TRAVEL_ENTMT_MGMT <-  paste0( '{', F9_09_EXP_TRAVEL_ENTMT_MGMT, '}', collapse=';' ) 
 } 
 
@@ -2551,7 +2551,7 @@ V_EXP_TRAVEL_ENTMT_PROG <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_TRAVEL_ENTMT_PROG <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_TRAVEL_ENTMT_PROG ) )
 if( length( F9_09_EXP_TRAVEL_ENTMT_PROG ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_TRAVEL_ENTMT_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_TRAVEL_ENTMT_PROG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_TRAVEL_ENTMT_PROG <-  paste0( '{', F9_09_EXP_TRAVEL_ENTMT_PROG, '}', collapse=';' ) 
 } 
 
@@ -2572,7 +2572,7 @@ V_EXP_TRAVEL_ENTMT_TOT <- paste( V1, V2, V3 , sep='|' )
 F9_09_EXP_TRAVEL_ENTMT_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_TRAVEL_ENTMT_TOT ) )
 if( length( F9_09_EXP_TRAVEL_ENTMT_TOT ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_TRAVEL_ENTMT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_TRAVEL_ENTMT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_TRAVEL_ENTMT_TOT <-  paste0( '{', F9_09_EXP_TRAVEL_ENTMT_TOT, '}', collapse=';' ) 
 } 
 
@@ -2592,7 +2592,7 @@ V_INFO_SCHED_O_X <- paste( V1, V2 , sep='|' )
 F9_09_INFO_SCHED_O_X <- xml2::xml_text( xml2::xml_find_all( doc, V_INFO_SCHED_O_X ) )
 if( length( F9_09_INFO_SCHED_O_X ) > 1 )
 { 
-  create_record( varname=F9_09_INFO_SCHED_O_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_INFO_SCHED_O_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_INFO_SCHED_O_X <-  paste0( '{', F9_09_INFO_SCHED_O_X, '}', collapse=';' ) 
 } 
 
@@ -2612,7 +2612,7 @@ V_EXP_OFFICE_TOT_V2 <- paste( V1, V2 , sep='|' )
 F9_09_EXP_OFFICE_TOT_V2 <- xml2::xml_text( xml2::xml_find_all( doc, V_EXP_OFFICE_TOT_V2 ) )
 if( length( F9_09_EXP_OFFICE_TOT_V2 ) > 1 )
 { 
-  create_record( varname=F9_09_EXP_OFFICE_TOT_V2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_09_EXP_OFFICE_TOT_V2, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_09_EXP_OFFICE_TOT_V2 <-  paste0( '{', F9_09_EXP_OFFICE_TOT_V2, '}', collapse=';' ) 
 } 
 

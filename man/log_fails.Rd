@@ -4,7 +4,7 @@
 \alias{log_fails}
 \title{Log a failed URL.}
 \usage{
-log_fails(url)
+log_fails(urls)
 }
 \description{
 Make a note when a url fails to load or is invalid.

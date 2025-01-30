@@ -31,7 +31,7 @@ TAX_YEAR <- keys[['TAX_YEAR']]
 SA_04_ALL_ORG_CONTR_35PCT_CE_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/Contribution35ControlledInd' ) )
 if( length( SA_04_ALL_ORG_CONTR_35PCT_CE_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_CONTR_35PCT_CE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_CONTR_35PCT_CE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_CONTR_35PCT_CE_X <-  paste0( '{', SA_04_ALL_ORG_CONTR_35PCT_CE_X, '}', collapse=';' ) 
 } 
 
@@ -48,7 +48,7 @@ if( length( SA_04_ALL_ORG_CONTR_35PCT_CE_X ) > 1 )
 SA_04_ALL_ORG_CONTR_PERS_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/ContributionControllerInd' ) )
 if( length( SA_04_ALL_ORG_CONTR_PERS_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_CONTR_PERS_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_CONTR_PERS_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_CONTR_PERS_X <-  paste0( '{', SA_04_ALL_ORG_CONTR_PERS_X, '}', collapse=';' ) 
 } 
 
@@ -65,7 +65,7 @@ if( length( SA_04_ALL_ORG_CONTR_PERS_X ) > 1 )
 SA_04_ALL_ORG_CONTR_FAM_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/ContributionFamilyInd' ) )
 if( length( SA_04_ALL_ORG_CONTR_FAM_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_CONTR_FAM_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_CONTR_FAM_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_CONTR_FAM_X <-  paste0( '{', SA_04_ALL_ORG_CONTR_FAM_X, '}', collapse=';' ) 
 } 
 
@@ -82,7 +82,7 @@ if( length( SA_04_ALL_ORG_CONTR_FAM_X ) > 1 )
 SA_04_ALL_ORG_CTRL_GRANT_FRGN_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/ControlDecidingGrntFrgnOrgInd' ) )
 if( length( SA_04_ALL_ORG_CTRL_GRANT_FRGN_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_CTRL_GRANT_FRGN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_CTRL_GRANT_FRGN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_CTRL_GRANT_FRGN_X <-  paste0( '{', SA_04_ALL_ORG_CTRL_GRANT_FRGN_X, '}', collapse=';' ) 
 } 
 
@@ -99,7 +99,7 @@ if( length( SA_04_ALL_ORG_CTRL_GRANT_FRGN_X ) > 1 )
 SA_04_ALL_ORG_CTRL_BY_PERS_DSQ_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/ControlledDisqualifiedPrsnInd' ) )
 if( length( SA_04_ALL_ORG_CTRL_BY_PERS_DSQ_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_CTRL_BY_PERS_DSQ_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_CTRL_BY_PERS_DSQ_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_CTRL_BY_PERS_DSQ_X <-  paste0( '{', SA_04_ALL_ORG_CTRL_BY_PERS_DSQ_X, '}', collapse=';' ) 
 } 
 
@@ -116,7 +116,7 @@ if( length( SA_04_ALL_ORG_CTRL_BY_PERS_DSQ_X ) > 1 )
 SA_04_ALL_ORG_PERS_DSQ_CTRL_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/DisqualifiedPrsnControllIntInd' ) )
 if( length( SA_04_ALL_ORG_PERS_DSQ_CTRL_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_PERS_DSQ_CTRL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_PERS_DSQ_CTRL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_PERS_DSQ_CTRL_X <-  paste0( '{', SA_04_ALL_ORG_PERS_DSQ_CTRL_X, '}', collapse=';' ) 
 } 
 
@@ -133,7 +133,7 @@ if( length( SA_04_ALL_ORG_PERS_DSQ_CTRL_X ) > 1 )
 SA_04_ALL_ORG_PERS_DSQ_OWN_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/DisqualifiedPrsnOwnrIntInd' ) )
 if( length( SA_04_ALL_ORG_PERS_DSQ_OWN_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_PERS_DSQ_OWN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_PERS_DSQ_OWN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_PERS_DSQ_OWN_X <-  paste0( '{', SA_04_ALL_ORG_PERS_DSQ_OWN_X, '}', collapse=';' ) 
 } 
 
@@ -150,7 +150,7 @@ if( length( SA_04_ALL_ORG_PERS_DSQ_OWN_X ) > 1 )
 SA_04_ALL_ORG_EXCESS_BIZ_HOLD_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/ExcessBusinessHoldingsInd' ) )
 if( length( SA_04_ALL_ORG_EXCESS_BIZ_HOLD_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_EXCESS_BIZ_HOLD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_EXCESS_BIZ_HOLD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_EXCESS_BIZ_HOLD_X <-  paste0( '{', SA_04_ALL_ORG_EXCESS_BIZ_HOLD_X, '}', collapse=';' ) 
 } 
 
@@ -167,7 +167,7 @@ if( length( SA_04_ALL_ORG_EXCESS_BIZ_HOLD_X ) > 1 )
 SA_04_ALL_ORG_EXCESS_BIZ_RULES_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/ExcessBusinessHoldingsRulesInd' ) )
 if( length( SA_04_ALL_ORG_EXCESS_BIZ_RULES_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_EXCESS_BIZ_RULES_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_EXCESS_BIZ_RULES_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_EXCESS_BIZ_RULES_X <-  paste0( '{', SA_04_ALL_ORG_EXCESS_BIZ_RULES_X, '}', collapse=';' ) 
 } 
 
@@ -184,7 +184,7 @@ if( length( SA_04_ALL_ORG_EXCESS_BIZ_RULES_X ) > 1 )
 SA_04_ALL_ORG_NAME_DOC_LISTED_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/ListedByNameGoverningDocInd' ) )
 if( length( SA_04_ALL_ORG_NAME_DOC_LISTED_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_NAME_DOC_LISTED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_NAME_DOC_LISTED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_NAME_DOC_LISTED_X <-  paste0( '{', SA_04_ALL_ORG_NAME_DOC_LISTED_X, '}', collapse=';' ) 
 } 
 
@@ -201,7 +201,7 @@ if( length( SA_04_ALL_ORG_NAME_DOC_LISTED_X ) > 1 )
 SA_04_ALL_ORG_LOAN_PERS_DSQ_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/LoanDisqualifiedPersonInd' ) )
 if( length( SA_04_ALL_ORG_LOAN_PERS_DSQ_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_LOAN_PERS_DSQ_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_LOAN_PERS_DSQ_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_LOAN_PERS_DSQ_X <-  paste0( '{', SA_04_ALL_ORG_LOAN_PERS_DSQ_X, '}', collapse=';' ) 
 } 
 
@@ -218,7 +218,7 @@ if( length( SA_04_ALL_ORG_LOAN_PERS_DSQ_X ) > 1 )
 SA_04_ALL_ORG_CHANGE_ORG_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/OrganizationChangeSuprtOrgInd' ) )
 if( length( SA_04_ALL_ORG_CHANGE_ORG_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_CHANGE_ORG_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_CHANGE_ORG_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_CHANGE_ORG_X <-  paste0( '{', SA_04_ALL_ORG_CHANGE_ORG_X, '}', collapse=';' ) 
 } 
 
@@ -235,7 +235,7 @@ if( length( SA_04_ALL_ORG_CHANGE_ORG_X ) > 1 )
 SA_04_ALL_ORG_PAY_CONTRIBUTOR_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/PaymentSubstantialContribtrInd' ) )
 if( length( SA_04_ALL_ORG_PAY_CONTRIBUTOR_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_PAY_CONTRIBUTOR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_PAY_CONTRIBUTOR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_PAY_CONTRIBUTOR_X <-  paste0( '{', SA_04_ALL_ORG_PAY_CONTRIBUTOR_X, '}', collapse=';' ) 
 } 
 
@@ -252,7 +252,7 @@ if( length( SA_04_ALL_ORG_PAY_CONTRIBUTOR_X ) > 1 )
 SA_04_ALL_ORG_SUBSTITUT_ONLY_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/SubstitutionBeyondOrgCntlInd' ) )
 if( length( SA_04_ALL_ORG_SUBSTITUT_ONLY_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_SUBSTITUT_ONLY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_SUBSTITUT_ONLY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_SUBSTITUT_ONLY_X <-  paste0( '{', SA_04_ALL_ORG_SUBSTITUT_ONLY_X, '}', collapse=';' ) 
 } 
 
@@ -269,7 +269,7 @@ if( length( SA_04_ALL_ORG_SUBSTITUT_ONLY_X ) > 1 )
 SA_04_ALL_ORG_T12_ONLY_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/SupportedOrgClassDesignatedInd' ) )
 if( length( SA_04_ALL_ORG_T12_ONLY_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_T12_ONLY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_T12_ONLY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_T12_ONLY_X <-  paste0( '{', SA_04_ALL_ORG_T12_ONLY_X, '}', collapse=';' ) 
 } 
 
@@ -286,7 +286,7 @@ if( length( SA_04_ALL_ORG_T12_ONLY_X ) > 1 )
 SA_04_ALL_ORG_FRGN_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/SupportedOrgNotOrganizedUSInd' ) )
 if( length( SA_04_ALL_ORG_FRGN_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_FRGN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_FRGN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_FRGN_X <-  paste0( '{', SA_04_ALL_ORG_FRGN_X, '}', collapse=';' ) 
 } 
 
@@ -303,7 +303,7 @@ if( length( SA_04_ALL_ORG_FRGN_X ) > 1 )
 SA_04_ALL_ORG_QUAL_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/SupportedOrgQualifiedInd' ) )
 if( length( SA_04_ALL_ORG_QUAL_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_QUAL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_QUAL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_QUAL_X <-  paste0( '{', SA_04_ALL_ORG_QUAL_X, '}', collapse=';' ) 
 } 
 
@@ -320,7 +320,7 @@ if( length( SA_04_ALL_ORG_QUAL_X ) > 1 )
 SA_04_ALL_ORG_501C456_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/SupportedOrgSectionC456Ind' ) )
 if( length( SA_04_ALL_ORG_501C456_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_501C456_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_501C456_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_501C456_X <-  paste0( '{', SA_04_ALL_ORG_501C456_X, '}', collapse=';' ) 
 } 
 
@@ -337,7 +337,7 @@ if( length( SA_04_ALL_ORG_501C456_X ) > 1 )
 SA_04_ALL_ORG_SUPPORT_FRGN_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/SupportForeignOrgNoDetermInd' ) )
 if( length( SA_04_ALL_ORG_SUPPORT_FRGN_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_SUPPORT_FRGN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_SUPPORT_FRGN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_SUPPORT_FRGN_X <-  paste0( '{', SA_04_ALL_ORG_SUPPORT_FRGN_X, '}', collapse=';' ) 
 } 
 
@@ -354,7 +354,7 @@ if( length( SA_04_ALL_ORG_SUPPORT_FRGN_X ) > 1 )
 SA_04_ALL_ORG_SUPPORT_OTH_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/SupportNonSupportedOrgInd' ) )
 if( length( SA_04_ALL_ORG_SUPPORT_OTH_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_SUPPORT_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_SUPPORT_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_SUPPORT_OTH_X <-  paste0( '{', SA_04_ALL_ORG_SUPPORT_OTH_X, '}', collapse=';' ) 
 } 
 
@@ -371,7 +371,7 @@ if( length( SA_04_ALL_ORG_SUPPORT_OTH_X ) > 1 )
 SA_04_ALL_ORG_170C2B_PURPOSE_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/SuprtExclusivelySec170c2BInd' ) )
 if( length( SA_04_ALL_ORG_170C2B_PURPOSE_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_170C2B_PURPOSE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_170C2B_PURPOSE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_170C2B_PURPOSE_X <-  paste0( '{', SA_04_ALL_ORG_170C2B_PURPOSE_X, '}', collapse=';' ) 
 } 
 
@@ -388,7 +388,7 @@ if( length( SA_04_ALL_ORG_170C2B_PURPOSE_X ) > 1 )
 SA_04_ALL_ORG_NONDETERMIN_IRS_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchASupportingOrgGrp/SuprtOrgNoIRSDeterminationInd' ) )
 if( length( SA_04_ALL_ORG_NONDETERMIN_IRS_X ) > 1 )
 { 
-  create_record( varname=SA_04_ALL_ORG_NONDETERMIN_IRS_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_ALL_ORG_NONDETERMIN_IRS_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_ALL_ORG_NONDETERMIN_IRS_X <-  paste0( '{', SA_04_ALL_ORG_NONDETERMIN_IRS_X, '}', collapse=';' ) 
 } 
 
@@ -405,7 +405,7 @@ if( length( SA_04_ALL_ORG_NONDETERMIN_IRS_X ) > 1 )
 SA_04_T1_ORG_BEN_OTH_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchAType1SuprtOrgGrp/OperateBenefitNonSuprtOrgInd' ) )
 if( length( SA_04_T1_ORG_BEN_OTH_X ) > 1 )
 { 
-  create_record( varname=SA_04_T1_ORG_BEN_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_T1_ORG_BEN_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_T1_ORG_BEN_OTH_X <-  paste0( '{', SA_04_T1_ORG_BEN_OTH_X, '}', collapse=';' ) 
 } 
 
@@ -422,7 +422,7 @@ if( length( SA_04_T1_ORG_BEN_OTH_X ) > 1 )
 SA_04_T1_ORG_DIR_TRUST_APPONT_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchAType1SuprtOrgGrp/PowerAppointMajorityDirTrstInd' ) )
 if( length( SA_04_T1_ORG_DIR_TRUST_APPONT_X ) > 1 )
 { 
-  create_record( varname=SA_04_T1_ORG_DIR_TRUST_APPONT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_T1_ORG_DIR_TRUST_APPONT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_T1_ORG_DIR_TRUST_APPONT_X <-  paste0( '{', SA_04_T1_ORG_DIR_TRUST_APPONT_X, '}', collapse=';' ) 
 } 
 
@@ -439,7 +439,7 @@ if( length( SA_04_T1_ORG_DIR_TRUST_APPONT_X ) > 1 )
 SA_04_T3FUNC_ORG_ACT_ENGAGED_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchAType3FuncIntGrp/ActivitiesEngagedOrgInvlmntInd' ) )
 if( length( SA_04_T3FUNC_ORG_ACT_ENGAGED_X ) > 1 )
 { 
-  create_record( varname=SA_04_T3FUNC_ORG_ACT_ENGAGED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_T3FUNC_ORG_ACT_ENGAGED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_T3FUNC_ORG_ACT_ENGAGED_X <-  paste0( '{', SA_04_T3FUNC_ORG_ACT_ENGAGED_X, '}', collapse=';' ) 
 } 
 
@@ -456,7 +456,7 @@ if( length( SA_04_T3FUNC_ORG_ACT_ENGAGED_X ) > 1 )
 SA_04_T3FUNC_ORG_ACT_EXEMPT_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchAType3FuncIntGrp/ActivitiesFurtherExemptPrpsInd' ) )
 if( length( SA_04_T3FUNC_ORG_ACT_EXEMPT_X ) > 1 )
 { 
-  create_record( varname=SA_04_T3FUNC_ORG_ACT_EXEMPT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_T3FUNC_ORG_ACT_EXEMPT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_T3FUNC_ORG_ACT_EXEMPT_X <-  paste0( '{', SA_04_T3FUNC_ORG_ACT_EXEMPT_X, '}', collapse=';' ) 
 } 
 
@@ -473,7 +473,7 @@ if( length( SA_04_T3FUNC_ORG_ACT_EXEMPT_X ) > 1 )
 SA_04_T3FUNC_ORG_ACT_TEST_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchAType3FuncIntGrp/ActivitiesTestInd' ) )
 if( length( SA_04_T3FUNC_ORG_ACT_TEST_X ) > 1 )
 { 
-  create_record( varname=SA_04_T3FUNC_ORG_ACT_TEST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_T3FUNC_ORG_ACT_TEST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_T3FUNC_ORG_ACT_TEST_X <-  paste0( '{', SA_04_T3FUNC_ORG_ACT_TEST_X, '}', collapse=';' ) 
 } 
 
@@ -490,7 +490,7 @@ if( length( SA_04_T3FUNC_ORG_ACT_TEST_X ) > 1 )
 SA_04_T3FUNC_ORG_APOINT_OFF_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchAType3FuncIntGrp/AppointElectMajorityOfficerInd' ) )
 if( length( SA_04_T3FUNC_ORG_APOINT_OFF_X ) > 1 )
 { 
-  create_record( varname=SA_04_T3FUNC_ORG_APOINT_OFF_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_T3FUNC_ORG_APOINT_OFF_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_T3FUNC_ORG_APOINT_OFF_X <-  paste0( '{', SA_04_T3FUNC_ORG_APOINT_OFF_X, '}', collapse=';' ) 
 } 
 
@@ -507,7 +507,7 @@ if( length( SA_04_T3FUNC_ORG_APOINT_OFF_X ) > 1 )
 SA_04_T3FUNC_ORG_DIRECT_POLICY_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchAType3FuncIntGrp/ExerciseDirectionPoliciesInd' ) )
 if( length( SA_04_T3FUNC_ORG_DIRECT_POLICY_X ) > 1 )
 { 
-  create_record( varname=SA_04_T3FUNC_ORG_DIRECT_POLICY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_T3FUNC_ORG_DIRECT_POLICY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_T3FUNC_ORG_DIRECT_POLICY_X <-  paste0( '{', SA_04_T3FUNC_ORG_DIRECT_POLICY_X, '}', collapse=';' ) 
 } 
 
@@ -524,7 +524,7 @@ if( length( SA_04_T3FUNC_ORG_DIRECT_POLICY_X ) > 1 )
 SA_04_T3FUNC_ORG_SUPPORT_GOVT_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchAType3FuncIntGrp/GovernmentalEntityInd' ) )
 if( length( SA_04_T3FUNC_ORG_SUPPORT_GOVT_X ) > 1 )
 { 
-  create_record( varname=SA_04_T3FUNC_ORG_SUPPORT_GOVT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_T3FUNC_ORG_SUPPORT_GOVT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_T3FUNC_ORG_SUPPORT_GOVT_X <-  paste0( '{', SA_04_T3FUNC_ORG_SUPPORT_GOVT_X, '}', collapse=';' ) 
 } 
 
@@ -541,7 +541,7 @@ if( length( SA_04_T3FUNC_ORG_SUPPORT_GOVT_X ) > 1 )
 SA_04_T3FUNC_ORG_PARENT_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchAType3FuncIntGrp/ParentSupportedOrgInd' ) )
 if( length( SA_04_T3FUNC_ORG_PARENT_X ) > 1 )
 { 
-  create_record( varname=SA_04_T3FUNC_ORG_PARENT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_T3FUNC_ORG_PARENT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_T3FUNC_ORG_PARENT_X <-  paste0( '{', SA_04_T3FUNC_ORG_PARENT_X, '}', collapse=';' ) 
 } 
 
@@ -558,7 +558,7 @@ if( length( SA_04_T3FUNC_ORG_PARENT_X ) > 1 )
 SA_04_T3_ORG_OFFS_RELATIONSHIP_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchAType3SprtOrgAllGrp/OfficersCloseRelationshipInd' ) )
 if( length( SA_04_T3_ORG_OFFS_RELATIONSHIP_X ) > 1 )
 { 
-  create_record( varname=SA_04_T3_ORG_OFFS_RELATIONSHIP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_T3_ORG_OFFS_RELATIONSHIP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_T3_ORG_OFFS_RELATIONSHIP_X <-  paste0( '{', SA_04_T3_ORG_OFFS_RELATIONSHIP_X, '}', collapse=';' ) 
 } 
 
@@ -575,7 +575,7 @@ if( length( SA_04_T3_ORG_OFFS_RELATIONSHIP_X ) > 1 )
 SA_04_T3_ORG_VOICE_INVEST_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchAType3SprtOrgAllGrp/SupportedOrgVoiceInvestmentInd' ) )
 if( length( SA_04_T3_ORG_VOICE_INVEST_X ) > 1 )
 { 
-  create_record( varname=SA_04_T3_ORG_VOICE_INVEST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_T3_ORG_VOICE_INVEST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_T3_ORG_VOICE_INVEST_X <-  paste0( '{', SA_04_T3_ORG_VOICE_INVEST_X, '}', collapse=';' ) 
 } 
 
@@ -592,7 +592,7 @@ if( length( SA_04_T3_ORG_VOICE_INVEST_X ) > 1 )
 SA_04_T3_ORG_DOC_PROV_TIMELY_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/Form990SchAType3SprtOrgAllGrp/TimelyProvidedDocumentsInd' ) )
 if( length( SA_04_T3_ORG_DOC_PROV_TIMELY_X ) > 1 )
 { 
-  create_record( varname=SA_04_T3_ORG_DOC_PROV_TIMELY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_T3_ORG_DOC_PROV_TIMELY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_T3_ORG_DOC_PROV_TIMELY_X <-  paste0( '{', SA_04_T3_ORG_DOC_PROV_TIMELY_X, '}', collapse=';' ) 
 } 
 
@@ -609,7 +609,7 @@ if( length( SA_04_T3_ORG_DOC_PROV_TIMELY_X ) > 1 )
 SA_04_T2_ORG_MAJORITY_DIRTRUST_X <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/MajorityDirTrstSupportedOrgInd' ) )
 if( length( SA_04_T2_ORG_MAJORITY_DIRTRUST_X ) > 1 )
 { 
-  create_record( varname=SA_04_T2_ORG_MAJORITY_DIRTRUST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_04_T2_ORG_MAJORITY_DIRTRUST_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_04_T2_ORG_MAJORITY_DIRTRUST_X <-  paste0( '{', SA_04_T2_ORG_MAJORITY_DIRTRUST_X, '}', collapse=';' ) 
 } 
 

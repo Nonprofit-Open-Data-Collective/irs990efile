@@ -31,7 +31,7 @@ TAX_YEAR <- keys[['TAX_YEAR']]
 SA_00_NAME_ORG_L1 <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleA/RelationshipSchedule/NameOfOrganization/BusinessNameLine1' ) )
 if( length( SA_00_NAME_ORG_L1 ) > 1 )
 { 
-  create_record( varname=SA_00_NAME_ORG_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SA_00_NAME_ORG_L1, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SA_00_NAME_ORG_L1 <-  paste0( '{', SA_00_NAME_ORG_L1, '}', collapse=';' ) 
 } 
 

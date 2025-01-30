@@ -35,7 +35,7 @@ V_FUNDR_SVC_AGREEMENT_X <- paste( V1, V2, V3 , sep='|' )
 SG_01_FUNDR_SVC_AGREEMENT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDR_SVC_AGREEMENT_X ) )
 if( length( SG_01_FUNDR_SVC_AGREEMENT_X ) > 1 )
 { 
-  create_record( varname=SG_01_FUNDR_SVC_AGREEMENT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_01_FUNDR_SVC_AGREEMENT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_01_FUNDR_SVC_AGREEMENT_X <-  paste0( '{', SG_01_FUNDR_SVC_AGREEMENT_X, '}', collapse=';' ) 
 } 
 
@@ -58,7 +58,7 @@ V_LIST_STATES_ORG_LIC <- paste( V1, V2, V3, V4, V5 , sep='|' )
 SG_01_LIST_STATES_ORG_LIC <- xml2::xml_text( xml2::xml_find_all( doc, V_LIST_STATES_ORG_LIC ) )
 if( length( SG_01_LIST_STATES_ORG_LIC ) > 1 )
 { 
-  create_record( varname=SG_01_LIST_STATES_ORG_LIC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_01_LIST_STATES_ORG_LIC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_01_LIST_STATES_ORG_LIC <-  paste0( '{', SG_01_LIST_STATES_ORG_LIC, '}', collapse=';' ) 
 } 
 
@@ -79,7 +79,7 @@ V_FUNDR_ACT_SOL_EMAIL_X <- paste( V1, V2, V3 , sep='|' )
 SG_01_FUNDR_ACT_SOL_EMAIL_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDR_ACT_SOL_EMAIL_X ) )
 if( length( SG_01_FUNDR_ACT_SOL_EMAIL_X ) > 1 )
 { 
-  create_record( varname=SG_01_FUNDR_ACT_SOL_EMAIL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_01_FUNDR_ACT_SOL_EMAIL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_01_FUNDR_ACT_SOL_EMAIL_X <-  paste0( '{', SG_01_FUNDR_ACT_SOL_EMAIL_X, '}', collapse=';' ) 
 } 
 
@@ -100,7 +100,7 @@ V_FUNDR_ACT_SOL_IN_PERSON_X <- paste( V1, V2, V3 , sep='|' )
 SG_01_FUNDR_ACT_SOL_IN_PERSON_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDR_ACT_SOL_IN_PERSON_X ) )
 if( length( SG_01_FUNDR_ACT_SOL_IN_PERSON_X ) > 1 )
 { 
-  create_record( varname=SG_01_FUNDR_ACT_SOL_IN_PERSON_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_01_FUNDR_ACT_SOL_IN_PERSON_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_01_FUNDR_ACT_SOL_IN_PERSON_X <-  paste0( '{', SG_01_FUNDR_ACT_SOL_IN_PERSON_X, '}', collapse=';' ) 
 } 
 
@@ -121,7 +121,7 @@ V_FUNDR_ACT_SOL_MAIL_X <- paste( V1, V2, V3 , sep='|' )
 SG_01_FUNDR_ACT_SOL_MAIL_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDR_ACT_SOL_MAIL_X ) )
 if( length( SG_01_FUNDR_ACT_SOL_MAIL_X ) > 1 )
 { 
-  create_record( varname=SG_01_FUNDR_ACT_SOL_MAIL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_01_FUNDR_ACT_SOL_MAIL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_01_FUNDR_ACT_SOL_MAIL_X <-  paste0( '{', SG_01_FUNDR_ACT_SOL_MAIL_X, '}', collapse=';' ) 
 } 
 
@@ -142,7 +142,7 @@ V_FUNDR_ACT_SOL_PHONE_X <- paste( V1, V2, V3 , sep='|' )
 SG_01_FUNDR_ACT_SOL_PHONE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDR_ACT_SOL_PHONE_X ) )
 if( length( SG_01_FUNDR_ACT_SOL_PHONE_X ) > 1 )
 { 
-  create_record( varname=SG_01_FUNDR_ACT_SOL_PHONE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_01_FUNDR_ACT_SOL_PHONE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_01_FUNDR_ACT_SOL_PHONE_X <-  paste0( '{', SG_01_FUNDR_ACT_SOL_PHONE_X, '}', collapse=';' ) 
 } 
 
@@ -163,7 +163,7 @@ V_FUNDR_ACT_SOL_GOVT_GRANT_X <- paste( V1, V2, V3 , sep='|' )
 SG_01_FUNDR_ACT_SOL_GOVT_GRANT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDR_ACT_SOL_GOVT_GRANT_X ) )
 if( length( SG_01_FUNDR_ACT_SOL_GOVT_GRANT_X ) > 1 )
 { 
-  create_record( varname=SG_01_FUNDR_ACT_SOL_GOVT_GRANT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_01_FUNDR_ACT_SOL_GOVT_GRANT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_01_FUNDR_ACT_SOL_GOVT_GRANT_X <-  paste0( '{', SG_01_FUNDR_ACT_SOL_GOVT_GRANT_X, '}', collapse=';' ) 
 } 
 
@@ -184,7 +184,7 @@ V_FUNDR_ACT_SOL_NONGOVT_X <- paste( V1, V2, V3 , sep='|' )
 SG_01_FUNDR_ACT_SOL_NONGOVT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDR_ACT_SOL_NONGOVT_X ) )
 if( length( SG_01_FUNDR_ACT_SOL_NONGOVT_X ) > 1 )
 { 
-  create_record( varname=SG_01_FUNDR_ACT_SOL_NONGOVT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_01_FUNDR_ACT_SOL_NONGOVT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_01_FUNDR_ACT_SOL_NONGOVT_X <-  paste0( '{', SG_01_FUNDR_ACT_SOL_NONGOVT_X, '}', collapse=';' ) 
 } 
 
@@ -205,7 +205,7 @@ V_FUNDR_ACT_SPECIAL_EVNT_X <- paste( V1, V2, V3 , sep='|' )
 SG_01_FUNDR_ACT_SPECIAL_EVNT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDR_ACT_SPECIAL_EVNT_X ) )
 if( length( SG_01_FUNDR_ACT_SPECIAL_EVNT_X ) > 1 )
 { 
-  create_record( varname=SG_01_FUNDR_ACT_SPECIAL_EVNT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_01_FUNDR_ACT_SPECIAL_EVNT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_01_FUNDR_ACT_SPECIAL_EVNT_X <-  paste0( '{', SG_01_FUNDR_ACT_SPECIAL_EVNT_X, '}', collapse=';' ) 
 } 
 
@@ -226,7 +226,7 @@ V_FUNDRAISER_ACT_GRORCPT_TOT <- paste( V1, V2, V3 , sep='|' )
 SG_01_FUNDRAISER_ACT_GRORCPT_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDRAISER_ACT_GRORCPT_TOT ) )
 if( length( SG_01_FUNDRAISER_ACT_GRORCPT_TOT ) > 1 )
 { 
-  create_record( varname=SG_01_FUNDRAISER_ACT_GRORCPT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_01_FUNDRAISER_ACT_GRORCPT_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_01_FUNDRAISER_ACT_GRORCPT_TOT <-  paste0( '{', SG_01_FUNDRAISER_ACT_GRORCPT_TOT, '}', collapse=';' ) 
 } 
 
@@ -247,7 +247,7 @@ V_FUNDRAISER_AMT_ORG_TOT <- paste( V1, V2, V3 , sep='|' )
 SG_01_FUNDRAISER_AMT_ORG_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDRAISER_AMT_ORG_TOT ) )
 if( length( SG_01_FUNDRAISER_AMT_ORG_TOT ) > 1 )
 { 
-  create_record( varname=SG_01_FUNDRAISER_AMT_ORG_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_01_FUNDRAISER_AMT_ORG_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_01_FUNDRAISER_AMT_ORG_TOT <-  paste0( '{', SG_01_FUNDRAISER_AMT_ORG_TOT, '}', collapse=';' ) 
 } 
 
@@ -268,7 +268,7 @@ V_FUNDRAISER_AMT_PAID_TOT <- paste( V1, V2, V3 , sep='|' )
 SG_01_FUNDRAISER_AMT_PAID_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_FUNDRAISER_AMT_PAID_TOT ) )
 if( length( SG_01_FUNDRAISER_AMT_PAID_TOT ) > 1 )
 { 
-  create_record( varname=SG_01_FUNDRAISER_AMT_PAID_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SG_01_FUNDRAISER_AMT_PAID_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SG_01_FUNDRAISER_AMT_PAID_TOT <-  paste0( '{', SG_01_FUNDRAISER_AMT_PAID_TOT, '}', collapse=';' ) 
 } 
 

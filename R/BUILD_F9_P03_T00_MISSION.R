@@ -40,7 +40,7 @@ V_ORG_MISSION_PURPOSE <- paste( V1, V2, V3, V4, V5, V6, V7, V8 , sep='|' )
 F9_03_ORG_MISSION_PURPOSE <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_MISSION_PURPOSE ) )
 if( length( F9_03_ORG_MISSION_PURPOSE ) > 1 )
 { 
-  create_record( varname=F9_03_ORG_MISSION_PURPOSE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_03_ORG_MISSION_PURPOSE, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_03_ORG_MISSION_PURPOSE <-  paste0( '{', F9_03_ORG_MISSION_PURPOSE, '}', collapse=';' ) 
 } 
 
@@ -61,7 +61,7 @@ V_PROG_CHANGE_X <- paste( V1, V2, V3 , sep='|' )
 F9_03_PROG_CHANGE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PROG_CHANGE_X ) )
 if( length( F9_03_PROG_CHANGE_X ) > 1 )
 { 
-  create_record( varname=F9_03_PROG_CHANGE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_03_PROG_CHANGE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_03_PROG_CHANGE_X <-  paste0( '{', F9_03_PROG_CHANGE_X, '}', collapse=';' ) 
 } 
 
@@ -82,7 +82,7 @@ V_PROG_NEW_X <- paste( V1, V2, V3 , sep='|' )
 F9_03_PROG_NEW_X <- xml2::xml_text( xml2::xml_find_all( doc, V_PROG_NEW_X ) )
 if( length( F9_03_PROG_NEW_X ) > 1 )
 { 
-  create_record( varname=F9_03_PROG_NEW_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=F9_03_PROG_NEW_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   F9_03_PROG_NEW_X <-  paste0( '{', F9_03_PROG_NEW_X, '}', collapse=';' ) 
 } 
 

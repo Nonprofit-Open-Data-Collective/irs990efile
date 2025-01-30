@@ -35,7 +35,7 @@ V_ORG_AMT_EXPENDED_527_ACT <- paste( V1, V2, V3 , sep='|' )
 SC_01_ORG_AMT_EXPENDED_527_ACT <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_AMT_EXPENDED_527_ACT ) )
 if( length( SC_01_ORG_AMT_EXPENDED_527_ACT ) > 1 )
 { 
-  create_record( varname=SC_01_ORG_AMT_EXPENDED_527_ACT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_01_ORG_AMT_EXPENDED_527_ACT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_01_ORG_AMT_EXPENDED_527_ACT <-  paste0( '{', SC_01_ORG_AMT_EXPENDED_527_ACT, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_AMT_EXCISE_TAX_4955_ORG <- paste( V1, V2, V3 , sep='|' )
 SC_01_AMT_EXCISE_TAX_4955_ORG <- xml2::xml_text( xml2::xml_find_all( doc, V_AMT_EXCISE_TAX_4955_ORG ) )
 if( length( SC_01_AMT_EXCISE_TAX_4955_ORG ) > 1 )
 { 
-  create_record( varname=SC_01_AMT_EXCISE_TAX_4955_ORG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_01_AMT_EXCISE_TAX_4955_ORG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_01_AMT_EXCISE_TAX_4955_ORG <-  paste0( '{', SC_01_AMT_EXCISE_TAX_4955_ORG, '}', collapse=';' ) 
 } 
 
@@ -77,7 +77,7 @@ V_AMT_EXCISE_TAX_4955_MGR <- paste( V1, V2, V3 , sep='|' )
 SC_01_AMT_EXCISE_TAX_4955_MGR <- xml2::xml_text( xml2::xml_find_all( doc, V_AMT_EXCISE_TAX_4955_MGR ) )
 if( length( SC_01_AMT_EXCISE_TAX_4955_MGR ) > 1 )
 { 
-  create_record( varname=SC_01_AMT_EXCISE_TAX_4955_MGR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_01_AMT_EXCISE_TAX_4955_MGR, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_01_AMT_EXCISE_TAX_4955_MGR <-  paste0( '{', SC_01_AMT_EXCISE_TAX_4955_MGR, '}', collapse=';' ) 
 } 
 
@@ -98,7 +98,7 @@ V_ORG_AMT_FUND_CONTR_527_ACT <- paste( V1, V2, V3 , sep='|' )
 SC_01_ORG_AMT_FUND_CONTR_527_ACT <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_AMT_FUND_CONTR_527_ACT ) )
 if( length( SC_01_ORG_AMT_FUND_CONTR_527_ACT ) > 1 )
 { 
-  create_record( varname=SC_01_ORG_AMT_FUND_CONTR_527_ACT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_01_ORG_AMT_FUND_CONTR_527_ACT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_01_ORG_AMT_FUND_CONTR_527_ACT <-  paste0( '{', SC_01_ORG_AMT_FUND_CONTR_527_ACT, '}', collapse=';' ) 
 } 
 
@@ -119,7 +119,7 @@ V_4955_FORM4720_CORRECTED_X <- paste( V1, V2, V3 , sep='|' )
 SC_01_4955_FORM4720_CORRECTED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_4955_FORM4720_CORRECTED_X ) )
 if( length( SC_01_4955_FORM4720_CORRECTED_X ) > 1 )
 { 
-  create_record( varname=SC_01_4955_FORM4720_CORRECTED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_01_4955_FORM4720_CORRECTED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_01_4955_FORM4720_CORRECTED_X <-  paste0( '{', SC_01_4955_FORM4720_CORRECTED_X, '}', collapse=';' ) 
 } 
 
@@ -140,7 +140,7 @@ V_ORG_FORM1120_FILED_X <- paste( V1, V2, V3 , sep='|' )
 SC_01_ORG_FORM1120_FILED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_FORM1120_FILED_X ) )
 if( length( SC_01_ORG_FORM1120_FILED_X ) > 1 )
 { 
-  create_record( varname=SC_01_ORG_FORM1120_FILED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_01_ORG_FORM1120_FILED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_01_ORG_FORM1120_FILED_X <-  paste0( '{', SC_01_ORG_FORM1120_FILED_X, '}', collapse=';' ) 
 } 
 
@@ -161,7 +161,7 @@ V_4955_FORM4720_FILED_X <- paste( V1, V2, V3 , sep='|' )
 SC_01_4955_FORM4720_FILED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_4955_FORM4720_FILED_X ) )
 if( length( SC_01_4955_FORM4720_FILED_X ) > 1 )
 { 
-  create_record( varname=SC_01_4955_FORM4720_FILED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_01_4955_FORM4720_FILED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_01_4955_FORM4720_FILED_X <-  paste0( '{', SC_01_4955_FORM4720_FILED_X, '}', collapse=';' ) 
 } 
 
@@ -182,7 +182,7 @@ V_POLI_EXP <- paste( V1, V2, V3 , sep='|' )
 SC_01_POLI_EXP <- xml2::xml_text( xml2::xml_find_all( doc, V_POLI_EXP ) )
 if( length( SC_01_POLI_EXP ) > 1 )
 { 
-  create_record( varname=SC_01_POLI_EXP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_01_POLI_EXP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_01_POLI_EXP <-  paste0( '{', SC_01_POLI_EXP, '}', collapse=';' ) 
 } 
 
@@ -203,7 +203,7 @@ V_ORG_TOT_EXEMPT_FUNC_EXP <- paste( V1, V2, V3 , sep='|' )
 SC_01_ORG_TOT_EXEMPT_FUNC_EXP <- xml2::xml_text( xml2::xml_find_all( doc, V_ORG_TOT_EXEMPT_FUNC_EXP ) )
 if( length( SC_01_ORG_TOT_EXEMPT_FUNC_EXP ) > 1 )
 { 
-  create_record( varname=SC_01_ORG_TOT_EXEMPT_FUNC_EXP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_01_ORG_TOT_EXEMPT_FUNC_EXP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_01_ORG_TOT_EXEMPT_FUNC_EXP <-  paste0( '{', SC_01_ORG_TOT_EXEMPT_FUNC_EXP, '}', collapse=';' ) 
 } 
 
@@ -224,7 +224,7 @@ V_POLI_VOL_HOURS <- paste( V1, V2, V3 , sep='|' )
 SC_01_POLI_VOL_HOURS <- xml2::xml_text( xml2::xml_find_all( doc, V_POLI_VOL_HOURS ) )
 if( length( SC_01_POLI_VOL_HOURS ) > 1 )
 { 
-  create_record( varname=SC_01_POLI_VOL_HOURS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SC_01_POLI_VOL_HOURS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SC_01_POLI_VOL_HOURS <-  paste0( '{', SC_01_POLI_VOL_HOURS, '}', collapse=';' ) 
 } 
 

@@ -34,7 +34,7 @@ V_RECO_NETASSET_DONATED_SVC <- paste( V1, V2 , sep='|' )
 SD_99_RECO_NETASSET_DONATED_SVC <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_NETASSET_DONATED_SVC ) )
 if( length( SD_99_RECO_NETASSET_DONATED_SVC ) > 1 )
 { 
-  create_record( varname=SD_99_RECO_NETASSET_DONATED_SVC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_99_RECO_NETASSET_DONATED_SVC, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_99_RECO_NETASSET_DONATED_SVC <-  paste0( '{', SD_99_RECO_NETASSET_DONATED_SVC, '}', collapse=';' ) 
 } 
 
@@ -54,7 +54,7 @@ V_RECO_NETASSET_EXCESS <- paste( V1, V2 , sep='|' )
 SD_99_RECO_NETASSET_EXCESS <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_NETASSET_EXCESS ) )
 if( length( SD_99_RECO_NETASSET_EXCESS ) > 1 )
 { 
-  create_record( varname=SD_99_RECO_NETASSET_EXCESS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_99_RECO_NETASSET_EXCESS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_99_RECO_NETASSET_EXCESS <-  paste0( '{', SD_99_RECO_NETASSET_EXCESS, '}', collapse=';' ) 
 } 
 
@@ -74,7 +74,7 @@ V_RECO_NETASSET_EXCESS_AFS <- paste( V1, V2 , sep='|' )
 SD_99_RECO_NETASSET_EXCESS_AFS <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_NETASSET_EXCESS_AFS ) )
 if( length( SD_99_RECO_NETASSET_EXCESS_AFS ) > 1 )
 { 
-  create_record( varname=SD_99_RECO_NETASSET_EXCESS_AFS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_99_RECO_NETASSET_EXCESS_AFS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_99_RECO_NETASSET_EXCESS_AFS <-  paste0( '{', SD_99_RECO_NETASSET_EXCESS_AFS, '}', collapse=';' ) 
 } 
 
@@ -94,7 +94,7 @@ V_RECO_NETASSET_INVEST_EXP <- paste( V1, V2 , sep='|' )
 SD_99_RECO_NETASSET_INVEST_EXP <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_NETASSET_INVEST_EXP ) )
 if( length( SD_99_RECO_NETASSET_INVEST_EXP ) > 1 )
 { 
-  create_record( varname=SD_99_RECO_NETASSET_INVEST_EXP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_99_RECO_NETASSET_INVEST_EXP, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_99_RECO_NETASSET_INVEST_EXP <-  paste0( '{', SD_99_RECO_NETASSET_INVEST_EXP, '}', collapse=';' ) 
 } 
 
@@ -114,7 +114,7 @@ V_RECO_NETASSET_NUGAINS <- paste( V1, V2 , sep='|' )
 SD_99_RECO_NETASSET_NUGAINS <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_NETASSET_NUGAINS ) )
 if( length( SD_99_RECO_NETASSET_NUGAINS ) > 1 )
 { 
-  create_record( varname=SD_99_RECO_NETASSET_NUGAINS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_99_RECO_NETASSET_NUGAINS, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_99_RECO_NETASSET_NUGAINS <-  paste0( '{', SD_99_RECO_NETASSET_NUGAINS, '}', collapse=';' ) 
 } 
 
@@ -134,7 +134,7 @@ V_RECO_NETASSET_OTH <- paste( V1, V2 , sep='|' )
 SD_99_RECO_NETASSET_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_NETASSET_OTH ) )
 if( length( SD_99_RECO_NETASSET_OTH ) > 1 )
 { 
-  create_record( varname=SD_99_RECO_NETASSET_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_99_RECO_NETASSET_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_99_RECO_NETASSET_OTH <-  paste0( '{', SD_99_RECO_NETASSET_OTH, '}', collapse=';' ) 
 } 
 
@@ -154,7 +154,7 @@ V_RECO_NETASSET_PRIOR_ADJ <- paste( V1, V2 , sep='|' )
 SD_99_RECO_NETASSET_PRIOR_ADJ <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_NETASSET_PRIOR_ADJ ) )
 if( length( SD_99_RECO_NETASSET_PRIOR_ADJ ) > 1 )
 { 
-  create_record( varname=SD_99_RECO_NETASSET_PRIOR_ADJ, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_99_RECO_NETASSET_PRIOR_ADJ, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_99_RECO_NETASSET_PRIOR_ADJ <-  paste0( '{', SD_99_RECO_NETASSET_PRIOR_ADJ, '}', collapse=';' ) 
 } 
 
@@ -174,7 +174,7 @@ V_RECO_NETASSET_TOT_ADJ <- paste( V1, V2 , sep='|' )
 SD_99_RECO_NETASSET_TOT_ADJ <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_NETASSET_TOT_ADJ ) )
 if( length( SD_99_RECO_NETASSET_TOT_ADJ ) > 1 )
 { 
-  create_record( varname=SD_99_RECO_NETASSET_TOT_ADJ, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_99_RECO_NETASSET_TOT_ADJ, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_99_RECO_NETASSET_TOT_ADJ <-  paste0( '{', SD_99_RECO_NETASSET_TOT_ADJ, '}', collapse=';' ) 
 } 
 
@@ -194,7 +194,7 @@ V_RECO_NETASSET_EXP_TOT <- paste( V1, V2 , sep='|' )
 SD_99_RECO_NETASSET_EXP_TOT <- xml2::xml_text( xml2::xml_find_all( doc, V_RECO_NETASSET_EXP_TOT ) )
 if( length( SD_99_RECO_NETASSET_EXP_TOT ) > 1 )
 { 
-  create_record( varname=SD_99_RECO_NETASSET_EXP_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_99_RECO_NETASSET_EXP_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_99_RECO_NETASSET_EXP_TOT <-  paste0( '{', SD_99_RECO_NETASSET_EXP_TOT, '}', collapse=';' ) 
 } 
 
@@ -211,7 +211,7 @@ if( length( SD_99_RECO_NETASSET_EXP_TOT ) > 1 )
 SD_99_RECO_NETASSET_REV_TOT <- xml2::xml_text( xml2::xml_find_all( doc, '/Return/ReturnData/IRS990ScheduleD/TotalRevenue' ) )
 if( length( SD_99_RECO_NETASSET_REV_TOT ) > 1 )
 { 
-  create_record( varname=SD_99_RECO_NETASSET_REV_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_99_RECO_NETASSET_REV_TOT, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_99_RECO_NETASSET_REV_TOT <-  paste0( '{', SD_99_RECO_NETASSET_REV_TOT, '}', collapse=';' ) 
 } 
 

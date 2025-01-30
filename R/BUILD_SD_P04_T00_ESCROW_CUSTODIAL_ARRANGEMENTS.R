@@ -35,7 +35,7 @@ V_ESCROW_ADDITION <- paste( V1, V2, V3 , sep='|' )
 SD_04_ESCROW_ADDITION <- xml2::xml_text( xml2::xml_find_all( doc, V_ESCROW_ADDITION ) )
 if( length( SD_04_ESCROW_ADDITION ) > 1 )
 { 
-  create_record( varname=SD_04_ESCROW_ADDITION, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_04_ESCROW_ADDITION, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_04_ESCROW_ADDITION <-  paste0( '{', SD_04_ESCROW_ADDITION, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_AGENT_TRUSTEE_OTH_X <- paste( V1, V2, V3 , sep='|' )
 SD_04_AGENT_TRUSTEE_OTH_X <- xml2::xml_text( xml2::xml_find_all( doc, V_AGENT_TRUSTEE_OTH_X ) )
 if( length( SD_04_AGENT_TRUSTEE_OTH_X ) > 1 )
 { 
-  create_record( varname=SD_04_AGENT_TRUSTEE_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_04_AGENT_TRUSTEE_OTH_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_04_AGENT_TRUSTEE_OTH_X <-  paste0( '{', SD_04_AGENT_TRUSTEE_OTH_X, '}', collapse=';' ) 
 } 
 
@@ -77,7 +77,7 @@ V_ESCROW_BALANCE_BEG <- paste( V1, V2, V3 , sep='|' )
 SD_04_ESCROW_BALANCE_BEG <- xml2::xml_text( xml2::xml_find_all( doc, V_ESCROW_BALANCE_BEG ) )
 if( length( SD_04_ESCROW_BALANCE_BEG ) > 1 )
 { 
-  create_record( varname=SD_04_ESCROW_BALANCE_BEG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_04_ESCROW_BALANCE_BEG, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_04_ESCROW_BALANCE_BEG <-  paste0( '{', SD_04_ESCROW_BALANCE_BEG, '}', collapse=';' ) 
 } 
 
@@ -98,7 +98,7 @@ V_ESCROW_DIST <- paste( V1, V2, V3 , sep='|' )
 SD_04_ESCROW_DIST <- xml2::xml_text( xml2::xml_find_all( doc, V_ESCROW_DIST ) )
 if( length( SD_04_ESCROW_DIST ) > 1 )
 { 
-  create_record( varname=SD_04_ESCROW_DIST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_04_ESCROW_DIST, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_04_ESCROW_DIST <-  paste0( '{', SD_04_ESCROW_DIST, '}', collapse=';' ) 
 } 
 
@@ -119,7 +119,7 @@ V_ESCROW_BALANCE_END <- paste( V1, V2, V3 , sep='|' )
 SD_04_ESCROW_BALANCE_END <- xml2::xml_text( xml2::xml_find_all( doc, V_ESCROW_BALANCE_END ) )
 if( length( SD_04_ESCROW_BALANCE_END ) > 1 )
 { 
-  create_record( varname=SD_04_ESCROW_BALANCE_END, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_04_ESCROW_BALANCE_END, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_04_ESCROW_BALANCE_END <-  paste0( '{', SD_04_ESCROW_BALANCE_END, '}', collapse=';' ) 
 } 
 
@@ -139,7 +139,7 @@ V_EXPLANATION_P13_X <- paste( V1, V2 , sep='|' )
 SD_04_EXPLANATION_P13_X <- xml2::xml_text( xml2::xml_find_all( doc, V_EXPLANATION_P13_X ) )
 if( length( SD_04_EXPLANATION_P13_X ) > 1 )
 { 
-  create_record( varname=SD_04_EXPLANATION_P13_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_04_EXPLANATION_P13_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_04_EXPLANATION_P13_X <-  paste0( '{', SD_04_EXPLANATION_P13_X, '}', collapse=';' ) 
 } 
 
@@ -160,7 +160,7 @@ V_ESCROW_ACC_LIAB_INCL_P10_X <- paste( V1, V2, V3 , sep='|' )
 SD_04_ESCROW_ACC_LIAB_INCL_P10_X <- xml2::xml_text( xml2::xml_find_all( doc, V_ESCROW_ACC_LIAB_INCL_P10_X ) )
 if( length( SD_04_ESCROW_ACC_LIAB_INCL_P10_X ) > 1 )
 { 
-  create_record( varname=SD_04_ESCROW_ACC_LIAB_INCL_P10_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_04_ESCROW_ACC_LIAB_INCL_P10_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_04_ESCROW_ACC_LIAB_INCL_P10_X <-  paste0( '{', SD_04_ESCROW_ACC_LIAB_INCL_P10_X, '}', collapse=';' ) 
 } 
 

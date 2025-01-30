@@ -244,7 +244,7 @@ simplify_varnames <- function( d, sep="", drop.prefix=TRUE )
 #'   state = MN, OH, and NY becomes a single string `{MN},{OH},{NY}`. 
 #'
 #' @export
-create_record <- function( varname, ein=ORG_EIN, year=TAX_YEAR, url=URL ){
+log_collapsed_record <- function( varname, ein=ORG_EIN, year=TAX_YEAR, url=URL ){
   file.name <- paste0("COLLAPSED-RECORDS-", year, ".txt")
   if (!file.exists(file.name)){file.create(file.name)}
   fileConn <- file(file.name, open = "a")
@@ -266,7 +266,7 @@ create_record <- function( varname, ein=ORG_EIN, year=TAX_YEAR, url=URL ){
 #'  urls, or corrupted XML structure will result in an XML file failing to load.
 #'
 #' @export
-log_fails <- function( url ){
+log_fails <- function( urls ){
   file.name <- paste0("FAILED-URLS.txt")
   if (!file.exists(file.name)){ file.create(file.name) }
   fileConn <- file(file.name, open = "a")
@@ -303,7 +303,7 @@ log_missing_xpaths <- function( doc, url ){
 xp_to_df <- function(x){
   VERSION <- gsub( "VERSION: ", "", x[1] )
   URL <- gsub( "URL: ", "", x[2] )
-  XPATH <- grep( "^/Return", x, value=T )
+  XPATH <- grep( "^/", x, value=T )
   df <- data.frame( XPATH, VERSION, URL )
   return(df)
 }

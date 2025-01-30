@@ -35,7 +35,7 @@ V_AGGREGATE_VALUE_EOY_DAF <- paste( V1, V2, V3 , sep='|' )
 SD_01_AGGREGATE_VALUE_EOY_DAF <- xml2::xml_text( xml2::xml_find_all( doc, V_AGGREGATE_VALUE_EOY_DAF ) )
 if( length( SD_01_AGGREGATE_VALUE_EOY_DAF ) > 1 )
 { 
-  create_record( varname=SD_01_AGGREGATE_VALUE_EOY_DAF, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_01_AGGREGATE_VALUE_EOY_DAF, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_01_AGGREGATE_VALUE_EOY_DAF <-  paste0( '{', SD_01_AGGREGATE_VALUE_EOY_DAF, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_AGGREGATE_VALUE_EOY_OTH <- paste( V1, V2, V3 , sep='|' )
 SD_01_AGGREGATE_VALUE_EOY_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_AGGREGATE_VALUE_EOY_OTH ) )
 if( length( SD_01_AGGREGATE_VALUE_EOY_OTH ) > 1 )
 { 
-  create_record( varname=SD_01_AGGREGATE_VALUE_EOY_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_01_AGGREGATE_VALUE_EOY_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_01_AGGREGATE_VALUE_EOY_OTH <-  paste0( '{', SD_01_AGGREGATE_VALUE_EOY_OTH, '}', collapse=';' ) 
 } 
 
@@ -77,7 +77,7 @@ V_AGGREGATE_CONTR_OTH <- paste( V1, V2, V3 , sep='|' )
 SD_01_AGGREGATE_CONTR_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_AGGREGATE_CONTR_OTH ) )
 if( length( SD_01_AGGREGATE_CONTR_OTH ) > 1 )
 { 
-  create_record( varname=SD_01_AGGREGATE_CONTR_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_01_AGGREGATE_CONTR_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_01_AGGREGATE_CONTR_OTH <-  paste0( '{', SD_01_AGGREGATE_CONTR_OTH, '}', collapse=';' ) 
 } 
 
@@ -98,7 +98,7 @@ V_DISCLOSE_CHARIT_PURPOSE_X <- paste( V1, V2, V3 , sep='|' )
 SD_01_DISCLOSE_CHARIT_PURPOSE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_DISCLOSE_CHARIT_PURPOSE_X ) )
 if( length( SD_01_DISCLOSE_CHARIT_PURPOSE_X ) > 1 )
 { 
-  create_record( varname=SD_01_DISCLOSE_CHARIT_PURPOSE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_01_DISCLOSE_CHARIT_PURPOSE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_01_DISCLOSE_CHARIT_PURPOSE_X <-  paste0( '{', SD_01_DISCLOSE_CHARIT_PURPOSE_X, '}', collapse=';' ) 
 } 
 
@@ -119,7 +119,7 @@ V_DISCLOSE_LEGAL_CTRL_DAF_X <- paste( V1, V2, V3 , sep='|' )
 SD_01_DISCLOSE_LEGAL_CTRL_DAF_X <- xml2::xml_text( xml2::xml_find_all( doc, V_DISCLOSE_LEGAL_CTRL_DAF_X ) )
 if( length( SD_01_DISCLOSE_LEGAL_CTRL_DAF_X ) > 1 )
 { 
-  create_record( varname=SD_01_DISCLOSE_LEGAL_CTRL_DAF_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_01_DISCLOSE_LEGAL_CTRL_DAF_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_01_DISCLOSE_LEGAL_CTRL_DAF_X <-  paste0( '{', SD_01_DISCLOSE_LEGAL_CTRL_DAF_X, '}', collapse=';' ) 
 } 
 
@@ -140,7 +140,7 @@ V_AGGREGATE_CONTR_DAF <- paste( V1, V2, V3 , sep='|' )
 SD_01_AGGREGATE_CONTR_DAF <- xml2::xml_text( xml2::xml_find_all( doc, V_AGGREGATE_CONTR_DAF ) )
 if( length( SD_01_AGGREGATE_CONTR_DAF ) > 1 )
 { 
-  create_record( varname=SD_01_AGGREGATE_CONTR_DAF, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_01_AGGREGATE_CONTR_DAF, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_01_AGGREGATE_CONTR_DAF <-  paste0( '{', SD_01_AGGREGATE_CONTR_DAF, '}', collapse=';' ) 
 } 
 
@@ -161,7 +161,7 @@ V_AGGREGATE_GRANT_DAF <- paste( V1, V2, V3 , sep='|' )
 SD_01_AGGREGATE_GRANT_DAF <- xml2::xml_text( xml2::xml_find_all( doc, V_AGGREGATE_GRANT_DAF ) )
 if( length( SD_01_AGGREGATE_GRANT_DAF ) > 1 )
 { 
-  create_record( varname=SD_01_AGGREGATE_GRANT_DAF, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_01_AGGREGATE_GRANT_DAF, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_01_AGGREGATE_GRANT_DAF <-  paste0( '{', SD_01_AGGREGATE_GRANT_DAF, '}', collapse=';' ) 
 } 
 
@@ -182,7 +182,7 @@ V_TOT_NUM_EOY_DAF <- paste( V1, V2, V3 , sep='|' )
 SD_01_TOT_NUM_EOY_DAF <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_NUM_EOY_DAF ) )
 if( length( SD_01_TOT_NUM_EOY_DAF ) > 1 )
 { 
-  create_record( varname=SD_01_TOT_NUM_EOY_DAF, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_01_TOT_NUM_EOY_DAF, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_01_TOT_NUM_EOY_DAF <-  paste0( '{', SD_01_TOT_NUM_EOY_DAF, '}', collapse=';' ) 
 } 
 
@@ -203,7 +203,7 @@ V_AGGREGATE_GRANT_OTH <- paste( V1, V2, V3 , sep='|' )
 SD_01_AGGREGATE_GRANT_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_AGGREGATE_GRANT_OTH ) )
 if( length( SD_01_AGGREGATE_GRANT_OTH ) > 1 )
 { 
-  create_record( varname=SD_01_AGGREGATE_GRANT_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_01_AGGREGATE_GRANT_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_01_AGGREGATE_GRANT_OTH <-  paste0( '{', SD_01_AGGREGATE_GRANT_OTH, '}', collapse=';' ) 
 } 
 
@@ -224,7 +224,7 @@ V_TOT_NUM_EOY_OTH <- paste( V1, V2, V3 , sep='|' )
 SD_01_TOT_NUM_EOY_OTH <- xml2::xml_text( xml2::xml_find_all( doc, V_TOT_NUM_EOY_OTH ) )
 if( length( SD_01_TOT_NUM_EOY_OTH ) > 1 )
 { 
-  create_record( varname=SD_01_TOT_NUM_EOY_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SD_01_TOT_NUM_EOY_OTH, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SD_01_TOT_NUM_EOY_OTH <-  paste0( '{', SD_01_TOT_NUM_EOY_OTH, '}', collapse=';' ) 
 } 
 

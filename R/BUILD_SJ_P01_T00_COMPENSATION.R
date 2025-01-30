@@ -35,7 +35,7 @@ V_COMP_NON_FIXED_PAYMENT_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_NON_FIXED_PAYMENT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_NON_FIXED_PAYMENT_X ) )
 if( length( SJ_01_COMP_NON_FIXED_PAYMENT_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_NON_FIXED_PAYMENT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_NON_FIXED_PAYMENT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_NON_FIXED_PAYMENT_X <-  paste0( '{', SJ_01_COMP_NON_FIXED_PAYMENT_X, '}', collapse=';' ) 
 } 
 
@@ -56,7 +56,7 @@ V_COMP_METHOD_BOARD_APPROV_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_METHOD_BOARD_APPROV_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_METHOD_BOARD_APPROV_X ) )
 if( length( SJ_01_COMP_METHOD_BOARD_APPROV_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_METHOD_BOARD_APPROV_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_METHOD_BOARD_APPROV_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_METHOD_BOARD_APPROV_X <-  paste0( '{', SJ_01_COMP_METHOD_BOARD_APPROV_X, '}', collapse=';' ) 
 } 
 
@@ -77,7 +77,7 @@ V_COMP_PROV_CLUB_DUE_FEE_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_PROV_CLUB_DUE_FEE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_PROV_CLUB_DUE_FEE_X ) )
 if( length( SJ_01_COMP_PROV_CLUB_DUE_FEE_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_PROV_CLUB_DUE_FEE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_PROV_CLUB_DUE_FEE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_PROV_CLUB_DUE_FEE_X <-  paste0( '{', SJ_01_COMP_PROV_CLUB_DUE_FEE_X, '}', collapse=';' ) 
 } 
 
@@ -98,7 +98,7 @@ V_COMP_CONTINGENT_NET_ORG_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_CONTINGENT_NET_ORG_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_CONTINGENT_NET_ORG_X ) )
 if( length( SJ_01_COMP_CONTINGENT_NET_ORG_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_CONTINGENT_NET_ORG_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_CONTINGENT_NET_ORG_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_CONTINGENT_NET_ORG_X <-  paste0( '{', SJ_01_COMP_CONTINGENT_NET_ORG_X, '}', collapse=';' ) 
 } 
 
@@ -119,7 +119,7 @@ V_COMP_CONTINGENT_NET_RLTD_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_CONTINGENT_NET_RLTD_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_CONTINGENT_NET_RLTD_X ) )
 if( length( SJ_01_COMP_CONTINGENT_NET_RLTD_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_CONTINGENT_NET_RLTD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_CONTINGENT_NET_RLTD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_CONTINGENT_NET_RLTD_X <-  paste0( '{', SJ_01_COMP_CONTINGENT_NET_RLTD_X, '}', collapse=';' ) 
 } 
 
@@ -140,7 +140,7 @@ V_COMP_CONTINGENT_REV_ORG_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_CONTINGENT_REV_ORG_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_CONTINGENT_REV_ORG_X ) )
 if( length( SJ_01_COMP_CONTINGENT_REV_ORG_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_CONTINGENT_REV_ORG_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_CONTINGENT_REV_ORG_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_CONTINGENT_REV_ORG_X <-  paste0( '{', SJ_01_COMP_CONTINGENT_REV_ORG_X, '}', collapse=';' ) 
 } 
 
@@ -161,7 +161,7 @@ V_COMP_CONTINGENT_REV_RLTD_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_CONTINGENT_REV_RLTD_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_CONTINGENT_REV_RLTD_X ) )
 if( length( SJ_01_COMP_CONTINGENT_REV_RLTD_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_CONTINGENT_REV_RLTD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_CONTINGENT_REV_RLTD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_CONTINGENT_REV_RLTD_X <-  paste0( '{', SJ_01_COMP_CONTINGENT_REV_RLTD_X, '}', collapse=';' ) 
 } 
 
@@ -182,7 +182,7 @@ V_COMP_METHOD_COMMITTEE_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_METHOD_COMMITTEE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_METHOD_COMMITTEE_X ) )
 if( length( SJ_01_COMP_METHOD_COMMITTEE_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_METHOD_COMMITTEE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_METHOD_COMMITTEE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_METHOD_COMMITTEE_X <-  paste0( '{', SJ_01_COMP_METHOD_COMMITTEE_X, '}', collapse=';' ) 
 } 
 
@@ -203,7 +203,7 @@ V_COMP_METHOD_SURVEY_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_METHOD_SURVEY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_METHOD_SURVEY_X ) )
 if( length( SJ_01_COMP_METHOD_SURVEY_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_METHOD_SURVEY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_METHOD_SURVEY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_METHOD_SURVEY_X <-  paste0( '{', SJ_01_COMP_METHOD_SURVEY_X, '}', collapse=';' ) 
 } 
 
@@ -224,7 +224,7 @@ V_COMP_PROV_DISCRETIONARY_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_PROV_DISCRETIONARY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_PROV_DISCRETIONARY_X ) )
 if( length( SJ_01_COMP_PROV_DISCRETIONARY_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_PROV_DISCRETIONARY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_PROV_DISCRETIONARY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_PROV_DISCRETIONARY_X <-  paste0( '{', SJ_01_COMP_PROV_DISCRETIONARY_X, '}', collapse=';' ) 
 } 
 
@@ -245,7 +245,7 @@ V_COMP_PAY_EQUITY_BASED_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_PAY_EQUITY_BASED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_PAY_EQUITY_BASED_X ) )
 if( length( SJ_01_COMP_PAY_EQUITY_BASED_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_PAY_EQUITY_BASED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_PAY_EQUITY_BASED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_PAY_EQUITY_BASED_X <-  paste0( '{', SJ_01_COMP_PAY_EQUITY_BASED_X, '}', collapse=';' ) 
 } 
 
@@ -266,7 +266,7 @@ V_COMP_PROV_FIRST_CLASS_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_PROV_FIRST_CLASS_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_PROV_FIRST_CLASS_X ) )
 if( length( SJ_01_COMP_PROV_FIRST_CLASS_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_PROV_FIRST_CLASS_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_PROV_FIRST_CLASS_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_PROV_FIRST_CLASS_X <-  paste0( '{', SJ_01_COMP_PROV_FIRST_CLASS_X, '}', collapse=';' ) 
 } 
 
@@ -287,7 +287,7 @@ V_COMP_METHOD_OTH_ORG_990_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_METHOD_OTH_ORG_990_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_METHOD_OTH_ORG_990_X ) )
 if( length( SJ_01_COMP_METHOD_OTH_ORG_990_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_METHOD_OTH_ORG_990_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_METHOD_OTH_ORG_990_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_METHOD_OTH_ORG_990_X <-  paste0( '{', SJ_01_COMP_METHOD_OTH_ORG_990_X, '}', collapse=';' ) 
 } 
 
@@ -308,7 +308,7 @@ V_COMP_PROV_HOUSING_ALLOW_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_PROV_HOUSING_ALLOW_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_PROV_HOUSING_ALLOW_X ) )
 if( length( SJ_01_COMP_PROV_HOUSING_ALLOW_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_PROV_HOUSING_ALLOW_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_PROV_HOUSING_ALLOW_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_PROV_HOUSING_ALLOW_X <-  paste0( '{', SJ_01_COMP_PROV_HOUSING_ALLOW_X, '}', collapse=';' ) 
 } 
 
@@ -329,7 +329,7 @@ V_COMP_PROV_INDEMNIFY_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_PROV_INDEMNIFY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_PROV_INDEMNIFY_X ) )
 if( length( SJ_01_COMP_PROV_INDEMNIFY_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_PROV_INDEMNIFY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_PROV_INDEMNIFY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_PROV_INDEMNIFY_X <-  paste0( '{', SJ_01_COMP_PROV_INDEMNIFY_X, '}', collapse=';' ) 
 } 
 
@@ -350,7 +350,7 @@ V_COMP_METHOD_CONSULTANT_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_METHOD_CONSULTANT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_METHOD_CONSULTANT_X ) )
 if( length( SJ_01_COMP_METHOD_CONSULTANT_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_METHOD_CONSULTANT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_METHOD_CONSULTANT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_METHOD_CONSULTANT_X <-  paste0( '{', SJ_01_COMP_METHOD_CONSULTANT_X, '}', collapse=';' ) 
 } 
 
@@ -371,7 +371,7 @@ V_COMP_KONTR_EXCEPTION_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_KONTR_EXCEPTION_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_KONTR_EXCEPTION_X ) )
 if( length( SJ_01_COMP_KONTR_EXCEPTION_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_KONTR_EXCEPTION_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_KONTR_EXCEPTION_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_KONTR_EXCEPTION_X <-  paste0( '{', SJ_01_COMP_KONTR_EXCEPTION_X, '}', collapse=';' ) 
 } 
 
@@ -392,7 +392,7 @@ V_COMP_PROV_USE_RESIDENCE_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_PROV_USE_RESIDENCE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_PROV_USE_RESIDENCE_X ) )
 if( length( SJ_01_COMP_PROV_USE_RESIDENCE_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_PROV_USE_RESIDENCE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_PROV_USE_RESIDENCE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_PROV_USE_RESIDENCE_X <-  paste0( '{', SJ_01_COMP_PROV_USE_RESIDENCE_X, '}', collapse=';' ) 
 } 
 
@@ -413,7 +413,7 @@ V_COMP_PROV_PERSONAL_SVC_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_PROV_PERSONAL_SVC_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_PROV_PERSONAL_SVC_X ) )
 if( length( SJ_01_COMP_PROV_PERSONAL_SVC_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_PROV_PERSONAL_SVC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_PROV_PERSONAL_SVC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_PROV_PERSONAL_SVC_X <-  paste0( '{', SJ_01_COMP_PROV_PERSONAL_SVC_X, '}', collapse=';' ) 
 } 
 
@@ -434,7 +434,7 @@ V_COMP_PAY_SEVERANCE_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_PAY_SEVERANCE_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_PAY_SEVERANCE_X ) )
 if( length( SJ_01_COMP_PAY_SEVERANCE_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_PAY_SEVERANCE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_PAY_SEVERANCE_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_PAY_SEVERANCE_X <-  paste0( '{', SJ_01_COMP_PAY_SEVERANCE_X, '}', collapse=';' ) 
 } 
 
@@ -455,7 +455,7 @@ V_COMP_SUBSTANTIATION_REQ_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_SUBSTANTIATION_REQ_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_SUBSTANTIATION_REQ_X ) )
 if( length( SJ_01_COMP_SUBSTANTIATION_REQ_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_SUBSTANTIATION_REQ_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_SUBSTANTIATION_REQ_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_SUBSTANTIATION_REQ_X <-  paste0( '{', SJ_01_COMP_SUBSTANTIATION_REQ_X, '}', collapse=';' ) 
 } 
 
@@ -476,7 +476,7 @@ V_COMP_PAY_RETIREMENT_PLAN_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_PAY_RETIREMENT_PLAN_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_PAY_RETIREMENT_PLAN_X ) )
 if( length( SJ_01_COMP_PAY_RETIREMENT_PLAN_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_PAY_RETIREMENT_PLAN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_PAY_RETIREMENT_PLAN_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_PAY_RETIREMENT_PLAN_X <-  paste0( '{', SJ_01_COMP_PAY_RETIREMENT_PLAN_X, '}', collapse=';' ) 
 } 
 
@@ -497,7 +497,7 @@ V_COMP_PROV_TRAVEL_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_PROV_TRAVEL_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_PROV_TRAVEL_X ) )
 if( length( SJ_01_COMP_PROV_TRAVEL_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_PROV_TRAVEL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_PROV_TRAVEL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_PROV_TRAVEL_X <-  paste0( '{', SJ_01_COMP_PROV_TRAVEL_X, '}', collapse=';' ) 
 } 
 
@@ -518,7 +518,7 @@ V_COMP_METHOD_EMPL_KONTR_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_METHOD_EMPL_KONTR_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_METHOD_EMPL_KONTR_X ) )
 if( length( SJ_01_COMP_METHOD_EMPL_KONTR_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_METHOD_EMPL_KONTR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_METHOD_EMPL_KONTR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_METHOD_EMPL_KONTR_X <-  paste0( '{', SJ_01_COMP_METHOD_EMPL_KONTR_X, '}', collapse=';' ) 
 } 
 
@@ -539,7 +539,7 @@ V_COMP_WRITTEN_POLICY_X <- paste( V1, V2, V3 , sep='|' )
 SJ_01_COMP_WRITTEN_POLICY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_WRITTEN_POLICY_X ) )
 if( length( SJ_01_COMP_WRITTEN_POLICY_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_WRITTEN_POLICY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_WRITTEN_POLICY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_WRITTEN_POLICY_X <-  paste0( '{', SJ_01_COMP_WRITTEN_POLICY_X, '}', collapse=';' ) 
 } 
 
@@ -559,7 +559,7 @@ V_COMP_REBUTTABLE_PROC_X <- paste( V1, V2 , sep='|' )
 SJ_01_COMP_REBUTTABLE_PROC_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMP_REBUTTABLE_PROC_X ) )
 if( length( SJ_01_COMP_REBUTTABLE_PROC_X ) > 1 )
 { 
-  create_record( varname=SJ_01_COMP_REBUTTABLE_PROC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SJ_01_COMP_REBUTTABLE_PROC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SJ_01_COMP_REBUTTABLE_PROC_X <-  paste0( '{', SJ_01_COMP_REBUTTABLE_PROC_X, '}', collapse=';' ) 
 } 
 

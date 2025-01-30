@@ -34,7 +34,7 @@ V_COMPLIANCE_EXPLANATION <- paste( V1, V2 , sep='|' )
 SE_01_COMPLIANCE_EXPLANATION <- xml2::xml_text( xml2::xml_find_all( doc, V_COMPLIANCE_EXPLANATION ) )
 if( length( SE_01_COMPLIANCE_EXPLANATION ) > 1 )
 { 
-  create_record( varname=SE_01_COMPLIANCE_EXPLANATION, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_COMPLIANCE_EXPLANATION, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_COMPLIANCE_EXPLANATION <-  paste0( '{', SE_01_COMPLIANCE_EXPLANATION, '}', collapse=';' ) 
 } 
 
@@ -55,7 +55,7 @@ V_COMPLIANCE_REV_PROC_7550_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_COMPLIANCE_REV_PROC_7550_X <- xml2::xml_text( xml2::xml_find_all( doc, V_COMPLIANCE_REV_PROC_7550_X ) )
 if( length( SE_01_COMPLIANCE_REV_PROC_7550_X ) > 1 )
 { 
-  create_record( varname=SE_01_COMPLIANCE_REV_PROC_7550_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_COMPLIANCE_REV_PROC_7550_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_COMPLIANCE_REV_PROC_7550_X <-  paste0( '{', SE_01_COMPLIANCE_REV_PROC_7550_X, '}', collapse=';' ) 
 } 
 
@@ -76,7 +76,7 @@ V_DISCR_RACE_ADM_POLICY_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_DISCR_RACE_ADM_POLICY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_DISCR_RACE_ADM_POLICY_X ) )
 if( length( SE_01_DISCR_RACE_ADM_POLICY_X ) > 1 )
 { 
-  create_record( varname=SE_01_DISCR_RACE_ADM_POLICY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_DISCR_RACE_ADM_POLICY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_DISCR_RACE_ADM_POLICY_X <-  paste0( '{', SE_01_DISCR_RACE_ADM_POLICY_X, '}', collapse=';' ) 
 } 
 
@@ -97,7 +97,7 @@ V_DISCR_RACE_ATHLETIC_PROG_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_DISCR_RACE_ATHLETIC_PROG_X <- xml2::xml_text( xml2::xml_find_all( doc, V_DISCR_RACE_ATHLETIC_PROG_X ) )
 if( length( SE_01_DISCR_RACE_ATHLETIC_PROG_X ) > 1 )
 { 
-  create_record( varname=SE_01_DISCR_RACE_ATHLETIC_PROG_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_DISCR_RACE_ATHLETIC_PROG_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_DISCR_RACE_ATHLETIC_PROG_X <-  paste0( '{', SE_01_DISCR_RACE_ATHLETIC_PROG_X, '}', collapse=';' ) 
 } 
 
@@ -118,7 +118,7 @@ V_DISCR_RACE_EDU_POLICY_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_DISCR_RACE_EDU_POLICY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_DISCR_RACE_EDU_POLICY_X ) )
 if( length( SE_01_DISCR_RACE_EDU_POLICY_X ) > 1 )
 { 
-  create_record( varname=SE_01_DISCR_RACE_EDU_POLICY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_DISCR_RACE_EDU_POLICY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_DISCR_RACE_EDU_POLICY_X <-  paste0( '{', SE_01_DISCR_RACE_EDU_POLICY_X, '}', collapse=';' ) 
 } 
 
@@ -139,7 +139,7 @@ V_DISCR_RACE_EMPL_FACULTY_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_DISCR_RACE_EMPL_FACULTY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_DISCR_RACE_EMPL_FACULTY_X ) )
 if( length( SE_01_DISCR_RACE_EMPL_FACULTY_X ) > 1 )
 { 
-  create_record( varname=SE_01_DISCR_RACE_EMPL_FACULTY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_DISCR_RACE_EMPL_FACULTY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_DISCR_RACE_EMPL_FACULTY_X <-  paste0( '{', SE_01_DISCR_RACE_EMPL_FACULTY_X, '}', collapse=';' ) 
 } 
 
@@ -159,7 +159,7 @@ V_DISCR_RACE_EXPLANATION <- paste( V1, V2 , sep='|' )
 SE_01_DISCR_RACE_EXPLANATION <- xml2::xml_text( xml2::xml_find_all( doc, V_DISCR_RACE_EXPLANATION ) )
 if( length( SE_01_DISCR_RACE_EXPLANATION ) > 1 )
 { 
-  create_record( varname=SE_01_DISCR_RACE_EXPLANATION, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_DISCR_RACE_EXPLANATION, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_DISCR_RACE_EXPLANATION <-  paste0( '{', SE_01_DISCR_RACE_EXPLANATION, '}', collapse=';' ) 
 } 
 
@@ -180,7 +180,7 @@ V_DISCR_RACE_OTH_ACT_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_DISCR_RACE_OTH_ACT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_DISCR_RACE_OTH_ACT_X ) )
 if( length( SE_01_DISCR_RACE_OTH_ACT_X ) > 1 )
 { 
-  create_record( varname=SE_01_DISCR_RACE_OTH_ACT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_DISCR_RACE_OTH_ACT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_DISCR_RACE_OTH_ACT_X <-  paste0( '{', SE_01_DISCR_RACE_OTH_ACT_X, '}', collapse=';' ) 
 } 
 
@@ -201,7 +201,7 @@ V_DISCR_RACE_SCHOLARSHIP_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_DISCR_RACE_SCHOLARSHIP_X <- xml2::xml_text( xml2::xml_find_all( doc, V_DISCR_RACE_SCHOLARSHIP_X ) )
 if( length( SE_01_DISCR_RACE_SCHOLARSHIP_X ) > 1 )
 { 
-  create_record( varname=SE_01_DISCR_RACE_SCHOLARSHIP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_DISCR_RACE_SCHOLARSHIP_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_DISCR_RACE_SCHOLARSHIP_X <-  paste0( '{', SE_01_DISCR_RACE_SCHOLARSHIP_X, '}', collapse=';' ) 
 } 
 
@@ -222,7 +222,7 @@ V_DISCR_RACE_STUDENT_RIGHT_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_DISCR_RACE_STUDENT_RIGHT_X <- xml2::xml_text( xml2::xml_find_all( doc, V_DISCR_RACE_STUDENT_RIGHT_X ) )
 if( length( SE_01_DISCR_RACE_STUDENT_RIGHT_X ) > 1 )
 { 
-  create_record( varname=SE_01_DISCR_RACE_STUDENT_RIGHT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_DISCR_RACE_STUDENT_RIGHT_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_DISCR_RACE_STUDENT_RIGHT_X <-  paste0( '{', SE_01_DISCR_RACE_STUDENT_RIGHT_X, '}', collapse=';' ) 
 } 
 
@@ -243,7 +243,7 @@ V_DISCR_RACE_USE_FACILITY_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_DISCR_RACE_USE_FACILITY_X <- xml2::xml_text( xml2::xml_find_all( doc, V_DISCR_RACE_USE_FACILITY_X ) )
 if( length( SE_01_DISCR_RACE_USE_FACILITY_X ) > 1 )
 { 
-  create_record( varname=SE_01_DISCR_RACE_USE_FACILITY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_DISCR_RACE_USE_FACILITY_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_DISCR_RACE_USE_FACILITY_X <-  paste0( '{', SE_01_DISCR_RACE_USE_FACILITY_X, '}', collapse=';' ) 
 } 
 
@@ -264,7 +264,7 @@ V_GOVT_FIN_AID_REC_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_GOVT_FIN_AID_REC_X <- xml2::xml_text( xml2::xml_find_all( doc, V_GOVT_FIN_AID_REC_X ) )
 if( length( SE_01_GOVT_FIN_AID_REC_X ) > 1 )
 { 
-  create_record( varname=SE_01_GOVT_FIN_AID_REC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_GOVT_FIN_AID_REC_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_GOVT_FIN_AID_REC_X <-  paste0( '{', SE_01_GOVT_FIN_AID_REC_X, '}', collapse=';' ) 
 } 
 
@@ -285,7 +285,7 @@ V_GOVT_FIN_AID_REVOKED_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_GOVT_FIN_AID_REVOKED_X <- xml2::xml_text( xml2::xml_find_all( doc, V_GOVT_FIN_AID_REVOKED_X ) )
 if( length( SE_01_GOVT_FIN_AID_REVOKED_X ) > 1 )
 { 
-  create_record( varname=SE_01_GOVT_FIN_AID_REVOKED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_GOVT_FIN_AID_REVOKED_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_GOVT_FIN_AID_REVOKED_X <-  paste0( '{', SE_01_GOVT_FIN_AID_REVOKED_X, '}', collapse=';' ) 
 } 
 
@@ -305,7 +305,7 @@ V_GOVT_FIN_AID_EXPLANATION <- paste( V1, V2 , sep='|' )
 SE_01_GOVT_FIN_AID_EXPLANATION <- xml2::xml_text( xml2::xml_find_all( doc, V_GOVT_FIN_AID_EXPLANATION ) )
 if( length( SE_01_GOVT_FIN_AID_EXPLANATION ) > 1 )
 { 
-  create_record( varname=SE_01_GOVT_FIN_AID_EXPLANATION, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_GOVT_FIN_AID_EXPLANATION, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_GOVT_FIN_AID_EXPLANATION <-  paste0( '{', SE_01_GOVT_FIN_AID_EXPLANATION, '}', collapse=';' ) 
 } 
 
@@ -326,7 +326,7 @@ V_MAINT_COPY_SOL_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_MAINT_COPY_SOL_X <- xml2::xml_text( xml2::xml_find_all( doc, V_MAINT_COPY_SOL_X ) )
 if( length( SE_01_MAINT_COPY_SOL_X ) > 1 )
 { 
-  create_record( varname=SE_01_MAINT_COPY_SOL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_MAINT_COPY_SOL_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_MAINT_COPY_SOL_X <-  paste0( '{', SE_01_MAINT_COPY_SOL_X, '}', collapse=';' ) 
 } 
 
@@ -347,7 +347,7 @@ V_MAINT_COPY_BROCHURES_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_MAINT_COPY_BROCHURES_X <- xml2::xml_text( xml2::xml_find_all( doc, V_MAINT_COPY_BROCHURES_X ) )
 if( length( SE_01_MAINT_COPY_BROCHURES_X ) > 1 )
 { 
-  create_record( varname=SE_01_MAINT_COPY_BROCHURES_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_MAINT_COPY_BROCHURES_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_MAINT_COPY_BROCHURES_X <-  paste0( '{', SE_01_MAINT_COPY_BROCHURES_X, '}', collapse=';' ) 
 } 
 
@@ -368,7 +368,7 @@ V_MAINT_RACIAL_RECORD_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_MAINT_RACIAL_RECORD_X <- xml2::xml_text( xml2::xml_find_all( doc, V_MAINT_RACIAL_RECORD_X ) )
 if( length( SE_01_MAINT_RACIAL_RECORD_X ) > 1 )
 { 
-  create_record( varname=SE_01_MAINT_RACIAL_RECORD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_MAINT_RACIAL_RECORD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_MAINT_RACIAL_RECORD_X <-  paste0( '{', SE_01_MAINT_RACIAL_RECORD_X, '}', collapse=';' ) 
 } 
 
@@ -389,7 +389,7 @@ V_MAINT_SCHOLARSHIP_RECORD_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_MAINT_SCHOLARSHIP_RECORD_X <- xml2::xml_text( xml2::xml_find_all( doc, V_MAINT_SCHOLARSHIP_RECORD_X ) )
 if( length( SE_01_MAINT_SCHOLARSHIP_RECORD_X ) > 1 )
 { 
-  create_record( varname=SE_01_MAINT_SCHOLARSHIP_RECORD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_MAINT_SCHOLARSHIP_RECORD_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_MAINT_SCHOLARSHIP_RECORD_X <-  paste0( '{', SE_01_MAINT_SCHOLARSHIP_RECORD_X, '}', collapse=';' ) 
 } 
 
@@ -410,7 +410,7 @@ V_POLICY_STMT_NONDISCR_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_POLICY_STMT_NONDISCR_X <- xml2::xml_text( xml2::xml_find_all( doc, V_POLICY_STMT_NONDISCR_X ) )
 if( length( SE_01_POLICY_STMT_NONDISCR_X ) > 1 )
 { 
-  create_record( varname=SE_01_POLICY_STMT_NONDISCR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_POLICY_STMT_NONDISCR_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_POLICY_STMT_NONDISCR_X <-  paste0( '{', SE_01_POLICY_STMT_NONDISCR_X, '}', collapse=';' ) 
 } 
 
@@ -430,7 +430,7 @@ V_MAINT_EXPLANATION <- paste( V1, V2 , sep='|' )
 SE_01_MAINT_EXPLANATION <- xml2::xml_text( xml2::xml_find_all( doc, V_MAINT_EXPLANATION ) )
 if( length( SE_01_MAINT_EXPLANATION ) > 1 )
 { 
-  create_record( varname=SE_01_MAINT_EXPLANATION, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_MAINT_EXPLANATION, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_MAINT_EXPLANATION <-  paste0( '{', SE_01_MAINT_EXPLANATION, '}', collapse=';' ) 
 } 
 
@@ -451,7 +451,7 @@ V_POLICY_BCAST_MEDIA_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_POLICY_BCAST_MEDIA_X <- xml2::xml_text( xml2::xml_find_all( doc, V_POLICY_BCAST_MEDIA_X ) )
 if( length( SE_01_POLICY_BCAST_MEDIA_X ) > 1 )
 { 
-  create_record( varname=SE_01_POLICY_BCAST_MEDIA_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_POLICY_BCAST_MEDIA_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_POLICY_BCAST_MEDIA_X <-  paste0( '{', SE_01_POLICY_BCAST_MEDIA_X, '}', collapse=';' ) 
 } 
 
@@ -472,7 +472,7 @@ V_POLICY_STMT_BROCHURES_X <- paste( V1, V2, V3 , sep='|' )
 SE_01_POLICY_STMT_BROCHURES_X <- xml2::xml_text( xml2::xml_find_all( doc, V_POLICY_STMT_BROCHURES_X ) )
 if( length( SE_01_POLICY_STMT_BROCHURES_X ) > 1 )
 { 
-  create_record( varname=SE_01_POLICY_STMT_BROCHURES_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_POLICY_STMT_BROCHURES_X, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_POLICY_STMT_BROCHURES_X <-  paste0( '{', SE_01_POLICY_STMT_BROCHURES_X, '}', collapse=';' ) 
 } 
 
@@ -492,7 +492,7 @@ V_POLICY_BCAST_MEDIA_EXPLAIN <- paste( V1, V2 , sep='|' )
 SE_01_POLICY_BCAST_MEDIA_EXPLAIN <- xml2::xml_text( xml2::xml_find_all( doc, V_POLICY_BCAST_MEDIA_EXPLAIN ) )
 if( length( SE_01_POLICY_BCAST_MEDIA_EXPLAIN ) > 1 )
 { 
-  create_record( varname=SE_01_POLICY_BCAST_MEDIA_EXPLAIN, ein=ORG_EIN, year=TAX_YEAR, url=URL )
+  log_collapsed_record( varname=SE_01_POLICY_BCAST_MEDIA_EXPLAIN, ein=ORG_EIN, year=TAX_YEAR, url=URL )
   SE_01_POLICY_BCAST_MEDIA_EXPLAIN <-  paste0( '{', SE_01_POLICY_BCAST_MEDIA_EXPLAIN, '}', collapse=';' ) 
 } 
 
