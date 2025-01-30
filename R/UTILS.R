@@ -386,11 +386,11 @@ test_build <- function( path="." ) {
   cat( "Building a small database (~500 990 returns).\n" )
   cat( "Average build time 5-10 minutes.\n" )
   cat( "Check BUILD-LOG.txt for progress.\n\n" )
-  cat( "  (1) Create directory structure.\n" )
-  cat( "  (2) Split the index into BATCHFILES, one for each year.\n" )
-  cat( "  (3) Parse XML batches into tables and save as CSV files in the YEAR folders.\n" )
-  cat( "  (4) Combine all batched CSV files into compiled tables in the COMPILED folder.\n" )
-  cat( "  (5) Combine all logfiles of missing xpaths into the FIX folder for review.\n" )
+  cat( " (1) Create directory structure.\n" )
+  cat( " (2) Split the index into BATCHFILES, one for each year.\n" )
+  cat( " (3) Parse XML batches into tables and save as CSV files in the YEAR folders.\n" )
+  cat( " (4) Combine all batched CSV files into compiled tables in the COMPILED folder.\n" )
+  cat( " (5) Combine all logfiles of missing xpaths into the FIX folder for review.\n\n" )
   
   build_database( index=index100, batch.size=10 )
   
