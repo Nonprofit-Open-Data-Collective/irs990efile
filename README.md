@@ -23,7 +23,7 @@ https://nonprofit-open-data-collective.github.io/efile-rdb-tables/
 
 ## Installation
 
-*Note that **xmltools** is not available on CRAN so has to be installed remotely before installing the **irs990efiler** package.*
+*Note that **xmltools** is not available on CRAN so has to be installed remotely before installing the **irs990efile** package.*
 
 ```r
 # install.packages( 'devtools' )  
@@ -33,30 +33,147 @@ devtools::install_github( 'nonprofit-open-data-collective/irs990efile' )
 
 ## Use
 
+The package is designed to make IRS 990 Efiler XML files accessible to the research community by converting them into rectangular CSV formats that will be more familiar to data analysts. The code is designed to make file retrieval and translation straight-forward: 
+
 ```r
-library( irs990efile )
-library( dplyr )
-
-index <- build_index( tax.years=2018 )
-index.small <- dplyr::sample_n( index, 1000 )
-build_database( index.small )
-
-# download the 2018 index file
-# build all one-to-one tables
-# for a sample of 1,000 nonprofits
+###################################################
+###                                             ###
+###      library( irs990efile )                 ###        DO NOT RUN THIS VERSION FIRST
+###      build_database( years=2020:2022 )      ###        (IT CAN TAKE DAYS TO BUILD)
+###                                             ###
+###################################################
 ```
 
-## IRS Efile XML Docs
+The code is simple, but the computing time is not. To understand the package and make sure it's working in your local environment start with this simple example (a toy database of ~500 990 returns: 
 
-**Update:** The IRS is no longer hosting efile data on AWS. Files must be downloaded from the IRS site directly.
+```r
+library( irs990efile )
+test_build()
 
-The irs990efile package now pulls from the [Data Commons Data Lake](https://990data.givingtuesday.org/):  
+# Roughly equivalent to:
+# index <- build_index( tax.years=2018:2022 )
+# index.small <- dplyr::sample_n( index, 500 )
+# build_database( index.small )
+```
 
-Download their full efile index file (check their site for newer versions): 
+You will see the following messaging: 
 
-[DataCommons Efile Index (5,598,994 records)](https://gt990datalake-rawdata.s3.amazonaws.com/Indices/990xmls/index_all_years_efiledata_xmls_created_on_2024-01-19.csv)
+```
+# Building a small database (~500 990 returns).
+# Average build time 5-10 minutes.
+# Check BUILD-LOG.txt for progress.
+#
+# (1) Create directory structure.
+# (2) Split the index into BATCHFILES, one for each year.
+# (3) Parse XML batches into tables and save as CSV files in the YEAR folders.
+# (4) Combine all batched CSV files into compiled tables in the COMPILED folder.
+# (5) Combine all logfiles of missing xpaths into the FIX folder for review.
+#
+#  DATABASE BUILD START TIME: 2025-01-30 13:44:29.551851
+#  You have 16 cores available for parallel processing.
+#  There are 530 returns in this build.
+#
+#     |Var1 | Freq|
+#     |:----|----:|
+#     |2018 |  107|
+#     |2019 |  113|
+#     |2020 |  105|
+#     |2021 |   96|
+#     |2022 |  109|
+# 
+#  ###########################
+#  ###########################
+#  STARTING YEAR 2018
+#  There are 107 returns in 2018.
+#  There are 11 groups being sent for parallel collection.
+#  >> 1:44:57 PM -- Jan 30 2025 -- COMPLETED {G1} {G2} {G3} {G4} {G5} {G6} {G7} {G8} {G9} {G10}
+#  There were 0 failed URLS
+#  Time for the 2018 loop: 0.61 minutes
+#  ###########################
+#  ###########################
+#  ...
+#  DATABASE BUILD FINISH TIME: 2025-01-30 13:47:43.788732 
+#  TOTAL BUILD TIME: 0.05 HOURS
+```
+
+Upon execution the following directory structure will be created and populated with data as XML files are parsed. 
+
+```r
+└── NEW FOLDER (the name will be 5 random letters: QBWJH)
+    ├── BUILD-LOG.txt (reports build progress)
+    ├── HIST (replication files)
+    │   ├── system-info.txt
+    │   ├── rhistory
+    │   └── index.rds
+    ├── FIX (catalog of concordance issues)
+    │   ├── missing xpaths.csv
+    │   └── collapsed fields.txt
+    ├── 2019
+    │   ├── BATCHFILE.RDS (all 2019 urls split into batches)
+    │   ├── 2019-F9-P00-T00-HEADER-batch-01.CSV
+    │   ├── 2019-F9-P00-T00-HEADER-batch-02.CSV
+    │   ├── 2019-F9-P01-T00-SUMMARY-batch-01.CSV
+    │   ├── 2019-F9-P01-T00-SUMMARY-batch-02.CSV
+    │   ├── 2019-F9-P12-T00-FINANCIAL-REPORTING-batch-01.CSV
+    │   ├── 2019-F9-P12-T00-FINANCIAL-REPORTING-batch-02.CSV
+    │   └── ... all tables x batches 
+    ├── 2020
+    │   ├── BATCHFILE.RDS (all 2020 urls split into batches)
+    │   ├── 2020-F9-P00-T00-HEADER-batch-01.CSV
+    │   ├── 2020-F9-P00-T00-HEADER-batch-02.CSV
+    │   └── ... all tables x batches
+    ├── 2021
+    │   ├── BATCHFILE.RDS (all 2021 urls split into batches)
+    │   ├── 2021-F9-P00-T00-HEADER-batch-01.CSV
+    │   ├── 2021-F9-P00-T00-HEADER-batch-02.CSV
+    │   └── ... all tables x batches 
+    └── COMPILED (batches compiled into single file)
+        ├── 2019-F9-P00-T00-HEADER.CSV
+        ├── 2019-F9-P01-T00-SUMMARY.CSV
+        ├── 2019-F9-P12-T00-FINANCIAL-REPORTING.CSV
+        ├── 2020-F9-P00-T00-HEADER.CSV
+        ├── 2020-F9-P01-T00-SUMMARY.CSV
+        ├── 2020-F9-P12-T00-FINANCIAL-REPORTING.CSV
+        ├── 2021-F9-P00-T00-HEADER.CSV
+        ├── 2021-F9-P01-T00-SUMMARY.CSV
+        └── 2021-F9-P12-T00-FINANCIAL-REPORTING.CSV
+```
+
+CSV files created in YYYY (year) folders are split into batches to enable parallel computing and to keep track of progress so the process can be paused and restarted as necessary using the resume_build_database() feature. Once all XML files have been parsed the batches are combined in the COMPILED folder. There are approximately 110 tables defined in the _**concordance**_ plus a SCHEDULE-TABLE-YEAR.CSV that consists of TRUE/FALSE indicators for whether a nonprofit has filed each of the [sixteen 990 schedules](https://github.com/Nonprofit-Open-Data-Collective/irs-efile-master-concordance-file/blob/master/f990-parts-and-schedules.md) in a given year. 
+
+```r
+get_table_names()
+#  [1] "F9-P00-T00-HEADER"                             
+#  [2] "F9-P01-T00-SUMMARY"                            
+#  [3] "F9-P01-T00-SUMMARY-EZ"                         
+#  [4] "F9-P02-T00-SIGNATURE"                          
+#  [5] "F9-P03-T00-MISSION"   
+#  ...
+#  [111] "SR-P05-T01-TRANSACTIONS-RLTD-ORGS"             
+#  [112] "SR-P06-T01-UNRLTD-ORGS-TAXABLE-PARTNERSHIP"
+```
+
+The BUILD-LOG.txt will record progress (similar to what is printed in the console) and any errors that occur. Files archived in the HIST folder are useful for replication purposes (the index file used for the build, system settings, and the Rhistory file), and files in the FIX folder are logs of xpaths currently missing from the concordance file and fields that were supposed to be single values (part of one-to-one tables) but were returned as vectors. They are collapsed into single values to preserve the one-to-one table structures, so the logfile is just a record of the event for diagnostic purposes for package developers. 
+
+
+
+## Location of the IRS Efile XML Docs
+
+The irs990efile package pulls XML 990 returns from the [Data Commons Data Lake](https://990data.givingtuesday.org/), an AWS S3 bucket that contains the full universe (as close as possible) of the efile returns that the IRS has released, along with clean and accurate index files describing the content.   
 
 [Index Data Dictionary](https://acrobat.adobe.com/id/urn:aaid:sc:AP:f83b004b-7f77-4c8a-8d96-ea301721aabe)
+
+You can access Data Commons index files using the following functions: 
+
+```r
+index <- get_current_index_batch()  # the most recent batch of files added to the S3 bucket                             
+index <- get_current_index_full()   # the full list of all files in the S3 bucket
+download_current_index_full()       # creates a local download instead of reading as a data frame
+```
+
+
+
+
 
 ```
 c("BuildTs", "DAF", "DateSigned", "DocStatus", "EIN", "FileSha256", 
