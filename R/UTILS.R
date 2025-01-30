@@ -369,9 +369,11 @@ test_build <- function( path="." ) {
   wd <- paste(sample(LETTERS, 5), collapse = "")
   dir.create( wd )
   setwd( wd )
-  cat( getwd(), sep="\n\n" )
 
+  # TEST SAMPLE
   index <- tinyindex
+
+  # USE FIVE YEARS 
   index <- filter( index, TaxYear %in% 2018:2022 )
 
   # KEEP 100 CASES PER YEAR FOR QUICK TEST
@@ -379,6 +381,18 @@ test_build <- function( path="." ) {
   dfL <- lapply( sL, dplyr::sample_n, 125 )
   index100 <- dplyr::bind_rows( dfL )
 
+  cat( "Commencing irs990efile Package Test\n" )
+  cat( paste0("Using Directory: ", getwd(), "\n\n" ) )
+  cat( "Building a small database (~500 990 returns).\n" )
+  cat( "Average build time 5-10 minutes.\n" )
+  cat( "Check BUILD-LOG.txt for progress.\n\n" )
+  cat( "  (1) Create directory structure.\n" )
+  cat( "  (2) Split the index into BATCHFILES, one for each year.\n" )
+  cat( "  (3) Parse XML batches into tables and save as CSV files in the YEAR folders.\n" )
+  cat( "  (4) Combine all batched CSV files into compiled tables in the COMPILED folder.\n" )
+  cat( "  (5) Combine all logfiles of missing xpaths into the FIX folder for review.\n" )
+  
   build_database( index=index100, batch.size=10 )
+  
 }
 
