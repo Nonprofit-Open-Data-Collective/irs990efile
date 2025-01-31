@@ -1,25 +1,17 @@
 # irs990efile
 
-R package for building a research database from IRS 990 nonprofit efiler tax returns. 
-
-The full set of tables is available in the [**DATA DICTIONARY**](https://nonprofit-open-data-collective.github.io/irs990efile/data-dictionary/data-dictionary.html).
-
-Preprocessed CSV files are available on the NCCS website: [**DOWNLOAD TABLES**](https://nccs.urban.org/nccs/catalogs/catalog-efile.html).
-
-Please cite as: 
+R package for building a research database from IRS 990 nonprofit efiler tax returns. Please cite as: 
 
 ```
 Lecy, J. (2025). The irs990efile Package for R (v.1.0.0). Zenodo: https://doi.org/10.5281/zenodo.14736813
 Lecy, J. (2024). IRS 990 Efiler Concordance File (v1.0.0) [Data set]. Zenodo: https://doi.org/10.5281/zenodo.14544301
 ```
 
-The Concordance File provides the crosswalk architecture for moving from XML files to rectangular tables. 
+The [**Concordance File**](https://github.com/Nonprofit-Open-Data-Collective/irs-efile-master-concordance-file) provides the crosswalk architecture for moving from XML files to rectangular tables. 
 
-https://github.com/Nonprofit-Open-Data-Collective/irs-efile-master-concordance-file
+The full set of table descriptions is available in the [**DATA DICTIONARY**](https://nonprofit-open-data-collective.github.io/irs990efile/data-dictionary/data-dictionary.html).
 
-Several dozen one-to-many tables exist on Form 990 (one unique 990 filing to a table with many entries, such as many board members serving a single nonprofit). Documentation about the XML table structure can be useful when attempting to parse XML nodes into well-behaved relational tables.  
-
-https://nonprofit-open-data-collective.github.io/efile-rdb-tables/
+Preprocessed CSV files are available on the NCCS website: [**DOWNLOAD TABLES**](https://nccs.urban.org/nccs/catalogs/catalog-efile.html).
 
 ## Installation
 
@@ -153,17 +145,20 @@ get_table_names()
 #  [112] "SR-P06-T01-UNRLTD-ORGS-TAXABLE-PARTNERSHIP"
 ```
 
-The BUILD-LOG.txt will record progress (similar to what is printed in the console) and any errors that occur. Files archived in the HIST folder are useful for replication purposes (the index file used for the build, system settings, and the Rhistory file), and files in the FIX folder are logs of xpaths currently missing from the concordance file and fields that were supposed to be single values (part of one-to-one tables) but were returned as vectors. They are collapsed into single values to preserve the one-to-one table structures, so the logfile is just a record of the event for diagnostic purposes for package developers. 
+- The BUILD-LOG.txt will record progress (similar to what is printed in the console) and any errors that occur. 
+- Files archived in the HIST folder are useful for replication purposes (the index file used for the build, system settings, and the Rhistory file). 
+- Files in the FIX folder are logs of xpaths currently missing from the concordance but encountered in XML files, and fields that were supposed to be single values (part of one-to-one tables) but were returned as vectors. They are collapsed into a quasi-JSON format in the CSV files so they can be stored in a single cell: "{AK};{MT};{NY}". 
+
+The files in the FIX folder are mainly to help package developers track any schema changes that might impact existing variables or identify XML pathologies that break parsing routines. 
 
 
+## XML Files on the 990 Data Commons
 
-## Location of the IRS Efile XML Docs
-
-The irs990efile package pulls XML 990 returns from the [Data Commons Data Lake](https://990data.givingtuesday.org/), an AWS S3 bucket that contains the full universe (as close as possible) of the efile returns that the IRS has released, along with clean and accurate index files describing the content.   
+The irs990efile package pulls XML 990 returns from the [Giving Tuesday Data Lake](https://990data.givingtuesday.org/), an AWS S3 bucket that contains the full universe (as close as possible) of Efile 990 returns, along with clean and accurate index files.   
 
 [Index Data Dictionary](https://acrobat.adobe.com/id/urn:aaid:sc:AP:f83b004b-7f77-4c8a-8d96-ea301721aabe)
 
-You can access Data Commons index files using the following functions: 
+You can access index files using the following package functions: 
 
 ```r
 index <- get_current_index_batch()  # the most recent batch of files added to the S3 bucket                             
@@ -171,307 +166,181 @@ index <- get_current_index_full()   # the full list of all files in the S3 bucke
 download_current_index_full()       # creates a local download instead of reading as a data frame
 ```
 
-
-
-
-
-```
-c("BuildTs", "DAF", "DateSigned", "DocStatus", "EIN", "FileSha256", 
-"FileSizeBytes", "FormType", "GrossReceipts", "GroupAffiliatesIncluded", 
-"GroupExemptionNumber", "GroupReturnForAffiliates", "IndexedOn", 
-"LegalDomicileCountry", "LegalDomicileState", "ObjectId", "OrgType", 
-"OrganizationName", "ReturnTs", "ReturnVersion", "SubmittedOn", 
-"TaxPeriod", "TaxPeriodBeginDate", "TaxPeriodEndDate", "TaxStatus", 
-"TaxYear", "TotalAssetsBkEOY", "TotalExpensesCY", "TotalLiabilitiesBkEOY", 
-"TotalNetAssetsBkEOY", "TotalRevenueCY", "URL", "Website", "YearFormed", 
-"ZipFile")
-
-URL <- "https://nccs-efile.s3.us-east-1.amazonaws.com/index/index_all_years_efiledata_xmls_created_on_2024-01-19.csv"
-download.file( URL, destfile="index.csv" )
-d <- data.table::fread( "index.csv", colClasses=c( "ObjectId"="character" ) )
-table( d$TaxYear, d$FormType ) |> knitr::kable()
-d |>dplyr::filter( TaxYear == 2021 ) |> dplyr::count( TaxStatus ) |> knitr::kable()
-```
-
-**990 Efile Returns by FormType and TaxYear**
-
-|     |    990|  990EZ|  990PF|  990T|
-|:----|------:|------:|------:|-----:|
-|2007 |     17|     17|      0|     0|
-|2008 |     87|    114|     20|     0|
-|2009 |  33311|  15470|   2345|     0|
-|2010 | 123026|  63326|  25249|     0|
-|2011 | 159504|  82048|  34597|     0|
-|2012 | 179688|  93750|  39933|     0|
-|2013 | 198856| 104375|  45887|     0|
-|2014 | 218620| 116417|  53442|     0|
-|2015 | 233520| 124894|  58815|     0|
-|2016 | 243903| 130485|  62988|     0|
-|2017 | 261612| 139146|  68950|     0|
-|2018 | 271442| 149384|  80138|     0|
-|2019 | 283649| 152579|  87773|     0|
-|2020 | 318850| 169296| 114605| 22616|
-|2021 | 319445| 192642| 116404| 22469|
-|2022 | 158730| 135775|  81631|  7154|
-
-
-**TaxStatus for 2021 Cases**
-
-|Var1   |   Freq|
-|:------|------:|
-|       | 138873|
-|501c2  |   2578|
-|501c3  | 391557|
-|501c4  |  23639|
-|501c5  |  16901|
-|501c6  |  32008|
-|501c7  |  16548|
-|501c8  |   6577|
-|501c9  |   4803|
-|501c10 |   1808|
-|501c11 |      5|
-|501c12 |   3687|
-|501c13 |   2917|
-|501c14 |   1920|
-|501c15 |    139|
-|501c16 |     11|
-|501c17 |     71|
-|501c18 |      4|
-|501c19 |   6265|
-|501c20 |      1|
-|501c23 |      4|
-|501c25 |    358|
-|501c26 |      6|
-|501c27 |      3|
-|501c29 |     14|
-|4947a1 |    263|
-
-
-
-## More Examples
+## Visualizing XML Structure
 
 ```r
-library( irs990efile )
-library( dplyr )
-
-### Preview the index file:
-index <- build_index( tax.years=2018 )
-head( index3[ , c(1:2) ] ) %>% knitr::kable()
-head( index3[ , c(3:4,6:7) ] ) %>% knitr::kable()
+plot_table_str( "PF-P08-T01-PROG-RLTD-INV" )
 ```
 
-
-|OrganizationName                                                 |EIN       |
-|:----------------------------------------------------------------|:---------|
-|ANCIENT & ACCEPTED SCOTTISH RITE OF FREEMASONRY VALLEY OF MONROE |237144224 |
-|THE EDUCATIONAL AND SCIENTIFIC RESEARCH ESR FOUNDATION INC       |814680405 |
-|THE LITERARY CLASSICS OF THE US INC D/B/A LIBRARY OF AMERICA     |132986916 |
-|RAPID CITY SOFTBALL LEAGUE ASSOS                                 |460410637 |
-|CENTRO CAMPESINO FARMWORKER CENTER INC                           |591460598 |
-|HAITIAN PEOPLES SUPPORT PROJECT INC                              |141755401 |
-
-|FormType | TaxYear|OrgType  |TaxStatus |
-|:--------|-------:|:--------|:---------|
-|990      |    2018|Corp     |501c10    |
-|990PF    |    2018|ExemptPF |NA        |
-|990      |    2018|Corp     |501c3     |
-|990      |    2018|Corp     |501c4     |
-|990      |    2018|Corp     |501c3     |
-|990EZ    |    2018|Corp     |501c3     |
+![image](https://github.com/user-attachments/assets/9ed11e3f-c691-40de-83f5-bd725a0de174)
 
 
 ```r
-# FULL INDEX LOAD TIME 
-tictoc::tic( )  #---------------------------
-index <- build_index( tax.years=2008:2022 )
-tictoc::toc()   #---------------------------
-# 798.84 sec elapsed
-# ~ 15 minutes to read full index
+print_table_str( "PF-P08-T01-PROG-RLTD-INV" ) 
+```
 
-table( index$FormType ) %>% knitr::kable()
+```
+1  Return                                      
+2   °--ReturnData                              
+3       °--IRS990ScheduleL                    
+4           ¦--Form990ScheduleLPartIII        
+5           ¦   ¦--AmountOfGrant              
+6           ¦   ¦--AmtOfGrantOrTypeOfAssistance
+7           ¦   ¦   ¦--AmountOfGrant          
+8           ¦   ¦   °--TypeOfAssistance        
+9           ¦   ¦--NameOfInterestedBusiness    
+10          ¦   ¦   ¦--BusinessNameLine1      
+11          ¦   ¦   °--BusinessNameLine2      
+12          ¦   ¦--NameOfInterestedPerson      
+13          ¦   ¦   ¦--NameBusiness            
+14          ¦   ¦   ¦   ¦--BusinessNameLine1  
+15          ¦   ¦   ¦   °--BusinessNameLine2  
+16          ¦   ¦   °--NamePerson              
+17          ¦   ¦--PurposeOfAssistance        
+18          ¦   ¦--RelationshipWithOrganization
+19          ¦   °--TypeOfAssistance            
+20          °--GrntAsstBnftInterestedPrsnGrp  
+21              ¦--AssistancePurposeTxt        
+22              ¦--BusinessName                
+23              ¦   ¦--BusinessNameLine1      
+24              ¦   ¦--BusinessNameLine1Txt    
+25              ¦   ¦--BusinessNameLine2      
+26              ¦   °--BusinessNameLine2Txt    
+27              ¦--CashGrantAmt                
+28              ¦--PersonNm                    
+29              ¦--RelationshipWithOrgTxt      
+30              °--TypeOfAssistanceTxt
+```
 
-# |Var1  |    Freq|
-# |:-----|-------:|
-# |990   | 2886557|
-# |990EZ | 1597025|
-# |990PF |  836034|
-# |990T  |   46023|
+We can use these visual representation to identify the grouping variables or "table headers" that are used to parse 1:M tables (group nodes are extracted and each is flattened into a unique row of the table). 
+
+```
+/ IRS990ScheduleL / Form990ScheduleLPartIII 
+/ IRS990ScheduleL / GrntAsstBnftInterestedPrsnGrp
 ```
 
 ```r
-###   BUILD THE DATABASE
-# test on random sample of 10,000 cases
-index <- tinyindex  
-build_database( index )
+TABLE.HEADERS <- get_table_headers()
+TABLE.HEADERS[[ "SL-P03-T01-GRANTS-INTERESTED-PERS" ]]
+$`SL-P03-T01-GRANTS-INTERESTED-PERS`
+[1] "//IRS990ScheduleL/Form990ScheduleLPartIII"      
+[2] "//IRS990ScheduleL/GrntAsstBnftInterestedPrsnGrp"
 ```
 
-```
-###   BUILD THE FULL DATABASE (~4.5 million 990 & 990EZ filers)
-###   (note: this can take days) 
-###   (test on a sample first) 
+## The build_database() Function
 
-# build the Data Commons index 
-index <- build_index( tax.years=2008:2022 )
-build_database( index ) 
-```
+The workhorse function in the package is the **build_database()** function, which is a wrapper for the primary data workflow: 
 
 ```r
-###
-###  WORKING WITH SPECIFIC TABLES OR SAMPLES
-###
-
-# pre-loaded demo index of 10,000 random efilers from AWS:
-tinyindex %>% 
-  select( OrganizationName, EIN, TaxYear, FormType ) %>% 
-  head()
-
-#                              OrganizationName       EIN TaxYear FormType
-# 1                    MASTOCYTOSIS SOCIETY INC 521959601    2018      990
-# 2                            MCKINLEY III INC 364165018    2018      990
-# 3                           REAL SERVICES INC 351157606    2013      990
-# 4 GREATER KANSAS CITY FRIENDS OF FISHER HOUSE 842359546    2019    990EZ
-# 5                           THUMBNAIL THEATER 510563980    2014    990EZ
-# 6     BERNARD M AND CARYL H SUSMAN FOUNDATION 208068788    2010    990PF
-
-
-# index files from 2009 to 2020 are preloaded: 
-data( index2009 )
-head( index2009 )
-
-# combine index files for all years 2009-2020 ehre forms available: 
-index <- build_index()  # build_index( tax.years=2009:2020 )
-
-# create index of 10 organizations from 2018  
-index.2018 <-
-  index2018 %>% 
-  filter( FormType %in% c("990","990EZ") ) %>%
-  sample_n( 10 )
-
-# build all one-to-one tables for the sample
-dir.create( "EFILE" )
-setwd( "./EFILE" )
-build_tables( url=index.2018$URL, year=2018 )
-
-
-###  TEST SPECIFIC TABLES
-
-index <- tinyindex  # random sample of 10,000 cases
-
-# split index file into smaller chunks (for parallelization) and build tables 
-
-years <- 2017:2019
-
-tables <- c( "F9-P00-T00-HEADER","F9-P01-T00-SUMMARY",
-             "F9-P08-T00-REVENUE","F9-P09-T00-EXPENSES",
-             "F9-P11-T00-ASSETS" )
-
-# TABLE NAME:          'F9-P00-T00-HEADER' 
-# FUNCTION NAME: 'BUILD_F9_P00_T00_HEADER'
-
-tables <- gsub( "-", "_", tables )
-tables <- paste0( "BUILD_", tables )
-
-
-for( i in years )
-{
-  dir.create( as.character(i) )
-  setwd( as.character(i) )                               # creates folders for each year
-  index.i <- dplyr::filter( index, TaxYear == i )        # create index for one year 
-  groups <- split_index( index.i, group.size = 100 )     # parser builds temporary tables then combines them at the end
-  build_tables_parallel( 
-    groups=groups, year=i, table.names=tables )          # processing many small groups keep memory usage low
-  setwd( ".." ) # return to main directory 
-}
-
-bind_data( years )    # compile all temp tables into one table
+build_database( index=NULL, years=NULL, group.size=200 )
 ```
 
-## Details
+1. If no index is provided (=NULL), download the most recent version from the Data Commons.
+2. Limit the build to the specified years and only include 990 and 990EZ return types.
+3. Activate logging via BUILD-LOG.txt.
+4. Split the index into batches using the **group.size** argument (more RAM allows for larger groups, which minimizes the number of read/write steps).
+5. Build all tables for each batch and write them to temporary CSV files.
+6. Once all batches are complete, compile the temporary files into a one table for year for each table.
+7. Log all of the anomolies and save a history file from the session.
 
-The full set of tables is available in the [**DATA DICTIONARY**](https://nonprofit-open-data-collective.github.io/irs990efile/data-dictionary/data-dictionary.html).
-
-**Background**
-
-The IRS started processing electronic filings for nonprofit 990 tax forms in 2010 and releasing [990 efile returns via AWS](https://registry.opendata.aws/irs990/) in 2016. For more details on the history and current status of nonprofit efiling see this [recent report](www/pubs/Stories-from-the-Frontier-April-2022.pdf). 
-
-All electronic tax returns have been released as XML documents currently stored in an AWS bucket (though soon migrating to the IRS website). 
-
-XML forms can be rendered using an [efile viewer](https://github.com/betson/irs-efile-viewer) so that they look the same as a PDF of a regular 990 filing (you can [see examples](https://projects.propublica.org/nonprofits/organizations/237315236) on ProPublica's Nonprofit Explorer). They are NOT, however, in a convenient format for statistical analysis.
-
-The **irs990efile** package was created to convert XML files into a relational database: normal rectangular data tables linked by a set of keys. 
-
-**RDB Key Fiels:**
-
-All of the files share the following meta-fields: 
-
-* OBJECTID  
-* URL                         
-* ORG_EIN  
-* ORG_NAME_L1                 
-* ORG_NAME_L2  
-* RETURN_TYPE  
-* RETURN_VERSION               
-* TAX_YEAR
-
-Intuitively we would expect that the EIN-TAX_YEAR combination could serve as a unique key for table joins. That is not the case because the same nonprofit can file multiple 990 returns in a single year due to (1) ammendments, (2) group filings where the parent organization files a single 990 for themselves and another group filing for all of the related entities, (3) a change in fiscal year results in a partial return. 
-
-In theory the ObjectID should work as the join key but it is error prone because of a well-known precision loss problem that occurs when reading or recasting large numbers. 
+If we walk through these steps manually it would look something like: 
 
 ```r
-options( scipen=16)
-x <- c(  "202301529349200315", 
-         "202301529349200316", 
-         "202301529349200317"   )
-y <- x |> as.numeric()
-cbind(x,y) |> knitr::kable()
+TABLES <- get_table_names()           # list tables defined in the concordance
+FX.NAMES <- get_fx_names( TABLES )    # return the corresponding build functions
 
-|x                  |y                  |
-|:------------------|:------------------|
-|202301529349200315 |202301529349200320 |
-|202301529349200316 |202301529349200320 |
-|202301529349200317 |202301529349200320 |
+YEAR <- 2020
+index2020 <- dplyr::filter( tinyindex, TaxYear == YEAR )  # built in index file for testing
+index100 <- dplyr::sample_n( index2020 )
+url <- index100$URL[1]
+
+### CUSTOM TABLE SELECTION
+
+TABLES <- c( "F9-P00-T00-HEADER",
+             "F9-P03-T00-PROGRAM-ONE",
+             "F9-P03-T00-PROGRAM-TWO",
+             "F9-P03-T00-PROGRAM-THREE",
+             "F9-P03-T01-PROGRAMS-OTHER" )
+
+get_fx_names( TABLES )
+ 
+### PARSE DATA FOR ONE NONPROFIT
+
+one.npo <- parse_npo( url, FX.NAMES, logXP=F )        # returns a list containing all tables as data frames
+
+### PARSE DATA FOR A LIST OF NONPROFITS
+
+URLS      <- index100$URL
+TIMESTAMP <- format(Sys.time(), "%b-%d-%Y-%Hh-%Mm")
+
+all.npos <- purrr::map( URLS, parse_npo, FX.NAMES )   # parse tables for all orgs in URLS
+df.expenses <-
+  "BUILD_F9_P09_T00_EXPENSES" %>%                     # compile table F9-P09-T00-EXPENSES from the list
+  get_fxdf( all.npos, TIMESTAMP, YEAR )               # and save a CSV to file with TABLE NAME + TIMESTAMP (unique batch)
+
+### ALL TABLES TOGETHER
+
+build_tables( urls=URLS, year=YEAR )                  # write all to CSV, returns failed URLS if any
 ```
 
-As a result the ObjectId may get corrupted unexpectedly and the joins are no longer valid. The problem is specific to columns that contain only numbers, as many functions that read CSV formats or other file types that lack explicit data types will automatically cast them as numeric variable types, at which time the precision loss occurs during the conversion. You can assert more control over the default behavior of some functions: 
+These functions are useful for testing purposes, but once you surpass a minimal batch size (the number of returns processed together) you will eventually run out of RAM. Large samples need to be split into smaller parts so collection can be serialized. Each batch is saved as a set of CSV files (one for each table), and once finished the batched CSV files are compiled. 
 
 ```r
-d <- read.csv( filename, colClasses = "character" )
-d <- readr::read_csv( filename, col_types = cols(.default = col_character()) )
-d <- data.table::fread( filename, colClasses=c( "ObjectId"="character" ) )
+### SPLIT INDEX INTO BATCHES
+
+YEAR <- 2020
+create_batchfiles( index100, years=YEAR, group.size=20 )   # creates "2020/BATCHFILE.RDS"
+
+get_batch_ids( 2020 )                                      # group_id {batch_size}
+
+# "G1{20}"   "G2{20}"  "G3{20}"
+# "G4{20}"   "G5{20}"
+
+### ACCESS THE BATCHFILE
+
+bf <- get_batchfile( 2020 )
+
+URLS.01 <- bf[[ "G1" ]]   # BATCH 01
+build_tables( urls=URLS.01, year=2021, fx.names=FX.NAMES  )
+
+URLS.02 <- bf[[ "G2" ]]   # BATCH 02
+build_tables( urls=URLS.02, year=2021, fx.names=FX.NAMES  )
+
+### ALL BATCHES IN PARALLEL
+
+BIDS <- get_batch_ids( 2020 )
+build_tables_parallel( batch.ids=BIDS, year=2020, fx.names=FX.NAMES )
 ```
 
-Alternatively, the URL field includes characters so it is by default loaded as a character vector. Note that the URL contains the original ObjectId: 
+Again, these steps are all wrapped into a single workflow function. This one line would be equivalent to the steps covered above: 
 
 ```r
-x <- head(d$ObjectId, 3 )
-y <- head(d$URL, 3 )
-cbind(x,y) |> knitr::kable()
-
-|x                  |y                                                                                               |
-|:------------------|:-----------------------------------------------------------------------------------------------|
-|202301529349200315 |https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202301529349200315_public.xml |
-|201921359349311872 |https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/201921359349311872_public.xml |
-|201410859349300511 |https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/201410859349300511_public.xml |
+build_database( index100, years=2020, batch.size=20 )
 ```
 
-You will find it to be a safe and reliable key for table joins. 
+Since large builds can take a long time (several days without a large processor) they may get interrupted when a computer shuts down or freezes. The BATCHFILES keep track of which batches are complete and which are remaining, so you can restart a process at any time by navigating back to the project directory (the folder where BUILD-LOG.txt is stored) and resume data collection: 
 
-
-**Legacy XML Files from the Original IRS S3 Bucket:**
-
-All of the XML efile returns have been archived on the Data Commons. 
-
-If you need to access the original legacy IRS S3 bucket (previously at https://www.irs.gov/charities-non-profits/form-990-series-downloads) for reproducibility purposes, it is available at: https://nccs-efile.s3.us-east-1.amazonaws.com/xml/
-
-The Index files are available at: 
-
-```
-https://nccs-efile.s3.us-east-1.amazonaws.com/index/index-PX.csv  # 990 and 999EZ returns
-https://nccs-efile.s3.us-east-1.amazonaws.com/index/index-PF.csv  # 990PF returns 
+```r
+resume_build_database()
 ```
 
-The URLs can be constructed with the object ID and will thus look like: https://nccs-efile.s3.us-east-1.amazonaws.com/xml/201020793492001120_public.xml
+## Package Updates
 
+Any time the concordance file is updated it can impact the package. As a result, the build functions need to be updated. 
+
+```r
+create_code_chunk( "F9-P03-T00-PROGRAM-ONE" )        # updates BUILD_F9_P03_T00_PROGRAM_ONE()
+create_code_chunk_rdb( "F9-P07-T01-COMPENSATION" )   # updates BUILD_F9_P07_T01_COMPENSATION()
+```
+
+Or all together: 
+
+```r
+build_all_chunks()    # update functions in /R
+update_tinyindex()    # update objects in /data
+update_concordance()  # update objects in /data
+update_xpaths()       # update objects in /data
+```
 
 
 
