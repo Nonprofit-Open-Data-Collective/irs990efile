@@ -76,6 +76,8 @@ build_index <- function( tax.years=NULL )
      "ObjectId","ReturnTs","BuildTs","DocStatus", 
      "FileSizeBytes","FileSha256","ZipFile")
    index <- index[ new.order ]
+   
+   cat( table( index$TaxYear ) |> knitr::kable(), sep="\n" )
 
    return( index )
 }

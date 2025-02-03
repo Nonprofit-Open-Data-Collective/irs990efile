@@ -498,7 +498,7 @@ bind_data <- function(years)
     url.errors <- unlist( DFE )
     if( length(url.errors) > 0 )
     { 
-      fileConnURLs <- "FAILED-URLS.txt"
+      fileConnURLs <- file( "FAILED-URLS.txt"  )
       writeLines( url.errors, fileConnURLs )
       close( fileConnURLs )
     }

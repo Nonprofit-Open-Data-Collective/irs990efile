@@ -143,6 +143,7 @@ get_current_index_full <- function( TIMEOUT=600 ) {
   url <- find_current_index_full()
   options(timeout = TIMEOUT)
   dt <- data.table::fread(url)
+  cat( table( dt$TaxYear ) |> knitr::kable(), sep="\n" )
   return(dt)
 }
 
@@ -160,6 +161,7 @@ get_current_index_batch <- function( TIMEOUT=600 ) {
   url <- find_current_index_batch()
   options(timeout = TIMEOUT)
   dt <- data.table::fread(url)
+  cat( dt( index$TaxYear ) |> knitr::kable(), sep="\n" )
   return(dt)
 }
 

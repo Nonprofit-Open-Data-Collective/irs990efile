@@ -366,7 +366,7 @@ test_build <- function( path="." ) {
 
   setwd( path )
 
-  wd <- paste(sample(LETTERS, 5), collapse = "")
+  wd <- paste0("PGKTEST-", format(Sys.time(), "%I-%M-%p"))
   dir.create( wd )
   setwd( wd )
 
