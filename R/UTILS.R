@@ -266,11 +266,11 @@ log_collapsed_record <- function( varname, ein=ORG_EIN, year=TAX_YEAR, url=URL )
 #'  urls, or corrupted XML structure will result in an XML file failing to load.
 #'
 #' @export
-log_fails <- function( urls ){
+log_fails <- function( URL ){
   file.name <- paste0("FAILED-URLS.txt")
   if (!file.exists(file.name)){ file.create(file.name) }
   fileConnF <- file(file.name, open = "a")
-  writeLines( paste0(url), con = fileConnF, sep = "\n")
+  writeLines( paste0(URL), con = fileConnF, sep = "\n")
   close(fileConnF)
 }
 
@@ -395,3 +395,47 @@ test_build <- function( path="." ) {
   build_database( index=index100, batch.size=10 )
   
 }
+
+
+#' @title Update xpaths Data Object 
+#' @description A package maintainance function that updates the xpaths 
+#'   object used for logging missing xpaths using the usethis package.   
+#' @examples
+#' update_xpaths()  # run inside main package folder
+#' @export
+update_xpaths <- function() {
+  cc <- irs990efiler::get_concordance()
+  xpaths <- cc[["xpath"]]
+  usethis::use_data( xpaths, overwrite=TRUE )
+}
+
+#' @title Update concordance Data Object 
+#' @description A package maintainance function that updates the concordance 
+#'   data object data(concordance) that is used when the github version can't be retrieved.   
+#' @examples
+#' update_concordance()  # run inside main package folder
+#' @export
+update_concordance <- function() {
+  concordance <- irs990efiler::get_concordance()
+  usethis::use_data( concordance, overwrite=TRUE )
+}
+
+#' @title Update tinyindex Data Object 
+#' @description A package maintainance function that updates the tinyindex
+#'   data index that is used for testing and development. A fresh index is
+#'   downloaded from the Data Commons and a new sample saved with usethis::use_data(). 
+#' @examples
+#' update_tinyindex()  # run inside main package folder
+#' @export
+update_tinyindex <- function() {
+  index <- get_current_index_full()
+  index <- dplyr::filter( index, FormType %in% c("990","990EZ","990PF") )
+  tinyindex <- dplyr::sample_n( index, 10000 )
+  # ADD BROKEN URLS FOR TESTING
+  base.url <- "https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/"
+  broken.urls <- paste0( base.url, "brokenURL", 1:100, ".xml" )
+  tinyindex$URL[ sample(1:10000,100) ] <- broken.urls
+  # UPDATE PACKAGE VERSION
+  usethis::use_data( tinyindex, overwrite=TRUE )
+}
+

@@ -14,14 +14,17 @@
 #' @examples
 #' groups <- split_index(index, group.size = 1000)
 #' @export
-split_index <- function( year, index, group.size = 1000) {
+split_index <- function( year, index, group.size = 25) {
   index <- prep_index( years=year, index )
   urls <- index[["URL"]]
   f <- ((1:length(urls)) + group.size - 1) %/% group.size
+  max.char <- max( nchar(f) )
+  f <- stringr::str_pad( f, width=max.char, side="left", pad="0" )
   f <- paste0("G", f)
   f.names <- unique(f)
   f <- factor(f, levels = f.names )
   url.list <- split(urls, f)
+  url.list[["COMPLETE"]] <- character()
   dir.create( as.character(year), showWarnings=F )
   saveRDS( url.list, paste0(year,"/BATCHFILE.RDS") )
   return(invisible(url.list))
@@ -44,7 +47,24 @@ create_batchfiles <- function( index, years, group.size ){
   purrr::walk( years, split_index, index=index, group.size=group.size )
 }
 
-#' Create Batch Labels from a BATCHFILE
+#' @title Retrieve a Batchfile for a Given Year
+#' @description Load a batchfile (URLs split into groups) generated from create_batchfiles(). 
+#' @param year Specifies which batchfile to retrieve.
+#' @return batchfile data frame.
+#' @examples
+#' create_batchfiles( tinyindex, years=2020, group.size=100 )
+#' bf <- get_batchfile( 2020 )
+#' names( bf )  # group IDs
+#' @export
+get_batchfile <- function( year ){
+  if( ! file.exists(paste0(year,"/BATCHFILE.RDS")) ){  
+    print( "NO BATCHFILE EXISTS" )
+    return(NULL) }
+  bf <- readRDS(paste0(year,"/BATCHFILE.RDS"))
+  return(bf)
+}
+
+#' Get Batch Labels from a BATCHFILE
 #'
 #' Batch ids contain the batch name + size (number of URLs in the batch)  
 #'   using the format NAME{SIZE} (g1{100}, g2{100}, etc.). 
@@ -61,6 +81,7 @@ get_batch_ids <- function( path="." ){
     print( "NO BATCHFILE EXISTS" )
     return(NULL) }
   batch.list <- readRDS(paste0(path,"/BATCHFILE.RDS"))
+  batch.list[["COMPLETE"]] <- NULL
   v1  <- names( batch.list )
   if( length(v1) == 0 ){ return(NULL) }
   v2  <- sapply( batch.list, length )
@@ -123,6 +144,28 @@ get_batch_names <- function( batch.ids ){
 #' @export
 remove_batch <- function(x){
   L <- readRDS("BATCHFILE.RDS")
+  xx <- c( L[["COMPLETE"]], x ) 
+  L[["COMPLETE"]] <- xx
+  if( length(xx) %% 10 == 0 )
+  { 
+    # Define a temporary file to capture output
+    build_log <- file("../BUILD-LOG.txt", open = "at" )
+    # Redirect output to log file
+    sink( build_log, split = TRUE ) 
+    sink( build_log, append = TRUE, type = "output")
+    # Print progress 
+    batch.seq <- paste0( xx, collapse=" "  )
+    timestamp <- format(Sys.time(), "%X -- %b %d %Y") 
+    timestamp <- stringr::str_pad( timestamp, width=26, side="left", pad=" " )
+    timestamp <- paste0( "  >> ", timestamp, " -- " )
+    msg <- paste0( timestamp, "COMPLETED ", batch.seq, "\n" )
+    cat( msg, sep="" )
+    flush.console()
+    sink(type = "output")   # Restore standard output next 
+    sink()                  # Closes split
+    close(build_log)        # Close file connection 
+    L[["COMPLETE"]] <- character()
+  }
   L[[x]] <- NULL
   saveRDS( L, "BATCHFILE.RDS" )
 }
@@ -250,7 +293,7 @@ build_database <- function(index=NULL, years=NULL, batch.size=1000) {
     cat(paste0("\n###########################\n"))
     cat(paste0("###########################\n\n"))
     
-    print(showConnections(all = TRUE))  # Check open connections before running functions
+    # print(showConnections(all = TRUE))  # Check open connections before running functions
     
     for (i in years) 
     {
@@ -258,7 +301,7 @@ build_database <- function(index=NULL, years=NULL, batch.size=1000) {
         flush.console()
     }
     
-    print(showConnections(all = TRUE))  # Check open connections after execution
+    # print(showConnections(all = TRUE))  # Check open connections after execution
 
     cat(paste0("COMPILING FILES\n\n"))
     cat(paste0("###########################\n"))
@@ -419,16 +462,23 @@ bind_data <- function(years)
     
     DFX <- list()  # missing xpaths
     DFR <- list()  # collapsed records
+    DFE <- list()  # url errors
     
     for( k in years )
     {
         setwd( k )
         DFX[[k]] <- get_missing_xpath_df()
 
-        fn.k <- paste0( "COLLAPSED-RECORDS-", k, ".txt" )
+        dfr.k <- paste0( "COLLAPSED-RECORDS-", k, ".txt" )
         if( file.exists(fn.k) ){
-          DFR[[k]] <- readLines( fn.k )
+          DFR[[k]] <- readLines( dfr.k )
         }
+        
+        dfe.k <- "FAILED-URLS.txt"
+        if( file.exists(dfe.k) ){
+          DFE[[k]] <- readLines( dfe.k )
+        }
+        
         setwd("..")
     }
         
@@ -445,6 +495,13 @@ bind_data <- function(years)
       close( fileConn )
     }
 
+    url.errors <- unlist( DFE )
+    if( length(url.errors) > 0 )
+    { 
+      fileConnURLs <- "FAILED-URLS.txt"
+      writeLines( url.errors, fileConnURLs )
+      close( fileConn )
+    }
 }
 
 

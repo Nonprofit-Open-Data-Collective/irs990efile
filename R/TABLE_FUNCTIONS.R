@@ -77,6 +77,7 @@ get_fxdf <- function(fx.name, all.npos, time, year) {
   df <- dplyr::bind_rows(df.list)
   if( nrow(df) > 0 )
   { data.table::fwrite(df, file = paste0(year, "-", t.name, "-", time, ".csv")) }
+  return(invisible(df))
 }
 
 
@@ -93,22 +94,17 @@ get_fxdf <- function(fx.name, all.npos, time, year) {
 #' @export
 parse_npo <- function( url, fx.names, logXP=TRUE ) {
 
-  doc <- tryCatch(
-    xml2::read_xml(url),
-    error = function(e) {
-      log_fails(url)  # Log failure
-      return(NULL)
-    }
-  )
+  doc <- NULL 
+  
+  try( doc <- xml2::read_xml(url) )
 
   if (is.null(doc)) {
     return(list(FAIL = url))
   }
 
   xml2::xml_ns_strip(doc)
-  TABLE.HEADERS <- get_table_headers() # Creates env var through superassignment
+  TABLE.HEADERS <- get_table_headers() 
 
-  fx.names <- c( fx.names, "BUILD_SCHEDULE_TABLE" )  # bst not in cc
   one.npo <- sapply( fx.names, do.call, list(doc, url) )
 
   if (logXP) {
@@ -137,12 +133,20 @@ parse_npo <- function( url, fx.names, logXP=TRUE ) {
 #' failed_urls <- build_tables(urls, year = 2023)
 #' @export
 build_tables <- function(urls, year, fx.names = NULL) {
+
+  # LOAD ALL FX NAMES IF NONE PROVIDED
   if (is.null(fx.names)) { fx.names <- get_fx_names() }
+  
+  # BUILD TABLES FOR ALL FUNCTIONS 
   all.npos <- purrr::map( urls, parse_npo, fx.names )
+  
+  # SAVE BATCHED TABLES TO FILE
   time <- format(Sys.time(), "%b-%d-%Y-%Hh-%Mm")
   rand <- paste(sample(LETTERS, 5), collapse = "")
   time <- paste0("time-", time, "-", rand)
   purrr::walk(fx.names, get_fxdf, all.npos, time, year)
+  
+  # FIND ALL FAILED URLS
   failed.urls <- lapply(all.npos, '[[', "FAIL") |> unlist()
   print(paste("There are", length(failed.urls), "failed XML URLs to re-try."))
   return(failed.urls)
@@ -165,32 +169,6 @@ parsapply_tables <- function( batch.id ){
   batch.urls <- L[[ group.name ]] 
   
   failed.urls <- build_tables(batch.urls, fx.names = fx.names, year = year) 
-  
-  # Print completion message
-
-  on.exit({
-    sink(type = "message")  # Restore message output first
-    sink(type = "output")   # Restore standard output next
-    close(build_log)        # Close file connection 
-  }, add = TRUE ) 
-  
-  # Define a temporary file to capture output
-  build_log <- file("../BUILD-LOG.txt", open = "at" )
-
-  # Redirect output to log file
-  sink( build_log, append = TRUE, type = "output")
-  sink( build_log, append = TRUE, type = "message")
-  
-  r.expr <- "G([0-9]+)\\{[0-9]+\\}"
-  batch.n <- stringr::str_match( batch.id, r.expr )[, 2] |> as.numeric()
-  if( batch.n %% 10 == 0 )
-  { 
-    batch.seq <- paste0( "{G", (batch.n - 9):batch.n, "}", collapse=" "  )
-    timestamp <- format(Sys.time(), "  >> %X -- %b %d %Y -- ")
-    msg <- paste0( timestamp, "COMPLETED ", batch.seq, "\n" )
-    cat( msg, sep="" )
-    flush.console()
-  }
   
   remove_batch( group.name )
   return( failed.urls )
@@ -225,14 +203,42 @@ build_tables_parallel <- function( batch.ids, year, fx.names = NULL) {
   })
   
   # Run in parallel with error handling
-  results <- tryCatch(
-    {
-      parallel::parSapply( cl, X = batch.ids, FUN = parsapply_tables )
-    },
-    error = function(e) {
-      message("Error in parallel processing: ", e$message)
-      NULL
-    }
+  # results <- tryCatch(
+  #   {
+  #     parallel::parSapply( cl, X = batch.ids, FUN = parsapply_tables )
+  #   },
+  #   error = function(e) {
+  #     message("Error in parallel processing: ", e$message)
+  #     NULL
+  #   }
+  # )
+  
+   # Run in parallel with enhanced error handling
+    results <- tryCatch(
+      {
+        parallel::parSapply(cl, X = batch.ids, FUN = function(batch.id) {
+          tryCatch(
+            parsapply_tables(batch.id),
+            error = function(e) {
+              # Capture details about the error
+              message(sprintf("Error in batch.id: %s, year: %s", batch.id, year))
+              
+              # Log error in a file
+              log_file <- "../ERROR-LOG.txt"
+              error_msg <- sprintf("[%s] Error in batch.id: %s, year: %s - %s\n",
+                                   format(Sys.time(), "%Y-%m-%d %H:%M:%S"),
+                                   batch.id, year, e$message)
+              cat(error_msg, file = log_file, append = TRUE)
+              
+              return(NULL)  # Return NULL to avoid breaking execution
+            }
+          )
+        })
+      },
+      error = function(e) {
+        message("Critical error in parallel processing: ", e$message)
+        NULL
+      }
   )
   
   failed.urls <- if (!is.null(results)) unlist(results) else character()
