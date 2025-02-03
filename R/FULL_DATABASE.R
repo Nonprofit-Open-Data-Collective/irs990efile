@@ -470,7 +470,7 @@ bind_data <- function(years)
         DFX[[k]] <- get_missing_xpath_df()
 
         dfr.k <- paste0( "COLLAPSED-RECORDS-", k, ".txt" )
-        if( file.exists(fn.k) ){
+        if( file.exists(dfr.k) ){
           DFR[[k]] <- readLines( dfr.k )
         }
         
