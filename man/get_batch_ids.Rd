@@ -4,7 +4,7 @@
 \alias{get_batch_ids}
 \title{Get Batch Labels from a BATCHFILE}
 \usage{
-get_batch_ids(path = ".")
+get_batch_ids(batch.list = NULL, path = ".")
 }
 \arguments{
 \item{path}{The location of the BATCHFILE, defaults to the current directory.}

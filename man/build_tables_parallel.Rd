@@ -4,7 +4,7 @@
 \alias{build_tables_parallel}
 \title{Parallel Build of Tables}
 \usage{
-build_tables_parallel(batch.ids, year, fx.names = NULL)
+build_tables_parallel(batch.list, year, fx.names = NULL)
 }
 \arguments{
 \item{year}{The tax year associated with the data.}

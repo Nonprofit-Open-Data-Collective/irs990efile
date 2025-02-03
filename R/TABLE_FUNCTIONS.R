@@ -149,7 +149,7 @@ build_tables <- function(urls, year, fx.names = NULL) {
   
   # FIND ALL FAILED URLS
   failed.urls <- lapply(all.npos, '[[', "FAIL") |> unlist()
-  print(paste("There are", length(failed.urls), "failed XML URLs to re-try."))
+  # print(paste("There are", length(failed.urls), "failed XML URLs to re-try."))
   return(failed.urls)
 }
 
@@ -162,17 +162,17 @@ parsapply_tables <- function( batch.id ){
 
   require( irs990efile ) 
   
-  ##  'fx.names' and 'year'
+  ##  'fx.names', 'year', and 'batch.list'
   ##  passed through clusterExport()
   
   group.name <- get_batch_names( batch.id )
-  L <- readRDS("BATCHFILE.RDS")
-  batch.urls <- L[[ group.name ]] 
+  # L <- readRDS("BATCHFILE.RDS")
+  batch.urls <- batch.list[[ group.name ]] 
   
   failed.urls <- build_tables(batch.urls, fx.names = fx.names, year = year) 
   
-  remove_batch( group.name )
-  return( failed.urls )
+  # remove_batch( group.name )
+  return( batch.id )
 }
 
 #' @title Parallel Build of Tables
@@ -184,7 +184,7 @@ parsapply_tables <- function( batch.id ){
 #' @examples
 #' failed_urls <- build_tables_parallel(groups, year = 2023)
 #' @export
-build_tables_parallel <- function( batch.ids, year, fx.names = NULL) {
+build_tables_parallel <- function( batch.list, year, fx.names = NULL) {
   
   if (is.null(fx.names)) {fx.names <- get_fx_names()}
 
@@ -195,27 +195,43 @@ build_tables_parallel <- function( batch.ids, year, fx.names = NULL) {
   # Ensure cluster stops on exit, even if there's an error
   on.exit( parallel::stopCluster(cl), add = TRUE )
   
-  parallel::clusterExport(cl, varlist = c( "year", "fx.names"), envir = environment())
+  parallel::clusterExport(cl, varlist = c( "year", "fx.names", "batch.list"), envir = environment())
   
   # Force messages to print in real time
   parallel::clusterEvalQ(cl, {
     options(warn = 1)  # Ensures warnings and messages are printed immediately
     NULL
   })
+
+  batch.ids <- get_batch_ids( batch.list )
   
-  # Run in parallel with error handling
-  # results <- tryCatch(
-  #   {
-  #     parallel::parSapply( cl, X = batch.ids, FUN = parsapply_tables )
-  #   },
-  #   error = function(e) {
-  #     message("Error in parallel processing: ", e$message)
-  #     NULL
-  #   }
-  # )
+  f <- ((1:length(batch.ids)) + num.cores - 1) %/% num.cores 
+  max.char <- max( nchar(f) )
+  f <- stringr::str_pad( f, width=max.char, side="left", pad="0" )
+  f <- paste0("TRANCH", f)
+  f.names <- unique(f)
+  f <- factor(f, levels = f.names )
+  batch.list <- split(batch.ids, f)
   
+  completed.tasks <- lapply( batch.list, send_batch, cl )
+  
+  failed.urls <- character()
+ 
+  if( file.exists("FAILED-URLS.txt") ){
+    failed.urls <- readLines( "FAILED-URLS.txt" ) 
+  }
+        
+  return(failed.urls)
+}
+
+
+#' @title Error handling and messaging for parsupply_tables
+#' @description Pass a group of batch IDs to parallel sapply table function.  
+#' @details Logging and resource management for a subgroup of batches to prevent BATCHFILE read write conflicts. 
+#' @export
+send_batch <- function(batch.ids, cl ){
    # Run in parallel with enhanced error handling
-    results <- tryCatch(
+    completed.batches <- tryCatch(
       {
         parallel::parSapply(cl, X = batch.ids, FUN = function(batch.id) {
           tryCatch(
@@ -242,6 +258,29 @@ build_tables_parallel <- function( batch.ids, year, fx.names = NULL) {
       }
   )
   
-  failed.urls <- if (!is.null(results)) unlist(results) else character()
-  return(failed.urls)
+  if( length( completed.batches > 0 ) )
+  {
+    purrr::walk( completed.batches, remove_batch )
+
+    # Redirect output to log file
+    build_log <- file("../BUILD-LOG.txt", open = "at" )
+    sink( build_log, split = TRUE ) 
+    sink( build_log, append = TRUE, type = "message")
+    # Print progress 
+    batch.seq <- paste0( completed.batches, collapse=" "  )
+    timestamp <- format(Sys.time(), "%X -- %b %d %Y") 
+    timestamp <- stringr::str_pad( timestamp, width=26, side="left", pad=" " )
+    timestamp <- paste0( "  >> ", timestamp, " -- " )
+    msg <- paste0( timestamp, "COMPLETED ", batch.seq, "\n" )
+    cat( msg, sep="" )
+    flush.console()
+    sink(type = "message")   # Restore standard output next 
+    sink()                  # Closes split
+    close(build_log)        # Close file connection
+  }
+  
+  return(completed.batches)
 }
+
+
+ 

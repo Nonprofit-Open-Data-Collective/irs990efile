@@ -76,11 +76,13 @@ get_batchfile <- function( year ){
 #' create_batchfiles( tinyindex, years=2020:2022, group.size=100 )
 #' get_batch_ids( path=2021 )
 #' @export
-get_batch_ids <- function( path="." ){
-  if( ! file.exists(paste0(path,"/BATCHFILE.RDS")) ){  
-    print( "NO BATCHFILE EXISTS" )
-    return(NULL) }
-  batch.list <- readRDS(paste0(path,"/BATCHFILE.RDS"))
+get_batch_ids <- function( batch.list=NULL, path="." ){
+  if( is.null(batch.list) ){
+    if( ! file.exists(paste0(path,"/BATCHFILE.RDS")) ){  
+      print( "NO BATCHFILE EXISTS" )
+      return(NULL) }
+    batch.list <- readRDS(paste0(path,"/BATCHFILE.RDS"))
+  }
   batch.list[["COMPLETE"]] <- NULL
   v1  <- names( batch.list )
   if( length(v1) == 0 ){ return(NULL) }
@@ -144,28 +146,6 @@ get_batch_names <- function( batch.ids ){
 #' @export
 remove_batch <- function(x){
   L <- readRDS("BATCHFILE.RDS")
-  xx <- c( L[["COMPLETE"]], x ) 
-  L[["COMPLETE"]] <- xx
-  if( length(xx) %% 10 == 0 )
-  { 
-    # Define a temporary file to capture output
-    build_log <- file("../BUILD-LOG.txt", open = "at" )
-    # Redirect output to log file
-    sink( build_log, split = TRUE ) 
-    sink( build_log, append = TRUE, type = "output")
-    # Print progress 
-    batch.seq <- paste0( xx, collapse=" "  )
-    timestamp <- format(Sys.time(), "%X -- %b %d %Y") 
-    timestamp <- stringr::str_pad( timestamp, width=26, side="left", pad=" " )
-    timestamp <- paste0( "  >> ", timestamp, " -- " )
-    msg <- paste0( timestamp, "COMPLETED ", batch.seq, "\n" )
-    cat( msg, sep="" )
-    flush.console()
-    sink(type = "output")   # Restore standard output next 
-    sink()                  # Closes split
-    close(build_log)        # Close file connection 
-    L[["COMPLETE"]] <- character()
-  }
   L[[x]] <- NULL
   saveRDS( L, "BATCHFILE.RDS" )
 }
@@ -219,16 +199,19 @@ build_one_year <- function( year, index=NULL ){
   setwd( as.character(year) )
   on.exit( setwd("..") )  # return to main folder on exit
   
-  batch.ids <- get_batch_ids()
-  n.urls <- get_batch_counts( batch.ids ) |> sum()
+  # batch.ids <- get_batch_ids()
+  # n.urls <- get_batch_counts( batch.ids ) |> sum()
+  batch.list <- get_batchfile( year="." )
+  batch.list[["COMPLETE"]] <- NULL
+  n.urls <- batch.list |> unlist() |> length()
   
   start.time <- Sys.time()
   cat(paste0("STARTING YEAR ", year, "\n"))
   cat(paste0("There are ", n.urls, " returns in ", year, ".\n"))
   if( n.urls < 1 ){ return(NULL) }
-  cat(paste0("There are ", length(batch.ids), " groups being sent for parallel collection.\n\n"))
+  cat(paste0("There are ", length(batch.list), " groups being sent for parallel collection.\n\n"))
   
-  failed.urls <- build_tables_parallel( batch.ids = batch.ids, year = year )
+  failed.urls <- build_tables_parallel( batch.list = batch.list, year = year )
   
   end.time <- Sys.time()
   total.mins <- difftime( end.time, start.time, units = "mins" ) |> round(2)
@@ -357,8 +340,8 @@ resume_build_database <- function( years=NULL, index=NULL ) {
       file.show("BUILD-LOG.txt")  # View the logs
     })
     
-    cat(paste0("#--------------------------------#\n"))
-    cat(paste0("\n\nRESUMING DATABASE BUILD"))
+    cat(paste0("\n#--------------------------------#\n"))
+    cat(paste0("\n\nRESUMING DATABASE BUILD\n"))
     cat(paste0("###########################\n"))
     cat(paste0("###########################\n\n"))
     
