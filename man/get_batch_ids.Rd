@@ -2,7 +2,7 @@
 % Please edit documentation in R/FULL_DATABASE.R
 \name{get_batch_ids}
 \alias{get_batch_ids}
-\title{Create Batch Labels from a BATCHFILE}
+\title{Get Batch Labels from a BATCHFILE}
 \usage{
 get_batch_ids(path = ".")
 }

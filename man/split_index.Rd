@@ -4,7 +4,7 @@
 \alias{split_index}
 \title{Split Index into Groups}
 \usage{
-split_index(year, index, group.size = 1000)
+split_index(year, index, group.size = 25)
 }
 \arguments{
 \item{index}{A data frame containing a column \code{URL} with URLs to be split.}
