@@ -99,6 +99,7 @@ parse_npo <- function( url, fx.names, logXP=TRUE ) {
   try( doc <- xml2::read_xml(url) )
 
   if (is.null(doc)) {
+    log_failed_url( url )
     return(list(FAIL = url))
   }
 

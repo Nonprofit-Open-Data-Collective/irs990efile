@@ -266,7 +266,7 @@ log_collapsed_record <- function( varname, ein=ORG_EIN, year=TAX_YEAR, url=URL )
 #'  urls, or corrupted XML structure will result in an XML file failing to load.
 #'
 #' @export
-log_fails <- function( URL ){
+log_failed_url <- function( URL ){
   file.name <- paste0("FAILED-URLS.txt")
   if (!file.exists(file.name)){ file.create(file.name) }
   fileConnF <- file(file.name, open = "a")
