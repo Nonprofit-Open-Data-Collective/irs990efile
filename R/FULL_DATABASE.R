@@ -490,9 +490,9 @@ bind_data <- function(years)
     recs <- unlist( DFR )
     if( length(recs) > 0 )
     { 
-      fileConn <- file( "FIX/COLLAPSED-RECORDS-ALL-YEARS.txt" )
-      writeLines( recs, fileConn )
-      close( fileConn )
+      fileConnRecs <- file( "FIX/COLLAPSED-RECORDS-ALL-YEARS.txt" )
+      writeLines( recs, fileConnRecs )
+      close( fileConnRecs )
     }
 
     url.errors <- unlist( DFE )
@@ -500,7 +500,7 @@ bind_data <- function(years)
     { 
       fileConnURLs <- "FAILED-URLS.txt"
       writeLines( url.errors, fileConnURLs )
-      close( fileConn )
+      close( fileConnURLs )
     }
 }
 
