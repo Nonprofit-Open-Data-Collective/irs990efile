@@ -264,7 +264,7 @@ send_batch <- function(batch.ids, cl ){
 
     # Redirect output to log file
     build_log <- file("../BUILD-LOG.txt", open = "at" )
-    sink( build_log, split = TRUE ) 
+    # sink( build_log, split = TRUE ) 
     sink( build_log, append = TRUE, type = "message")
     # Print progress 
     batch.seq <- paste0( completed.batches, collapse=" "  )
@@ -275,7 +275,7 @@ send_batch <- function(batch.ids, cl ){
     cat( msg, sep="" )
     flush.console()
     sink(type = "message")   # Restore standard output next 
-    sink()                  # Closes split
+    # sink()                  # Closes split
     close(build_log)        # Close file connection
   }
   

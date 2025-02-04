@@ -218,8 +218,8 @@ build_one_year <- function( year, index=NULL ){
   
   cat(paste0("\nThere were ", length(failed.urls), " failed URLS\n"))
   cat(paste0("Time for the ", year, " loop: ", total.mins, " minutes\n\n"))
-  cat(paste0("###########################\n"))
-  cat(paste0("###########################\n\n"))
+  cat(paste0("\n###########################\n"))
+  cat(paste0("###########################\n\n\n"))
 
 }
 
@@ -273,8 +273,8 @@ build_database <- function(index=NULL, years=NULL, batch.size=1000) {
     cat(paste0("Years: ", paste0(years, collapse = ";"),"\n"))
     cat(paste0("There are ", nrow(index), " returns in this build.\n\n"))
     cat( table( index$TaxYear ) |> knitr::kable(), sep="\n" )
-    cat(paste0("\n###########################\n"))
-    cat(paste0("###########################\n\n"))
+    cat(paste0("\n\n###########################\n"))
+    cat(paste0("###########################\n\n\n"))
     
     # print(showConnections(all = TRUE))  # Check open connections before running functions
     
