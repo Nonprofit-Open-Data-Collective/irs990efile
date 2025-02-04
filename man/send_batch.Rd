@@ -4,7 +4,7 @@
 \alias{send_batch}
 \title{Error handling and messaging for parsupply_tables}
 \usage{
-send_batch(batch.ids)
+send_batch(batch.ids, cl)
 }
 \description{
 Pass a group of batch IDs to parallel sapply table function.

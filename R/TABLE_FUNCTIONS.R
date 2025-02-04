@@ -268,8 +268,8 @@ send_batch <- function(batch.ids, cl ){
     sink( build_log, append = TRUE, type = "message")
     # Print progress 
     batch.seq <- paste0( completed.batches, collapse=" "  )
-    timestamp <- format(Sys.time(), "%X -- %b %d %Y") 
-    timestamp <- stringr::str_pad( timestamp, width=26, side="left", pad=" " )
+    timestamp <- format(Sys.time(), "%I:%M %p -- %b %d %Y") 
+    # timestamp <- stringr::str_pad( timestamp, width=23, side="left", pad=" " )
     timestamp <- paste0( "  >> ", timestamp, " -- " )
     msg <- paste0( timestamp, "COMPLETED ", batch.seq, "\n" )
     cat( msg, sep="" )
