@@ -149,7 +149,6 @@ build_tables <- function(urls, year, fx.names = NULL) {
   
   # FIND ALL FAILED URLS
   failed.urls <- lapply(all.npos, '[[', "FAIL") |> unlist()
-  # print(paste("There are", length(failed.urls), "failed XML URLs to re-try."))
   return(failed.urls)
 }
 
@@ -166,12 +165,10 @@ parsapply_tables <- function( batch.id ){
   ##  passed through clusterExport()
   
   group.name <- get_batch_names( batch.id )
-  # L <- readRDS("BATCHFILE.RDS")
   batch.urls <- batch.list[[ group.name ]] 
   
   failed.urls <- build_tables(batch.urls, fx.names = fx.names, year = year) 
   
-  # remove_batch( group.name )
   return( batch.id )
 }
 
@@ -205,15 +202,18 @@ build_tables_parallel <- function( batch.list, year, fx.names = NULL) {
 
   batch.ids <- get_batch_ids( batch.list )
   
+  # SPLIT BATCH IDs INTO LISTS
+  # WITH NUM OF ELEMENTS IN EACH LIST
+  # CORRESPONDING TO AVAILALBE CORES
   f <- ((1:length(batch.ids)) + num.cores - 1) %/% num.cores 
   max.char <- max( nchar(f) )
   f <- stringr::str_pad( f, width=max.char, side="left", pad="0" )
   f <- paste0("TRANCH", f)
   f.names <- unique(f)
   f <- factor(f, levels = f.names )
-  batch.list <- split(batch.ids, f)
+  batch.ids.list <- split(batch.ids, f)
   
-  completed.tasks <- lapply( batch.list, send_batch, cl )
+  completed.tasks <- lapply( batch.ids.list, send_batch, cl )
   
   failed.urls <- character()
  
@@ -229,54 +229,54 @@ build_tables_parallel <- function( batch.list, year, fx.names = NULL) {
 #' @description Pass a group of batch IDs to parallel sapply table function.  
 #' @details Logging and resource management for a subgroup of batches to prevent BATCHFILE read write conflicts. 
 #' @export
-send_batch <- function(batch.ids, cl ){
-   # Run in parallel with enhanced error handling
-    completed.batches <- tryCatch(
+send_batch <- function(batch.ids, cl) {
+
+  # Run in parallel with enhanced error handling per batch
+  completed.batches <- parallel::parSapply(cl, X = batch.ids, FUN = function(batch.id) {
+    tryCatch(
       {
-        parallel::parSapply(cl, X = batch.ids, FUN = function(batch.id) {
-          tryCatch(
-            parsapply_tables(batch.id),
-            error = function(e) {
-              # Capture details about the error
-              message(sprintf("Error in batch.id: %s, year: %s", batch.id, year))
-              
-              # Log error in a file
-              log_file <- "../ERROR-LOG.txt"
-              error_msg <- sprintf("[%s] Error in batch.id: %s, year: %s - %s\n",
-                                   format(Sys.time(), "%Y-%m-%d %H:%M:%S"),
-                                   batch.id, year, e$message)
-              cat(error_msg, file = log_file, append = TRUE)
-              
-              return(NULL)  # Return NULL to avoid breaking execution
-            }
-          )
-        })
+        # Ensure each batch.id is handled correctly
+        parsapply_tables(batch.id)
       },
       error = function(e) {
-        message("Critical error in parallel processing: ", e$message)
-        NULL
+
+        # Capture details about the error
+        message(sprintf("Error in batch.id: %s, year: %s", batch.id, year))
+              
+        # Log error in a file
+        log_file <- "../ERROR-LOG.txt"
+      
+        error_msg <- 
+          sprintf( "[%s] Error in batch.id: %s, year: %s - %s\n",
+                   format( Sys.time(), "%Y-%m-%d %H:%M:%S" ),
+                   batch.id, year, e$message )
+                           
+        cat( error_msg, file = log_file, append = TRUE )
+        
+        return(NULL)  # Return NULL for this batch, but continue processing others
       }
-  )
+    )
+  })
+  
   
   if( length( completed.batches > 0 ) )
   {
+    # remove tasks from the list
     purrr::walk( completed.batches, remove_batch )
 
     # Redirect output to log file
     build_log <- file("../BUILD-LOG.txt", open = "at" )
-    # sink( build_log, split = TRUE ) 
     sink( build_log, append = TRUE, type = "message")
-    # Print progress 
+    
+    # Report progress 
     batch.seq <- paste0( completed.batches, collapse=" "  )
     timestamp <- format(Sys.time(), "%I:%M %p -- %b %d %Y") 
-    # timestamp <- stringr::str_pad( timestamp, width=23, side="left", pad=" " )
     timestamp <- paste0( "  >> ", timestamp, " -- " )
     msg <- paste0( timestamp, "COMPLETED ", batch.seq, "\n" )
     cat( msg, sep="" )
     flush.console()
     sink(type = "message")   # Restore standard output next 
-    # sink()                  # Closes split
-    close(build_log)        # Close file connection
+    close(build_log)         # Close file connection
   }
   
   return(completed.batches)
