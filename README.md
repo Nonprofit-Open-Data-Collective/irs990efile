@@ -161,6 +161,7 @@ The irs990efile package pulls XML 990 returns from the [Giving Tuesday Data Lake
 You can access index files using the following package functions: 
 
 ```r
+options( timeout = 600 ) # allows 10 minutes before timeout for large files
 index <- get_current_index_batch()  # the most recent batch of files added to the S3 bucket                             
 index <- get_current_index_full()   # the full list of all files in the S3 bucket
 download_current_index_full()       # creates a local download instead of reading as a data frame
