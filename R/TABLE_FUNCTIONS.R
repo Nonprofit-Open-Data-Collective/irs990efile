@@ -92,7 +92,7 @@ get_fxdf <- function(fx.name, all.npos, time, year) {
 #' @examples
 #' npo_data <- parse_npo(url, fx.names)
 #' @export
-parse_npo <- function( url, fx.names, logXP=TRUE ) {
+parse_npo <- function( url, year, fx.names, logXP=TRUE ) {
 
   doc <- NULL 
   
@@ -109,7 +109,9 @@ parse_npo <- function( url, fx.names, logXP=TRUE ) {
   one.npo <- sapply( fx.names, do.call, list(doc, url) )
 
   if (logXP) {
+    setwd(as.character(year))
     log_missing_xpaths( doc, url )
+    setwd("..")
   }
 
   # Cleanup
@@ -133,154 +135,85 @@ parse_npo <- function( url, fx.names, logXP=TRUE ) {
 #' @examples
 #' failed_urls <- build_tables(urls, year = 2023)
 #' @export
-build_tables <- function(urls, year, fx.names = NULL) {
+build_tables <- function(urls, year, fx.names = NULL, table.names = NULL) {
 
-  # LOAD ALL FX NAMES IF NONE PROVIDED
-  if (is.null(fx.names)) { fx.names <- get_fx_names() }
+  if (is.null(table.names)) {
+    table.names <- get_table_names( exclude = "T99" )
+  }
   
-  # BUILD TABLES FOR ALL FUNCTIONS 
-  all.npos <- purrr::map( urls, parse_npo, fx.names )
+  if (is.null(fx.names)) {
+    fx.names <- get_fx_names( table.names )
+  }
   
-  # SAVE BATCHED TABLES TO FILE
+  all.npos <- furrr::future_map(urls, parse_npo, year=year, fx.names=fx.names, .progress = FALSE)
   time <- format(Sys.time(), "%b-%d-%Y-%Hh-%Mm")
   rand <- paste(sample(LETTERS, 5), collapse = "")
   time <- paste0("time-", time, "-", rand)
+  
+  fx.names <- c(fx.names, "BUILD_SCHEDULE_TABLE")
+  
   purrr::walk(fx.names, get_fxdf, all.npos, time, year)
   
   # FIND ALL FAILED URLS
-  failed.urls <- lapply(all.npos, '[[', "FAIL") |> unlist()
+  failed.urls <- lapply(all.npos, '[[', "FAIL") |> unlist()  
   return(failed.urls)
 }
 
 
-#' @title Passing arguments to parSapply
-#' @description Pass arguments to parallel sapply table function.  
-#' @details Helper function to send variables to the build_tables function in parSapply framework. 
-#' @export
-parsapply_tables <- function( batch.id ){
 
-  require( irs990efile ) 
-  
-  ##  'fx.names', 'year', and 'batch.list'
-  ##  passed through clusterExport()
-  
-  group.name <- get_batch_names( batch.id )
-  batch.urls <- batch.list[[ group.name ]] 
-  
-  failed.urls <- build_tables(batch.urls, fx.names = fx.names, year = year) 
-  
-  return( batch.id )
-}
 
-#' @title Parallel Build of Tables
-#' @description Builds tables in parallel using multiple cores.
-#' @param groups A list of URL groups to process.
-#' @param year The tax year associated with the data.
+
+
+#' Process and Build Batches in Parallel
+#'
+#' Processes batch IDs using `furrr::future_map()`
+#'
+#' @param batch.ids A list of batch IDs to process.
+#' @param batch.list The complete batch list containing URLs.
 #' @param fx.names A vector of function names for processing tables.
-#' @return A vector of failed URLs.
-#' @examples
-#' failed_urls <- build_tables_parallel(groups, year = 2023)
+#' @param year The tax year associated with the data.
+#'
+#' @return A vector of completed batch IDs.
 #' @export
-build_tables_parallel <- function( batch.list, year, fx.names = NULL) {
-  
-  if (is.null(fx.names)) {fx.names <- get_fx_names()}
+process_batch <- function( batch, year, fx.names=NULL ) {
 
-  # configure clusters
-  num.cores <- parallel::detectCores() - 1
-  cl <- parallel::makeCluster(num.cores)
-  
-  # Ensure cluster stops on exit, even if there's an error
-  on.exit( parallel::stopCluster(cl), add = TRUE )
-  
-  parallel::clusterExport(cl, varlist = c( "year", "fx.names", "batch.list"), envir = environment())
-  
-  # Force messages to print in real time
-  parallel::clusterEvalQ(cl, {
-    options(warn = 1)  # Ensures warnings and messages are printed immediately
-    NULL
-  })
-
-  batch.ids <- get_batch_ids( batch.list )
-  
-  # SPLIT BATCH IDs INTO LISTS
-  # WITH NUM OF ELEMENTS IN EACH LIST
-  # CORRESPONDING TO AVAILALBE CORES
-  f <- ((1:length(batch.ids)) + num.cores - 1) %/% num.cores 
-  max.char <- max( nchar(f) )
-  f <- stringr::str_pad( f, width=max.char, side="left", pad="0" )
-  f <- paste0("TRANCH", f)
-  f.names <- unique(f)
-  f <- factor(f, levels = f.names )
-  batch.ids.list <- split(batch.ids, f)
-  
-  completed.tasks <- lapply( batch.ids.list, send_batch, cl )
-  
-  failed.urls <- character()
- 
-  if( file.exists("FAILED-URLS.txt") ){
-    failed.urls <- readLines( "FAILED-URLS.txt" ) 
+  if (is.null(fx.names)) {
+    fx.names <- get_fx_names()
   }
-        
-  return(failed.urls)
-}
-
-
-#' @title Error handling and messaging for parsupply_tables
-#' @description Pass a group of batch IDs to parallel sapply table function.  
-#' @details Logging and resource management for a subgroup of batches to prevent BATCHFILE read write conflicts. 
-#' @export
-send_batch <- function(batch.ids, cl) {
-
-  # Run in parallel with enhanced error handling per batch
-  completed.batches <- parallel::parSapply(cl, X = batch.ids, FUN = function(batch.id) {
+  
+  completed.batches <- purrr::imap_chr( batch, ~ {
     tryCatch(
       {
-        # Ensure each batch.id is handled correctly
-        parsapply_tables(batch.id)
+        # cat( paste0( "GID: ", .y, "\n" ) )
+        failed.urls <- build_tables( .x, year = year  )
+        return(.y)  # Return group.id if successful
       },
       error = function(e) {
-
-        # Capture details about the error
-        message(sprintf("Error in batch.id: %s, year: %s", batch.id, year))
-              
-        # Log error in a file
+        message(sprintf("Error in batch.id: %s, year: %s", .y, year))
         log_file <- "../ERROR-LOG.txt"
-      
-        error_msg <- 
-          sprintf( "[%s] Error in batch.id: %s, year: %s - %s\n",
-                   format( Sys.time(), "%Y-%m-%d %H:%M:%S" ),
-                   batch.id, year, e$message )
-                           
-        cat( error_msg, file = log_file, append = TRUE )
-        
-        return(NULL)  # Return NULL for this batch, but continue processing others
+        error_msg <- sprintf(
+          "[%s] Error in batch.id: %s, year: %s - %s\n",
+          format(Sys.time(), "%Y-%m-%d %H:%M:%S"),
+          .y, year, e$message
+        )
+        cat(error_msg, file = log_file, append = TRUE)
+        return(NULL)
       }
     )
-  })
-  
-  
-  if( length( completed.batches > 0 ) )
-  {
-    # remove tasks from the list
-    purrr::walk( completed.batches, remove_batch )
+  }, .progress = FALSE)  # |> purrr::compact()
 
-    # Redirect output to log file
-    build_log <- file("../BUILD-LOG.txt", open = "at" )
-    sink( build_log, append = TRUE, type = "message")
-    
-    # Report progress 
-    batch.seq <- paste0( completed.batches, collapse=" "  )
-    timestamp <- format(Sys.time(), "%I:%M %p -- %b %d %Y") 
-    timestamp <- paste0( "  >> ", timestamp, " -- " )
-    msg <- paste0( timestamp, "COMPLETED ", batch.seq, "\n" )
-    cat( msg, sep="" )
+  if (length(completed.batches) > 0) {
+    remove_groups( completed.batches )
+    build_log <- "../BUILD-LOG.txt"
+    batch.seq <- paste0(completed.batches, collapse = " ")
+    timestamp <- format(Sys.time(), "%I:%M %p -- %b %d %Y")
+    msg <- paste0("  >> ", timestamp, " -- COMPLETED ", batch.seq, "\n")
+    # cat(msg, file = build_log, append = TRUE)
+    cat(msg)
     flush.console()
-    sink(type = "message")   # Restore standard output next 
-    close(build_log)         # Close file connection
   }
   
   return(completed.batches)
 }
-
 
  

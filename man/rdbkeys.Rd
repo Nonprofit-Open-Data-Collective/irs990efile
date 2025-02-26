@@ -32,6 +32,3 @@ data( rdbkeys )
 }
 
 }
-\seealso{
-\code{\link[=add_keys]{add_keys()}}
-}

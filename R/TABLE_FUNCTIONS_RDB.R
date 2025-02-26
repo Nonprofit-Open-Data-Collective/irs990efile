@@ -150,6 +150,15 @@ drop_empty_nodes <- function( nodeset ){
 get_table_v2 <- function( doc, table.name, table.headers ){
 
   all.table.headers <- paste0( unlist(table.headers), collapse="|" )
+  # Use tryCatch to capture warnings and print debugging info
+  nd <- tryCatch(
+    { xml2::xml_find_all(doc, all.table.headers) },
+      warning = function(w) {
+        message( "The following table is missing table headers: ", table.name )
+        message( "Try: plot_table_str( '", table.name, "')" )
+        return(NULL)  # Return NULL instead of an error
+      }
+  )
   nd <- xml2::xml_find_all( doc, all.table.headers )
   nd <- drop_empty_nodes(nd)
   if( length( nd ) == 0 ){ return(NULL) }

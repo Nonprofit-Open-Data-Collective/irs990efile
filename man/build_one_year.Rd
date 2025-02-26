@@ -4,7 +4,7 @@
 \alias{build_one_year}
 \title{Database Build Steps for a Year of Data}
 \usage{
-build_one_year(year, index = NULL)
+build_one_year(year, num.cores)
 }
 \arguments{
 \item{year}{The year of data you would like processed.}

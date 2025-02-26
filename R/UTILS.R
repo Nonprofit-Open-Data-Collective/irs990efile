@@ -245,7 +245,8 @@ simplify_varnames <- function( d, sep="", drop.prefix=TRUE )
 #'
 #' @export
 log_collapsed_record <- function( varname, ein=ORG_EIN, year=TAX_YEAR, url=URL ){
-  file.name <- paste0("COLLAPSED-RECORDS-", year, ".txt")
+  dir.create( as.character(year), showWarnings = FALSE )
+  file.name <- paste0( year, "/COLLAPSED-RECORDS-", year, ".txt" )
   if (!file.exists(file.name)){file.create(file.name)}
   fileConnCR <- file(file.name, open = "a")
   values <- paste0( "{", varname, "}", collapse = ";;" )

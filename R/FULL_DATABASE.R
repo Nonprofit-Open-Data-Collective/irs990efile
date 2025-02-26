@@ -17,18 +17,63 @@
 split_index <- function( year, index, group.size = 25) {
   index <- prep_index( years=year, index )
   urls <- index[["URL"]]
-  f <- ((1:length(urls)) + group.size - 1) %/% group.size
-  max.char <- max( nchar(f) )
-  f <- stringr::str_pad( f, width=max.char, side="left", pad="0" )
-  f <- paste0("G", f)
-  f.names <- unique(f)
-  f <- factor(f, levels = f.names )
-  url.list <- split(urls, f)
-  url.list[["COMPLETE"]] <- character()
+  batchfile <- split_into_groups( urls, G=group.size )
+  batchfile[["COMPLETE"]] <- character()
   dir.create( as.character(year), showWarnings=F )
-  saveRDS( url.list, paste0(year,"/BATCHFILE.RDS") )
-  return(invisible(url.list))
+  saveRDS( batchfile, paste0(year,"/BATCHFILE.RDS") )
+  return(invisible(batchfile))
 }
+
+
+#' Split Vector into Groups
+#'
+#' Divides a vector into smaller groups of a specified size.
+#'
+#' @param x A vector of items to be split.
+#' @param G An integer specifying the maximum size of each group (default: 25).
+#'
+#' @return A named list where each element is a vector of length up to `G`.
+#' @export
+split_into_groups <- function( x, G = 25) {
+
+  # Split x into groups of size G
+  groups <- split(x, ceiling(seq_along(x) / G))
+  
+  # Name groups
+  n_groups <- length(groups)
+  max_width  <- max(nchar(n_groups))
+  num_groups <- stringr::str_pad( 1:n_groups, width=max_width, side="left", pad="0" ) 
+  len_groups <- sapply( groups, length )
+  names(groups) <- paste0( "G", num_groups, "{", len_groups, "}" )
+
+  return(groups)
+}
+
+
+#' Split Groups into Batches
+#'
+#' Organizes a list of groups into batches for parallel processing.
+#'
+#' @param glist A list of grouped items, typically from `split_into_groups()`.
+#' @param numcores An integer specifying the number of batches (e.g., number of CPU cores for parallel processing).
+#'
+#' @return A named list of batches, each containing a subset of groups.
+#' @export
+split_into_batches <- function( glist, numcores ) {
+
+  # Split groups into batches of size Y
+  batch_list <- split( glist, ceiling(seq_along(glist) / numcores))
+  
+  # Rename batches as "BATCH{N}"
+  n_batches <- length(batch_list)
+  max_width  <- max(nchar(n_batches))
+  batch_num <- stringr::str_pad( 1:n_batches, width=max_width, side="left", pad="0" ) 
+  names(batch_list) <- paste0( "BATCH", batch_num )
+  
+  return(batch_list)
+}
+
+
 
 #' Apply split_index() to All Years
 #'
@@ -64,32 +109,6 @@ get_batchfile <- function( year ){
   return(bf)
 }
 
-#' Get Batch Labels from a BATCHFILE
-#'
-#' Batch ids contain the batch name + size (number of URLs in the batch)  
-#'   using the format NAME{SIZE} (g1{100}, g2{100}, etc.). 
-#'
-#' @param path The location of the BATCHFILE, defaults to the current directory.
-#'
-#' @return A character vector of batch IDs. 
-#' @examples
-#' create_batchfiles( tinyindex, years=2020:2022, group.size=100 )
-#' get_batch_ids( path=2021 )
-#' @export
-get_batch_ids <- function( batch.list=NULL, path="." ){
-  if( is.null(batch.list) ){
-    if( ! file.exists(paste0(path,"/BATCHFILE.RDS")) ){  
-      print( "NO BATCHFILE EXISTS" )
-      return(NULL) }
-    batch.list <- readRDS(paste0(path,"/BATCHFILE.RDS"))
-  }
-  batch.list[["COMPLETE"]] <- NULL
-  v1  <- names( batch.list )
-  if( length(v1) == 0 ){ return(NULL) }
-  v2  <- sapply( batch.list, length )
-  ids <- paste0( v1, "{", v2, "}" )
-  return(ids)
-}
 
 #' Parse Batch IDs and Return Batch Counts
 #'
@@ -129,6 +148,7 @@ get_batch_names <- function( batch.ids ){
 }
 
 
+
 #' Remove Batch of URLs from Queue
 #'
 #' Extracts and writes table data from URLs.
@@ -149,6 +169,28 @@ remove_batch <- function(x){
   L[[x]] <- NULL
   saveRDS( L, "BATCHFILE.RDS" )
 }
+
+#' Remove Groups of URLs from Queue
+#'
+#' Extracts completed batches from BATCHFILE.
+#'
+#' @param x Batch name ("g1","g2",...) created from split_index()
+#'
+#' @return NULL
+#' @examples
+#' groups <- split_index( tinyindex, group.size=25 )
+#' L <- readRDS("BATCHFILE.RDS")
+#' names(L)
+#' remove_groups( c("G2{25}","G3{25}") )
+#' L <- readRDS("BATCHFILE.RDS")
+#' names(L)
+#' @export
+remove_groups <- function(groups){
+  L <- readRDS("BATCHFILE.RDS")
+  L[groups] <- NULL
+  saveRDS( L, "BATCHFILE.RDS" )
+}
+
 
 
 #' Apply Specified Filters to the Build Index 
@@ -194,33 +236,42 @@ prep_index <- function( years=NULL, index=NULL, form.type=c("990", "990EZ") ){
 #' create_batchfiles( tinyindex, years=2020:2022, group.size=100 )
 #' build_one_year( year=2021, index=tinyindex )
 #' @export
-build_one_year <- function( year, index=NULL ){
+build_one_year <- function(year, num.cores) {
 
-  setwd( as.character(year) )
-  on.exit( setwd("..") )  # return to main folder on exit
+  setwd(as.character(year))
+  on.exit(setwd(".."))  # return to main folder on exit
+
+  start.count <- 0
+  if( file.exists("../FAILED-URLS.txt") ){start.count <- R.utils::countLines("../FAILED-URLS.txt")}  
   
-  # batch.ids <- get_batch_ids()
-  # n.urls <- get_batch_counts( batch.ids ) |> sum()
-  batch.list <- get_batchfile( year="." )
-  batch.list[["COMPLETE"]] <- NULL
-  n.urls <- batch.list |> unlist() |> length()
+  batchfile  <- get_batchfile(year = ".")
+  batch.list <- split_into_batches( batchfile, numcores=num.cores )
+  batch.ids  <- names( batch.list )
+  n.urls <- batchfile |> unlist() |> length()
+  # batchfile[["COMPLETE"]] <- NULL
   
   start.time <- Sys.time()
   cat(paste0("STARTING YEAR ", year, "\n"))
   cat(paste0("There are ", n.urls, " returns in ", year, ".\n"))
-  if( n.urls < 1 ){ return(NULL) }
-  cat(paste0("There are ", length(batch.list), " groups being sent for parallel collection.\n\n"))
+  if (n.urls < 1) { return(NULL) }
+  cat(paste0("There are ", length(batchfile), " groups being sent for parallel collection.\n\n"))
   
-  failed.urls <- build_tables_parallel( batch.list = batch.list, year = year )
+  completed.batches <- purrr::map( batch.list, ~ process_batch(.x, year), .progress = FALSE)
+  completed.batches <- unlist(completed.batches)
+  
+  batchfile  <- get_batchfile(year = ".")
+  remaining.groups <- setdiff( names(batchfile), completed.batches )
+  # cat(paste0("\nThere are ", length(remaining.groups), " groups left to process\n"))
   
   end.time <- Sys.time()
-  total.mins <- difftime( end.time, start.time, units = "mins" ) |> round(2)
+  total.mins <- round(difftime(end.time, start.time, units = "mins"), 2)
   
-  cat(paste0("\nThere were ", length(failed.urls), " failed URLS\n"))
+  failed.urls <- 0
+  if( file.exists("../FAILED-URLS.txt") ){failed.urls <- readLines("../FAILED-URLS.txt")}
+  cat(paste0("\nThere were ", length(failed.urls) - start.count, " failed URLS\n"))
   cat(paste0("Time for the ", year, " loop: ", total.mins, " minutes\n\n"))
   cat(paste0("\n###########################\n"))
   cat(paste0("###########################\n\n\n"))
-
 }
 
 
@@ -239,23 +290,26 @@ build_one_year <- function( year, index=NULL ){
 #' build_database(index, years = 2015:2017)
 #' }
 #' @export
-build_database <- function(index=NULL, years=NULL, batch.size=1000) {
+build_database <- function(index=NULL, years=NULL, batch.size=25, spare.cores=1 ) {
 
+    # Set parallel strategy at the highest level
+    num.cores <- future::availableCores() - spare.cores
+    future::plan(future::multisession, workers = num.cores )  
+    
     index <- prep_index( years=years, index=index )
     
-    if (is.null(years)) 
-    { years <- index[["TaxYear"]] |> unique() |> as.character() |> sort() }
+    if (is.null(years)) { 
+        years <- index[["TaxYear"]] |> unique() |> as.character() |> sort() 
+    }
 
     create_batchfiles( index, years, group.size=batch.size )
-    dir.create("HIST")
-    
-    #-------------
-    
+    dir.create("HIST", showWarnings = FALSE)
+
     start.build.time <- Sys.time()
     session.info <- sessionInfo()
     dump(list = "session.info", file = "HIST/SESSION-INFO.R")
-    saveRDS( index, "HIST/build-index.rds" )
-    
+    saveRDS(index, "HIST/build-index.rds")
+
     # Redirect standard output and messages
     zz <- file( "BUILD-LOG.txt", open = "at" )
     sink( zz, split = TRUE )                            # Redirect standard output
@@ -270,23 +324,16 @@ build_database <- function(index=NULL, years=NULL, batch.size=1000) {
     
     cat(paste0("\nDATABASE BUILD START TIME: ", Sys.time(),"\n\n"))
     cat(paste0("You have ", parallel::detectCores(), " cores available for parallel processing.\n"))
+    cat(paste0("You have allocated ", num.cores, " cores for collection.\n"))
     cat(paste0("Years: ", paste0(years, collapse = ";"),"\n"))
     cat(paste0("There are ", nrow(index), " returns in this build.\n\n"))
     cat( table( index$TaxYear ) |> knitr::kable(), sep="\n" )
     cat(paste0("\n\n###########################\n"))
     cat(paste0("###########################\n\n\n"))
-    
-    # print(showConnections(all = TRUE))  # Check open connections before running functions
-    
-    for (i in years) 
-    {
-        build_one_year( i )
-        flush.console()
-    }
-    
-    # print(showConnections(all = TRUE))  # Check open connections after execution
 
-    cat(paste0("COMPILING FILES\n\n"))
+    purrr::walk( years, build_one_year, num.cores=num.cores, .progress = FALSE)  # Run in parallel
+
+    cat(paste0("COMPILING FILES\n\n\n"))
     cat(paste0("###########################\n"))
     cat(paste0("###########################\n\n"))
     
@@ -301,9 +348,11 @@ build_database <- function(index=NULL, years=NULL, batch.size=1000) {
     cat(paste0("TOTAL BUILD TIME: ", round(difftime(end.build.time, start.build.time, units = "hours"), 2), " HOURS\n\n"))
 
     savehistory("HIST/build-history.Rhistory")
-     
+    
     return(NULL)
 }
+
+
 
 
 #' @title Resume build_database() if Interrupted.   

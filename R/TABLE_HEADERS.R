@@ -87,6 +87,10 @@ get_table_headers <- function(){
   "//IRS990ScheduleA/GeneralExplanation", "//IRS990ScheduleA/GeneralExplanationTxt"
   )
 
+  TABLE.HEADERS$'SB-P01-T01-CONTRIBUTORS' <-  
+  c("//IRS990ScheduleB/ContributorInformationGrp", "//IRS990ScheduleB/ContributorInfo")  
+  
+
   TABLE.HEADERS$'SC-P01-T01-POLITICAL-ORGS-INFO' <-  
   c("//Form990ScheduleCPartI/Sec527PolOrgs", "//IRS990ScheduleC/Sec527PolOrgs", 
   "//IRS990ScheduleC/Section527PoliticalOrgGrp")

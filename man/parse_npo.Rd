@@ -4,7 +4,7 @@
 \alias{parse_npo}
 \title{Parse NPO Data}
 \usage{
-parse_npo(url, fx.names, logXP = TRUE)
+parse_npo(url, year, fx.names, logXP = TRUE)
 }
 \arguments{
 \item{url}{A string containing the URL of the XML file.}

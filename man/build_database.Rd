@@ -4,7 +4,7 @@
 \alias{build_database}
 \title{Build a Complete Database}
 \usage{
-build_database(index = NULL, years = NULL, batch.size = 1000)
+build_database(index = NULL, years = NULL, batch.size = 25, spare.cores = 1)
 }
 \arguments{
 \item{index}{An optional index file created from \code{build_index()}. If not provided, it will be generated automatically.}
