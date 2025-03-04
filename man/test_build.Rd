@@ -4,7 +4,7 @@
 \alias{test_build}
 \title{Package Testing Function}
 \usage{
-test_build(path = ".")
+test_build(path = ".", spare.cores = 1)
 }
 \arguments{
 \item{path}{The folder in which the test build will occur (if no value provided it uses the default folder).}

@@ -25,4 +25,5 @@ Imports:
     XML,
     xml2,
     xmltools,
-    R.utils
+    R.utils,
+    knitr
