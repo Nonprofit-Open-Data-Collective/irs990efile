@@ -18,19 +18,6 @@ library( knitr )
 library( dplyr )
 library( pander )
 # library( kableExtra )
-
-
-
-
-
-
-
-
-# output: 
-#   pdf_document:
-#     toc: true
-#     number_sections: false
-# classoption: landscape
 ```
 
 
@@ -195,48 +182,28 @@ The 990 Forms and Schedules are divided into PARTS, which organize the fields by
 
 
 ```{r, echo=FALSE}
-# dat1 <- read.csv("f990-part-00.csv")
-# dat2 <- read.csv("f990-part-01.csv")
-# dat3 <- read.csv("f990-part-03.csv")
-# dat4 <- read.csv("f990-part-08.csv")
-# dat5 <- read.csv("f990-part-09.csv")
-# dat6 <- read.csv("schedule-j.csv")
-# dat <- dplyr::bind_rows( dat1, dat2, dat3, dat4, dat5, dat6 )
+url <- "https://raw.githubusercontent.com/Nonprofit-Open-Data-Collective/irs-efile-master-concordance-file/refs/heads/master/concordance.csv"
 
-
-setwd("csv")
-file.names <- dir()
-file.names <- grep( "*.csv$", file.names, value=TRUE )
-# setwd("..")
-
-
-# setwd("C:/Users/jdlec/Dropbox (Personal)/00 - Nonprofit Open Data/14 - Revisions to Concordance/SUMMERGRANT/concordance-revisions/concordance-files/csv2/csv")
-
-
-
-dat <- NULL
-
-for( i in file.names )
-{
-  d <- read.csv( i )
-  
-  # if( ( setdiff( names(d), nm ) %>% length() > 0 )  | (  setdiff( nm, names(d) ) %>% length() > 0 )  ) 
-  # {
-  #   print(i)
-  #   break
-  # }
-  dat <- dplyr::bind_rows( dat, d )
-}
-
+dat <- read.csv( url )
 names( dat ) <- toupper( names( dat ) )
 
 # use location codes if family code is missing 
 dat$LOCATION_CODE_FAMILY[ is.na(dat$LOCATION_CODE_FAMILY) ] <- 
   dat$LOCATION_CODE[ is.na(dat$LOCATION_CODE_FAMILY) ]
 
+dat <- 
+  dat %>% 
+  dplyr::filter( RDB_TABLE != "" ) %>%
+  dplyr::arrange( LOCATION_CODE_FAMILY, RDB_TABLE, VARIABLE_NAME )
+
 # remove special characters that will 
 # wreck table formatting like ($) 
-dat$DESCRIPTION <- gsub( "\\(\\$\\)[ ]{0,1}", "", dat$DESCRIPTION )
+
+dat <- 
+  dat %>% 
+  dplyr::mutate_if( is.character, utf8::utf8_encode )
+
+dat$DESCRIPTION <- gsub( "�", "", dat$DESCRIPTION )
 ```
 
 
@@ -261,14 +228,19 @@ html_table_width <- function( kable_output, width )
   sub('<table>', paste0('<table class="table">\n', width_html), kable_output )
 }
 
+dat$LOCATION_CODE_SORT <- gsub( "-EZ-", "-ZZ-", dat$LOCATION_CODE )
+dat$LOCATION_CODE <- toupper( dat$LOCATION_CODE )
+TABLES <- unique(dat$RDB_TABLE) |> sort()
 
-
-for( i in unique(dat$RDB_TABLE) )
+for( i in TABLES )
 {
   
   # flush.console()   # print during a loop
   
-  dat.sub <- dplyr::filter( dat, RDB_TABLE == i )
+  dat.sub <- 
+    dat %>% 
+    dplyr::filter( RDB_TABLE == i ) %>%
+    arrange( LOCATION_CODE_SORT )
   
   d1 <- dat.sub[1,]
   
@@ -280,6 +252,9 @@ for( i in unique(dat$RDB_TABLE) )
   
   writeLines( paste0( "##### RDB Table Cardinality: ONE-TO-", d1$RDB_RELATIONSHIP, "\n" ) )
   writeLines( paste0( "##### Table Name:  ", i, "\n" ) )
+  
+  # COMBINE EZ AND PC IMPERFECT VARIANTS 
+  dat.sub$VARIABLE_NAME <- gsub( "_V2$", "", dat.sub$VARIABLE_NAME ) 
   
   dat.sub$PREFIX <- substr( dat.sub$VARIABLE_NAME, 1, 6 )
   dat.sub$VARIABLE_NAME <- substr( dat.sub$VARIABLE_NAME, 7, nchar(dat.sub$VARIABLE_NAME) )
@@ -301,14 +276,17 @@ for( i in unique(dat$RDB_TABLE) )
   
   d2 <- 
   dat.sub %>% 
-  select( PREFIX, VARIABLE_NAME, DESCRIPTION, LOCATION_CODE_FAMILY, SCOPE ) %>%
+  select( PREFIX, VARIABLE_NAME, DESCRIPTION, 
+          LOCATION_CODE_FAMILY, LOCATION_CODE_SORT, SCOPE ) %>%
   arrange( LOCATION_CODE_FAMILY, VARIABLE_NAME ) %>% 
   select( -LOCATION_CODE_FAMILY )
   
   d3 <- 
     merge( d2, d1, by="VARIABLE_NAME", all.x=TRUE ) %>% 
-    select( PREFIX, VARIABLE_NAME, DESCRIPTION, LOCATION_CODE, SCOPE ) %>% 
-    arrange( LOCATION_CODE )
+    select( PREFIX, VARIABLE_NAME, DESCRIPTION, 
+            LOCATION_CODE, LOCATION_CODE_SORT, SCOPE ) %>% 
+    arrange( LOCATION_CODE_SORT ) %>%
+    select( -LOCATION_CODE_SORT )
   
   d3 <- d3[ ! duplicated(d3$VARIABLE_NAME), ]
   row.names( d3 ) <- NULL
