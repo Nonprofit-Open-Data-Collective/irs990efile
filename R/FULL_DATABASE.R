@@ -18,7 +18,7 @@ split_index <- function( year, index, group.size = 25) {
   index <- prep_index( years=year, index )
   urls <- index[["URL"]]
   batchfile <- split_into_groups( urls, G=group.size )
-  batchfile[["COMPLETE"]] <- character()
+  # batchfile[["COMPLETE"]] <- character()
   dir.create( as.character(year), showWarnings=F )
   saveRDS( batchfile, paste0(year,"/BATCHFILE.RDS") )
   return(invisible(batchfile))
@@ -293,7 +293,7 @@ build_one_year <- function(year, num.cores) {
 build_database <- function(index=NULL, years=NULL, batch.size=25, spare.cores=1 ) {
 
     # Set parallel strategy at the highest level
-    num.cores <- future::availableCores() - spare.cores
+    num.cores <- future::availableCores() # - spare.cores
     future::plan(future::multisession, workers = num.cores )  
     
     index <- prep_index( years=years, index=index )
@@ -323,7 +323,7 @@ build_database <- function(index=NULL, years=NULL, batch.size=25, spare.cores=1 
     })
     
     cat(paste0("\nDATABASE BUILD START TIME: ", Sys.time(),"\n\n"))
-    cat(paste0("You have ", parallel::detectCores(), " cores available for parallel processing.\n"))
+    cat(paste0("You have ", future::availableCores(), " cores available for parallel processing.\n"))
     cat(paste0("You have allocated ", num.cores, " cores for collection.\n"))
     cat(paste0("Years: ", paste0(years, collapse = ";"),"\n"))
     cat(paste0("There are ", nrow(index), " returns in this build.\n\n"))
@@ -416,8 +416,6 @@ resume_build_database <- function( years=NULL, index=NULL ) {
     end.build.time <- Sys.time()
     cat(paste0("DATABASE BUILD FINISH TIME: ", Sys.time(), " \n"))
     cat(paste0("TOTAL BUILD TIME: ", round(difftime(end.build.time, start.build.time, units = "hours"), 2), " HOURS \n\n"))
-
-    savehistory("build-history.Rhistory")
 
     return(NULL)
 }

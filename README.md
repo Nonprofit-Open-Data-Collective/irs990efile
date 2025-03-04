@@ -247,13 +247,13 @@ build_database( index=NULL, years=NULL, group.size=200 )
 If we walk through these steps manually it would look something like: 
 
 ```r
-TABLES <- get_table_names()           # list tables defined in the concordance
+TABLES   <- get_table_names()         # list tables defined in the concordance
 FX.NAMES <- get_fx_names( TABLES )    # return the corresponding build functions
+
 
 YEAR <- 2020
 index2020 <- dplyr::filter( tinyindex, TaxYear == YEAR )  # built in index file for testing
-index100 <- dplyr::sample_n( index2020 )
-url <- index100$URL[1]
+index100 <- dplyr::sample_n( index2020, size=100 )
 
 ### CUSTOM TABLE SELECTION
 
@@ -263,11 +263,57 @@ TABLES <- c( "F9-P00-T00-HEADER",
              "F9-P03-T00-PROGRAM-THREE",
              "F9-P03-T01-PROGRAMS-OTHER" )
 
-get_fx_names( TABLES )
+FX.NAMES <- get_fx_names( TABLES )
  
 ### PARSE DATA FOR ONE NONPROFIT
 
-one.npo <- parse_npo( url, FX.NAMES, logXP=F )        # returns a list containing all tables as data frames
+url <- index100$URL[1]
+one.npo <- parse_npo( url, year=2000, fx.names=FX.NAMES, logXP=F )  
+
+
+names(one.npo)   # ALL PARSED TABLES STORED AS LIST
+[1] "BUILD_F9_P00_T00_HEADER"         "BUILD_F9_P03_T00_PROGRAM_ONE"   
+[3] "BUILD_F9_P03_T00_PROGRAM_TWO"    "BUILD_F9_P03_T00_PROGRAM_THREE" 
+[5] "BUILD_F9_P03_T01_PROGRAMS_OTHER" "BUILD_SCHEDULE_TABLE"           
+
+one.npo[["BUILD_F9_P03_T00_PROGRAM_ONE"]] |> t() |> knitr::kable()   # TABLE VALUES FOR SINGLE NONPROFIT 
+
+|                      |                                                                                                                                               |
+|:---------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|
+|EIN2                  |EIN-81-5406671                                                                                                                                 |
+|OBJECTID              |OID-202211339349308111                                                                                                                         |
+|ORG_EIN               |815406671                                                                                                                                      |
+|ORG_NAME_L1           |RUTHERFORD COUNTY ECONOMIC                                                                                                                     |
+|ORG_NAME_L2           |DEVELOPMENT ASSOCIATION                                                                                                                        |
+|RETURN_AMENDED_X      |FALSE                                                                                                                                          |
+|RETURN_GROUP_X        |FALSE                                                                                                                                          |
+|RETURN_PARTIAL_X      |FALSE                                                                                                                                          |
+|RETURN_TAXPER_DAYS    |365                                                                                                                                            |
+|RETURN_TIME_STAMP     |2022-05-13T15:13:27-05:00                                                                                                                      |
+|RETURN_TYPE           |990                                                                                                                                            |
+|TAX_PERIOD_BEGIN_DATE |2020-07-01                                                                                                                                     |
+|TAX_PERIOD_END_DATE   |2021-06-30                                                                                                                                     |
+|TAX_YEAR              |2020                                                                                                                                           |
+|URL                   |https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202211339349308111_public.xml                                                |
+|VERSION               |2020v4.0                                                                                                                                       |
+|F9_03_PROG_CODE       |NA                                                                                                                                             |
+|F9_03_PROG_DESC       |THE ASSOCIATION RECEIVES DONATIONS FROM LOCAL GOVERNMENTS AND BUSINESSES AND USES THOSE FUNDS TO FURTHER THE ECONOMY IN RUTHERFORD COUNTY, NC. |
+|F9_03_PROG_EXP        |NA                                                                                                                                             |
+|F9_03_PROG_GRANT      |NA                                                                                                                                             |
+|F9_03_PROG_REV        |NA                                                                                                                                             |
+
+
+
+### PARSE DATA AND SAVE TABLES
+### FOR ALL NONPROFITS IN URLS VECTOR
+
+urls <- index100$URL
+YEAR <- "2020"
+dir.create(YEAR)
+build_tables( urls, year=YEAR, table.names=TABLES )  
+
+# EQUIVALENT TO ABOVE
+build_tables( urls, year=YEAR, fx.names=FX.NAMES )   
 
 ### PARSE DATA FOR A LIST OF NONPROFITS
 
@@ -292,25 +338,33 @@ These functions are useful for testing purposes, but once you surpass a minimal 
 YEAR <- 2020
 create_batchfiles( index100, years=YEAR, group.size=20 )   # creates "2020/BATCHFILE.RDS"
 
-get_batch_ids( 2020 )                                      # group_id {batch_size}
-
-# "G1{20}"   "G2{20}"  "G3{20}"
-# "G4{20}"   "G5{20}"
-
 ### ACCESS THE BATCHFILE
 
 bf <- get_batchfile( 2020 )
+names(bf)
+# "G1{20}"   "G2{20}"  "G3{20}"
+# "G4{20}"   "G5{20}"
 
-URLS.01 <- bf[[ "G1" ]]   # BATCH 01
-build_tables( urls=URLS.01, year=2021, fx.names=FX.NAMES  )
+# Each batch consists of 20 URLs
+
+URLS.01 <- bf[[ "G1{20}" ]]   # BATCH 01
+build_tables( urls=URLS.01, year=2020, fx.names=FX.NAMES  )
 
 URLS.02 <- bf[[ "G2" ]]   # BATCH 02
-build_tables( urls=URLS.02, year=2021, fx.names=FX.NAMES  )
+build_tables( urls=URLS.02, year=2020, fx.names=FX.NAMES  )
 
 ### ALL BATCHES IN PARALLEL
 
-BIDS <- get_batch_ids( 2020 )
-build_tables_parallel( batch.ids=BIDS, year=2020, fx.names=FX.NAMES )
+TABLES <- c( "F9-P00-T00-HEADER",
+             "F9-P03-T00-PROGRAM-ONE",
+             "F9-P03-T00-PROGRAM-TWO",
+             "F9-P03-T00-PROGRAM-THREE",
+             "F9-P03-T01-PROGRAMS-OTHER" )
+
+FX.NAMES <- get_fx_names( TABLES )
+
+bf <- get_batchfile( 2020 )
+process_batch( bf, year=2020, fx.names=FX.NAMES )
 ```
 
 Again, these steps are all wrapped into a single workflow function. This one line would be equivalent to the steps covered above: 

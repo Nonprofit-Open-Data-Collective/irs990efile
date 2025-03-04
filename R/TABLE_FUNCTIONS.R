@@ -109,6 +109,7 @@ parse_npo <- function( url, year, fx.names, logXP=TRUE ) {
   one.npo <- sapply( fx.names, do.call, list(doc, url) )
 
   if (logXP) {
+    dir.create( as.character(year) showWarnings=FALSE )
     setwd(as.character(year))
     log_missing_xpaths( doc, url )
     setwd("..")

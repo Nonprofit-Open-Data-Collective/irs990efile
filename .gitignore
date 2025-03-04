@@ -1,5 +1,6 @@
 # Local production folders
 /data-index
+/R/revised
 
 # History files
 .Rhistory
