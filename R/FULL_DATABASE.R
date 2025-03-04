@@ -293,7 +293,7 @@ build_one_year <- function(year, num.cores) {
 build_database <- function(index=NULL, years=NULL, batch.size=25, spare.cores=1 ) {
 
     # Set parallel strategy at the highest level
-    num.cores <- future::availableCores() # - spare.cores
+    num.cores <- future::availableCores() - spare.cores
     future::plan(future::multisession, workers = num.cores )  
     
     index <- prep_index( years=years, index=index )

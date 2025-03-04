@@ -363,7 +363,7 @@ count_xpaths <- function( df ){
 #' @examples
 #' test_build()
 #' @export
-test_build <- function( path="." ) {
+test_build <- function( path=".", spare.cores=1 ) {
 
   setwd( path )
 
@@ -393,7 +393,7 @@ test_build <- function( path="." ) {
   cat( " (4) Combine all batched CSV files into compiled tables in the COMPILED folder.\n" )
   cat( " (5) Combine all logfiles of missing xpaths into the FIX folder for review.\n\n" )
   
-  build_database( index=index100, batch.size=10 )
+  build_database( index=index100, batch.size=10, spare.cores=spare.cores )
   
 }
 
