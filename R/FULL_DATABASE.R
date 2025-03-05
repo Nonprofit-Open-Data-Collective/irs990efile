@@ -281,6 +281,8 @@ build_one_year <- function(year, num.cores) {
 #'
 #' @param index An optional index file created from `build_index()`. If not provided, it will be generated automatically.
 #' @param years A vector of tax years to include in the build. If NULL, all available years are included.
+#' @param batch.size The number of files to send to each core in parallel processing. 
+#' @param spare.cores The number of cores in reserve while deploying parallel processing.
 #'
 #' @return Saves log files, database tables, and build information to the local environment. Returns NULL.
 #' @details The function filters forms by type (990, 990EZ) and processes the specified tax years. Logs and session information are saved for reproducibility.
@@ -347,12 +349,10 @@ build_database <- function(index=NULL, years=NULL, batch.size=25, spare.cores=1 
     cat(paste0("DATABASE BUILD FINISH TIME: ", Sys.time(), " \n"))
     cat(paste0("TOTAL BUILD TIME: ", round(difftime(end.build.time, start.build.time, units = "hours"), 2), " HOURS\n\n"))
 
-    savehistory("HIST/build-history.Rhistory")
+    # savehistory("HIST/build-history.Rhistory")
     
     return(NULL)
 }
-
-
 
 
 #' @title Resume build_database() if Interrupted.   
@@ -362,8 +362,10 @@ build_database <- function(index=NULL, years=NULL, batch.size=25, spare.cores=1 
 #' @param index Use the same index object that was originally passed to build_database().
 #'   If left NULL it loads the version that is saved when build_database() is first called (build-index.rds). 
 #' @param years A vector of years remaining in the build. If NULL, all index years will be attempted. 
+#' @param batch.size The number of files to send to each core in parallel processing. 
+#' @param spare.cores The number of cores in reserve while deploying parallel processing. 
 #' @export
-resume_build_database <- function( years=NULL, index=NULL ) {
+resume_build_database <- function( years=NULL, index=NULL, batch.size=25, spare.cores=1  ) {
 
     if( is.null(index) ){ index <- readRDS( "HIST/build-index.rds" ) }
     
@@ -371,16 +373,22 @@ resume_build_database <- function( years=NULL, index=NULL ) {
     { years <- index[["TaxYear"]] |> unique() |> as.character() |> sort() }
 
     index <- prep_index( years=years, index=index )
-    
+
     #-------------
-    
-    closeAllConnections()
+
+    num.cores <- future::availableCores() - spare.cores
+    future::plan(future::multisession, workers = num.cores )  
 
     start.build.time <- Sys.time()
-    
-    zz <- file("BUILD-LOG.txt", open = "at")
-    sink( zz, split = TRUE )
-    sink( zz, type = "message", append=TRUE )
+    session.info <- sessionInfo()
+    dump(list = "session.info", file = "HIST/SESSION-INFO-RESUME.R")
+
+    closeAllConnections()
+  
+    # Redirect standard output and messages
+    zz <- file( "BUILD-LOG.txt", open = "at" )
+    sink( zz, split = TRUE )                            # Redirect standard output
+    sink( zz, type = "message", append = TRUE )         # Redirect messages
 
     on.exit({
       sink(type = "message")      # Restore message output to console
@@ -388,25 +396,27 @@ resume_build_database <- function( years=NULL, index=NULL ) {
       close(zz)                   # Close the file connection
       file.show("BUILD-LOG.txt")  # View the logs
     })
-    
+
     cat(paste0("\n#--------------------------------#\n"))
     cat(paste0("\n\nRESUMING DATABASE BUILD\n"))
     cat(paste0("###########################\n"))
     cat(paste0("###########################\n\n"))
     
     cat(paste0("NEW DATABASE BUILD START TIME: ", Sys.time(),"\n")) 
-    cat(paste0("You have ", parallel::detectCores(), " cores available for parallel processing.\n"))
-    cat(paste0("There are ", nrow(index), " returns in this build.\n"))
-    cat(paste0("Years: ", paste0(years, collapse = ";"),"\n\n"))
+    cat(paste0("You have ", future::availableCores(), " cores available for parallel processing.\n"))
+    cat(paste0("You have allocated ", num.cores, " cores for collection.\n"))
+    cat(paste0("Years: ", paste0(years, collapse = ";"),"\n"))
+    cat(paste0("There are ", nrow(index), " returns in this build.\n\n"))
+    cat( table( index$TaxYear ) |> knitr::kable(), sep="\n" )
+    cat(paste0("\n\n###########################\n"))
+    cat(paste0("###########################\n\n\n"))
+
+    purrr::walk( years, build_one_year, num.cores=num.cores, .progress = FALSE)  # Run in parallel
+
+    cat(paste0("COMPILING FILES\n\n\n"))
     cat(paste0("###########################\n"))
     cat(paste0("###########################\n\n"))
     
-    for (i in years) 
-    {
-        build_one_year( i )
-        flush.console()
-    }
-
     # combine split files into /COMPILED/ folder
     # aggregate xpath and odd case logs:
     # > MISSING-XPATHS.txt
@@ -415,10 +425,11 @@ resume_build_database <- function( years=NULL, index=NULL ) {
 
     end.build.time <- Sys.time()
     cat(paste0("DATABASE BUILD FINISH TIME: ", Sys.time(), " \n"))
-    cat(paste0("TOTAL BUILD TIME: ", round(difftime(end.build.time, start.build.time, units = "hours"), 2), " HOURS \n\n"))
-
+    cat(paste0("TOTAL BUILD TIME: ", round(difftime(end.build.time, start.build.time, units = "hours"), 2), " HOURS\n\n"))
+    
     return(NULL)
 }
+
 
 
 
