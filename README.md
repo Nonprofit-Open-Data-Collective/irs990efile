@@ -1,5 +1,60 @@
 # irs990efile
 
+This package has been **DEPRECATED** and replaced by the [**ef2 package**](https://github.com/Nonprofit-Open-Data-Collective/ef2), a much more efficient and stable implementation. 
+
+Pre-processed data files are available from the [National Center for Charitable Statistics 990 Efile](https://nccs.urban.org/nccs/datasets/efile/) page.
+
+The ef2 output tables work seamlessly with panel990, fiscal, governance, and other packages in the NODC ecosystem.
+
+```r
+# pak::pkg_install("nonprofit-open-data-collective/panel990")
+library(panel990)    # build a panel
+
+# 1. Download -> read -> merge -> stack five core tables across four years.
+#    Filing keys (EIN2 / TAX_YEAR / OBJECTID) are assigned automatically;
+#    bmf = TRUE attaches NCCS Business Master File organization traits.
+panel <- panelize(
+  tables = c("P00", "P01", "P08", "P09", "P10"),
+  years  = 2019:2022,
+  bmf    = TRUE
+)
+
+# 2. See who enters, exits, persists, and where the gaps are.
+panel_describe(panel)
+
+# 3. Clean the panel. Every step is logged into the sample frame.
+panel <- panel |>
+  panel_deduplicate() |>                          # one filing per org-year
+  panel_normalize()  |>                           # blank core financials -> 0
+  panel_impute(max_gap_size = 1) |>               # fill single-year gaps
+  panel_smooth(vars = "F9_08_REV_TOT_TOT", window = 3)
+
+# 4. Pull the tidy data frame and the provenance ledger.
+df <- as.data.frame(panel)
+manifest(panel)          # every step: rows in/out, rules applied
+```
+
+Add ~50 financial indicators to your panel:
+
+```r
+# pak::pkg_install("nonprofit-open-data-collective/fiscal")
+library(fiscal)
+
+# The entire battery of fiscal-health metrics, appended to your data:
+ratios <- compute_all( df )    
+
+# ...or a single metric (adds debt_assets + _w / _z / _p):
+df <- get_debt_assets_ratio( df )
+```
+
+<br>
+<br>
+
+----------------
+
+<br>
+<br>
+
 R package for building a research database from IRS 990 nonprofit efiler tax returns. Please cite as: 
 
 ```
